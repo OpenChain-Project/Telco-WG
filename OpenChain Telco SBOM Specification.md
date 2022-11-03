@@ -9,7 +9,7 @@ Conformance to this specification is done on a per SBOM level, an entity can ado
 
 Releasing SBOMs conforming to this specification does not preclude an entity from also delivering SBOMs for the same software in alternate ways or format, but those SBOMs are not conformant to the specification, thus neither an entity or a software product is conformant to the specification as only the SBOM can be conformant to the specification.
 
-This specification is licensed under [Creative Commons Attribution License 4.0 (CC-BY-4.0).](https://creativecommons.org/licenses/by/4.0/).
+This specification is licensed under [Creative Commons Attribution License 4.0 (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/).
 
 ## 2.	Terms and definitions
 ### Data format
