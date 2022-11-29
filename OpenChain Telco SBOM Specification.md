@@ -101,7 +101,8 @@ Using “depends on” feature in SPDX.
 #### 3.14.2	Rationale
 
 ### 3.15	SBOM Confidentiality
-SBOMs may be subject to confidentiality agreements. A conformant SBOM must, however, not be subject to any confidentiality agreements that would prevent a recipient from redistributing the SBOM to any party to whom such recipient has a right to redistribute the corresponding software. 
+SBOMs may be subject to confidentiality agreements. A conformant SBOM must, however, not be subject to any confidentiality agreements that would prevent a recipient from redistributing the parts of the SBOM applicable to software that such recipient has a right to redistribute.
+
 #### 3.15.1	Verification Material/Reference material
 #### 3.15.2	Rationale
 
