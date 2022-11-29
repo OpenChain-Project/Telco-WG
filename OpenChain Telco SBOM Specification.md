@@ -58,9 +58,8 @@ A Telco Standard SBOM will include, at a minimum, the SPDX in the following huma
 #### 3.6.2	Rationale 
 As the Tag/Value format is also human readable it has been chosen so that both the requirements for a standardized Machine readable and Human Readable version can be met using one file. An entity can release additional human readable Data Formats but they are not required to conform to the Telco SBOM specification. 
 
-### 3.7	SBOM Build information 
-SBOMs conforming to the Telco SBOM Specification needs to contain information as they when they were created, both when in time (using the SPDX information) as well as if they were built “pre-build”, “build-time” or “post-build” (also deployment), and to which version of the software they were created (Do we also want to standardize how to convey this information?)    
-(Do we instead mandate the time of the SBOM, mandate post build.)
+### 3.7	SBOM build information 
+SBOMs conforming to the Telco SBOM Specification need to contain the information when the SBOM was created in the “Created” SPDX field and at what phase of the software build it was created (“pre-build”, “build-time” or “post-build”) in the CreatorComment SPDX field.
 ### 3.8	Timing of SBOM delivery
 The SBOM shall be delivered no later than at the time of the delivery of the Software (in either Binary or Source form)
 #### 3.8.1	Verification/reference material
