@@ -71,7 +71,8 @@ To ensure that the receiving entity can ingest the software and its SBOM, it sha
 The SBOM shall be embedded into the software “package” where technically feasible. If it is not technically feasible to embed the SBOM into the software “package” being delivered, such as in the case of space-constrained embedded systems, the supplying party will supply a web hosted version of the SBOM that is available for at least X years and shall not in any way restrict recipients’ ability to copy and store these locally for their own use. This include any restrictions placed on the recipient in additional confidentiality agreements.
 #### 3.9.1	Verification Material/Reference material
 #### 3.9.2	Rationale
-Other options of SBOM delivery such as webhosting are less stable and access is not guaranteed over time; however “embedding” may not be technically feasible. Thus, in scenarios where it is not possible on technical grounds to include the SBOM in the software delivery, publishing the SBOM online is permitted provided that: 
+Other options of SBOM delivery such as webhosting are less stable and access is not guaranteed over time; however “embedding” may not be technically feasible. Thus, in scenarios where it is not possible on technical grounds to include the SBOM in the software delivery, publishing the SBOM online is permitted provided that the SBOM is accessible for the recipients of the software for X years.
+
 ### 3.10	SBOM Scope 
 
 ***All software vs Open Source software?
