@@ -73,10 +73,7 @@ The SBOM shall be embedded into the software “package” where technically fea
 #### 3.9.2	Rationale
 Other options of SBOM delivery such as webhosting are less stable and access is not guaranteed over time; however “embedding” may not be technically feasible. Thus, in scenarios where it is not possible on technical grounds to include the SBOM in the software delivery, publishing the SBOM online is permitted provided that: 
 ### 3.10	SBOM Scope 
-
-***All software vs Open Source software?
-Build time only or run time dependencies included as well?
-	-Possible to have both in the same SBOM?***
+The SBOM should contain all open source software that is delivered with the product including all of the transitive dependencies. 
 
 #### 3.10.1	Verification Material/Reference material
 #### 3.10.2	Rationale
