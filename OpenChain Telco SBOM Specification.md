@@ -84,9 +84,9 @@ Build time only or run time dependencies included as well?
 As the Telco SBOM specification is only applied on the SBOM level, there is no requirement on an entity that have elected to supply Telco SBOM specification conformant SBOMs for some or even all of its software deliveries to also provide this for is SaaS offerings. However an entity may elect to apply the Telco SBOM specification also to its SaaS offerings and thus have also  
 #### 3.11.1	Verification Material/Reference material
 #### 3.11.2	Rationale
-### 3.12	SBOMs for Containers
-***First level dependencies, i.e reporting the docker image used, and the location. 
-	Are we fine with high level, low resolution, accurate data, or do we want more, possibly with lower accuracy. (For SPDX, external reference PURL to docker image location). ***
+### 3.12	SBOMs for containers
+SBOMs for containers should include all open source components delivered in the container. This includes the packages installed into the container, components copied or downloaded to the container and dependencies used to build the compiled components in the container.
+
 #### 3.12.1	Verification Material/Reference material
 #### 3.12.2	Rationale
 ### 3.13	SBOM Verification
