@@ -96,7 +96,8 @@ Defer to OpenChain security.
 #### 3.13.2	Rationale
 While the verification of SBOMs is an important topic, OpenChain Telco defers this work to other initiatives for the moment and intends to revisit this topic in future iterations of this working document. 
 ### 3.14	SBOM Merger
-Using “depends on” feature in SPDX.
+SBOMs following this specification can be built from several SBOM files with a well-defined relationship to each other using the relationship definition features in SPDX.
+
 #### 3.14.1	Verification Material/Reference material
 #### 3.14.2	Rationale
 
