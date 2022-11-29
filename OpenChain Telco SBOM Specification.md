@@ -89,6 +89,8 @@ As the Telco SBOM specification is only applied on the SBOM level, there is no r
 	Are we fine with high level, low resolution, accurate data, or do we want more, possibly with lower accuracy. (For SPDX, external reference PURL to docker image location). ***
 #### 3.12.1	Verification Material/Reference material
 #### 3.12.2	Rationale
+Every open source component delivered should be part of the SBOMs.
+
 ### 3.13	SBOM Verification
 Defer to OpenChain security.
 
