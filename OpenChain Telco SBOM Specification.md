@@ -62,7 +62,8 @@ As the Tag/Value format is also human readable it has been chosen so that both t
 SBOMs conforming to the Telco SBOM Specification needs to contain information as they when they were created, both when in time (using the SPDX information) as well as if they were built “pre-build”, “build-time” or “post-build” (also deployment), and to which version of the software they were created (Do we also want to standardize how to convey this information?)    
 (Do we instead mandate the time of the SBOM, mandate post build.)
 ### 3.8	Timing of SBOM delivery
-The SBOM shall be delivered no later than at the time of the delivery of the Software (in either Binary or Source form)
+The SBOM shall be delivered no later than at the time of the delivery of the software (in either binary or source form). 
+
 #### 3.8.1	Verification/reference material
 #### 3.8.2	Rationale
 To ensure that the receiving entity can ingest the software and its SBOM, it shall be delivered no later than at the delivery of the software. An SBOM may be delivered before the software if an adopting entity so elects, but the software delivery must nevertheless be accompanied by the corresponding SBOM to ensure compliance with the specification. 
