@@ -26,7 +26,7 @@ The format standard created by the Linux Foundation’s SPDX (Software Package D
 ## 3.	Requirements
 
 ### 3.3	Data Format 
-A Telco Standard SBOM shall adhere to the SPDX Data Format as standardized in ISO/IEC 5962:2021 and as further described below with respect to the included elements. 
+A Telco Standard SBOM shall adhere to the version 2.2 of the SPDX Data Format as standardized in ISO/IEC 5962:2021 and as further described below with respect to the included elements. 
 
 #### 3.3.1	Verification material/reference material
 https://www.iso.org/standard/81870.html
