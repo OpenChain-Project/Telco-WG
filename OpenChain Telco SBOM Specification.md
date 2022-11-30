@@ -41,7 +41,8 @@ Do we take a minimalist approach, do we require ONLY a pre defined set of SPDX e
 
 **Define the elements beyond NTIA *minimum elements of an SBOM* that should be included in the Telco SBOM**
 #### 3.4.1	Verification Material/Reference material
-[NTIA minimum elements](https://www.ntia.doc.gov/report/2021/minimum-elements-software-bill-materials-sbom) 
+NTIA minimum elements https://www.ntia.doc.gov/report/2021/minimum-elements-software-bill-materials-sbom
+
 #### 3.4.2	Rationale
 Recognizing the Telco industry need for harmonization and special requirements, possibly beyond the NTIA minimum elements, the "Telco Profile of SPDX" is proposed to ensure predictability to the industry as to the elements of an SBOM that is expected. 
 
