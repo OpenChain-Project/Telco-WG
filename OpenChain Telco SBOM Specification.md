@@ -17,7 +17,7 @@ Data Format means the data format of the information in the SBOM. Possible dataf
 ### Entity: 
 Entity shall mean the the legal entity (for profit, non profit, or natural person) that distributes software to third parties (e.g., other organizations or individuals). Entity does not include other group companies, or companies under common control of the Entity. 
 ### SBOM: 
-Software Bill of Materials (SBOM) is a formal record containing the details and supply chain relationships of various components used in building software.
+A Software Bill of Materials (SBOM) is a formal record containing the details and supply chain relationships of various components used in building software.
 ### SPDX
 The format standard created by the Linux Foundation’s SPDX (Software Package Data Exchange) Working Group for exchanging Software Bill of Materials for a given software package, including associated license and copyright information (see spdx.org)
 ### OpenChain
