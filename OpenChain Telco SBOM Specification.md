@@ -3,20 +3,22 @@
 
 ## 1.	Scope
 
-This document aims to outline certain requirements related to how an entity creates, delivers, and consumes Software Bill of Materials (SBOM), so that entities that produce and/or consumes SBOMs that conform to this specification can ensure repeatability and streamlining of tools and processes for generating and consuming SBOMs. *Please Note* that this specification does not require a conforming entity to adopt OpenChain (in any version) but doing so is greatly encouraged. 
+This document aims to outline certain requirements related to how an entity creates, delivers, and consumes Software Bill of Materials (SBOM), so that entities that produce and/or consume SBOMs that conform to this specification can ensure repeatability and streamlining of tools and processes for generating and consuming SBOMs. *Please Note* that this specification does not require a conforming entity to adopt OpenChain (in any version) but doing so is greatly encouraged. 
 
 Conformance to this specification is done on a per SBOM level: an entity can adopt the specification as its sole way of delivering SBOMs but it’s the individual SBOM that is conformant to the specification, not the entity that provides the SBOM.  
 
-Releasing SBOMs conforming to this specification does not preclude an entity from also delivering SBOMs for the same software in alternate ways or formats, but those SBOMs are not conformant to the specification, thus neither an entity or a software product is conformant to the specification as only the SBOM can be conformant to the specification.
+Releasing SBOMs conforming to this specification does not preclude an entity from also delivering SBOMs for the same software in alternate ways or formats, but those SBOMs are not conformant to the specification, thus neither an entity nor a software product is conformant to the specification as only the SBOM can be conformant to the specification.
 
 This specification is licensed under [Creative Commons Attribution License 4.0 (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/).
 
 ## 2.	Terms and definitions
 ### Data Format
+
 Data Format means the data format of the information in the SBOM. Possible Data Formats include SPDX, Cyclone DX, SWID, or other proprietary formats.
 ### Entity: 
 Entity shall mean the the legal entity (for profit, non profit, or natural person) that distributes software to third parties (e.g., other organizations or individuals). Entity does not include other group companies, or companies under common control of the Entity. 
 ### SBOM: 
+
 Software Bill of Materials (SBOM) is a formal record containing the details and supply chain relationships of various components used in building software.
 ### SPDX
 The format standard created by the Linux Foundation’s SPDX (Software Package Data Exchange) Working Group for exchanging Software Bill of Materials for a given software package, including associated license and copyright information (see spdx.org)
