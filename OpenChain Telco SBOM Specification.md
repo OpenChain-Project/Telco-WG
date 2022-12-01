@@ -83,7 +83,8 @@ Build time only or run time dependencies included as well?
 #### 3.10.1	Verification Material/Reference material
 #### 3.10.2	Rationale
 ### 3.11	SBOM in a SaaS deployment
-As the Telco SBOM specification is only applied on the SBOM level, there is no requirement on an entity that have elected to supply Telco SBOM specification conformant SBOMs for some or even all of its software deliveries to also provide this for is SaaS offerings. However an entity may elect to apply the Telco SBOM specification also to its SaaS offerings and thus have also  
+As the Telco SBOM specification is only applied on the SBOM level, there is no requirement on an entity that have elected to supply Telco SBOM specification conformant SBOMs for some or even all of its software deliveries to also provide this for its SaaS offerings. However, an entity may elect to apply the Telco SBOM specification also to its SaaS offerings and thus also deliver the open source software used in the SaaS offerings with their transitive dependencies as an SBOM.
+
 #### 3.11.1	Verification Material/Reference material
 #### 3.11.2	Rationale
 ### 3.12	SBOMs for Containers
