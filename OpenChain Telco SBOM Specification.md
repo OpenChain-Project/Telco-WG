@@ -106,4 +106,4 @@ SBOMs may be subject to confidentiality agreements. A conformant SBOM must, howe
 #### 3.15.2	Rationale
 
 ## 4.	Conformance notice
-To indicate that the software has a conformant SBOM available, you may use the following statement: “This SBOM is conformant with the version x of the OpenChain Telecommunications Group SBOM Specification"
+To indicate that the software has a conformant SBOM available, you may use the following statement: “This SBOM is conformant with version 1.0 of the OpenChain Telecommunications Group SBOM Specification"
