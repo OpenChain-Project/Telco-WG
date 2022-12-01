@@ -92,6 +92,8 @@ SBOMs for containers should include all open source components delivered in the 
 
 #### 3.12.1	Verification Material/Reference material
 #### 3.12.2	Rationale
+Every open source component delivered should be part of the SBOMs.
+
 ### 3.13	SBOM Verification
 Defer to OpenChain security.
 
