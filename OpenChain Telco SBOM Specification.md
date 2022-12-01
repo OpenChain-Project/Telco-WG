@@ -21,7 +21,7 @@ Entity shall mean the the legal entity (for profit, non profit, or natural perso
 
 Software Bill of Materials (SBOM) is a formal record containing the details and supply chain relationships of various components used in building software.
 ### SPDX
-The format standard created by the Linux Foundation’s SPDX (Software Package Data Exchange) Working Group for exchanging Software Bill of Materials for a given software package, including associated license and copyright information (see spdx.org)
+SPDX (Software Package Data Exchange) is the [ISO standard](https://www.iso.org/standard/81870.html) (ISO/IEC 5962:2021) for exchanging SBOM for a given software package, including associated license and copyright information. The standard was created by the [Linux Foundation's SPDX project](https://spdx.dev/).
 ### OpenChain
  OpenChain means OpenChain ISO/IEC5230:2021, The international standard that specifies the key requirements of a quality open source license compliance program in order to provide a benchmark that builds trust between organizations exchanging software solutions that incorporate open source software.
 
