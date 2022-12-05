@@ -73,10 +73,13 @@ The SBOM shall be embedded into the software “package” where technically fea
 #### 3.9.2	Rationale
 Other options of SBOM delivery such as webhosting are less stable and access is not guaranteed over time; however “embedding” may not be technically feasible. Thus, in scenarios where it is not possible on technical grounds to include the SBOM in the software delivery, publishing the SBOM online is permitted provided that: 
 ### 3.10	SBOM Scope 
-The SBOM should contain all open source software that is delivered with the product including all of the transitive dependencies. 
+The SBOM shall contain all open source software that is delivered with the product including all of the transitive dependencies. The SBOM should contain all commercial components.
 
 #### 3.10.1	Verification Material/Reference material
+
 #### 3.10.2	Rationale
+It might not be possible, advisable or feasible to have the commercial component information in the SBOM.  However, it is advisable that the SBOM should be as complete as possible.
+
 ### 3.11	SBOM in a SaaS deployment
 As the Telco SBOM specification is only applied on the SBOM level, there is no requirement on an entity that have elected to supply Telco SBOM specification conformant SBOMs for some or even all of its software deliveries to also provide this for is SaaS offerings. However an entity may elect to apply the Telco SBOM specification also to its SaaS offerings and thus have also  
 #### 3.11.1	Verification Material/Reference material
