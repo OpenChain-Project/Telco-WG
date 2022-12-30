@@ -115,4 +115,6 @@ SBOMs may be subject to confidentiality agreements. A conformant SBOM must, howe
 Some open source software licenses enable any recipient to redistribute the software. In these situations, the recipients should be also able to redistribute the relevant parts of the SBOMs.
 
 ## 4.	Conformant notice: 
-To indicate that the software has a conformant SBOM available, you may use the following statement: “Lorem IPSUM"
+To indicate that the software has a conformant SBOM available, you may use the following statement: "This software is supplied with a SBOM conformant to the OpenChain Telco SBOM Specification v1.0, The specification is available at [Inser homepage]"
+
+You may at your choosing use the following statement in you Telco Speficatation conformant SBOM “This SBOM conforms to the OpenChain Telco SBOM specification v1.0 [Inser homepage], it is provided to the recipient free of charge, and the recipient is free to redistribute this SBOM to any 3rd that they distribute the corresponding software to, provided that they have all the necessary right to distribute the software to such 3rd party"
