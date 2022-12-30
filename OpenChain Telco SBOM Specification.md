@@ -29,7 +29,7 @@ OpenChain means [OpenChain ISO/IEC 5230:2020](https://www.iso.org/standard/81039
 ## 3.	Requirements
 
 ### 3.3	Data Format 
-A Telco Standard SBOM shall adhere to the version 2.2 of the SPDX Data Format as standardized in ISO/IEC 5962:2021 and as further described below with respect to the included elements. 
+A Telco Standard SBOM shall (unless othervise specified) adhere to the version 2.2 of the SPDX Data Format as standardized in ISO/IEC 5962:2021 and as further described below with respect to the included elements. 
 
 #### 3.3.1	Verification material/reference material
 ISO/IEC 5962:2021 Information technology — SPDX® Specification V2.2.1 https://standards.iso.org/ittf/PubliclyAvailableStandards/c081870_ISO_IEC_5962_2021(E).zip
