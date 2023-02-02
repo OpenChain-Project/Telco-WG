@@ -127,7 +127,7 @@ SBOMs for containers should include all open source components delivered in the 
 Every open source component delivered should be part of the SBOMs.
 
 ### 3.13	SBOM Verification
-Defer to OpenChain security.
+TODO ITEM: Investigate if using sigstore https://www.sigstore.dev/ is a feasiable solution to ensuring SBOM matching to the supplied software.
 
 #### 3.13.1	Verification Material/Reference material
 #### 3.13.2	Rationale
