@@ -84,7 +84,7 @@ The Telco Standard SBOM will include, at a minimum, SPDX in the following machin
 Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
 #### 3.5.2	Rationale
 To facilitate a simplified toolchain, a machine readable version of the SBOM needs to be included. To ensure repeatability and harmonization a conformant SBOM must be in the Tag:Value format. An entity can release additional machine readable Data Formats but they are not required to conform to the Telco SBOM specification.
-#### 3.6	Human Readable Data Format
+### 3.6	Human Readable Data Format
 A Telco Standard SBOM will include, at a minimum, the SPDX in the following human readable Data Format as default: Tag:Value
 #### 3.6.1	Verification Material/reference material
 Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
