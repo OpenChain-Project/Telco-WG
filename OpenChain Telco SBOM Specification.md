@@ -39,7 +39,33 @@ To ensure simplified handling and streamlining of tooling and competences in the
 As clarification, an entity is free to use alternative Data Formats for internal use, or deliver SBOMs in alternative Data Formats to organizations that so request or on its own initiative. The Telco Group SBOM specification is a SBOM-level specification to adhere to, and not an organizational specification to adhere to. There are no conforming entities, only conforming SBOMs, delivered by entities that have implemented the Telco SBOM specification.  
 
 ### 3.4	SPDX Elements to be included in the SBOM 
-Do we take a minimalist approach, do we require ONLY a pre defined set of SPDX elements, or see that as a “lower” limit.  
+Do we take a minimalist approach, do we require ONLY a pre defined set of SPDX elements, or see that as a “lower” limit.
+
+The following elements are mandatory.
+
+Document creation information
+* SPDXVersion: mandatory in SPDX
+* DataLicense: mandatory in SPDX
+* SPDXID: mandatory in SPDX
+* DocumentName: mandatory in SPDX
+* DocumentNamespace: mandatory in SPDX
+* Creator: mandatory in SPDX
+* Created: mandatory in SPDX
+* CreatorComment: to be able to put "SBOM Build information"
+
+Package information
+* PackageName: mandatory in SPDX
+* SPDXID: mandatory in SPDX
+* PackageVersion: needed by "NTIA SBOM Minimum elements"
+* PackageSupplier: needed by "NTIA SBOM Minimum elements"
+* PackageDownloadLocation: mandatory in SPDX
+* FilesAnalyzed
+* PackageLicenseConcluded: mandatory in SPDX
+* PackageLicenseDeclared: mandatory in SPDX
+* PackageCopyrightText: mandatory in SPDX
+
+Relationships between SPDX elements
+* Relationship: at least DESCRIBES and CONTAINS, needed by "NTIA SBOM Minimum elements"
 
 **Define the elements beyond NTIA *minimum elements of an SBOM* that should be included in the Telco SBOM**
 #### 3.4.1	Verification Material/Reference material
