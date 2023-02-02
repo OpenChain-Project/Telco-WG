@@ -27,7 +27,7 @@ SPDX (Software Package Data Exchange) is the [ISO standard](https://www.iso.org/
 OpenChain means [OpenChain ISO/IEC 5230:2020](https://www.iso.org/standard/81039.html), the international standard that specifies the key requirements of a quality open source license compliance program in order to provide a benchmark that builds trust between organizations exchanging software solutions that incorporate open source software. The OpenChain standard is produced by the [OpenChain project](https://www.openchainproject.org) of the Linux Foundation.
 
 ### Transitive dependencies
-Transitive dependencies are all components that are necessary for the software to run.  They include direct dependencies, the dependencies of these dependencies, the dependencies of the latter, and so on.
+Transitive dependencies are all components that are necessary for the software to run.  They include any dependency ofthe package that is not a direct dependency. 
 
 ## 3.	Requirements
 
