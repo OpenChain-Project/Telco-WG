@@ -44,7 +44,6 @@ To ensure simplified handling and streamlining of tooling and competences in the
 As clarification, an entity is free to use alternative Data Formats for internal use, or deliver SBOMs in alternative Data Formats to organizations that so request or on its own initiative. The Telco Group SBOM specification is a SBOM-level specification to adhere to, and not an organizational specification to adhere to. There are no conforming entities, only conforming SBOMs, delivered by entities that have implemented the Telco SBOM specification.
 
 ### 3.4 SPDX Elements to be included in the SBOM
-Do we take a minimalist approach, do we require ONLY a pre defined set of SPDX elements, or see that as a “lower” limit.
 
 The following elements are mandatory.
 
