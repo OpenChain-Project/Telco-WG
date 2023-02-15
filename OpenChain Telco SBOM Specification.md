@@ -94,7 +94,7 @@ A Telco Standard SBOM will include, at a minimum, the SPDX in the following huma
 Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
 
 #### 3.6.2 Rationale
-As the Tag:Value format is also human readable it has been chosen so that both the requirements for a standardized Machine readable and Human Readable version can be met using one file. An entity can release additional human readable Data Formats but they are not required to conform to the Telco SBOM specification.
+As the Tag:Value format is also human readable it has been chosen so that both the requirements for a standardized machine readable and human readable version can be met using one file. An entity can release additional human readable Data Formats but they are not required to conform to the Telco SBOM specification.
 
 ### 3.7 SBOM Build information
 SBOMs conforming to the Telco SBOM Specification needs to contain information as they when they were created, both when in time (using the SPDX information) as well as if they were built “pre-build”, “build-time” or “post-build” (also deployment), and to which version of the software they were created (Do we also want to standardize how to convey this information?)
