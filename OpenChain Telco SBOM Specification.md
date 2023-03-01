@@ -79,22 +79,22 @@ NTIA minimum elements https://www.ntia.doc.gov/report/2021/minimum-elements-soft
 Recognizing the Telco industry need for harmonization and special requirements, possibly beyond the NTIA minimum elements, the “Telco Profile of SPDX” is proposed to ensure predictability to the industry as to the elements of an SBOM that is expected.
 
 ### 3.5 Machine Readable Data Format
-The Telco Standard SBOM will include, at a minimum, SPDX in the following machine readable Data Format as default: Tag:Value
+The Telco Standard SBOM will include, at a minimum, the SPDX in the following machine readable format as default: Tag:Value
 
 #### 3.5.1 Verification and reference material
 Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
 
 #### 3.5.2 Rationale
-To facilitate a simplified toolchain, a machine readable version of the SBOM needs to be included. To ensure repeatability and harmonization a conformant SBOM must be in the Tag:Value format. An entity can release additional machine readable Data Formats but they are not required to conform to the Telco SBOM specification.
+To facilitate a simplified toolchain, a machine readable version of the SBOM needs to be included. To ensure repeatability and harmonization a conformant SBOM must be in the Tag:Value format. An entity can release additional machine readable formats but they are not required to conform to the Telco SBOM specification.
 
 ### 3.6 Human Readable Data Format
-A Telco Standard SBOM will include, at a minimum, the SPDX in the following human readable Data Format as default: Tag:Value
+A Telco Standard SBOM will include, at a minimum, the SPDX in the following human readable format as default: Tag:Value
 
 #### 3.6.1 Verification and reference material
 Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
 
 #### 3.6.2 Rationale
-As the Tag:Value format is also human readable it has been chosen so that both the requirements for a standardized machine readable and human readable version can be met using one file. An entity can release additional human readable Data Formats but they are not required to conform to the Telco SBOM specification.
+As the Tag:Value format is also human readable it has been chosen so that both the requirements for a standardized machine readable and human readable version can be met using one file. An entity can release additional human readable formats but they are not required to conform to the Telco SBOM specification.
 
 ### 3.7 SBOM Build information
 SBOMs conforming to the Telco SBOM Specification needs to contain information as they when they were created, both when in time (using the SPDX information) as well as if they were built “pre-build”, “build-time” or “post-build” (also deployment), and to which version of the software they were created (Do we also want to standardize how to convey this information?)
