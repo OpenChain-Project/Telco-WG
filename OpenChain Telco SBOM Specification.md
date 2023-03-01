@@ -1,10 +1,10 @@
-# OpenChain Telecommunications Group SBOM Specification [Draft v 1.0]
+# OpenChain Telco SBOM specification [Draft v 1.0]
 
 ## 1. Scope
 
-This document aims to outline certain requirements related to how an entity creates, delivers, and consumes Software Bill of Materials (SBOM), so that entities that produce and/or consume SBOMs that conform to this specification can ensure repeatability and streamlining of tools and processes for generating and consuming SBOMs. *Please Note* that this specification does not require a conforming entity to adopt OpenChain (in any version) but doing so is greatly encouraged.
+This document “OpenChain Telco SBOM specification” aims to outline certain requirements related to how an entity creates, delivers, and consumes Software Bill of Materials (SBOM), so that entities that produce and/or consume SBOMs that conform to this specification can ensure repeatability and streamlining of tools and processes for generating and consuming SBOMs. *Please Note* that this specification does not require a conforming entity to adopt OpenChain (in any version) but doing so is greatly encouraged.
 
-Conformance to this specification is done on a per SBOM level: an entity can adopt the specification as its sole way of delivering SBOMs but it’s the individual SBOM that is conformant to the specification, not the entity that provides the SBOM.
+Conformance to this specification is done on a per SBOM level: an entity can adopt the specification as its sole way of delivering SBOMs but it’s the individual SBOM that is conformant to the specification, not the entity that provides the SBOM. An SBOM conformant to this specification is called a “Telco SBOM”
 
 Releasing SBOMs conforming to this specification does not preclude an entity from also delivering SBOMs for the same software in alternate ways or formats, but those SBOMs are not conformant to the specification, thus neither an entity nor a software product is conformant to the specification as only the SBOM can be conformant to the specification.
 
@@ -33,15 +33,15 @@ Transitive dependencies are all components that are necessary for the software t
 ## 3. Requirements
 
 ### 3.3 Data Format
-A Telco Standard SBOM shall adhere to the version 2.2 of the SPDX Data Format as standardized in ISO/IEC 5962:2021 and as further described below with respect to the included elements.
+A Telco SBOM shall adhere to the version 2.2 of the SPDX Data Format as standardized in ISO/IEC 5962:2021 and as further described below with respect to the included elements.
 
 #### 3.3.1 Verification and reference material
 ISO/IEC 5962:2021 Information technology — SPDX® Specification V2.2.1 https://standards.iso.org/ittf/PubliclyAvailableStandards/c081870_ISO_IEC_5962_2021(E).zip
 
 #### 3.3.2 Rationale
-To ensure simplified handling and streamlining of tooling and competences in the telecommunications supply chain, both for suppliers and consumers of software, a telco standard SBOM shall adhere to the SPDX Data Format as standardized in ISO/IEC 5962:2021. By harmonizing on the use of this standard SBOM Data Format in an organization's external interfaces, the complexities for organizations supplying and consuming software are simplified, as only one set of unified requirements will be applicable.
+To ensure simplified handling and streamlining of tooling and competences in the telecommunications supply chain, both for suppliers and consumers of software, a Telco SBOM shall adhere to the SPDX Data Format as standardized in ISO/IEC 5962:2021. By harmonizing on the use of this standard SBOM Data Format in an organization's external interfaces, the complexities for organizations supplying and consuming software are simplified, as only one set of unified requirements will be applicable.
 
-As clarification, an entity is free to use alternative Data Formats for internal use, or deliver SBOMs in alternative Data Formats to organizations that so request or on its own initiative. The Telco Group SBOM specification is a SBOM-level specification to adhere to, and not an organizational specification to adhere to. There are no conforming entities, only conforming SBOMs, delivered by entities that have implemented the Telco SBOM specification.
+As clarification, an entity is free to use alternative Data Formats for internal use, or deliver SBOMs in alternative Data Formats to organizations that so request or on its own initiative. The OpenChain Telco SBOM specification is a SBOM-level specification to adhere to, and not an organizational specification to adhere to. There are no conforming entities, only conforming SBOMs, delivered by entities that have implemented the OpenChain Telco SBOM specification.
 
 ### 3.4 SPDX Elements to be included in the SBOM
 
@@ -75,28 +75,28 @@ Relationships between SPDX elements
 NTIA minimum elements https://www.ntia.doc.gov/report/2021/minimum-elements-software-bill-materials-sbom
 
 #### 3.4.2 Rationale
-Recognizing the Telco industry need for harmonization and special requirements, possibly beyond the NTIA minimum elements, the “Telco Profile of SPDX” is proposed to ensure predictability to the industry as to the elements of an SBOM that is expected.
+Recognizing the Telco industry need for harmonization and special requirements, possibly beyond the NTIA minimum elements, the “OpenChain Telco SBOM specification” is proposed to ensure predictability to the industry as to the elements of an SBOM that is expected.
 
 ### 3.5 Machine Readable Data Format
-The Telco Standard SBOM will include, at a minimum, the SPDX in the following machine readable format as default: Tag:Value
+The Telco SBOM will include, at a minimum, the SPDX in the following machine readable format as default: Tag:Value
 
 #### 3.5.1 Verification and reference material
 Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
 
 #### 3.5.2 Rationale
-To facilitate a simplified toolchain, a machine readable version of the SBOM needs to be included. To ensure repeatability and harmonization a conformant SBOM must be in the Tag:Value format. An entity can release additional machine readable formats but they are not required to conform to the Telco SBOM specification.
+To facilitate a simplified toolchain, a machine readable version of the SBOM needs to be included. To ensure repeatability and harmonization a conformant SBOM must be in the Tag:Value format. An entity can release additional machine readable formats but they are not required to conform to the specification.
 
 ### 3.6 Human Readable Data Format
-A Telco Standard SBOM will include, at a minimum, the SPDX in the following human readable format as default: Tag:Value
+A Telco SBOM will include, at a minimum, the SPDX in the following human readable format as default: Tag:Value
 
 #### 3.6.1 Verification and reference material
 Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
 
 #### 3.6.2 Rationale
-As the Tag:Value format is also human readable it has been chosen so that both the requirements for a standardized machine readable and human readable version can be met using one file. An entity can release additional human readable formats but they are not required to conform to the Telco SBOM specification.
+As the Tag:Value format is also human readable it has been chosen so that both the requirements for a standardized machine readable and human readable version can be met using one file. An entity can release additional human readable formats but they are not required to conform to the OpenChain Telco SBOM specification.
 
 ### 3.7 SBOM Build information
-SBOMs conforming to the Telco SBOM Specification needs to contain information as they when they were created, both when in time (using the SPDX information) as well as if they were built “pre-build”, “build-time” or “post-build” (also deployment), and to which version of the software they were created (Do we also want to standardize how to convey this information?)
+Telco SBOMs need to contain information as they when they were created, both when in time (using the SPDX information) as well as if they were built “pre-build”, “build-time” or “post-build” (also deployment), and to which version of the software they were created (Do we also want to standardize how to convey this information?)
 (Do we instead mandate the time of the SBOM, mandate post build.)
 
 ### 3.8 Timing of SBOM delivery
@@ -124,7 +124,7 @@ The SBOM shall contain all open source software that is delivered with the produ
 It might not be possible, advisable or feasible to have the commercial component information in the SBOM. However, it is advisable that the SBOM should be as complete as possible.
 
 ### 3.11 SBOM in a SaaS deployment
-As the Telco SBOM specification is only applied on the SBOM level, there is no requirement on an entity that have elected to supply Telco SBOM specification conformant SBOMs for some or even all of its software deliveries to also provide this for its SaaS offerings. However, an entity may elect to apply the Telco SBOM specification also to its SaaS offerings and thus also deliver the open source software used in the SaaS offerings with their transitive dependencies as an SBOM.
+As the OpenChain Telco SBOM specification is only applied on the SBOM level, there is no requirement on an entity that have elected to supply a Telco SBOM for some or even all of its software deliveries to also provide this for its SaaS offerings. However, an entity may elect to apply the OpenChain Telco SBOM specification also to its SaaS offerings and thus also deliver the open source software used in the SaaS offerings with their transitive dependencies as an SBOM.
 
 #### 3.11.1 Verification and reference material
 
@@ -162,6 +162,6 @@ SBOMs may be subject to confidentiality agreements. A conformant SBOM must, howe
 Some open source software licenses enable any recipient to redistribute the software. In these situations, the recipients should be also able to redistribute the relevant parts of the SBOMs.
 
 ## 4. Conformant notice
-To indicate that the software has a conformant SBOM available, you may use the following statement: “This software is supplied with a SBOM conformant to the OpenChain Telco SBOM Specification v1.0, the specification is available at [Insert homepage]”
+To indicate that the software has a conformant SBOM available, you may use the following statement: “This software is supplied with a SBOM conformant to the OpenChain Telco SBOM specification v1.0, available at https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md”
 
-You may at your choosing use the following statement in you Telco Speficatation conformant SBOM “This SBOM conforms to the OpenChain Telco SBOM specification v1.0 [Insert homepage], it is provided to the recipient free of charge, and the recipient is free to redistribute this SBOM to any 3rd that they distribute the corresponding software to, provided that they have all the necessary right to distribute the software to such 3rd party”
+You may at your choosing use the following statement in your Telco SBOM “This SBOM conforms to the OpenChain Telco SBOM specification v1.0, available at https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md, it is provided to the recipient free of charge, and the recipient is free to redistribute this SBOM to any third that they distribute the corresponding software to, provided that they have all the necessary right to distribute the software to such third party”
