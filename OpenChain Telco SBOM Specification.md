@@ -12,6 +12,11 @@ This specification is licensed under [Creative Commons Attribution License 4.0 (
 
 ## 2. Terms and definitions
 
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and
+"OPTIONAL" in this document are to be interpreted as described in
+[RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+
 ### Data Format
 Data Format means the data format of the information in the SBOM. Possible Data Formats include SPDX, Cyclone DX, SWID, or other proprietary formats.
 
