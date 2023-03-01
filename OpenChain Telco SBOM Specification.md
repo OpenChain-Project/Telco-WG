@@ -12,7 +12,7 @@ This specification is licensed under [Creative Commons Attribution License 4.0 (
 
 ## 2. Terms and definitions
 
-### 
+### Data Format
 Data Format means the data format of the information in the SBOM. Possible Data Formats include SPDX, Cyclone DX, SWID, or other proprietary formats.
 
 ### Entity
