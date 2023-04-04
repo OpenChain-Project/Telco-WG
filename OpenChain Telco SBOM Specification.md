@@ -21,6 +21,17 @@ Entity shall mean the the legal entity (for profit, non profit, or natural perso
 ### SBOM
 A Software Bill of Materials (SBOM) is a formal record containing the details and supply chain relationships of various components used in building software.
 
+### SBOM Type
+An SBOM can be of one of the following types:
+* Design,
+* Source,
+* Build,
+* Analyzed,
+* Deployed,
+* Runtime.
+The definition of these types can be found in the
+[CISA document](https://docs.google.com/document/d/1PsUhUQ_L-lNymD9p613zP0_MiT1Boag68TP3aiwZ4R8/edit).
+
 ### SPDX
 SPDX (Software Package Data Exchange) is the [ISO standard](https://www.iso.org/standard/81870.html) (ISO/IEC 5962:2021) for exchanging SBOM for a given software package, including associated license and copyright information. The standard was created by the [Linux Foundation's SPDX project](https://spdx.dev/).
 
@@ -96,8 +107,11 @@ Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/
 As the Tag:Value format is also human readable it has been chosen so that both the requirements for a standardized machine readable and human readable version can be met using one file. An entity can release additional human readable formats but they are not required to conform to the Telco SBOM specification.
 
 ### 3.7 SBOM Build information
-SBOMs conforming to the Telco SBOM Specification needs to contain information as they when they were created, both when in time (using the SPDX information) as well as if they were built “pre-build”, “build-time” or “post-build” (also deployment), and to which version of the software they were created (Do we also want to standardize how to convey this information?)
-(Do we instead mandate the time of the SBOM, mandate post build.)
+SBOMs conforming to the Telco SBOM Specification must contain information as when they were created (using the SPDX `Created` field) and to which version of the software they were created (using the SPDX `CreatorComment` field).
+
+SBOMs conforming to the Telco SBOM Specification must provide their SBOM Type as
+[defined by CISA](https://docs.google.com/document/d/1PsUhUQ_L-lNymD9p613zP0_MiT1Boag68TP3aiwZ4R8/edit)
+in the `CreatorComment` field.
 
 ### 3.8 Timing of SBOM delivery
 The SBOM shall be delivered no later than at the time of the delivery of the software (in either binary or source form). 
