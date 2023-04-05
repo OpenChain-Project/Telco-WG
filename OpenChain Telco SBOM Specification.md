@@ -103,6 +103,7 @@ SBOMs conforming to the Telco SBOM Specification needs to contain information as
 The SBOM shall be delivered no later than at the time of the delivery of the software (in either binary or source form). 
 
 #### 3.8.1 Verification and reference material
+“NTIA SBOM Minimum elements”, section “Distribution and Delivery”
 
 #### 3.8.2 Rationale
 To ensure that the receiving entity can ingest the software and its SBOM, it shall be delivered no later than at the delivery of the software. An SBOM may be delivered before the software if an adopting entity so elects, but the software delivery must nevertheless be accompanied by the corresponding SBOM to ensure compliance with the specification.
@@ -111,6 +112,7 @@ To ensure that the receiving entity can ingest the software and its SBOM, it sha
 The SBOM shall be embedded into the software “package” where technically feasible. If it is not technically feasible to embed the SBOM into the software “package” being delivered, such as in the case of space-constrained embedded systems, the supplying party will supply a web hosted version of the SBOM that is available for at least 18 months and shall not in any way restrict recipients’ ability to copy and store these locally for their own use. Such restrictions may not be placed on the recipient in additional confidentiality agreements. 
 
 #### 3.9.1 Verification and reference material
+“NTIA SBOM Minimum elements”, section “Distribution and Delivery”
 
 #### 3.9.2 Rationale
 Other options of SBOM delivery such as webhosting are less stable and access is not guaranteed over time; however “embedding” may not be technically feasible. Thus, in scenarios where it is not possible on technical grounds to include the SBOM in the software delivery, publishing the SBOM online is permitted provided that the SBOM is accessible for the recipients of the software for 18 months. This duration is in line with the OpenChain specification requirements on recertification.
@@ -118,7 +120,10 @@ Other options of SBOM delivery such as webhosting are less stable and access is 
 ### 3.10 SBOM Scope
 The SBOM shall contain all open source software that is delivered with the product including all of the transitive dependencies. The SBOM should contain all commercial components.
 
+If some components are not included, they must be reported as “known unknowns.”
+
 #### 3.10.1 Verification and reference material
+“NTIA SBOM Minimum elements”, section “Known Unknowns”
 
 #### 3.10.2 Rationale
 It might not be possible, advisable or feasible to have the commercial component information in the SBOM. However, it is advisable that the SBOM should be as complete as possible.
@@ -129,6 +134,7 @@ As the Telco SBOM specification is only applied on the SBOM level, there is no r
 #### 3.11.1 Verification and reference material
 
 #### 3.11.2 Rationale
+There is currently no consensus in the industry on what an SaaS SBOM should contain.
 
 ### 3.12 SBOMs for containers
 SBOMs for containers should include all open source components delivered in the container. This includes the packages installed into the container, components copied or downloaded to the container and dependencies used to build the compiled components in the container.
@@ -150,13 +156,16 @@ While the verification of SBOMs is an important topic, OpenChain Telco defers th
 SBOMs following this specification can be built from several SBOM files with a well-defined relationship to each other using the relationship definition features in SPDX.
 
 #### 3.14.1 Verification and reference material
+There exist tools to merge several SBOMs into one, e.g. https://github.com/vmware-samples/sbom-composer
 
 #### 3.14.2 Rationale
+It is often easier for a big software to provide individual SBOMs of its parts than a single SBOM.
 
 ### 3.15 SBOM Confidentiality
 SBOMs may be subject to confidentiality agreements. A conformant SBOM must, however, not be subject to any confidentiality agreements that would prevent a recipient from redistributing the parts of the SBOM applicable to software that such recipient has a right to redistribute.
 
 #### 3.15.1 Verification and reference material
+“NTIA SBOM Minimum elements”, section “Access Control”
 
 #### 3.15.2 Rationale
 Some open source software licenses enable any recipient to redistribute the software. In these situations, the recipients should be also able to redistribute the relevant parts of the SBOMs.
