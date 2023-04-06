@@ -159,7 +159,7 @@ SBOMs following this specification can be built from several SBOM files with a w
 There exist tools to merge several SBOMs into one, e.g. https://github.com/vmware-samples/sbom-composer
 
 #### 3.14.2 Rationale
-It is often easier for a big software to provide individual SBOMs of its parts than a single SBOM.
+It is often easier when dealing with a large software product to provide individual SBOMs of its parts than a single SBOM.
 
 ### 3.15 SBOM Confidentiality
 SBOMs may be subject to confidentiality agreements. A conformant SBOM must, however, not be subject to any confidentiality agreements that would prevent a recipient from redistributing the parts of the SBOM applicable to software that such recipient has a right to redistribute.
