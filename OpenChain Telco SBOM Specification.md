@@ -36,7 +36,7 @@ Transitive dependencies are all components that are necessary for the software t
 A Telco Standard SBOM shall adhere to the version 2.2 of the SPDX Data Format as standardized in ISO/IEC 5962:2021 and as further described below with respect to the included elements.
 
 #### 3.3.1 Verification and reference material
-ISO/IEC 5962:2021 Information technology — SPDX® Specification V2.2.1 https://standards.iso.org/ittf/PubliclyAvailableStandards/c081870_ISO_IEC_5962_2021(E).zip
+ISO/IEC 5962:2021 Information technology — SPDX® Specification V2.2.1
 
 #### 3.3.2 Rationale
 To ensure simplified handling and streamlining of tooling and competences in the telecommunications supply chain, both for suppliers and consumers of software, a telco standard SBOM shall adhere to the SPDX Data Format as standardized in ISO/IEC 5962:2021. By harmonizing on the use of this standard SBOM Data Format in an organization's external interfaces, the complexities for organizations supplying and consuming software are simplified, as only one set of unified requirements will be applicable.
@@ -72,7 +72,7 @@ Relationships between SPDX elements
 * Relationship: at least DESCRIBES and CONTAINS, needed by “NTIA SBOM Minimum elements”
 
 #### 3.4.1 Verification and reference material
-NTIA minimum elements https://www.ntia.doc.gov/report/2021/minimum-elements-software-bill-materials-sbom
+NTIA minimum elements
 
 #### 3.4.2 Rationale
 Recognizing the Telco industry need for harmonization and special requirements, possibly beyond the NTIA minimum elements, the “Telco Profile of SPDX” is proposed to ensure predictability to the industry as to the elements of an SBOM that is expected.
@@ -165,3 +165,16 @@ Some open source software licenses enable any recipient to redistribute the soft
 To indicate that the software has a conformant SBOM available, you may use the following statement: “This software is supplied with a SBOM conformant to the OpenChain Telco SBOM Specification v1.0, the specification is available at [Insert homepage]”
 
 You may at your choosing use the following statement in you Telco Speficatation conformant SBOM “This SBOM conforms to the OpenChain Telco SBOM specification v1.0 [Insert homepage], it is provided to the recipient free of charge, and the recipient is free to redistribute this SBOM to any 3rd that they distribute the corresponding software to, provided that they have all the necessary right to distribute the software to such 3rd party”
+
+## 5. References
+
+* SPDX (ISO/IEC 5962:2021)
+  * https://spdx.dev/
+  * https://www.iso.org/standard/81870.html
+  * https://standards.iso.org/ittf/PubliclyAvailableStandards/c081870_ISO_IEC_5962_2021(E).zip
+* OpenChain (ISO/IEC 5230:2020)
+  * https://www.openchainproject.org/
+  * https://www.iso.org/standard/81039.html
+  * https://standards.iso.org/ittf/PubliclyAvailableStandards/c081039_ISO_IEC_5230_2020(E).zip
+* The Minimum Elements For a Software Bill of Materials (SBOM) a.k.a. “NTIA minimum elements”
+  * https://www.ntia.doc.gov/report/2021/minimum-elements-software-bill-materials-sbom
