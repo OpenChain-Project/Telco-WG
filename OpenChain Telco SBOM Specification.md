@@ -102,6 +102,9 @@ Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/
 #### 3.5.2 Rationale
 To facilitate a simplified toolchain, a machine readable version of the SBOM needs to be included. To ensure repeatability and harmonization a conformant SBOM must be in the Tag:Value format. An entity can release additional machine readable formats but they are not required to conform to the specification.
 
+Tag:Value is the most human-readable format, and there are converters between the various SPDX formats
+(e.g. https://tools.spdx.org/app/convert/).
+
 ### 3.6 Human Readable Data Format
 A Telco SBOM will include, at a minimum, the SPDX in the following human readable format as default: Tag:Value
 
