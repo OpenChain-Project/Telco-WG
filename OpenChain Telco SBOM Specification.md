@@ -35,7 +35,7 @@ An SBOM can be of one of the following types:
 * Deployed,
 * Runtime.
 The definition of these types can be found in the
-[CISA document](https://docs.google.com/document/d/1PsUhUQ_L-lNymD9p613zP0_MiT1Boag68TP3aiwZ4R8/edit).
+[CISA document](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf).
 
 ### SPDX
 SPDX (Software Package Data Exchange) is the [ISO standard](https://www.iso.org/standard/81870.html) (ISO/IEC 5962:2021) for exchanging SBOM for a given software package, including associated license and copyright information. The standard was created by the [Linux Foundation's SPDX project](https://spdx.dev/).
@@ -118,7 +118,7 @@ As the Tag:Value format is also human readable it has been chosen so that both t
 SBOMs conforming to the Telco SBOM Specification must contain information as when they were created (using the SPDX `Created` field) and to which version of the software they were created (using the SPDX `CreatorComment` field).
 
 SBOMs conforming to the Telco SBOM Specification must provide their SBOM Type as
-[defined by CISA](https://docs.google.com/document/d/1PsUhUQ_L-lNymD9p613zP0_MiT1Boag68TP3aiwZ4R8/edit)
+[defined by CISA](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)
 in the `CreatorComment` field.
 
 ### 3.8 Timing of SBOM delivery
