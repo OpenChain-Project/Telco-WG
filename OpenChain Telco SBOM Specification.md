@@ -34,6 +34,7 @@ An SBOM can be of one of the following types:
 * Analyzed,
 * Deployed,
 * Runtime.
+
 The definition of these types can be found in the
 [CISA document](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf).
 
