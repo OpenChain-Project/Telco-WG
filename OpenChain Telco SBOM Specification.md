@@ -118,9 +118,39 @@ As the Tag:Value format is also human readable it has been chosen so that both t
 ### 3.5 SBOM Build information
 SBOMs conforming to the Telco SBOM Specification must contain information as when they were created (using the SPDX `Created` field) and to which version of the software they were created (using the SPDX `CreatorComment` field).
 
+The `Creator` field MUST:
+* contain a line with the `Organization` keyword;
+* contain a line with the `Tool` keyword; in this line we MUST have after the `Tool` keyword the tool name and the tool version.
+
+The tool name and the tool version SHOULD be separated by hyphen ("-"), no other hyphen SHOULD appear on the line.
+
 SBOMs conforming to the Telco SBOM Specification must provide their SBOM Type as
 [defined by CISA](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)
 in the `CreatorComment` field.
+
+#### 3.5.1 Verification and reference material
+SPDX standard
+
+#### 3.5.2 Rationale
+It is important to know which tool and which version of the tool have created the SBOM.
+
+The SPDX standard gives "toolidentifier-version" as an example, but it is not mandatory to have this syntax.
+
+For example, there is a tool that outputs:
+```
+Creator: Tool: sigs.k8s.io/bom/pkg/spdx
+```
+We have also:
+```
+Creator: Tool: scancode-toolkit 30.1.0
+```
+and
+```
+Creator: Tool: SCANOSS-PY: 1.5.1
+```
+where the name contains an hyphen, and the tool name and tool version are not separated by an hyphen.
+
+So we cannot require a precise syntax.
 
 ### 3.6 Timing of SBOM delivery
 The SBOM shall be delivered no later than at the time of the delivery of the software (in either binary or source form). 
