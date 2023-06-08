@@ -81,6 +81,7 @@ Package information
 * PackageSupplier: needed by “NTIA SBOM Minimum elements”
 * PackageDownloadLocation: mandatory in SPDX
 * FilesAnalyzed
+* PackageChecksum: recommended by “NTIA SBOM Minimum elements”
 * PackageLicenseConcluded: mandatory in SPDX
 * PackageLicenseDeclared: mandatory in SPDX
 * PackageCopyrightText: mandatory in SPDX
@@ -93,6 +94,10 @@ NTIA minimum elements
 
 #### 3.2.2 Rationale
 Recognizing the Telco industry need for harmonization and special requirements, possibly beyond the NTIA minimum elements, the “OpenChain Telco SBOM specification” is proposed to ensure predictability to the industry as to the elements of an SBOM that is expected.
+
+“Component Hash” is recommended, but not required by the “NTIA SBOM Minimum elements”.
+In SPDX, it maps to PackageChecksum.
+We make it mandatory as it is important to uniquely identify a package.
 
 ### 3.3 Machine Readable Data Format
 The Telco SBOM will include, at a minimum, the SPDX in the following machine readable format as default: Tag:Value
