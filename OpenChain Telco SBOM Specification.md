@@ -101,6 +101,15 @@ The Telco SBOM will include, at a minimum, the SPDX in the following machine rea
 Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
 
 #### 3.3.2 Rationale
+There are 3 majors formats for SBOMs: SPDX, CycloneDX, and SWID.
+These 3 formats are the ones recommended by NTIA document "The Minimum Elements For a Software Bill of Materials (SBOM)" (see References section).
+
+The reasons for selecting SPDX include the following:
+* SPDX is an ISO standard,
+* SPDX has more features than CycloneDX for license compliance,
+* SPDX has a human-readable format (CycloneDX has only JSON and XML),
+* SWID is more a software identifier than a fully fledged SBOM format.
+
 To facilitate a simplified toolchain, a machine readable version of the SBOM needs to be included. To ensure repeatability and harmonization a conformant SBOM must be in the Tag:Value format. An entity can release additional machine readable formats but they are not required to conform to the specification.
 
 Tag:Value is the most human-readable format, and there are converters between the various SPDX formats
