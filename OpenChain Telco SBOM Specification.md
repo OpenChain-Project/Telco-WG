@@ -98,6 +98,7 @@ Recognizing the Telco industry need for harmonization and special requirements, 
 “Component Hash” is recommended, but not required by the “NTIA SBOM Minimum elements”.
 In SPDX, it maps to PackageChecksum.
 We make it mandatory as it is important to uniquely identify a package.
+Most SCA tools have the capability to produce hashes.
 
 ### 3.3 Machine Readable Data Format
 The Telco SBOM will include, at a minimum, the SPDX in the following machine readable format as default: Tag:Value
