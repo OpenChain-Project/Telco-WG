@@ -104,7 +104,7 @@ Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/
 There are 3 majors formats for SBOMs: SPDX, CycloneDX, and SWID.
 These 3 formats are the ones recommended by NTIA document "The Minimum Elements For a Software Bill of Materials (SBOM)" (see References section).
 
-The reasons for selecting SPDX include the following:
+The reasons for selecting SPDX as data format of the Telco SBOM specification include the following:
 * SPDX is an ISO standard,
 * SPDX has more features than CycloneDX for license compliance,
 * SPDX has a human-readable format (CycloneDX has only JSON and XML),
