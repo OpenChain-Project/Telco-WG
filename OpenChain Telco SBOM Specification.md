@@ -50,7 +50,7 @@ Transitive dependencies are all components that are necessary for the software t
 ## 3. Requirements
 
 ### 3.1 Data Format
-A Telco SBOM shall adhere to the version 2.2 of the SPDX Data Format as standardized in ISO/IEC 5962:2021 and as further described below with respect to the included elements.
+A Telco SBOM SHALL adhere to the version 2.2 of the SPDX Data Format as standardized in ISO/IEC 5962:2021 and as further described below with respect to the included elements.
 
 #### 3.1.1 Verification and reference material
 ISO/IEC 5962:2021 Information technology — SPDX® Specification V2.2.1
@@ -131,7 +131,7 @@ Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/
 As the Tag:Value format is also human readable it has been chosen so that both the requirements for a standardized machine readable and human readable version can be met using one file. An entity can release additional human readable formats but they are not required to conform to the OpenChain Telco SBOM specification.
 
 ### 3.5 SBOM Build information
-SBOMs conforming to the Telco SBOM Specification must contain information as when they were created (using the SPDX `Created` field) and to which version of the software they were created (using the SPDX `CreatorComment` field).
+SBOMs conforming to the Telco SBOM Specification MUST contain information as when they were created (using the SPDX `Created` field) and to which version of the software they were created (using the SPDX `CreatorComment` field).
 
 The `Creator` field MUST:
 * contain a line with the `Organization` keyword;
@@ -139,7 +139,7 @@ The `Creator` field MUST:
 
 The tool name and the tool version SHOULD be separated by hyphen ("-"), no other hyphen SHOULD appear on the line.
 
-SBOMs conforming to the Telco SBOM Specification must provide their SBOM Type as
+SBOMs conforming to the Telco SBOM Specification MUST provide their SBOM Type as
 [defined by CISA](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)
 in the `CreatorComment` field.
 
@@ -168,7 +168,7 @@ where the name contains an hyphen, and the tool name and tool version are not se
 So we cannot require a precise syntax.
 
 ### 3.6 Timing of SBOM delivery
-The SBOM shall be delivered no later than at the time of the delivery of the software (in either binary or source form). 
+The SBOM SHALL be delivered no later than at the time of the delivery of the software (in either binary or source form). 
 
 #### 3.6.1 Verification and reference material
 “NTIA SBOM Minimum elements”, section “Distribution and Delivery”
@@ -177,7 +177,7 @@ The SBOM shall be delivered no later than at the time of the delivery of the sof
 To ensure that the receiving entity can ingest the software and its SBOM, it shall be delivered no later than at the delivery of the software. An SBOM may be delivered before the software if an adopting entity so elects, but the software delivery must nevertheless be accompanied by the corresponding SBOM to ensure compliance with the specification.
 
 ### 3.7 Method of SBOM delivery
-The SBOM shall be embedded into the software “package” where technically feasible. If it is not technically feasible to embed the SBOM into the software “package” being delivered, such as in the case of space-constrained embedded systems, the supplying party will supply a web hosted version of the SBOM that is available for at least 18 months and shall not in any way restrict recipients’ ability to copy and store these locally for their own use. Such restrictions may not be placed on the recipient in additional confidentiality agreements. 
+The SBOM SHALL be embedded into the software “package” where technically feasible. If it is not technically feasible to embed the SBOM into the software “package” being delivered, such as in the case of space-constrained embedded systems, the supplying party will supply a web hosted version of the SBOM that is available for at least 18 months and SHALL NOT in any way restrict recipients’ ability to copy and store these locally for their own use. Such restrictions MAY NOT be placed on the recipient in additional confidentiality agreements. 
 
 #### 3.7.1 Verification and reference material
 “NTIA SBOM Minimum elements”, section “Distribution and Delivery”
@@ -186,9 +186,9 @@ The SBOM shall be embedded into the software “package” where technically fea
 Other options of SBOM delivery such as webhosting are less stable and access is not guaranteed over time; however “embedding” may not be technically feasible. Thus, in scenarios where it is not possible on technical grounds to include the SBOM in the software delivery, publishing the SBOM online is permitted provided that the SBOM is accessible for the recipients of the software for 18 months. This duration is in line with the OpenChain specification requirements on recertification.
 
 ### 3.8 SBOM Scope
-The SBOM shall contain all open source software that is delivered with the product including all of the transitive dependencies. The SBOM should contain all commercial components.
+The SBOM SHALL contain all open source software that is delivered with the product including all of the transitive dependencies. The SBOM SHOULD contain all commercial components.
 
-If some components are not included, they must be reported as “known unknowns.”
+If some components are not included, they MUST be reported as “known unknowns.”
 
 #### 3.8.1 Verification and reference material
 “NTIA SBOM Minimum elements”, section “Known Unknowns”
@@ -205,7 +205,7 @@ As the OpenChain Telco SBOM specification is only applied on the SBOM level, the
 There is currently no consensus in the industry on what an SaaS SBOM should contain.
 
 ### 3.10 SBOMs for containers
-SBOMs for containers should include all open source components delivered in the container. This includes the packages installed into the container, components copied or downloaded to the container and dependencies used to build the compiled components in the container.
+SBOMs for containers SHOULD include all open source components delivered in the container. This includes the packages installed into the container, components copied or downloaded to the container and dependencies used to build the compiled components in the container.
 
 #### 3.10.1 Verification and reference material
 
@@ -213,7 +213,7 @@ SBOMs for containers should include all open source components delivered in the 
 Every open source component delivered should be part of the SBOMs.
 
 ### 3.11 SBOM Verification
-It is recommended to provide a digital signature of the SBOM in order to guarantee the
+It is RECOMMENDED to provide a digital signature of the SBOM in order to guarantee the
 integrity of the SBOM.
 
 #### 3.11.1 Verification and reference material
@@ -232,7 +232,7 @@ There exist tools to merge several SBOMs into one, e.g. https://github.com/vmwar
 It is often easier when dealing with a large software product to provide individual SBOMs of its parts than a single SBOM.
 
 ### 3.13 SBOM Confidentiality
-SBOMs may be subject to confidentiality agreements. A conformant SBOM must, however, not be subject to any confidentiality agreements that would prevent a recipient from redistributing the parts of the SBOM applicable to software that such recipient has a right to redistribute.
+SBOMs MAY be subject to confidentiality agreements. A conformant SBOM MUST, however, not be subject to any confidentiality agreements that would prevent a recipient from redistributing the parts of the SBOM applicable to software that such recipient has a right to redistribute.
 
 #### 3.13.1 Verification and reference material
 “NTIA SBOM Minimum elements”, section “Access Control”
@@ -241,9 +241,9 @@ SBOMs may be subject to confidentiality agreements. A conformant SBOM must, howe
 Some open source software licenses enable any recipient to redistribute the software. In these situations, the recipients should be also able to redistribute the relevant parts of the SBOMs.
 
 ## 4. Conformant notice
-To indicate that the software has a conformant SBOM available, you may use the following statement: “This software is supplied with an SBOM conformant to the OpenChain Telco SBOM Specification v1.0, the specification is available at https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md”
+To indicate that the software has a conformant SBOM available, you MAY use the following statement: “This software is supplied with an SBOM conformant to the OpenChain Telco SBOM Specification v1.0, the specification is available at https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md”
 
-You may at your choosing use the following statement in your Telco Specification conformant SBOM “This SBOM conforms to the OpenChain Telco SBOM specification v1.0 https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md, it is provided to the recipient free of charge, and the recipient is free to redistribute this SBOM to any third party that they distribute the corresponding software to, provided that they have all the necessary right to distribute the software to such third party”
+You MAY at your choosing use the following statement in your Telco Specification conformant SBOM “This SBOM conforms to the OpenChain Telco SBOM specification v1.0 https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md, it is provided to the recipient free of charge, and the recipient is free to redistribute this SBOM to any third party that they distribute the corresponding software to, provided that they have all the necessary right to distribute the software to such third party”
 
 ## 5. References
 
