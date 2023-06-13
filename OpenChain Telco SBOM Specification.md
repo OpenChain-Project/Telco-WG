@@ -104,7 +104,7 @@ Most SCA tools have the capability to produce hashes.
 The Telco SBOM will include, at a minimum, the SPDX in the following machine readable format as default: Tag:Value
 
 #### 3.3.1 Verification and reference material
-Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
+Tag:Value is described here in [SPDX 2.2](https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements)
 
 #### 3.3.2 Rationale
 There are 3 majors formats for SBOMs: SPDX, CycloneDX, and SWID.
@@ -125,7 +125,7 @@ Tag:Value is the most human-readable format, and there are converters between th
 A Telco SBOM will include, at a minimum, the SPDX in the following human readable format as default: Tag:Value
 
 #### 3.4.1 Verification and reference material
-Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
+Tag:Value is described here in [SPDX 2.2](https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements)
 
 #### 3.4.2 Rationale
 As the Tag:Value format is also human readable it has been chosen so that both the requirements for a standardized machine readable and human readable version can be met using one file. An entity can release additional human readable formats but they are not required to conform to the OpenChain Telco SBOM specification.
