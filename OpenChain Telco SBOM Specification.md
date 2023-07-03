@@ -62,7 +62,7 @@ As clarification, an entity is free to use alternative Data Formats for internal
 
 ### 3.2 SPDX Elements to be included in the Telco SBOM
 
-The following elements are mandatory.
+The following elements are REQUIRED.
 
 Document creation information
 * SPDXVersion: mandatory in SPDX
