@@ -47,6 +47,9 @@ OpenChain means [OpenChain ISO/IEC 5230:2020](https://www.iso.org/standard/81039
 ### Transitive dependencies
 Transitive dependencies are all components that are necessary for the software to run. They include any dependency of the package that is not a direct dependency.
 
+### Package URL (PURL)
+Package URL (PURL) is a _de facto_ standard to uniquely identify software packages.
+
 ## 3. Requirements
 
 ### 3.1 Data Format
@@ -86,6 +89,8 @@ Package information
 * PackageLicenseDeclared: mandatory in SPDX
 * PackageCopyrightText: mandatory in SPDX
 
+A package SHOULD be identified by a Package URL (PURL).
+
 Relationships between SPDX elements
 * Relationship: at least DESCRIBES and CONTAINS, needed by “NTIA SBOM Minimum elements”
 
@@ -99,6 +104,8 @@ Recognizing the Telco industry need for harmonization and special requirements, 
 In SPDX, it maps to PackageChecksum.
 We make it mandatory as it is important to uniquely identify a package.
 Most SCA tools have the capability to produce hashes.
+
+Package URL (PURL) is a _de facto_ standard to uniquely identify software packages.
 
 ### 3.3 Machine Readable Data Format
 The Telco SBOM SHALL include, at a minimum, the SPDX in the following machine readable format as default: Tag:Value
@@ -257,4 +264,5 @@ You MAY at your choosing use the following statement in your Telco Specification
   * https://standards.iso.org/ittf/PubliclyAvailableStandards/c081039_ISO_IEC_5230_2020(E).zip
 * The Minimum Elements For a Software Bill of Materials (SBOM) a.k.a. “NTIA minimum elements”
   * https://www.ntia.doc.gov/report/2021/minimum-elements-software-bill-materials-sbom
-
+* Package URL (PURL)
+  * https://github.com/package-url/purl-spec
