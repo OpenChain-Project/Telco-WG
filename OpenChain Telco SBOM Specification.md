@@ -232,7 +232,7 @@ There exist tools to merge several SBOMs into one, e.g. https://github.com/vmwar
 It is often easier when dealing with a large software product to provide individual SBOMs of its parts than a single SBOM.
 
 ### 3.13 SBOM Confidentiality
-SBOMs MAY be subject to confidentiality agreements. A conformant SBOM MUST, however, not be subject to any confidentiality agreements that would prevent a recipient from redistributing the parts of the SBOM applicable to software that such recipient has a right to redistribute.
+SBOMs MAY be subject to confidentiality agreements. A conformant SBOM MUST NOT, however, be subject to any confidentiality agreements that would prevent a recipient from redistributing the parts of the SBOM applicable to software that such recipient has a right to redistribute.
 
 #### 3.13.1 Verification and reference material
 “NTIA SBOM Minimum elements”, section “Access Control”
