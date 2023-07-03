@@ -4,7 +4,7 @@
 
 This document “OpenChain Telco SBOM specification” aims to outline certain requirements related to how an entity creates, delivers, and consumes Software Bill of Materials (SBOM), so that entities that produce and/or consume SBOMs that conform to this specification can ensure repeatability and streamlining of tools and processes for generating and consuming SBOMs. *Please Note* that this specification does not require a conforming entity to adopt OpenChain (in any version) but doing so is greatly encouraged.
 
-Conformance to this specification is done on a per SBOM level: an entity can adopt the specification as its sole way of delivering SBOMs but it’s the individual SBOM that is conformant to the specification, not the entity that provides the SBOM. An SBOM conformant to this specification is called a “Telco SBOM”
+Conformance to this specification is done on a per SBOM level: an entity can adopt the specification as its sole way of delivering SBOMs but it’s the individual SBOM that is conformant to the specification, not the entity that provides the SBOM. An SBOM conformant to this specification is called a “Telco SBOM”.
 
 Releasing SBOMs conforming to this specification does not preclude an entity from also delivering SBOMs for the same software in alternate ways or formats, but those SBOMs are not conformant to the specification, thus neither an entity nor a software product is conformant to the specification as only the SBOM can be conformant to the specification.
 
@@ -101,7 +101,7 @@ We make it mandatory as it is important to uniquely identify a package.
 Most SCA tools have the capability to produce hashes.
 
 ### 3.3 Machine Readable Data Format
-The Telco SBOM will include, at a minimum, the SPDX in the following machine readable format as default: Tag:Value
+The Telco SBOM SHALL include, at a minimum, the SPDX in the following machine readable format as default: Tag:Value
 
 #### 3.3.1 Verification and reference material
 Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
@@ -122,7 +122,7 @@ Tag:Value is the most human-readable format, and there are converters between th
 (e.g. https://tools.spdx.org/app/convert/).
 
 ### 3.4 Human Readable Data Format
-A Telco SBOM will include, at a minimum, the SPDX in the following human readable format as default: Tag:Value
+A Telco SBOM SHALL include, at a minimum, the SPDX in the following human readable format as default: Tag:Value
 
 #### 3.4.1 Verification and reference material
 Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
@@ -220,7 +220,7 @@ integrity of the SBOM.
 Sigstore https://www.sigstore.dev/ is an example of such capability.
 
 #### 3.11.2 Rationale
-While the verification of SBOMs is an important topic, OpenChain Telco defers this work to other initiatives for the moment and intends to revisit this topic in future iterations of this working document.
+While the verification of SBOMs is an important topic, OpenChain Telco defers this work to other initiatives for the moment and intends to revisit this topic in future iterations of this document.
 
 ### 3.12 SBOM Merger
 SBOMs following this specification can be built from several SBOM files with a well-defined relationship to each other using the relationship definition features in SPDX.
