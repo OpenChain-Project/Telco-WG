@@ -13,15 +13,16 @@ This specification is licensed under [Creative Commons Attribution License 4.0 (
 ## 2. Terms and definitions
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
-NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and
-"OPTIONAL" in this document are to be interpreted as described in
-[RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+      NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED",
+      "MAY", and "OPTIONAL" in this document are to be interpreted as
+      described in BCP 14 [[RFC2119]](https://www.ietf.org/rfc/rfc2119.txt)  [[RFC8174]](https://www.ietf.org/rfc/rfc8174.txt) when, and only when, they
+      appear in all capitals, as shown here.
 
 ### Data Format
 Data Format means the data format of the information in the SBOM. Possible Data Formats include SPDX, Cyclone DX, SWID, or other proprietary formats.
 
 ### Entity
-Entity shall mean the the legal entity (for profit, non profit, or natural person) that distributes software to third parties (e.g., other organizations or individuals). Entity does not include other group companies, or companies under common control of the Entity.
+Entity shall mean the legal entity (for profit, non profit, or natural person) that distributes software to third parties (e.g., other organizations or individuals). Entity does not include other group companies, or companies under common control of the Entity.
 
 ### SBOM
 A Software Bill of Materials (SBOM) is a formal record containing the details and supply chain relationships of various components used in building software.
@@ -251,6 +252,9 @@ Some open source software licenses enable any recipient to redistribute the soft
 To indicate that the software has a conformant SBOM available, you MAY use the following statement: “This software is supplied with an SBOM conformant to the OpenChain Telco SBOM Specification v1.0, the specification is available at https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md”
 
 You MAY at your choosing use the following statement in your Telco Specification conformant SBOM “This SBOM conforms to the OpenChain Telco SBOM specification v1.0 https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md, it is provided to the recipient free of charge, and the recipient is free to redistribute this SBOM to any third party that they distribute the corresponding software to, provided that they have all the necessary right to distribute the software to such third party”
+
+The following statement MAY be used as statement in the RFP document, order document, or contract document when requesting an RFP, purchasing orders, or outsourced development orders from a software vendor or telco system suppliers.
+When releasing software, it is REQUIRED to provide an SBOM compliant with the OpenChain Telco SBOM Specification v1.0 for all software released.  This specification is available at "[https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md)”
 
 ## 5. References
 
