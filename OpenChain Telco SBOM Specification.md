@@ -252,6 +252,9 @@ To indicate that the software has a conformant SBOM available, you MAY use the f
 
 You MAY at your choosing use the following statement in your Telco Specification conformant SBOM “This SBOM conforms to the OpenChain Telco SBOM specification v1.0 https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md, it is provided to the recipient free of charge, and the recipient is free to redistribute this SBOM to any third party that they distribute the corresponding software to, provided that they have all the necessary right to distribute the software to such third party”
 
+The following statement MAY be used as statement in the RFP document, order document, or contract document when requesting an RFP, purchasing orders, or outsourced development orders from a software vendor or telco system suppliers.
+When releasing software, it is REQUIRED to provide an SBOM compliant with the OpenChain Telco SBOM Specification v1.0 for all software released.  This specification is available at "[https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md)”
+
 ## 5. References
 
 * SPDX (ISO/IEC 5962:2021)
