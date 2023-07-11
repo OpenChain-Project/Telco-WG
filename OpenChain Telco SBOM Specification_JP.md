@@ -18,17 +18,17 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
       described in BCP 14 [[RFC2119]](https://www.ietf.org/rfc/rfc2119.txt)  [[RFC8174]](https://www.ietf.org/rfc/rfc8174.txt) when, and only when, they
       appear in all capitals, as shown here.
 
-### Data Format
-Data Format means the data format of the information in the SBOM. Possible Data Formats include SPDX, Cyclone DX, SWID, or other proprietary formats.
+### データ形式
+データ形式とは、SBOM内の情報のデータ形式を意味する。可能なデータ形式には、SPDX、Cyclone DX、SWID、またはその他の独自形式がある。
 
-### Entity
-Entity shall mean the legal entity (for profit, non profit, or natural person) that distributes software to third parties (e.g., other organizations or individuals). Entity does not include other group companies, or companies under common control of the Entity.
+### 事業体（頒布者）
+事業体とは、第三者（他の組織または個人など）にソフトウェアを配布する法人（営利、非営利、または自然人）を意味する。事業体には、他のグループ会社、または事業体の共通支配下にある会社は含まれない。
 
-### SBOM
-A Software Bill of Materials (SBOM) is a formal record containing the details and supply chain relationships of various components used in building software.
+### ソフトウェア部品表
+ソフトウェア部品表（SBOM）は、ソフトウェアを構築する際に使用される様々なコンポーネントの詳細とサプライチェーンの関係を含む正式な記録である。
 
 ### SBOM Type
-An SBOM can be of one of the following types:
+SBOMは以下のいずれかのタイプである：
 * Design,
 * Source,
 * Build,
@@ -36,7 +36,7 @@ An SBOM can be of one of the following types:
 * Deployed,
 * Runtime.
 
-The definition of these types can be found in the
+これらのタイプの定義は以下を参照すること。
 [CISA document](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf).
 
 ### SPDX
