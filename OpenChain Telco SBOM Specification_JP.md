@@ -12,11 +12,7 @@ This specification is licensed under [Creative Commons Attribution License 4.0 (
 
 ## 2. Terms and definitions
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
-      NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED",
-      "MAY", and "OPTIONAL" in this document are to be interpreted as
-      described in BCP 14 [[RFC2119]](https://www.ietf.org/rfc/rfc2119.txt)  [[RFC8174]](https://www.ietf.org/rfc/rfc8174.txt) when, and only when, they
-      appear in all capitals, as shown here.
+この文書内のキーワード "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY",  "OPTIONAL"は、BCP 14 [[RFC2119]](https://www.ietf.org/rfc/rfc2119.txt) [[RFC8174]](https://www.ietf.org/rfc/rfc8174.txt) に記述されているとおりに解釈される。
 
 ### データ形式
 データ形式とは、SBOM内の情報のデータ形式を意味する。可能なデータ形式には、SPDX、Cyclone DX、SWID、またはその他の独自形式がある。
@@ -36,11 +32,11 @@ SBOMは以下のいずれかのタイプである：
 * Deployed,
 * Runtime.
 
-これらのタイプの定義は以下を参照すること。
+これらのタイプの定義は右記を参照すること。
 [CISA document](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf).
 
 ### SPDX
-SPDX (Software Package Data Exchange) is the [ISO standard](https://www.iso.org/standard/81870.html) (ISO/IEC 5962:2021) for exchanging SBOM for a given software package, including associated license and copyright information. The standard was created by the [Linux Foundation's SPDX project](https://spdx.dev/).
+SPDX（Software Package Data Exchange）とは、[ISO標準(ISO/IEC 5962:2021)](https://www.iso.org/standard/81870.html)であり、ソフトウェアパッケージのSBOMを交換するための規格であり、関連するライセンスや著作権情報も含まれる。この標準は[Linux Foundation の SPDXプロジェクト](https://spdx.dev/)によって纏められた。
 
 ### OpenChain
 OpenChain means [OpenChain ISO/IEC 5230:2020](https://www.iso.org/standard/81039.html), the international standard that specifies the key requirements of a quality open source license compliance program in order to provide a benchmark that builds trust between organizations exchanging software solutions that incorporate open source software. The OpenChain standard is produced by the [OpenChain project](https://www.openchainproject.org) of the Linux Foundation.
