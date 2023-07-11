@@ -65,31 +65,31 @@ ISO/IEC 5962:2021 情報技術 - SPDX® 仕様 V2.2.1
 以下の要素が必須である。
 
 ドキュメント作成情報（Document creation information）
-* SPDXVersion: SPDXに必須
-* DataLicense: SPDXに必須
-* SPDXID: SPDXに必須
-* DocumentName: SPDXに必須
-* DocumentNamespace: SPDXに必須
-* Creator: SPDXに必須
-* Created: SPDXに必須
+* SPDXVersion: SPDXの必須項目
+* DataLicense: SPDXの必須項目
+* SPDXID: SPDXの必須項目
+* DocumentName: SPDXの必須項目
+* DocumentNamespace: SPDXの必須項目
+* Creator: SPDXの必須項目
+* Created: SPDXの必須項目
 * CreatorComment:  “SBOM Build information” に入力できるようにする
 
 パッケージ情報（Package information）
-* PackageName: SPDXに必須
-* SPDXID: SPDXに必須
-* PackageVersion: “NTIA SBOM最小要素” によって必要
-* PackageSupplier:  “NTIA SBOM最小要素” によって必要
-* PackageDownloadLocation: SPDXに必須
+* PackageName: SPDXの必須項目
+* SPDXID: SPDXの必須項目
+* PackageVersion: NTIAのSBOM最小要素」によって必要とされる
+* PackageSupplier:  NTIAのSBOM最小要素」によって必要とされる
+* PackageDownloadLocation: SPDXの必須項目
 * FilesAnalyzed
-* PackageChecksum:  “NTIA SBOM最小要素” によって推奨
-* PackageLicenseConcluded: SPDXに必須
-* PackageLicenseDeclared: SPDXに必須
-* PackageCopyrightText: SPDXに必須
+* PackageChecksum:  “NTIA SBOM最小要素” によって推奨される
+* PackageLicenseConcluded: SPDXの必須項目
+* PackageLicenseDeclared: SPDXの必須項目
+* PackageCopyrightText: SPDXの必須項目
 
 パッケージはパッケージURL(PURL)によって識別されるべきである。
 
 SPDX要素間の関係
-* Relationship: “NTIA SBOM最小要素” により、少なくとも DESCRIBES と CONTAINS が必要
+* Relationship: “NTIA SBOM最小要素” により、少なくとも DESCRIBES と CONTAINS が必要とされる
 
 #### 3.2.1 検証と参考資料
 NTIA SBOM最小要素
@@ -103,7 +103,7 @@ SPDX では PackageChecksum に対応する。パッケージを一意に識別�
 
 パッケージURL(PURL)は、ソフトウェアパッケージを一意に識別するためのデファクトスタンダードです。
 
-### 3.3 Machine Readable Data Format
+### 3.3 機械が読み取り可能なデータ形式
 The Telco SBOM SHALL include, at a minimum, the SPDX in the following machine readable format as default: Tag:Value
 
 #### 3.3.1 Verification and reference material
