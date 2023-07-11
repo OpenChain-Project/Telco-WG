@@ -50,15 +50,15 @@ OpenChainとは [OpenChain ISO/IEC 5230:2020](https://www.iso.org/standard/81039
 ## 3. 要求要件
 
 ### 3.1 データ形式
-A Telco SBOM SHALL adhere to the version 2.2 of the SPDX Data Format as standardized in ISO/IEC 5962:2021 and as further described below with respect to the included elements.
+通信業界SBOM は、ISO/IEC 5962:2021 で標準化されている SPDX データフォーマットのバージョン 2.2 に準拠し、含まれる要素に関して以下に説明する。
 
-#### 3.1.1 Verification and reference material
-ISO/IEC 5962:2021 Information technology — SPDX® Specification V2.2.1
+#### 3.1.1 検証と参考資料
+ISO/IEC 5962:2021 情報技術 - SPDX® 仕様 V2.2.1
 
-#### 3.1.2 Rationale
-To ensure simplified handling and streamlining of tooling and competences in the telecommunications supply chain, both for suppliers and consumers of software, a Telco SBOM shall adhere to the SPDX Data Format as standardized in ISO/IEC 5962:2021. By harmonizing on the use of this standard SBOM Data Format in an organization's external interfaces, the complexities for organizations supplying and consuming software are simplified, as only one set of unified requirements will be applicable.
+#### 3.1.2 根拠
+ソフトウェアの供給者と消費者の両方にとって、電気通信サプライチェーンにおけるツールおよび能力の簡素な取り扱いと合理化を確実にするために、通信業界SBOMは、ISO/IEC 5962:2021で標準化されているSPDXデータ形式に準拠しなければならない。 各組織の対外窓口で、この標準SBOMデータフォーマットを使用することで、ソフトウェアを供給する組織と消費する組織の複雑さが簡素化される。
 
-As clarification, an entity is free to use alternative Data Formats for internal use, or deliver SBOMs in alternative Data Formats to organizations that so request or on its own initiative. The OpenChain Telco SBOM specification is a SBOM-level specification to adhere to, and not an organizational specification to adhere to. There are no conforming entities, only conforming SBOMs, delivered by entities that have implemented the OpenChain Telco SBOM specification.
+明確化として、事業体は、内部使用のために代替データ形式を自由に使用することができ、また、要求する組織に対して、あるいは自発的に、代替データ形式でSBOMを提供することができる。 OpenChain 通信業界SBOM仕様は準拠すべきSBOM様であり、準拠すべき組織仕様ではない。（OpenChain 通信業界SBOM仕様に）適合する事業体は存在せず、OpenChain 通信業界SBOM仕様を実装した事業体によって提供される適合SBOMのみが存在する。
 
 ### 3.2 SPDX Elements to be included in the Telco SBOM
 
