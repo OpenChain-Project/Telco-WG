@@ -64,7 +64,7 @@ ISO/IEC 5962:2021 情報技術 - SPDX® 仕様 V2.2.1
 
 以下の要素が必須である。
 
-文書作成情報（Document creation information）
+ドキュメント作成情報（Document creation information）
 * SPDXVersion: SPDXに必須
 * DataLicense: SPDXに必須
 * SPDXID: SPDXに必須
@@ -77,8 +77,8 @@ ISO/IEC 5962:2021 情報技術 - SPDX® 仕様 V2.2.1
 パッケージ情報（Package information）
 * PackageName: SPDXに必須
 * SPDXID: SPDXに必須
-* PackageVersion: needed by “NTIA SBOM Minimum elements”
-* PackageSupplier: needed by “NTIA SBOM Minimum elements”
+* PackageVersion: “NTIA SBOM最小要素” によって必要
+* PackageSupplier:  “NTIA SBOM最小要素” によって必要
 * PackageDownloadLocation: SPDXに必須
 * FilesAnalyzed
 * PackageChecksum:  “NTIA SBOM最小要素” によって推奨
@@ -89,20 +89,19 @@ ISO/IEC 5962:2021 情報技術 - SPDX® 仕様 V2.2.1
 パッケージはパッケージURL(PURL)によって識別されるべきである。
 
 SPDX要素間の関係
-* Relationship: at least DESCRIBES and CONTAINS, needed by “NTIA SBOM Minimum elements”
+* Relationship: “NTIA SBOM最小要素” により、少なくとも DESCRIBES と CONTAINS が必要
 
-#### 3.2.1 Verification and reference material
-NTIA minimum elements
+#### 3.2.1 検証と参考資料
+NTIA SBOM最小要素
 
-#### 3.2.2 Rationale
-Recognizing the Telco industry need for harmonization and special requirements, possibly beyond the NTIA minimum elements, the “OpenChain Telco SBOM specification” is proposed to ensure predictability to the industry as to the elements of an SBOM that is expected.
+#### 3.2.2 根拠
+通信業界の調和を認識し、また可能であればNTIAの最小要素を超える特別な要件の必要性を認識し、期待されるSBOMの要素について業界の見通しを確実にするため、本「OpenChain 通信業界SBOM仕様」を提案する。
 
-“Component Hash” is recommended, but not required by the “NTIA SBOM Minimum elements”.
-In SPDX, it maps to PackageChecksum.
-We make it mandatory as it is important to uniquely identify a package.
-Most SCA tools have the capability to produce hashes.
+“Component Hash” は推奨されるものの、“NTIA SBOM最小要素” には要求として無い。
+SPDX では PackageChecksum に対応する。パッケージを一意に識別するために重要なので必須とする。
+なお、ほとんどのSCAツールはハッシュを生成する機能を持っている。
 
-Package URL (PURL) is a _de facto_ standard to uniquely identify software packages.
+パッケージURL(PURL)は、ソフトウェアパッケージを一意に識別するためのデファクトスタンダードです。
 
 ### 3.3 Machine Readable Data Format
 The Telco SBOM SHALL include, at a minimum, the SPDX in the following machine readable format as default: Tag:Value
