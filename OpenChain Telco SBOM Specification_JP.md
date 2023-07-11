@@ -1,14 +1,14 @@
-# OpenChain 通信業界のSBOM仕様 [Draft v 1.0]
+# OpenChain 通信業界SBOM仕様 [Draft v 1.0]
 
 ## 1. スコープ
 
-This document “OpenChain Telco SBOM specification” aims to outline certain requirements related to how an entity creates, delivers, and consumes Software Bill of Materials (SBOM), so that entities that produce and/or consume SBOMs that conform to this specification can ensure repeatability and streamlining of tools and processes for generating and consuming SBOMs. *Please Note* that this specification does not require a conforming entity to adopt OpenChain (in any version) but doing so is greatly encouraged.
+本ドキュメント "OpenChain 通信業界SBOM仕様 "は、事業体がソフトウェア部品表（SBOM）をどのように作成し、配信し、そして消費するか、に関連する特定の要件を概説することを目的とする。この仕様に準拠するSBOMを生成し消費する事業体、または生成か消費する事業体が、SBOMを生成し消費する際のツールおよびプロセスの再現性と合理性を確保できるようにする。この仕様は、適合する事業体がOpenChainを（どのバージョンでも）採用することを要求するものではないが、採用することが大いに推奨されることに留意されたい。
 
-Conformance to this specification is done on a per SBOM level: an entity can adopt the specification as its sole way of delivering SBOMs but it’s the individual SBOM that is conformant to the specification, not the entity that provides the SBOM. An SBOM conformant to this specification is called a “Telco SBOM”.
+事業体はSBOMを提供する唯一の方法としてこの仕様を採用できるが、仕様に準拠するのは個々のSBOMであり、SBOMを提供する事業体ではない。この仕様に準拠したSBOMは「Telco SBOM（通信業界SBOM）」と呼ばれる。
 
-Releasing SBOMs conforming to this specification does not preclude an entity from also delivering SBOMs for the same software in alternate ways or formats, but those SBOMs are not conformant to the specification, thus neither an entity nor a software product is conformant to the specification as only the SBOM can be conformant to the specification.
+この仕様に準拠したSBOMをリリースすることは、事業体が同じソフトウェアのSBOMを別の方法または形式で配信することを妨げない。ただし、それらのSBOMは仕様に準拠していないため、事業体もソフトウェア製品も仕様に準拠していない。
 
-This specification is licensed under [Creative Commons Attribution License 4.0 (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/).
+本仕様は、 [Creative Commons Attribution License 4.0 (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/)の下でライセンスされている。
 
 ## 2. Terms and definitions
 
@@ -39,7 +39,7 @@ SBOMは以下のいずれかのタイプである：
 SPDX（Software Package Data Exchange）とは、[ISO標準(ISO/IEC 5962:2021)](https://www.iso.org/standard/81870.html)であり、ソフトウェアパッケージのSBOMを交換するための規格であり、関連するライセンスや著作権情報も含まれる。この標準は[Linux Foundation の SPDXプロジェクト](https://spdx.dev/)によって纏められた。
 
 ### OpenChain
-OpenChain means [OpenChain ISO/IEC 5230:2020](https://www.iso.org/standard/81039.html), the international standard that specifies the key requirements of a quality open source license compliance program in order to provide a benchmark that builds trust between organizations exchanging software solutions that incorporate open source software. The OpenChain standard is produced by the [OpenChain project](https://www.openchainproject.org) of the Linux Foundation.
+OpenChainとは [OpenChain ISO/IEC 5230:2020](https://www.iso.org/standard/81039.html)を意味し、オープンソースソフトウェアを組み込んだソフトウェアソリューションを交換する組織間の信頼を構築するベンチマークを提供するために、質の高いオープンソースライセンスコンプライアンスプログラムの主要な要件を規定した国際規格です。 OpenChain標準は、Linux Foundationの [OpenChain project](https://www.openchainproject.org)によって作成されている。
 
 ### Transitive dependencies
 Transitive dependencies are all components that are necessary for the software to run. They include any dependency of the package that is not a direct dependency.
