@@ -106,12 +106,12 @@ SPDX では PackageChecksum に対応する。パッケージを一意に識別�
 ### 3.3 機械が読み取り可能なデータ形式
 The Telco SBOM SHALL include, at a minimum, the SPDX in the following machine readable format as default: Tag:Value
 
-#### 3.3.1 Verification and reference material
+#### 3.3.1 検証と参考資料
 Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
 
-#### 3.3.2 Rationale
-There are 3 majors formats for SBOMs: SPDX, CycloneDX, and SWID.
-These 3 formats are the ones recommended by NTIA document "The Minimum Elements For a Software Bill of Materials (SBOM)" (see References section).
+#### 3.3.2 根拠
+SBOMには3つの主要フォーマットがある： SPDX、CycloneDX、SWID
+これら3つのフォーマットは、NTIAの文書「The Minimum Elements For a Software Bill of Materials (SBOM)」（参考文献のセクションを参照）で推奨されている。
 
 The reasons for selecting SPDX as data format of the Telco SBOM specification include the following:
 * SPDX is an ISO standard,
