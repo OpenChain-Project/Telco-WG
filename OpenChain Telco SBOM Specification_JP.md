@@ -58,37 +58,37 @@ ISO/IEC 5962:2021 情報技術 - SPDX® 仕様 V2.2.1
 #### 3.1.2 根拠
 ソフトウェアの供給者と消費者の両方にとって、電気通信サプライチェーンにおけるツールおよび能力の簡素な取り扱いと合理化を確実にするために、通信業界SBOMは、ISO/IEC 5962:2021で標準化されているSPDXデータ形式に準拠しなければならない。 各組織の対外窓口で、この標準SBOMデータフォーマットを使用することで、ソフトウェアを供給する組織と消費する組織の複雑さが簡素化される。
 
-明確化として、事業体は、内部使用のために代替データ形式を自由に使用することができ、また、要求する組織に対して、あるいは自発的に、代替データ形式でSBOMを提供することができる。 OpenChain 通信業界SBOM仕様は準拠すべきSBOM様であり、準拠すべき組織仕様ではない。（OpenChain 通信業界SBOM仕様に）適合する事業体は存在せず、OpenChain 通信業界SBOM仕様を実装した事業体によって提供される適合SBOMのみが存在する。
+明確化として、事業体は、内部使用のために代替データ形式を自由に使用することができ、また、要求する組織に対して、あるいは自発的に、代替データ形式でSBOMを提供することができる。 OpenChain 通信業界SBOM仕様は準拠すべきSBOM様であり、準拠すべき組織仕様ではない。（OpenChain 通信業界SBOM仕様に）適合する事業体は存在せず、OpenChain 通信業界SBOM仕様を実装した事業体によって提供された（OpenChain 通信業界SBOM仕様に）適合するSBOMのみが存在する。
 
-### 3.2 SPDX Elements to be included in the Telco SBOM
+### 3.2 通信業界SBOMに含まれるSPDX要素
 
-The following elements are REQUIRED.
+以下の要素が必須である。
 
-Document creation information
-* SPDXVersion: mandatory in SPDX
-* DataLicense: mandatory in SPDX
-* SPDXID: mandatory in SPDX
-* DocumentName: mandatory in SPDX
-* DocumentNamespace: mandatory in SPDX
-* Creator: mandatory in SPDX
-* Created: mandatory in SPDX
-* CreatorComment: to be able to put “SBOM Build information”
+文書作成情報（Document creation information）
+* SPDXVersion: SPDXに必須
+* DataLicense: SPDXに必須
+* SPDXID: SPDXに必須
+* DocumentName: SPDXに必須
+* DocumentNamespace: SPDXに必須
+* Creator: SPDXに必須
+* Created: SPDXに必須
+* CreatorComment:  “SBOM Build information” に入力できるようにする
 
-Package information
-* PackageName: mandatory in SPDX
-* SPDXID: mandatory in SPDX
+パッケージ情報（Package information）
+* PackageName: SPDXに必須
+* SPDXID: SPDXに必須
 * PackageVersion: needed by “NTIA SBOM Minimum elements”
 * PackageSupplier: needed by “NTIA SBOM Minimum elements”
-* PackageDownloadLocation: mandatory in SPDX
+* PackageDownloadLocation: SPDXに必須
 * FilesAnalyzed
-* PackageChecksum: recommended by “NTIA SBOM Minimum elements”
-* PackageLicenseConcluded: mandatory in SPDX
-* PackageLicenseDeclared: mandatory in SPDX
-* PackageCopyrightText: mandatory in SPDX
+* PackageChecksum:  “NTIA SBOM最小要素” によって推奨
+* PackageLicenseConcluded: SPDXに必須
+* PackageLicenseDeclared: SPDXに必須
+* PackageCopyrightText: SPDXに必須
 
-A package SHOULD be identified by a Package URL (PURL).
+パッケージはパッケージURL(PURL)によって識別されるべきである。
 
-Relationships between SPDX elements
+SPDX要素間の関係
 * Relationship: at least DESCRIBES and CONTAINS, needed by “NTIA SBOM Minimum elements”
 
 #### 3.2.1 Verification and reference material
