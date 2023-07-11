@@ -1,6 +1,6 @@
-# OpenChain Telco SBOM specification [Draft v 1.0]
+# OpenChain 通信業界のSBOM仕様 [Draft v 1.0]
 
-## 1. Scope
+## 1. スコープ
 
 This document “OpenChain Telco SBOM specification” aims to outline certain requirements related to how an entity creates, delivers, and consumes Software Bill of Materials (SBOM), so that entities that produce and/or consume SBOMs that conform to this specification can ensure repeatability and streamlining of tools and processes for generating and consuming SBOMs. *Please Note* that this specification does not require a conforming entity to adopt OpenChain (in any version) but doing so is greatly encouraged.
 
