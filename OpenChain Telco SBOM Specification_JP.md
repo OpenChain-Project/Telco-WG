@@ -10,7 +10,7 @@
 
 本仕様は、 [Creative Commons Attribution License 4.0 (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/)の下でライセンスされている。
 
-## 2. Terms and definitions
+## 2. 用語と定義
 
 この文書内のキーワード "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY",  "OPTIONAL"は、BCP 14 [[RFC2119]](https://www.ietf.org/rfc/rfc2119.txt) [[RFC8174]](https://www.ietf.org/rfc/rfc8174.txt) に記述されているとおりに解釈される。
 
@@ -18,12 +18,12 @@
 データ形式とは、SBOM内の情報のデータ形式を意味する。可能なデータ形式には、SPDX、Cyclone DX、SWID、またはその他の独自形式がある。
 
 ### 事業体（訳注：頒布者）
-事業体とは、第三者（他の組織または個人など）にソフトウェアを配布する法人（営利、非営利、または自然人）を意味する。事業体には、他のグループ会社、または事業体の共通支配下にある会社は含まれない。
+事業体（entity）とは、第三者（他の組織または個人など）にソフトウェアを配布する法人（営利、非営利、または自然人）を意味する。事業体には、他のグループ会社、または事業体の共通支配下にある会社は含まれない。
 
 ### ソフトウェア部品表
 ソフトウェア部品表（SBOM）は、ソフトウェアを構築する際に使用される様々なコンポーネントの詳細とサプライチェーンの関係を含む正式な記録である。
 
-### SBOM Type
+### SBOMタイプ
 SBOMは以下のいずれかのタイプである：
 * Design,
 * Source,
@@ -41,15 +41,15 @@ SPDX（Software Package Data Exchange）とは、[ISO標準(ISO/IEC 5962:2021)](
 ### OpenChain
 OpenChainとは [OpenChain ISO/IEC 5230:2020](https://www.iso.org/standard/81039.html)を意味し、オープンソースソフトウェアを組み込んだソフトウェアソリューションを交換する組織間の信頼を構築するベンチマークを提供するために、質の高いオープンソースライセンスコンプライアンスプログラムの主要な要件を規定した国際規格です。 OpenChain標準は、Linux Foundationの [OpenChain project](https://www.openchainproject.org)によって作成されている。
 
-### Transitive dependencies
-Transitive dependencies are all components that are necessary for the software to run. They include any dependency of the package that is not a direct dependency.
+### 相互依存関係
+相互依存(transitive dependencies)とは、ソフトウェアの実行に必要なすべての コンポーネントのことである。直接的な依存関係ではないパッケージの依存関係も含まれる。
 
-### Package URL (PURL)
-Package URL (PURL) is a _de facto_ standard to uniquely identify software packages.
+### パッケージURL(PURL)
+パッケージURL(PURL)は、ソフトウェアパッケージを一意に識別するためのデファクトスタンダードです。
 
-## 3. Requirements
+## 3. 要求要件
 
-### 3.1 Data Format
+### 3.1 データ形式
 A Telco SBOM SHALL adhere to the version 2.2 of the SPDX Data Format as standardized in ISO/IEC 5962:2021 and as further described below with respect to the included elements.
 
 #### 3.1.1 Verification and reference material
