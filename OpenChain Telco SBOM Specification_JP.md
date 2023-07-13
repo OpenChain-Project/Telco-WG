@@ -226,29 +226,29 @@ SBOMの検証は重要なトピックであるが、OpenChain Telco-WG は、こ
 本仕様に従ったSBOMは、SPDXの関係定義機能を使用して、互いに明確に定義された関係を持った複数のSBOMファイルから構築することができる。
 
 #### 3.12.1 検証と参考資料
-複数のSBOMから１つのSBOMへマージするツールの例、 https://github.com/vmware-samples/sbom-composer
+複数のSBOMから１つのSBOMへマージするツールの一例： https://github.com/vmware-samples/sbom-composer
 
-#### 3.12.2 Rationale
-It is often easier when dealing with a large software product to provide individual SBOMs of its parts than a single SBOM.
+#### 3.12.2 根拠
+大規模なソフトウェア製品を扱う場合、単一のSBOMよりも、個々の部品のSBOMを提供する方が容易なことが多い。
 
-### 3.13 SBOM Confidentiality
-SBOMs MAY be subject to confidentiality agreements. A conformant SBOM MUST NOT, however, be subject to any confidentiality agreements that would prevent a recipient from redistributing the parts of the SBOM applicable to software that such recipient has a right to redistribute.
+### 3.13 SBOMの守秘義務
+SBOMは秘密保持契約の対象であってもよい。ただし、本仕様に適合するSBOMは、受信者が再配布する権利を持つソフトウェアに適用されるSBOMに対して、受信者の再配布を妨げるような秘密保持契約の対象になってはならない。
 
-#### 3.13.1 Verification and reference material
-“NTIA SBOM Minimum elements”, section “Access Control”
+#### 3.13.1 検証と参考資料
+NTIA SBOM最小要素 の “Access Control”セクション
 
-#### 3.13.2 Rationale
-Some open source software licenses enable any recipient to redistribute the software. In these situations, the recipients should be also able to redistribute the relevant parts of the SBOMs.
+#### 3.13.2 根拠
+オープンソースソフトウェアライセンスの中には、いかなる受領者もソフトウェアを再配布できるものがある。このような状況では、受信者もSBOMの関連部分を再配布できるようにすべきである。
 
-## 4. Conformant notice
-To indicate that the software has a conformant SBOM available, you MAY use the following statement: “This software is supplied with an SBOM conformant to the OpenChain Telco SBOM Specification v1.0, the specification is available at https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md”
+## 4. 適合通知
+ソフトウェアがSBOMに適合していることを示すために、以下の記述を使用してもよい： "このソフトウェアは、OpenChain Telco SBOM Specification v1.0に準拠したSBOMとともに提供される。この仕様は、https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md で入手できる。"
 
-You MAY at your choosing use the following statement in your Telco Specification conformant SBOM “This SBOM conforms to the OpenChain Telco SBOM specification v1.0 https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md, it is provided to the recipient free of charge, and the recipient is free to redistribute this SBOM to any third party that they distribute the corresponding software to, provided that they have all the necessary right to distribute the software to such third party”
+このSBOMはOpenChain Telco SBOM仕様v1.0（https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md）に準拠しており、受領者には無償で提供される。受領者は、対応するソフトウェアを配布するいかなる第三者に対しても、当該第三者にソフトウェアを配布するために必要なすべての権利を有することを条件に、このSBOMを自由に再配布することができる。
 
-The following statement MAY be used as statement in the RFP document, order document, or contract document when requesting an RFP, purchasing orders, or outsourced development orders from a software vendor or telco system suppliers.
-When releasing software, it is REQUIRED to provide an SBOM compliant with the OpenChain Telco SBOM Specification v1.0 for all software released.  This specification is available at "[https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md)”
+ソフトウェアベンダーや通信システムサプライヤーにRFP、購買発注、受託開発発注を依頼する場合、RFP文書、発注文書、契約文書の記載事項として、以下の文を使用してもよい。
+ソフトウェアをリリースする場合、リリースされるすべてのソフトウェアについて、OpenChain Telco SBOM Specification v1.0に準拠したSBOMを提供することが要求される。 この仕様は"[https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md) "で入手可能である。
 
-## 5. References
+## 5. 参考文献
 
 * SPDX (ISO/IEC 5962:2021)
   * https://spdx.dev/
