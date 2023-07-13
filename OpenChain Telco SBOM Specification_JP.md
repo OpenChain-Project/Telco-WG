@@ -258,7 +258,7 @@ NTIA SBOM最小要素 の “Access Control”セクション
   * https://www.openchainproject.org/
   * https://www.iso.org/standard/81039.html
   * https://standards.iso.org/ittf/PubliclyAvailableStandards/c081039_ISO_IEC_5230_2020(E).zip
-* The Minimum Elements For a Software Bill of Materials (SBOM) a.k.a. “NTIA minimum elements”
+* The Minimum Elements For a Software Bill of Materials (SBOM) （本資料内で "NTIA SBOM最小要素" と記載）
   * https://www.ntia.doc.gov/report/2021/minimum-elements-software-bill-materials-sbom
 * Package URL (PURL)
   * https://github.com/package-url/purl-spec
