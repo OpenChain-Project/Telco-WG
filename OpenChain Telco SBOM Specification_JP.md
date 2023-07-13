@@ -113,123 +113,120 @@ Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/
 SBOMには3つの主要フォーマットがある： SPDX、CycloneDX、SWID
 これら3つのフォーマットは、NTIAの文書「The Minimum Elements For a Software Bill of Materials (SBOM)」（参考文献のセクションを参照）で推奨されている。
 
-The reasons for selecting SPDX as data format of the Telco SBOM specification include the following:
-* SPDX is an ISO standard,
-* SPDX has more features than CycloneDX for license compliance,
-* SPDX has a human-readable format (CycloneDX has only JSON and XML),
-* SWID is more a software identifier than a fully fledged SBOM format.
+通信業界SBOM仕様のデータ形式としてSPDXを選択した理由は以下の通り:
+* SPDXはISO規格であること,
+* SPDXはCycloneDXと比較してライセンスコンプライアンスのための機能が充実していること,
+* SPDXは人間が読めるフォーマットであること（CycloneDXはJSONとXMLしかない）,
+* SWIDは本格的なSBOMフォーマットというよりはソフトウェア識別子である.
 
-To facilitate a simplified toolchain, a machine readable version of the SBOM needs to be included. To ensure repeatability and harmonization a conformant SBOM must be in the Tag:Value format. An entity can release additional machine readable formats but they are not required to conform to the specification.
+簡素化されたツールチェーンを促進するために、本仕様に適合するSBOMは機械可読性が必要がある。また、再現性と整合性を確保するために、本仕様に適合するSBOMは「Tag:Value形式」でなければならない。なお、事業体はその他の機械可読データ形式をリリースすることはできるが本仕様に準拠する必要はない。
 
-Tag:Value is the most human-readable format, and there are converters between the various SPDX formats
-(e.g. https://tools.spdx.org/app/convert/).
+「Tag:Value形式」は最も人間が読みやすいフォーマットであり、様々なSPDXフォーマット間のコンバーターが存在する。
+(例、https://tools.spdx.org/app/convert/).
 
-### 3.4 Human Readable Data Format
-A Telco SBOM SHALL include, at a minimum, the SPDX in the following human readable format as default: Tag:Value
+### 3.4 人間が読み取り可能なデータ形式
+通信業界SBOM は、最低限、デフォルトとして「Tag:Value形式」の人間が読める形式の SPDX を含めるものとする
 
-#### 3.4.1 Verification and reference material
-Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
+#### 3.4.1 検証と参考資料
+「Tag:Value形式」は SPDX 2.2 を参照（https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements）
 
-#### 3.4.2 Rationale
-As the Tag:Value format is also human readable it has been chosen so that both the requirements for a standardized machine readable and human readable version can be met using one file. An entity can release additional human readable formats but they are not required to conform to the OpenChain Telco SBOM specification.
+#### 3.4.2 根拠
+「Tag:Value形式」は人間が読むこともできるため、標準化された機械が読み取り可能なデータ形式と人間が読み取り可能なデータ形式の両方の要件を1つのファイルで満たすことができる。事業体は、さらに人間が読み取り可能なデータ形式をリリースすることができるが、本仕様に準拠する必要はない。
 
-### 3.5 SBOM Build information
-SBOMs conforming to the Telco SBOM Specification MUST contain information as when they were created (using the SPDX `Created` field) and to which version of the software they were created (using the SPDX `CreatorComment` field).
+### 3.5 SBOM ビルド情報
+本仕様に準拠する SBOM は、いつ作成されたか（SPDX の `Created` フィールドを使用）という情報と、どのバージョンのソフトウェアで作成されたか（SPDX の `CreatorComment` フィールドを使用）という情報を含めなければならない。
 
-The `Creator` field MUST:
-* contain a line with the `Organization` keyword;
-* contain a line with the `Tool` keyword; in this line we MUST have after the `Tool` keyword the tool name and the tool version.
+SPDX の `Created` フィールド は:
+* `Organization`キーワードを示す行を含まなければならない;
+* `Tool`キーワードを示す行を記述しなければならない。またこの行では、`Tool`キーワードの後にツール名とツールバージョンを記述しなければならない。
 
-The tool name and the tool version SHOULD be separated by hyphen ("-"), no other hyphen SHOULD appear on the line.
+ツール名とツールバージョンはハイフン("-")で区切るべきである。
 
-SBOMs conforming to the Telco SBOM Specification MUST provide their SBOM Type as
-[defined by CISA](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)
-in the `CreatorComment` field.
+Telco SBOM仕様に準拠するSBOMは、CreatorCommentフィールドに[CISA](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)が定義するSBOM Typeを提供しなければならない。
 
-#### 3.5.1 Verification and reference material
-SPDX standard
+#### 3.5.1 検証と参考資料
+SPDX規格
 
-#### 3.5.2 Rationale
-It is important to know which tool and which version of the tool have created the SBOM.
+#### 3.5.2 根拠
+どのツールのどのバージョンでSBOMが作成されたかを知ることは重要である。
 
-The SPDX standard gives "toolidentifier-version" as an example, but it is not mandatory to have this syntax.
+SPDX 規格では、例として「toolidentifier-version」を挙げているが、この構文が必須というわけではない。
 
-For example, there is a tool that outputs:
+例えば、出力するツールを示す際に：
 ```
 Creator: Tool: sigs.k8s.io/bom/pkg/spdx
 ```
-We have also:
+他の例として:
 ```
 Creator: Tool: scancode-toolkit 30.1.0
 ```
-and
+別の例として、
 ```
 Creator: Tool: SCANOSS-PY: 1.5.1
 ```
-where the name contains an hyphen, and the tool name and tool version are not separated by an hyphen.
+ここで、名前にはハイフンが含まれ、ツール名とツールバージョンはハイフンで区切られていない。
 
-So we cannot require a precise syntax.
+従って、正確な構文を要求することはできない。
 
-### 3.6 Timing of SBOM delivery
-The SBOM SHALL be delivered no later than at the time of the delivery of the software (in either binary or source form). 
+### 3.6 SBOM納入のタイミング
+SBOM は、遅くともソフトウェア（バイナリ形式またはソース形式のいずれか）の引渡しの時点までに納品しなければならない。
 
-#### 3.6.1 Verification and reference material
-“NTIA SBOM Minimum elements”, section “Distribution and Delivery”
+#### 3.6.1 検証と参考資料
+NTIA SBOM最小要素 の “Distribution and Delivery”セクション
 
-#### 3.6.2 Rationale
-To ensure that the receiving entity can ingest the software and its SBOM, it shall be delivered no later than at the delivery of the software. An SBOM may be delivered before the software if an adopting entity so elects, but the software delivery must nevertheless be accompanied by the corresponding SBOM to ensure compliance with the specification.
+#### 3.6.2 根拠
+納品される側の事業体がソフトウェアとそのSBOMを確実に受け取ることができるように、SBOMはソフトウェアの納品よりも遅くならないように引渡さなければならない。ソフトウェアの発注者が指示した場合は、ソフトウェアの引き渡し前にSBOMが納品されてもよいが、本仕様への準拠を確実にするためにソフトウェアの納品時には対応するSBOMも納品をしなければならない。
 
-### 3.7 Method of SBOM delivery
-The SBOM SHALL be embedded into the software “package” where technically feasible. If it is not technically feasible to embed the SBOM into the software “package” being delivered, such as in the case of space-constrained embedded systems, the supplying party will supply a web hosted version of the SBOM that is available for at least 18 months and SHALL NOT in any way restrict recipients’ ability to copy and store these locally for their own use. Such restrictions MAY NOT be placed on the recipient in additional confidentiality agreements. 
+### 3.7 SBOMの納入方法
+技術的に可能な場合、SBOM はソフトウェア「パッケージ」に埋め込まなければならない。スペースに制約のある組込みシステムの場合など、提供されるソフトウェア「パッケージ」に SBOM を組み込むことが技術的に不可能な場合、ソフトウェア供給側（受注者側）は少なくとも 18ヶ月利用可能な SBOM のウェブホスト版を提供し、ソフトウェア受信側（発注者）が自身の使用のためにこれらをローカルにコピーし保存する能力をいかなる形でも制限してはならない。このような制限は、追加の秘密保持契約において受領者に課してはならない。
 
-#### 3.7.1 Verification and reference material
-“NTIA SBOM Minimum elements”, section “Distribution and Delivery”
+#### 3.7.1 検証と参考資料
+NTIA SBOM最小要素 の “Distribution and Delivery”セクション
 
-#### 3.7.2 Rationale
-Other options of SBOM delivery such as webhosting are less stable and access is not guaranteed over time; however “embedding” may not be technically feasible. Thus, in scenarios where it is not possible on technical grounds to include the SBOM in the software delivery, publishing the SBOM online is permitted provided that the SBOM is accessible for the recipients of the software for 18 months. This duration is in line with the OpenChain specification requirements on recertification.
+#### 3.7.2 根拠
+ウェブホスティングなどでSBOM を提供する手法は安定性が低く、またアクセスが長期間保証されない。このように、SBOM をソフトウェアの「パッケージ」に含めることが技術的に不可能なシナリオでは、SBOM をオンラインで公開することが許可される。この期間は、再認証に関する "OpenChain specification" の要求に沿ったものである。
 
-### 3.8 SBOM Scope
-The SBOM SHALL contain all open source software that is delivered with the product including all of the transitive dependencies. The SBOM SHOULD contain all commercial components.
+### 3.8 SBOMの範囲
+SBOM には、すべての依存関係を含め、製品と共に提供されるすべてのオープンソースソフトウェアを含めるものとする。SBOM には、すべての商用コンポーネントを含めるべきである。
 
-If some components are not included, they MUST be reported as “known unknowns.”
+含まれない成分がある場合は、"known unknown "として報告しなければならない。
 
-#### 3.8.1 Verification and reference material
-“NTIA SBOM Minimum elements”, section “Known Unknowns”
+#### 3.8.1 検証と参考資料
+NTIA SBOM最小要素 の “Known Unknowns”セクション
 
-#### 3.8.2 Rationale
-It might not be possible, advisable or feasible to have the commercial component information in the SBOM. However, it is advisable that the SBOM should be as complete as possible.
+#### 3.8.2 根拠
+SBOM に市販のコンポーネント情報を持たせることは、可能、望ましい、実行可能でない、かもしれない。しかしながら、SBOMは可能な限り完全であることが望ましい。
 
-### 3.9 SBOM in a SaaS deployment
-As the OpenChain Telco SBOM specification is only applied on the SBOM level, there is no requirement on an entity that have elected to supply a Telco SBOM for some or even all of its software deliveries to also provide this for its SaaS offerings. However, an entity may elect to apply the OpenChain Telco SBOM specification also to its SaaS offerings and thus also deliver the open source software used in the SaaS offerings with their transitive dependencies as an SBOM.
+### 3.9 SaaS展開におけるSBOM
+本仕様はSBOMレベルでのみ適用されるため、提供するソフトウェアの一部またはすべてに通信業界SBOMを提供することを選択した事業体にとって、SaaS提供物にも通信業界SBOMを提供する要件はない。しかし、事業体は本仕様をSaaS提供物にも適用し、SaaS提供物で使用されるオープンソースソフトウェアとその相互依存関係をSBOMとして提供することができる。
 
-#### 3.9.1 Verification and reference material
+#### 3.9.1 検証と参考資料
 
-#### 3.9.2 Rationale
-There is currently no consensus in the industry on what an SaaS SBOM should contain.
+#### 3.9.2 根拠
+現在のところ、SaaS SBOMが何を含むべきかについて、業界のコンセンサスは得られていない。
 
-### 3.10 SBOMs for containers
-SBOMs for containers SHOULD include all open source components delivered in the container. This includes the packages installed into the container, components copied or downloaded to the container and dependencies used to build the compiled components in the container.
+### 3.10  コンテナ用SBOM
+コンテナ用のSBOMには、コンテナで提供されるすべてのオープンソースコンポーネントを含めるべきである。コンテナにインストールされたパッケージ、コンテナにコピーまたはダウンロードされたコンポーネント、およびコンテナ内でコンパイルされたコンポーネントを構築するために使用された依存関係が含まれる。
 
-#### 3.10.1 Verification and reference material
+#### 3.10.1 検証と参考資料
 
-#### 3.10.2 Rationale
-Every open source component delivered should be part of the SBOMs.
+#### 3.10.2 根拠
+提供されるすべてのオープンソースコンポーネントは、SBOMの一部であるべき。
 
-### 3.11 SBOM Verification
-It is RECOMMENDED to provide a digital signature of the SBOM in order to guarantee the
-integrity of the SBOM.
+### 3.11 SBOMの検証
+SBOM の完全性を保証するために、SBOM のデジタル署名を提供することが推奨される。
 
-#### 3.11.1 Verification and reference material
-Sigstore https://www.sigstore.dev/ is an example of such capability.
+#### 3.11.1 検証と参考資料
+Sigstore（https://www.sigstore.dev/）は SBOM のデジタル署名の一例である.
 
-#### 3.11.2 Rationale
-While the verification of SBOMs is an important topic, OpenChain Telco defers this work to other initiatives for the moment and intends to revisit this topic in future iterations of this document.
+#### 3.11.2 根拠
+SBOMの検証は重要なトピックであるが、OpenChain Telco-WG は、この作業を当面は他の取り組みに委ね、この文書の将来の改訂でこのトピックを再検討するつもりである。
 
-### 3.12 SBOM Merger
-SBOMs following this specification can be built from several SBOM files with a well-defined relationship to each other using the relationship definition features in SPDX.
+### 3.12 SBOMのマージ
+本仕様に従ったSBOMは、SPDXの関係定義機能を使用して、互いに明確に定義された関係を持った複数のSBOMファイルから構築することができる。
 
-#### 3.12.1 Verification and reference material
-There exist tools to merge several SBOMs into one, e.g. https://github.com/vmware-samples/sbom-composer
+#### 3.12.1 検証と参考資料
+複数のSBOMから１つのSBOMへマージするツールの例、 https://github.com/vmware-samples/sbom-composer
 
 #### 3.12.2 Rationale
 It is often easier when dealing with a large software product to provide individual SBOMs of its parts than a single SBOM.
