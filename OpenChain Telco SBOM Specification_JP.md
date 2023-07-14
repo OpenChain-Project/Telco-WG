@@ -39,7 +39,7 @@ SBOMは以下のいずれかのタイプである：
 SPDX（Software Package Data Exchange）とは、[ISO標準(ISO/IEC 5962:2021)](https://www.iso.org/standard/81870.html)であり、ソフトウェアパッケージのSBOMを相互に交換するための規格であり、関連するライセンスや著作権情報も含まれる。この標準は[Linux Foundation の SPDXプロジェクト](https://spdx.dev/)によって作成されている。
 
 ### OpenChain
-OpenChainとは、 [OpenChain ISO/IEC 5230:2020](https://www.iso.org/standard/81039.html)を意味し、オープンソースソフトウェアを組み込んだソフトウェアソリューションを相互に交換する組織間の信頼を構築するベンチマークを提供するために、質の高いオープンソースライセンスコンプライアンスプログラムの主要な要件を規定した国際規格です。 OpenChain標準は、Linux Foundationの [OpenChain project](https://www.openchainproject.org)によって作成されている。
+OpenChainとは、 [OpenChain ISO/IEC 5230:2020](https://www.iso.org/standard/81039.html)を意味し、オープンソースソフトウェアを組み込んだソフトウェアソリューションを相互に交換する組織間の信頼を構築するベンチマークを提供するために、質の高いオープンソースライセンスコンプライアンスプログラムの主要な要件を規定した国際規格である。 OpenChain標準は、Linux Foundationの [OpenChain project](https://www.openchainproject.org)によって作成されている。
 
 ### 相互依存関係
 相互依存(transitive dependencies)とは、ソフトウェアの実行に必要なすべての ソフトウェアコンポーネントのことである。直接的な依存関係ではないパッケージの依存関係（間接的な依存関係）も含まれる。
