@@ -15,13 +15,13 @@
 本文書内のキーワード "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY",  "OPTIONAL"は、BCP 14 [[RFC2119]](https://www.ietf.org/rfc/rfc2119.txt) [[RFC8174]](https://www.ietf.org/rfc/rfc8174.txt) に記述されているとおりに解釈される。
 
 ### データ形式
-データ形式とは、SBOM内の情報のデータ形式を意味する。可能なデータ形式には、SPDX、Cyclone DX、SWID、または、その他の独自形式がある。
+データ形式とは、SBOM内の情報のデータ形式を意味する。可能なデータ形式として、SPDX、Cyclone DX、SWID、その他の独自形式、がある。
 
 ### 事業体
 事業体（entity）とは、第三者（他の組織または個人など）にソフトウェアを頒布する法人（営利、非営利、または（訳注：法人と対比した）個人）を意味する。事業体には、他のグループ会社、または事業体の共通支配下にある会社は含まれない。
 
 ### ソフトウェア部品表
-ソフトウェア部品表（SBOM）は、ソフトウェアを構築する際に使用される様々なコンポーネントの詳細とサプライチェーンの関係を含む正式な記録である。
+ソフトウェア部品表（SBOM）は、ソフトウェアを構築する際に使用される様々なソフトウェアコンポーネントの詳細とサプライチェーンの関係を含む正式な記録である。
 
 ### SBOMタイプ
 SBOMは以下のいずれかのタイプである：
@@ -32,8 +32,8 @@ SBOMは以下のいずれかのタイプである：
 * Deployed,
 * Runtime.
 
-これらタイプの定義については右記を参照すること。
-[CISA document](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf).
+これらタイプの定義については[CISA document](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)を参照すること。
+
 
 ### SPDX
 SPDX（Software Package Data Exchange）とは、[ISO標準(ISO/IEC 5962:2021)](https://www.iso.org/standard/81870.html)であり、ソフトウェアパッケージのSBOMを相互に交換するための規格であり、関連するライセンスや著作権情報も含まれる。この標準は[Linux Foundation の SPDXプロジェクト](https://spdx.dev/)によって作成されている。
