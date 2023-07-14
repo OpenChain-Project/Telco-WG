@@ -39,18 +39,18 @@ SBOMは以下のいずれかのタイプである：
 SPDX（Software Package Data Exchange）とは、[ISO標準(ISO/IEC 5962:2021)](https://www.iso.org/standard/81870.html)であり、ソフトウェアパッケージのSBOMを相互に交換するための規格であり、関連するライセンスや著作権情報も含まれる。この標準は[Linux Foundation  SPDXプロジェクト](https://spdx.dev/)によって作成されている。
 
 ### OpenChain
-OpenChainとは、 [OpenChain ISO/IEC 5230:2020](https://www.iso.org/standard/81039.html)を意味し、オープンソースソフトウェアを組み込んだソフトウェアソリューションを相互に交換する組織間の信頼を構築するベンチマークを提供するために、質の高いオープンソースライセンスコンプライアンスプログラムの主要な要件を規定した国際規格である。 OpenChain Specificationは、Linux Foundationの [OpenChain project](https://www.openchainproject.org)によって作成されている。
+OpenChainとは、 [OpenChain Specification ISO/IEC 5230:2020](https://www.iso.org/standard/81039.html)を意味し、オープンソースソフトウェアを組み込んだソフトウェアソリューションを相互に交換する組織間の信頼を構築するベンチマークを提供するために、質の高いオープンソースライセンスコンプライアンスプログラムの主要な要件を規定した国際規格である。 OpenChain Specificationは、Linux Foundationの [OpenChain project](https://www.openchainproject.org)によって作成されている。
 
 ### 相互依存関係
 相互依存(transitive dependencies)とは、ソフトウェアの実行に必要なすべての ソフトウェアコンポーネントのことである。直接的な依存関係ではないパッケージの依存関係（間接的な依存関係）も含まれる。
 
 ### パッケージURL(PURL)
-パッケージURL(PURL)とは、ソフトウェアパッケージを一意に識別するためのデファクトスタンダードである。
+パッケージURL（PURL）とは、ソフトウェアパッケージを一意に識別するためのデファクトスタンダードである。
 
 ## 3. 要求要件
 
 ### 3.1 データ形式
-通信業界SBOM は、ISO/IEC 5962:2021 で標準化されている SPDX データフォーマットのバージョン 2.2 に準拠し、含まれる要素に関して以下に記載する。
+通信業界SBOM は、ISO/IEC 5962:2021 で標準化されている SPDX データフォーマットのバージョン 2.2 に準拠し、含まれる要素に関して3.2節に記載する。
 
 #### 3.1.1 検証と参考資料
 ISO/IEC 5962:2021 情報技術 - SPDX® 仕様 V2.2.1
@@ -72,16 +72,16 @@ ISO/IEC 5962:2021 情報技術 - SPDX® 仕様 V2.2.1
 * DocumentNamespace: SPDXの必須項目
 * Creator: SPDXの必須項目
 * Created: SPDXの必須項目
-* CreatorComment:  “SBOM Build information” に入力できるようにする
+* CreatorComment:  “SBOM Build information” に入力できるようにする項目
 
 パッケージ情報（Package information）
 * PackageName: SPDXの必須項目
 * SPDXID: SPDXの必須項目
-* PackageVersion: NTIAのSBOM最小要素」によって必要とされる
-* PackageSupplier:  NTIAのSBOM最小要素」によって必要とされる
+* PackageVersion: NTIAのSBOM最小要素」によって必要とされる項目
+* PackageSupplier:  NTIAのSBOM最小要素」によって必要とされる項目
 * PackageDownloadLocation: SPDXの必須項目
 * FilesAnalyzed
-* PackageChecksum:  “NTIA SBOM最小要素” によって推奨される
+* PackageChecksum:  “NTIA SBOM最小要素” によって推奨される項目
 * PackageLicenseConcluded: SPDXの必須項目
 * PackageLicenseDeclared: SPDXの必須項目
 * PackageCopyrightText: SPDXの必須項目
@@ -89,7 +89,7 @@ ISO/IEC 5962:2021 情報技術 - SPDX® 仕様 V2.2.1
 また、パッケージはパッケージURL(PURL)によって識別されるべきである。
 
 SPDX要素間の関係
-* Relationship: “NTIA SBOM最小要素” により、少なくとも DESCRIBES と CONTAINS が必要とされる
+* Relationship: “NTIA SBOM最小要素” により、少なくとも DESCRIBES と CONTAINS が必要とされる項目
 
 #### 3.2.1 検証と参考資料
 NTIA SBOM最小要素
@@ -97,38 +97,44 @@ NTIA SBOM最小要素
 #### 3.2.2 根拠
 通信業界の調和を認識し、また可能であればNTIAの最小要素を超える特別な要件の必要性を認識し、期待されるSBOMの要素について業界の見通しを確実にするため、本「OpenChain 通信業界SBOM仕様」を提案する。
 
-“Component Hash” は推奨されるものの、“NTIA SBOM最小要素” には要求として無い。
+“Component Hash” は推奨されるものの、“NTIA SBOM最小要素” には要求項目として無い。
 SPDX では PackageChecksum に対応する。パッケージを一意に識別するために重要なので必須とする。
-なお、ほとんどのSCAツールはハッシュを生成する機能を持っている。
+なお、ほとんどのSCA（Software Composition Analysis）ツールはハッシュを生成する機能を持っている。
 
-パッケージURL(PURL)は、ソフトウェアパッケージを一意に識別するためのデファクトスタンダードです。
+パッケージURL（PURL）は、ソフトウェアパッケージを一意に識別するためのデファクトスタンダードです。
 
 ### 3.3 機械が読み取り可能なデータ形式
-The Telco SBOM SHALL include, at a minimum, the SPDX in the following machine readable format as default: Tag:Value
+本通信業界SBOM は、最低限、デフォルトとして「Tag:Value形式」の機械が読み取り可能なデータ形式の SPDX を含めるものとする。
 
 #### 3.3.1 検証と参考資料
-Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
+「Tag:Value形式」は SPDX 2.2 を参照のこと。
+
+（https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements）
 
 #### 3.3.2 根拠
 SBOMには3つの主要フォーマットがある： SPDX、CycloneDX、SWID
+
 これら3つのフォーマットは、NTIAの文書「The Minimum Elements For a Software Bill of Materials (SBOM)」（参考文献のセクションを参照）で推奨されている。
 
 通信業界SBOM仕様のデータ形式としてSPDXを選択した理由は以下の通り:
-* SPDXはISO規格であること,
-* SPDXはCycloneDXと比較してライセンスコンプライアンスのための機能が充実していること,
-* SPDXは人間が読めるフォーマットであること（CycloneDXはJSONとXMLしかない）,
-* SWIDは本格的なSBOMフォーマットというよりはソフトウェア識別子である.
+* SPDXはISO規格であること
+* SPDXはCycloneDXと比較してライセンスコンプライアンスのための機能が充実していること
+* SPDXは人間が読めるフォーマットであること（CycloneDXはJSONとXMLしかない）
+* SWIDは本格的なSBOMフォーマットというよりはソフトウェア識別子であること
 
 簡素化されたツールチェーンを促進するために、本仕様に適合するSBOMは機械可読性が必要がある。また、再現性と整合性を確保するために、本仕様に適合するSBOMは「Tag:Value形式」でなければならない。なお、事業体はその他の機械可読データ形式をリリースすることはできるが本仕様に準拠する必要はない。
 
 「Tag:Value形式」は最も人間が読みやすいフォーマットであり、様々なSPDXフォーマット間のコンバーターが存在する。
+
 (例、https://tools.spdx.org/app/convert/).
 
 ### 3.4 人間が読み取り可能なデータ形式
-通信業界SBOM は、最低限、デフォルトとして「Tag:Value形式」の人間が読める形式の SPDX を含めるものとする
+本通信業界SBOM は、最低限、デフォルトとして「Tag:Value形式」の人間が読み取り可能なデータ形式の SPDX を含めるものとする。
 
 #### 3.4.1 検証と参考資料
-「Tag:Value形式」は SPDX 2.2 を参照（https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements）
+「Tag:Value形式」は SPDX 2.2 を参照のこと。
+
+（https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements）
 
 #### 3.4.2 根拠
 「Tag:Value形式」は人間が読むこともできるため、標準化された機械が読み取り可能なデータ形式と人間が読み取り可能なデータ形式の両方の要件を1つのファイルで満たすことができる。事業体は、さらに人間が読み取り可能なデータ形式をリリースすることができるが、本仕様に準拠する必要はない。
