@@ -243,7 +243,7 @@ NTIA SBOM最小要素 の “Access Control”セクション
 ## 4. 適合通知
 ソフトウェアがSBOMに適合していることを示すために、以下の記述を使用してもよい： "このソフトウェアは、OpenChain Telco SBOM Specification v1.0に準拠したSBOMとともに提供される。この仕様は、https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md で入手できる。"
 
-このSBOMはOpenChain Telco SBOM仕様v1.0（https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md）に準拠しており、受領者には無償で提供される。受領者は、対応するソフトウェアを配布するいかなる第三者に対しても、当該第三者にソフトウェアを配布するために必要なすべての権利を有することを条件に、このSBOMを自由に再配布することができる。
+このSBOMはOpenChain Telco SBOM仕様v1.0  https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md に準拠しており、受領者には無償で提供される。受領者は、対応するソフトウェアを配布するいかなる第三者に対しても、当該第三者にソフトウェアを配布するために必要なすべての権利を有することを条件に、このSBOMを自由に再配布することができる。
 
 ソフトウェアベンダーや通信システムサプライヤーにRFP、購買発注、受託開発発注を依頼する場合、RFP文書、発注文書、契約文書の記載事項として、以下の文を使用してもよい。
 ソフトウェアをリリースする場合、リリースされるすべてのソフトウェアについて、OpenChain Telco SBOM Specification v1.0に準拠したSBOMを提供することが要求される。 この仕様は"[https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md) "で入手可能である。
