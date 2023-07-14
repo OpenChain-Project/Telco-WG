@@ -65,9 +65,9 @@ ISO/IEC 5962:2021 情報技術 - SPDX® 仕様 V2.2.1
 以下の要素が必須である。
 
 ドキュメント作成情報（Document creation information）
-* SPDXVersion: SPDXの必須項目
-* DataLicense: SPDXの必須項目
-* SPDXID: SPDXの必須項目
+* SPDXVersion:  SPDXの必須項目
+* DataLicense:  SPDXの必須項目
+* SPDXID:  SPDXの必須項目
 * DocumentName: SPDXの必須項目
 * DocumentNamespace: SPDXの必須項目
 * Creator: SPDXの必須項目
@@ -86,7 +86,7 @@ ISO/IEC 5962:2021 情報技術 - SPDX® 仕様 V2.2.1
 * PackageLicenseDeclared: SPDXの必須項目
 * PackageCopyrightText: SPDXの必須項目
 
-パッケージはパッケージURL(PURL)によって識別されるべきである。
+また、パッケージはパッケージURL(PURL)によって識別されるべきである。
 
 SPDX要素間の関係
 * Relationship: “NTIA SBOM最小要素” により、少なくとも DESCRIBES と CONTAINS が必要とされる
