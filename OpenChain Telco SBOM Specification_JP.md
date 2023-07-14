@@ -223,7 +223,7 @@ SaaSで提供されるサービスのSBOMが何を含むべきかについて、
 SBOM の完全性を保証するために、SBOM のデジタル署名を提供することが推奨される。
 
 #### 3.11.1 検証と参考資料
-Sigstore (https://www.sigstore.dev/) は SBOM のデジタル署名の一例である.
+Sigstore (https://www.sigstore.dev/) は SBOM のデジタル署名の一例である。
 
 #### 3.11.2 根拠
 SBOMの検証は重要なトピックであるが、OpenChain Telco-WG は、この作業を当面は他の取り組みに委ね、この文書の将来の改訂でこのトピックを再検討するつもりである。
