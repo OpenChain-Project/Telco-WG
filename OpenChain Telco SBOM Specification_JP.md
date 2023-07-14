@@ -44,7 +44,7 @@ OpenChainとは、 [OpenChain Specification ISO/IEC 5230:2020](https://www.iso.o
 ### 相互依存関係
 相互依存(transitive dependencies)とは、ソフトウェアの実行に必要なすべての ソフトウェアコンポーネントのことである。直接的な依存関係ではないパッケージの依存関係（間接的な依存関係）も含まれる。
 
-### パッケージURL(PURL)
+### パッケージURL（PURL）
 パッケージURL（PURL）とは、ソフトウェアパッケージを一意に識別するためのデファクトスタンダードである。
 
 ## 3. 要求要件
