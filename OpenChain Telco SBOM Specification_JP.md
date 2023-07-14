@@ -255,7 +255,7 @@ NTIA SBOM最小要素 の “Access Control”セクション
 
 ソフトウェアベンダーや通信システムサプライヤーにRFP、購買発注、受託開発発注を依頼する場合、RFP文書、発注文書、契約文書の記載事項として、以下の文を使用してもよい：
 
-"ソフトウェアをリリースする場合、リリースされるすべてのソフトウェアについて、OpenChain Telco SBOM Specification v1.0に準拠したSBOMを提供することが要求される。 この仕様は"[https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md) "で入手できる。"
+"ソフトウェアをリリースする場合、リリースされるすべてのソフトウェアについて、OpenChain Telco SBOM Specification v1.0に準拠したSBOMを提供することを要求する。 この仕様は"[https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md) "で入手できる。"
 
 ## 5. 参考文献
 
