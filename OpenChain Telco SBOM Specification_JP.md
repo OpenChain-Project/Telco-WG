@@ -77,8 +77,8 @@ ISO/IEC 5962:2021 情報技術 - SPDX® 仕様 V2.2.1
 パッケージ情報（Package information）
 * PackageName: SPDXの必須項目
 * SPDXID: SPDXの必須項目
-* PackageVersion: NTIAのSBOM最小要素」によって必要とされる項目
-* PackageSupplier:  NTIAのSBOM最小要素」によって必要とされる項目
+* PackageVersion: “NTIA SBOM最小要素” によって必要とされる項目
+* PackageSupplier:  “NTIA SBOM最小要素” によって必要とされる項目
 * PackageDownloadLocation: SPDXの必須項目
 * FilesAnalyzed
 * PackageChecksum:  “NTIA SBOM最小要素” によって推奨される項目
