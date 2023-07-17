@@ -109,7 +109,7 @@ SPDX では PackageChecksum に対応する。パッケージを一意に識別�
 #### 3.3.1 検証と参考資料
 「Tag:Value形式」は SPDX 2.2 を参照のこと。
 
-（https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements）　
+（https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements）
 
 #### 3.3.2 根拠
 SBOMには3つの主要フォーマットがある： SPDX、CycloneDX、SWID
