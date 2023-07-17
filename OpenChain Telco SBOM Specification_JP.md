@@ -166,7 +166,7 @@ Creator: Tool: sigs.k8s.io/bom/pkg/spdx
 ```
 Creator: Tool: scancode-toolkit 30.1.0
 ```
-また別の例として、
+また別の例として：
 ```
 Creator: Tool: SCANOSS-PY: 1.5.1
 ```
