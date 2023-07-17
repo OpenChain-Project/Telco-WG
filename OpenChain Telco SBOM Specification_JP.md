@@ -42,7 +42,7 @@ SPDX（Software Package Data Exchange）とは、[ISO標準(ISO/IEC 5962:2021)](
 OpenChainとは、 [OpenChain Specification ISO/IEC 5230:2020](https://www.iso.org/standard/81039.html)を意味し、オープンソースソフトウェアを組み込んだソフトウェアソリューションを相互に交換する組織間の信頼を構築するベンチマークを提供するために、質の高いオープンソースライセンスコンプライアンスプログラムの主要な要件を規定した国際規格である。 OpenChain Specificationは、Linux Foundationの [OpenChain project](https://www.openchainproject.org)によって作成されている。
 
 ### 推移的依存性
-推移的依存性(transitive dependencies)とは、ソフトウェアの実行に必要なすべての ソフトウェアコンポーネントのことである。直接的な依存関係ではないパッケージの依存関係（間接的な依存関係）も含まれる。
+推移的依存性(transitive dependencies)とは、ソフトウェアの実行に必要なすべての ソフトウェアコンポーネントのことである。直接的な依存関係ではないパッケージの依存関係（間接的な依存関係：依存先の依存先）も含まれる。
 
 ### パッケージURL（PURL）
 パッケージURL（PURL）とは、ソフトウェアパッケージを一意に識別するためのデファクトスタンダードである。
