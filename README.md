@@ -1,5 +1,9 @@
-# Telco
+# OpenChain Telco Work Group
 Welcome to the OpenChain Telco Work Group.
+
+We are creating an [OpenChain Telco SBOM specification](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md) that is still in draft version.
+
+There is a [Japanese transation of the specification](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification_JP.md) that was provided by Masahiro DAIKOKU-san from KDDI Corporation.
 
 Our mailing list is here:
 https://lists.openchainproject.org/g/telco
