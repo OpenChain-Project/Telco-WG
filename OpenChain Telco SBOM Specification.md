@@ -89,8 +89,14 @@ Package information
 * PackageLicenseConcluded: mandatory in SPDX
 * PackageLicenseDeclared: mandatory in SPDX
 * PackageCopyrightText: mandatory in SPDX
+* ExternalRef: to be able to put the Package URL
 
 A package SHOULD be identified by a Package URL (PURL).
+
+The PURL SHOULD be put in ExternalRef field, e.g.
+```
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/django@1.11.1
+```
 
 Relationships between SPDX elements
 * Relationship: at least DESCRIBES and CONTAINS, needed by “NTIA SBOM Minimum elements”
