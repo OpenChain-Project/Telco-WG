@@ -1,4 +1,4 @@
-# OpenChain Telco SBOM specification [Draft v 1.0]
+# OpenChain Telco SBOM specification version 1.0
 
 ## 1. Scope
 
