@@ -1,4 +1,5 @@
 # OpenChain Telco SBOM specification version 1.0
+## This is a proposal for a new OpenChain Specification *pending* ratification by the OpenChain Steering Committee.
 
 ## 1. Scope
 
