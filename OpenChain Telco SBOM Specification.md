@@ -1,5 +1,17 @@
-# OpenChain Telco SBOM specification version 1.0
+# Draft Proposal for an OpenChain Telco SBOM Specification Version 1.0
+
 ## This is a proposal for a new OpenChain Specification *pending* ratification by the OpenChain Steering Committee.
+
+## Process Details
+
+After being flagged as ready for wider distribution, this document is now moving to the main development track of the Specification Work Group.
+
+It will follow this process:
+https://www.openchainproject.org/resources/faq#specification-development-questions
+
+Please note that a specification draft does not convert into a formal OpenChain Specification without completing this process. The big picture is that the Steering Committee must meet and vote on the document prior to its formal endorsement by the OpenChain Project.
+
+There will be a kick-off call provisionally scheduled for October 2023 for the main Specification Work Group to begin its review.
 
 ## 1. Scope
 
