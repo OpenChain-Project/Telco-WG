@@ -2,6 +2,19 @@
 
 本書は英文仕様書の原文を翻訳したものである。この翻訳と英文との間に何らかの相違がある場合は英文が優先されるものとする。
 
+## This is a proposal for a new OpenChain Specification *pending* ratification by the OpenChain Steering Committee.
+
+## Process Details
+
+After being flagged as ready for wider distribution, this document is now moving to the main development track of the Specification Work Group.
+
+It will follow this process:
+https://www.openchainproject.org/resources/faq#specification-development-questions
+
+Please note that a specification draft does not convert into a formal OpenChain Specification without completing this process. The big picture is that the Steering Committee must meet and vote on the document prior to its formal endorsement by the OpenChain Project.
+
+There will be a kick-off call provisionally scheduled for October 2023 for the main Specification Work Group to begin its review.
+
 ## 1. スコープ
 
 本ドキュメント "OpenChain 通信業界SBOM仕様 "は、事業体がソフトウェア部品表（SBOM）をどのように作成し、配信し、そして消費するか、それぞれ関連する要件を概説することを目的とする。本仕様に準拠するSBOMを作成し消費する事業体、または本仕様に準拠するSBOMを作成か消費のどちらかだけを実施する事業体が、SBOMを作成する際と消費する際に、ツールおよびプロセスの再現性と合理性を確保できるようにする。本仕様に適合する事業体がOpenChain Specificationを（どのバージョンでも）採用することを要求するものではないが、本仕様を採用することが大いに推奨されることに留意されたい。
