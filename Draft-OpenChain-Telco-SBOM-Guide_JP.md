@@ -1,29 +1,20 @@
-# OpenChain 通信業界SBOM仕様 [Draft v 1.0]
+# Draft Proposal for OpenChain Telco SBOM Guide
+
+## THIS DOCUMENT IS CURRENTLY BEING PROPOSED TO THE OPENCHAIN STEERING COMMITTEE FOR RELEASE AS “OpenChain Telco SBOM Guide” RATHER THAN RELEASE AS AN OFFICIAL OPENCHAIN SPECIFICATION AT THIS TIME. THE INTENT WOULD BE TO PROVIDE THE MATERIAL AS AN OFFICIAL GUIDE AND REFERENCE MATERIAL, AND FROM THERE TO GAUGE MARKET REACTION.
 
 本書は英文仕様書の原文を翻訳したものである。この翻訳と英文との間に何らかの相違がある場合は英文が優先されるものとする。
 
-## This is a proposal for a new OpenChain Specification *pending* ratification by the OpenChain Steering Committee.
-
-## Process Details
-
-After being flagged as ready for wider distribution, this document is now moving to the main development track of the Specification Work Group.
-
-It will follow this process:
-https://www.openchainproject.org/resources/faq#specification-development-questions
-
-Please note that a specification draft does not convert into a formal OpenChain Specification without completing this process. The big picture is that the Steering Committee must meet and vote on the document prior to its formal endorsement by the OpenChain Project.
-
-There will be a kick-off call provisionally scheduled for October 2023 for the main Specification Work Group to begin its review.
-
 ## 1. スコープ
 
-本ドキュメント "OpenChain 通信業界SBOM仕様 "は、事業体がソフトウェア部品表（SBOM）をどのように作成し、配信し、そして消費するか、それぞれ関連する要件を概説することを目的とする。本仕様に準拠するSBOMを作成し消費する事業体、または本仕様に準拠するSBOMを作成か消費のどちらかだけを実施する事業体が、SBOMを作成する際と消費する際に、ツールおよびプロセスの再現性と合理性を確保できるようにする。本仕様に適合する事業体がOpenChain Specificationを（どのバージョンでも）採用することを要求するものではないが、本仕様を採用することが大いに推奨されることに留意されたい。
+This document “OpenChain Telco SBOM Guide” aims to outline certain requirements related to how an entity creates, delivers, and consumes Software Bill of Materials (SBOM), so that entities that produce and/or consume SBOMs that conform to this guide can ensure repeatability and streamlining of tools and processes for generating and consuming SBOMs. *Please Note* that this guide does not require a conforming entity to adopt OpenChain (in any version) but doing so is greatly encouraged.
 
-事業体は、SBOMを提供する唯一の方法として本仕様を採用できる。その際、個々のSBOMが本仕様に準拠するのであり、SBOMを提供する事業体ではない。本仕様に準拠したSBOMは「通信業界SBOM（Telco SBOM）」と呼ばれる。
+This guide is designed to work on a per SBOM level: an entity can use it as its sole way of delivering SBOMs but it is the individual SBOM that the guide refers to, not the entity that provides the SBOM. An SBOM using this guide can be called a “Telco SBOM”.
 
-本仕様に準拠したSBOMをリリースすることによって、同じ事業体が同じソフトウェアのSBOMを別の方法や形式で配信することを妨げることはない。ただし、それらのSBOMは本仕様に準拠していないため、事業体もソフトウェア製品も本仕様に準拠しない。
+Releasing SBOMs that match the requirements outlined in this guide does not preclude an entity from also delivering SBOMs for the same software in alternate ways or formats.
 
-本仕様は、 [Creative Commons Attribution License 4.0 (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/)の下でライセンスされている。
+This guide is licensed under [Creative Commons Attribution License 4.0 (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/).
+
+NOTE: the Japanese text here was removed as the document was changed from a draft specification to a draft guide, and reworking the text was difficult for the editor (OpenChain GM). The original text can be found in the GitHub history.
 
 ## 2. 用語と定義
 

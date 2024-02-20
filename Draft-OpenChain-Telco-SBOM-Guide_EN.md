@@ -1,27 +1,18 @@
-# Draft Proposal for an OpenChain Telco SBOM Specification Version 1.0
+# Draft Proposal for OpenChain Telco SBOM Guide
+
+## THIS DOCUMENT IS CURRENTLY BEING PROPOSED TO THE OPENCHAIN STEERING COMMITTEE FOR RELEASE AS “OpenChain Telco SBOM Guide” RATHER THAN RELEASE AS AN OFFICIAL OPENCHAIN SPECIFICATION AT THIS TIME. THE INTENT WOULD BE TO PROVIDE THE MATERIAL AS AN OFFICIAL GUIDE AND REFERENCE MATERIAL, AND FROM THERE TO GAUGE MARKET REACTION.
 
 ## This is a proposal for a new OpenChain Specification *pending* ratification by the OpenChain Steering Committee.
 
-## Process Details
-
-After being flagged as ready for wider distribution, this document is now moving to the main development track of the Specification Work Group.
-
-It will follow this process:
-https://www.openchainproject.org/resources/faq#specification-development-questions
-
-Please note that a specification draft does not convert into a formal OpenChain Specification without completing this process. The big picture is that the Steering Committee must meet and vote on the document prior to its formal endorsement by the OpenChain Project.
-
-There will be a kick-off call provisionally scheduled for October 2023 for the main Specification Work Group to begin its review.
-
 ## 1. Scope
 
-This document “OpenChain Telco SBOM specification” aims to outline certain requirements related to how an entity creates, delivers, and consumes Software Bill of Materials (SBOM), so that entities that produce and/or consume SBOMs that conform to this specification can ensure repeatability and streamlining of tools and processes for generating and consuming SBOMs. *Please Note* that this specification does not require a conforming entity to adopt OpenChain (in any version) but doing so is greatly encouraged.
+This document “OpenChain Telco SBOM Guide” aims to outline certain requirements related to how an entity creates, delivers, and consumes Software Bill of Materials (SBOM), so that entities that produce and/or consume SBOMs that conform to this guide can ensure repeatability and streamlining of tools and processes for generating and consuming SBOMs. *Please Note* that this guide does not require a conforming entity to adopt OpenChain (in any version) but doing so is greatly encouraged.
 
-Conformance to this specification is done on a per SBOM level: an entity can adopt the specification as its sole way of delivering SBOMs but it’s the individual SBOM that is conformant to the specification, not the entity that provides the SBOM. An SBOM conformant to this specification is called a “Telco SBOM”.
+This guide is designed to work on a per SBOM level: an entity can use it as its sole way of delivering SBOMs but it is the individual SBOM that the guide refers to, not the entity that provides the SBOM. An SBOM using this guide can be called a “Telco SBOM”.
 
-Releasing SBOMs conforming to this specification does not preclude an entity from also delivering SBOMs for the same software in alternate ways or formats, but those SBOMs are not conformant to the specification, thus neither an entity nor a software product is conformant to the specification as only the SBOM can be conformant to the specification.
+Releasing SBOMs that match the requirements outlined in this guide does not preclude an entity from also delivering SBOMs for the same software in alternate ways or formats.
 
-This specification is licensed under [Creative Commons Attribution License 4.0 (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/).
+This guide is licensed under [Creative Commons Attribution License 4.0 (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/).
 
 ## 2. Terms and definitions
 
