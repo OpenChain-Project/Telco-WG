@@ -6,15 +6,17 @@
 
 ## 1. スコープ
 
-This document “OpenChain Telco SBOM Guide” aims to outline certain requirements related to how an entity creates, delivers, and consumes Software Bill of Materials (SBOM), so that entities that produce and/or consume SBOMs that conform to this guide can ensure repeatability and streamlining of tools and processes for generating and consuming SBOMs. *Please Note* that this guide does not require a conforming entity to adopt OpenChain (in any version) but doing so is greatly encouraged.
+本文書 "OpenChain Telco SBOM Guide" は、事業体がソフトウェア部品表（SBOM）を作成・提供・消費する方法に関連する特定の要件を概説することを目的とし、本ガイドに準拠するSBOMを作成および/または消費する事業体がSBOMを作成および消費するためのツールおよびプロセスの再現性と合理性を確保できるようにする。
 
-This guide is designed to work on a per SBOM level: an entity can use it as its sole way of delivering SBOMs but it is the individual SBOM that the guide refers to, not the entity that provides the SBOM. An SBOM using this guide can be called a “Telco SBOM”.
+本ガイドは、適合する事業体が、いかなるバージョンの OpenChain Specification を採用することを要求するものではないが、採用することが大いに推奨されることに留意されたい。
 
-Releasing SBOMs that match the requirements outlined in this guide does not preclude an entity from also delivering SBOMs for the same software in alternate ways or formats.
+このガイドはSBOM単位で動作するように設計されており、事業体はSBOMを提供する唯一の方法として本ガイドを使用できるものの、本ガイドが参照するのは個々のSBOMでありSBOMを提供する事業体ではない。
+本ガイドに沿ったSBOMを「Telco SBOM」と呼ぶことができる。
 
-This guide is licensed under [Creative Commons Attribution License 4.0 (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/).
+本ガイドに概説されている要件に一致するSBOMをリリースすることは、同じソフトウェアのSBOMを別の方法または形式で配信することを妨げるものではない。
 
-NOTE: the Japanese text here was removed as the document was changed from a draft specification to a draft guide, and reworking the text was difficult for the editor (OpenChain GM). The original text can be found in the GitHub history.
+本ガイドは [Creative Commons Attribution License 4.0 (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/)の下にライセンスされている。
+
 
 ## 2. 用語と定義
 
