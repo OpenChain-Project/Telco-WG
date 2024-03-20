@@ -123,7 +123,9 @@ Package URL (PURL) is a _de facto_ standard to uniquely identify software packag
 The Telco SBOM SHALL include, at a minimum, the SPDX in the following machine readable format as default: Tag:Value
 
 #### 3.3.1 Verification and reference material
-Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
+Tag:Value is described here:
+* in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
+* in SPDX 2.3 https://spdx.github.io/spdx-spec/v2.3/conformance/#44-standard-data-format-requirements
 
 #### 3.3.2 Rationale
 There are 3 majors formats for SBOMs: SPDX, CycloneDX, and SWID.
