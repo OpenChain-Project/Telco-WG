@@ -58,10 +58,11 @@ Package URL (PURL) is a _de facto_ standard to uniquely identify software packag
 ## 3. Requirements
 
 ### 3.1 Data Format
-A Telco SBOM SHALL adhere to the version 2.2 of the SPDX Data Format as standardized in ISO/IEC 5962:2021 and as further described below with respect to the included elements.
+A Telco SBOM SHALL adhere to the version 2.2 of the SPDX Data Format as standardized in ISO/IEC 5962:2021, or to the version 2.3 of the standard, and as further described below with respect to the included elements.
 
 #### 3.1.1 Verification and reference material
-ISO/IEC 5962:2021 Information technology — SPDX® Specification V2.2.1
+* ISO/IEC 5962:2021 Information technology — SPDX® Specification V2.2.1
+* [SPDX Specification V2.3](https://spdx.github.io/spdx-spec/v2.3/)
 
 #### 3.1.2 Rationale
 To ensure simplified handling and streamlining of tooling and competences in the telecommunications supply chain, both for suppliers and consumers of software, a Telco SBOM shall adhere to the SPDX Data Format as standardized in ISO/IEC 5962:2021. By harmonizing on the use of this standard SBOM Data Format in an organization's external interfaces, the complexities for organizations supplying and consuming software are simplified, as only one set of unified requirements will be applicable.
@@ -272,6 +273,7 @@ When releasing software, it is REQUIRED to provide an SBOM compliant with the Op
   * https://spdx.dev/
   * https://www.iso.org/standard/81870.html
   * https://standards.iso.org/ittf/PubliclyAvailableStandards/c081870_ISO_IEC_5962_2021(E).zip
+  * SPDX Specification V2.3: https://spdx.github.io/spdx-spec/v2.3/
 * OpenChain (ISO/IEC 5230:2020)
   * https://www.openchainproject.org/
   * https://www.iso.org/standard/81039.html
