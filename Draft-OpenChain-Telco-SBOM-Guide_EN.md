@@ -146,7 +146,9 @@ Tag:Value is the most human-readable format, and there are converters between th
 The Telco SBOM SHALL include, at a minimum, the SPDX in one of the following machine readable formats: Tag:Value or JSON.
 
 #### 3.4.1 Verification and reference material
-Tag:Value and JSON formats are described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
+Tag:Value and JSON formats are described here:
+* in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
+* in SPDX 2.3 https://spdx.github.io/spdx-spec/v2.3/conformance/#44-standard-data-format-requirements
 
 #### 3.4.2 Rationale
 As the Tag:Value format is also human readable it has been chosen so that both the requirements for a standardized machine readable and human readable version can be met using one file. An entity can release additional human readable formats but they are not required to conform to the OpenChain Telco SBOM Guide.
