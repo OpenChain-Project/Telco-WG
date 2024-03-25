@@ -120,10 +120,10 @@ Most SCA tools have the capability to produce hashes.
 Package URL (PURL) is a _de facto_ standard to uniquely identify software packages.
 
 ### 3.3 Machine Readable Data Format
-The Telco SBOM SHALL include, at a minimum, the SPDX in the following machine readable format as default: Tag:Value
+The Telco SBOM SHALL include, at a minimum, the SPDX in one of the following machine readable formats: Tag:Value or JSON.
 
 #### 3.3.1 Verification and reference material
-Tag:Value is described here:
+Tag:Value and JSON formats are described here:
 * in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
 * in SPDX 2.3 https://spdx.github.io/spdx-spec/v2.3/conformance/#44-standard-data-format-requirements
 
@@ -137,16 +137,16 @@ The reasons for selecting SPDX as data format of the Telco SBOM Guide include th
 * SPDX has a human-readable format (CycloneDX has only JSON and XML),
 * SWID is more a software identifier than a fully fledged SBOM format.
 
-To facilitate a simplified toolchain, a machine readable version of the SBOM needs to be included. To ensure repeatability and harmonization a conformant SBOM must be in the Tag:Value format. An entity can release additional machine readable formats but they are not required to conform to the Guide.
+To facilitate a simplified toolchain, a machine readable version of the SBOM needs to be included. To ensure repeatability and harmonization a conformant SBOM must be in Tag:Value or JSON format. An entity can release additional machine readable formats but they are not required to conform to the Guide.
 
 Tag:Value is the most human-readable format, and there are converters between the various SPDX formats
-(e.g. https://tools.spdx.org/app/convert/).
+(e.g. https://tools.spdx.org/app/convert/). JSON is a format produced by several tools.
 
 ### 3.4 Human Readable Data Format
-A Telco SBOM SHALL include, at a minimum, the SPDX in the following human readable format as default: Tag:Value
+The Telco SBOM SHALL include, at a minimum, the SPDX in one of the following machine readable formats: Tag:Value or JSON.
 
 #### 3.4.1 Verification and reference material
-Tag:Value is described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
+Tag:Value and JSON formats are described here in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
 
 #### 3.4.2 Rationale
 As the Tag:Value format is also human readable it has been chosen so that both the requirements for a standardized machine readable and human readable version can be met using one file. An entity can release additional human readable formats but they are not required to conform to the OpenChain Telco SBOM Guide.
