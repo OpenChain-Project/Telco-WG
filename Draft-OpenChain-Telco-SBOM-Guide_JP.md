@@ -58,10 +58,11 @@ OpenChainとは、 [OpenChain Specification ISO/IEC 5230:2020](https://www.iso.o
 ## 3. 要求要件
 
 ### 3.1 データ形式
-通信業界SBOM は、ISO/IEC 5962:2021 で標準化されている SPDX データフォーマットのバージョン 2.2 に準拠し、含まれる要素に関しては3.2節に記載する。
+通信業界SBOM は、ISO/IEC 5962:2021 で標準化されている SPDX データフォーマットのバージョン 2.2、またはバージョン2.3 に準拠し、含まれる要素に関しては3.2節に記載する。
 
 #### 3.1.1 検証と参考資料
-ISO/IEC 5962:2021 情報技術 - SPDX® 仕様 V2.2.1
+* ISO/IEC 5962:2021 情報技術 - SPDX® 仕様 V2.2.1
+* [SPDX® 仕様 V2.3](https://spdx.github.io/spdx-spec/v2.3/)
 
 #### 3.1.2 根拠
 ソフトウェアの供給者と受領者の両方にとって、通信業界のソフトウェアサプライチェーンにおけるツールおよび能力の簡素な取り扱いと合理化を確かなものとするために、通信業界SBOMは、ISO/IEC 5962:2021で標準化されているSPDXデータ形式に準拠しなければならない。 本標準SBOMデータ形式を使用することで、ソフトウェアを供給する組織と消費する各組織の対外窓口の間において、複雑さが簡素化される。
@@ -112,12 +113,13 @@ SPDX では PackageChecksum に対応する。パッケージを一意に識別�
 パッケージURL（PURL）は、ソフトウェアパッケージを一意に識別するためのデファクトスタンダードである。
 
 ### 3.3 機械が読み取り可能なデータ形式
-本通信業界SBOM は、最低限、デフォルトとして「Tag:Value形式」の機械が読み取り可能なデータ形式の SPDX を含めるものとする。
+本通信業界SBOM は、最低限、「Tag:Value形式」または「JSON形式」の機械が読み取り可能なデータ形式のどちらかの SPDX を含めるものとする。
 
 #### 3.3.1 検証と参考資料
-「Tag:Value形式」は SPDX 2.2 を参照のこと。
+「Tag:Value形式」と「JSON形式」は以下を参照のこと。
 
-（https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements）
+* SPDX 2.2： https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
+* SPDX 2.3： https://spdx.github.io/spdx-spec/v2.3/conformance/#44-standard-data-format-requirements
 
 #### 3.3.2 根拠
 SBOMには3つの主要フォーマットがある： SPDX、CycloneDX、SWID
@@ -130,17 +132,16 @@ SBOMには3つの主要フォーマットがある： SPDX、CycloneDX、SWID
 * SPDXは、人間が読めるフォーマットであること（CycloneDXはJSONとXMLしかない）
 * SWIDは、本格的なSBOMフォーマットというよりはソフトウェア識別子であること
 
-簡素化されたツールチェーンを促進するために、本仕様に適合するSBOMは機械が読み取り可能なデータ形式である必要がある。また、再現性と整合性を確保するために、本仕様に適合するSBOMは「Tag:Value形式」でなければならない。なお、事業体はその他の機械が読み取り可能なデータ形式をリリースすることはできるが本仕様に準拠する必要はない。
+簡素化されたツールチェーンを促進するために、本仕様に適合するSBOMは機械が読み取り可能なデータ形式である必要がある。また、再現性と整合性を確保するために、本仕様に適合するSBOMは「Tag:Value形式」または「JSON形式」でなければならない。なお、事業体はその他の機械が読み取り可能なデータ形式をリリースすることはできるが本仕様に準拠する必要はない。
 
-「Tag:Value形式」は最も人間が読みやすい形式であり、様々なSPDXフォーマット間のコンバーターが存在する。
-
-(例えば、https://tools.spdx.org/app/convert/)
+「Tag:Value形式」は最も人間が読みやすい形式であり、様々なSPDXフォーマット間のコンバーターが存在する(例えば、https://tools.spdx.org/app/convert/)。
+また、「JSON形式」はいくつかのツールによって提供される。
 
 ### 3.4 人間が読み取り可能なデータ形式
-本通信業界SBOM は、最低限、デフォルトとして「Tag:Value形式」の人間が読み取り可能なデータ形式の SPDX を含めるものとする。
+本通信業界SBOM は、最低限、「Tag:Value形式」または「JSON形式」の人間が読み取り可能なデータ形式のどちらかの SPDX を含めるものとする。
 
 #### 3.4.1 検証と参考資料
-「Tag:Value形式」は SPDX 2.2 を参照のこと。
+「Tag:Value形式」と「JSON形式」は SPDX 2.2 を参照のこと。
 
 （https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements）
 
@@ -271,6 +272,8 @@ NTIA SBOM最小要素 の “Access Control”セクション
   * https://spdx.dev/
   * https://www.iso.org/standard/81870.html
   * https://standards.iso.org/ittf/PubliclyAvailableStandards/c081870_ISO_IEC_5962_2021(E).zip
+* SPDX Specification V2.3
+  * https://spdx.github.io/spdx-spec/v2.3/
 * OpenChain (ISO/IEC 5230:2020)
   * https://www.openchainproject.org/
   * https://www.iso.org/standard/81039.html
