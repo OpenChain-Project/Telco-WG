@@ -58,15 +58,16 @@ OpenChainとは、 [OpenChain Specification ISO/IEC 5230:2020](https://www.iso.o
 ## 3. 要求要件
 
 ### 3.1 データ形式
-通信業界SBOM は、ISO/IEC 5962:2021 で標準化されている SPDX データフォーマットのバージョン 2.2 に準拠し、含まれる要素に関しては3.2節に記載する。
+通信業界SBOM は、ISO/IEC 5962:2021 で標準化されている SPDX データフォーマットのバージョン 2.2、またはバージョン2.3 に準拠し、含まれる要素に関しては3.2節に記載する。
 
 #### 3.1.1 検証と参考資料
-ISO/IEC 5962:2021 情報技術 - SPDX® 仕様 V2.2.1
+* ISO/IEC 5962:2021 情報技術 - SPDX® 仕様 V2.2.1
+* [SPDX® 仕様 V2.3](https://spdx.github.io/spdx-spec/v2.3/)
 
 #### 3.1.2 根拠
 ソフトウェアの供給者と受領者の両方にとって、通信業界のソフトウェアサプライチェーンにおけるツールおよび能力の簡素な取り扱いと合理化を確かなものとするために、通信業界SBOMは、ISO/IEC 5962:2021で標準化されているSPDXデータ形式に準拠しなければならない。 本標準SBOMデータ形式を使用することで、ソフトウェアを供給する組織と消費する各組織の対外窓口の間において、複雑さが簡素化される。
 
-事業体は、内部使用のために代替データ形式を自由に使用することができ、また、SBOMを要求する組織に対して、あるいはソフトウェアの供給者が自発的に、代替データ形式でSBOMを提供することができる。 本OpenChain 通信業界SBOM仕様は準拠すべきSBOM仕様であり、準拠すべき組織の仕様ではない。本仕様に適合する事業体は存在せず、本仕様を実装した事業体によって提供された、本仕様に適合するSBOMのみが存在する。
+事業体は、内部使用のために代替データ形式を自由に使用することができ、また、SBOMを要求する組織に対して、あるいはソフトウェアの供給者が自発的に、代替データ形式でSBOMを提供することができる。 本OpenChain 通信業界SBOMガイドは準拠すべきSBOMガイドであり、準拠すべき組織のガイドではない。本ガイドに適合する事業体は存在せず、本ガイドを実装した事業体によって提供された、本ガイに適合するSBOMのみが存在する。
 
 ### 3.2 通信業界SBOMに含まれるSPDX要素
 
@@ -112,43 +113,43 @@ SPDX では PackageChecksum に対応する。パッケージを一意に識別�
 パッケージURL（PURL）は、ソフトウェアパッケージを一意に識別するためのデファクトスタンダードである。
 
 ### 3.3 機械が読み取り可能なデータ形式
-本通信業界SBOM は、最低限、デフォルトとして「Tag:Value形式」の機械が読み取り可能なデータ形式の SPDX を含めるものとする。
+本通信業界SBOM は、最低限、「Tag:Value形式」または「JSON形式」の機械が読み取り可能なデータ形式のどちらかの形式とする。
 
 #### 3.3.1 検証と参考資料
-「Tag:Value形式」は SPDX 2.2 を参照のこと。
+「Tag:Value形式」と「JSON形式」は以下を参照のこと。
 
-（https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements）
+* SPDX 2.2： https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
+* SPDX 2.3： https://spdx.github.io/spdx-spec/v2.3/conformance/#44-standard-data-format-requirements
 
 #### 3.3.2 根拠
 SBOMには3つの主要フォーマットがある： SPDX、CycloneDX、SWID
 
 これら3つのフォーマットは、NTIAの文書「The Minimum Elements For a Software Bill of Materials (SBOM)」（参考文献のセクションを参照）で推奨されている。
 
-通信業界SBOM仕様のデータ形式としてSPDXを選択した理由は以下の通り:
+通信業界SBOMガイドのデータ形式としてSPDXを選択した理由は以下の通り:
 * SPDXは、ISO規格であること
 * SPDXは、CycloneDXと比較してライセンスコンプライアンスのための機能が充実していること
 * SPDXは、人間が読めるフォーマットであること（CycloneDXはJSONとXMLしかない）
 * SWIDは、本格的なSBOMフォーマットというよりはソフトウェア識別子であること
 
-簡素化されたツールチェーンを促進するために、本仕様に適合するSBOMは機械が読み取り可能なデータ形式である必要がある。また、再現性と整合性を確保するために、本仕様に適合するSBOMは「Tag:Value形式」でなければならない。なお、事業体はその他の機械が読み取り可能なデータ形式をリリースすることはできるが本仕様に準拠する必要はない。
+簡素化されたツールチェーンを促進するために、本ガイドに適合するSBOMは機械が読み取り可能なデータ形式である必要がある。また、再現性と整合性を確保するために、本ガイドに適合するSBOMは「Tag:Value形式」または「JSON形式」でなければならない。なお、事業体はその他の機械が読み取り可能なデータ形式をリリースすることはできるが本ガイドに準拠する必要はない。
 
-「Tag:Value形式」は最も人間が読みやすい形式であり、様々なSPDXフォーマット間のコンバーターが存在する。
-
-(例えば、https://tools.spdx.org/app/convert/)
+「Tag:Value形式」は最も人間が読みやすい形式であり、様々なSPDXフォーマット間のコンバーターが存在する(例えば、https://tools.spdx.org/app/convert/)。
+また、「JSON形式」はいくつかのツールによって提供される。
 
 ### 3.4 人間が読み取り可能なデータ形式
-本通信業界SBOM は、最低限、デフォルトとして「Tag:Value形式」の人間が読み取り可能なデータ形式の SPDX を含めるものとする。
+本通信業界SBOM は、最低限、「Tag:Value形式」または「JSON形式」の人間が読み取り可能なデータ形式のどちらかの形式とする。
 
 #### 3.4.1 検証と参考資料
-「Tag:Value形式」は SPDX 2.2 を参照のこと。
+「Tag:Value形式」と「JSON形式」は SPDX 2.2 を参照のこと。
 
 （https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements）
 
 #### 3.4.2 根拠
-「Tag:Value形式」は人間が読むこともできるため、標準化された "機械が読み取り可能なデータ形式" と "人間が読み取り可能なデータ形式" の両方の要件を1つのファイルで満たすことができる。事業体は、人間が読み取り可能なデータ形式をリリースすることができるが、本仕様に準拠する必要はない。
+「Tag:Value形式」は人間が読むこともできるため、標準化された "機械が読み取り可能なデータ形式" と "人間が読み取り可能なデータ形式" の両方の要件を1つのファイルで満たすことができる。事業体は、人間が読み取り可能なデータ形式をリリースすることができるが、本ガイドに準拠する必要はない。
 
 ### 3.5 SBOM ビルド情報
-本仕様に準拠する SBOM は、いつ作成されたか（SPDX の `Created` フィールドを使用）という情報と、どのバージョンのソフトウェアで作成されたか（SPDX の `CreatorComment` フィールドを使用）という情報を含めなければならない。
+本ガイドに準拠する SBOM は、いつ作成されたか（SPDX の `Created` フィールドを使用）という情報と、どのバージョンのソフトウェアで作成されたか（SPDX の `CreatorComment` フィールドを使用）という情報を含めなければならない。
 
 SPDX の `Created` フィールド とは:
 * `Organization`キーワードを示す行を含まなければならない
@@ -156,7 +157,7 @@ SPDX の `Created` フィールド とは:
 
 また、ツール名とツールバージョンはハイフン("-")で区切るべきである。
 
-本通信業界SBOM仕様に準拠するSBOMは、CreatorCommentフィールドに[CISA](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)が定義するSBOM Typeを提供しなければならない。
+本通信業界SBOMガイドに準拠するSBOMは、CreatorCommentフィールドに[CISA](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)が定義するSBOM Typeを提供しなければならない。
 
 #### 3.5.1 検証と参考資料
 SPDX規格
@@ -189,7 +190,7 @@ SBOM は、遅くともソフトウェア（バイナリ形式またはソース
 NTIA SBOM最小要素 の “Distribution and Delivery” セクション
 
 #### 3.6.2 根拠
-納品される側の事業体がソフトウェアとそのSBOMを確実に受け取ることができるように、SBOMはソフトウェアの納品よりも遅くならないように引渡さなければならない。ソフトウェアの発注者が指示した場合は、ソフトウェアの引き渡し前にSBOMが納品されてもよいが、本仕様への準拠を確実にするためにソフトウェアの納品時には対応するSBOMも納品をしなければならない。
+納品される側の事業体がソフトウェアとそのSBOMを確実に受け取ることができるように、SBOMはソフトウェアの納品よりも遅くならないように引渡さなければならない。ソフトウェアの発注者が指示した場合は、ソフトウェアの引き渡し前にSBOMが納品されてもよいが、本ガイドへの準拠を確実にするためにソフトウェアの納品時には対応するSBOMも納品をしなければならない。
 
 ### 3.7 SBOMの納入方法
 技術的に可能な場合、SBOM はソフトウェア「パッケージ」に埋め込まなければならない。スペースに制約のある組込みシステムの場合など、提供されるソフトウェア「パッケージ」に SBOM を組み込むことが技術的に不可能な場合、ソフトウェア供給者（受注者）は少なくとも 18ヶ月利用可能な SBOM のウェブホスト版を提供し、ソフトウェア受領者（発注者）が自身の使用のためにこれらをローカルにコピーし保存する能力をいかなる形でも制限してはならない。このような制限は、追加の秘密保持契約において受領者に課してはならない。
@@ -212,7 +213,7 @@ NTIA SBOM最小要素 の “Known Unknowns” セクション
 SBOM に市販のコンポーネント情報を持たせることは、可能、望ましい、実行可能でない、かもしれない。しかしながら、SBOMは可能な限り完全であることが望ましい。
 
 ### 3.9 SaaSで提供されるサービスのSBOM
-本仕様はSBOMレベルでのみ適用されるため、提供するソフトウェアの一部またはすべてに通信業界SBOMを提供することを選択した事業体にとって、SaaSで提供されるサービスに通信業界SBOMを適用する要件はない。しかし、事業体は本仕様をSaaSで提供されるサービスにも適用し、SaaSで提供されるサービスで使用されるオープンソースソフトウェアとその推移的依存性をSBOMとして提供することができる。
+本ガイドはSBOMレベルでのみ適用されるため、提供するソフトウェアの一部またはすべてに通信業界SBOMを提供することを選択した事業体にとって、SaaSで提供されるサービスに通信業界SBOMを適用する要件はない。しかし、事業体は本仕様をSaaSで提供されるサービスにも適用し、SaaSで提供されるサービスで使用されるオープンソースソフトウェアとその推移的依存性をSBOMとして提供することができる。
 
 #### 3.9.1 検証と参考資料
 
@@ -237,7 +238,7 @@ Sigstore (https://www.sigstore.dev/) は SBOM のデジタル署名の一例で�
 SBOMの検証は重要なトピックであるが、OpenChain Telco-WG は、この作業を当面は他の取り組みに委ね、この文書の将来の改訂でこのトピックを再検討するつもりである。
 
 ### 3.12 SBOMのマージ
-本仕様に従ったSBOMは、SPDXの関係定義機能を使用して、互いに明確に定義された関係を持った複数のSBOMファイルから構築することができる。
+本ガイドに従ったSBOMは、SPDXの関係定義機能を使用して、互いに明確に定義された関係を持った複数のSBOMファイルから構築することができる。
 
 #### 3.12.1 検証と参考資料
 複数のSBOMから１つのSBOMへマージするツールの一例： https://github.com/vmware-samples/sbom-composer
@@ -246,7 +247,7 @@ SBOMの検証は重要なトピックであるが、OpenChain Telco-WG は、こ
 大規模なソフトウェア製品を扱う場合、単一のSBOMよりも、個々の部品のSBOMを提供する方が容易なことが多い。
 
 ### 3.13 SBOMの守秘義務
-SBOMは秘密保持契約の対象であってもよい。ただし、本仕様に適合するSBOMは、受領者が再頒布する権利を持つソフトウェアに適用されるSBOMに対して、受領者の再頒布を妨げるような秘密保持契約の対象になってはならない。
+SBOMは秘密保持契約の対象であってもよい。ただし、本ガイドに適合するSBOMは、受領者が再頒布する権利を持つソフトウェアに適用されるSBOMに対して、受領者の再頒布を妨げるような秘密保持契約の対象になってはならない。
 
 #### 3.13.1 検証と参考資料
 NTIA SBOM最小要素 の “Access Control”セクション
@@ -257,13 +258,13 @@ NTIA SBOM最小要素 の “Access Control”セクション
 ## 4. 適合通知
 ソフトウェアがSBOMに適合していることを示すために、以下の記述を使用してもよい：
 
-"このソフトウェアは、OpenChain Telco SBOM Specification v1.0 に準拠したSBOMとともに提供される。この仕様は、https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md で入手できる。"
+"このソフトウェアは、OpenChain Telco SBOM Guide v1.0 に準拠したSBOMとともに提供される。このガイドは、https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md で入手できる。"
 
-"このSBOMはOpenChain Telco SBOM仕様v1.0  （https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md） に準拠しており、受領者には無償で提供される。受領者は、対応するソフトウェアを頒布するいかなる第三者に対しても、当該第三者にソフトウェアを頒布するために必要なすべての権利を有することを条件に、このSBOMを自由に再頒布することができる。"
+"このSBOMはOpenChain Telco SBOMガイドv1.0  （https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md） に準拠しており、受領者には無償で提供される。受領者は、対応するソフトウェアを頒布するいかなる第三者に対しても、当該第三者にソフトウェアを頒布するために必要なすべての権利を有することを条件に、このSBOMを自由に再頒布することができる。"
 
 ソフトウェアベンダーや通信システムサプライヤーにRFP、購買発注、受託開発発注を依頼する場合、RFP文書、発注文書、契約文書の記載事項として、以下の文を使用してもよい：
 
-"ソフトウェアをリリースする場合、リリースされるすべてのソフトウェアについて、OpenChain Telco SBOM Specification v1.0 に準拠したSBOMを提供することを要求する。 この仕様は"[https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md) "で入手できる。"
+"ソフトウェアをリリースする場合、リリースされるすべてのソフトウェアについて、OpenChain Telco SBOM Guide v1.0 に準拠したSBOMを提供することを要求する。 このガイドは"[https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Specification.md) "で入手できる。"
 
 ## 5. 参考文献
 
@@ -271,6 +272,8 @@ NTIA SBOM最小要素 の “Access Control”セクション
   * https://spdx.dev/
   * https://www.iso.org/standard/81870.html
   * https://standards.iso.org/ittf/PubliclyAvailableStandards/c081870_ISO_IEC_5962_2021(E).zip
+* SPDX Specification V2.3
+  * https://spdx.github.io/spdx-spec/v2.3/
 * OpenChain (ISO/IEC 5230:2020)
   * https://www.openchainproject.org/
   * https://www.iso.org/standard/81039.html
