@@ -269,7 +269,7 @@ To indicate that the software has a conformant SBOM available, you MAY use the f
 You MAY at your choosing use the following statement in your Telco Guide conformant SBOM “This SBOM conforms to the OpenChain Telco SBOM Guide v1.0 https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Guide_EN.md, it is provided to the recipient free of charge, and the recipient is free to redistribute this SBOM to any third party that they distribute the corresponding software to, provided that they have all the necessary right to distribute the software to such third party”
 
 The following statement MAY be used as statement in the RFP document, order document, or contract document when requesting an RFP, purchasing orders, or outsourced development orders from a software vendor or telco system suppliers.
-When releasing software, it is REQUIRED to provide an SBOM compliant with the OpenChain Telco SBOM Guide v1.0 for all software released.  This Guide is available at "[https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Guide_EN.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Guide_EN.md)”
+“When releasing software, it is REQUIRED to provide an SBOM compliant with the OpenChain Telco SBOM Guide v1.0 for all software released.  This Guide is available at [https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Guide_EN.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Guide_EN.md)”
 
 ## 5. References
 
