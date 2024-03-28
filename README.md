@@ -7,6 +7,8 @@ We are creating an [OpenChain Telco SBOM Guide](https://github.com/OpenChain-Pro
 
 There is a [Japanese translation of the guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/Draft-OpenChain-Telco-SBOM-Guide_JP.md) that was provided by Masahiro DAIKOKU-san from KDDI Corporation.
 
+There is a [French translation of the guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/Draft-OpenChain-Telco-SBOM-Guide_FR.md) that was provided by Marc-Etienne Vargenau from Nokia.
+
 Our mailing list is here:
 https://lists.openchainproject.org/g/telco
 
