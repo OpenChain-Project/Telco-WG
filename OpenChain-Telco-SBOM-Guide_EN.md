@@ -1,14 +1,10 @@
-# Draft Proposal for OpenChain Telco SBOM Guide
-
-## THIS DOCUMENT IS CURRENTLY BEING PROPOSED TO THE OPENCHAIN STEERING COMMITTEE FOR RELEASE AS “OpenChain Telco SBOM Guide” RATHER THAN RELEASE AS AN OFFICIAL OPENCHAIN SPECIFICATION AT THIS TIME. THE INTENT WOULD BE TO PROVIDE THE MATERIAL AS AN OFFICIAL GUIDE AND REFERENCE MATERIAL, AND FROM THERE TO GAUGE MARKET REACTION.
-
-## This is a proposal for a new OpenChain Specification *pending* ratification by the OpenChain Steering Committee.
+# OpenChain Telco SBOM Guide Version 1.0
 
 ## 1. Scope
 
 This document “OpenChain Telco SBOM Guide” aims to outline certain requirements related to how an entity creates, delivers, and consumes Software Bill of Materials (SBOM), so that entities that produce and/or consume SBOMs that conform to this guide can ensure repeatability and streamlining of tools and processes for generating and consuming SBOMs. *Please Note* that this guide does not require a conforming entity to adopt OpenChain (in any version) but doing so is greatly encouraged.
 
-This guide is designed to work on a per SBOM level: an entity can use it as its sole way of delivering SBOMs but it is the individual SBOM that the guide refers to, not the entity that provides the SBOM. An SBOM using this guide can be called a “Telco SBOM”.
+This guide is designed to work on a per SBOM level: an entity can use it as its sole way of delivering SBOMs but it is the individual SBOM that the guide refers to, not the entity that provides the SBOM. An SBOM using this guide can be called “OpenChain Telco SBOM Guide Compatible.”
 
 Releasing SBOMs that match the requirements outlined in this guide does not preclude an entity from also delivering SBOMs for the same software in alternate ways or formats.
 
@@ -58,18 +54,18 @@ Package URL (PURL) is a _de facto_ standard to uniquely identify software packag
 ## 3. Requirements
 
 ### 3.1 Data Format
-A Telco SBOM SHALL adhere to the version 2.2 of the SPDX Data Format as standardized in ISO/IEC 5962:2021, or to the version 2.3 of the standard, and as further described below with respect to the included elements.
+An OpenChain Telco SBOM Guide compatible document SHALL adhere to the version 2.2 of the SPDX Data Format as standardized in ISO/IEC 5962:2021, or to the version 2.3 of the standard, and as further described below with respect to the included elements.
 
 #### 3.1.1 Verification and reference material
 * ISO/IEC 5962:2021 Information technology — SPDX® Specification V2.2.1
 * [SPDX Specification V2.3](https://spdx.github.io/spdx-spec/v2.3/)
 
 #### 3.1.2 Rationale
-To ensure simplified handling and streamlining of tooling and competences in the telecommunications supply chain, both for suppliers and consumers of software, a Telco SBOM shall adhere to the SPDX Data Format as standardized in ISO/IEC 5962:2021. By harmonizing on the use of this standard SBOM Data Format in an organization's external interfaces, the complexities for organizations supplying and consuming software are simplified, as only one set of unified requirements will be applicable.
+To ensure simplified handling and streamlining of tooling and competences in the telecommunications supply chain, both for suppliers and consumers of software, OpenChain Telco SBOM Guide Compatible documents shall adhere to the SPDX Data Format as standardized in ISO/IEC 5962:2021. By harmonizing on the use of this standard SBOM Data Format in an organization's external interfaces, the complexities for organizations supplying and consuming software are simplified, as only one set of unified requirements will be applicable.
 
 As clarification, an entity is free to use alternative Data Formats for internal use, or deliver SBOMs in alternative Data Formats to organizations that so request or on its own initiative. The OpenChain Telco SBOM Guide is a SBOM-level specification to adhere to, and not an organizational specification to adhere to. There are no conforming entities, only conforming SBOMs, delivered by entities that have implemented the OpenChain Telco SBOM Guide.
 
-### 3.2 SPDX Elements to be included in the Telco SBOM
+### 3.2 SPDX Elements to be included in an OpenChain Telco SBOM Guide Compatible document
 
 The following elements are REQUIRED.
 
@@ -120,7 +116,7 @@ Most SCA tools have the capability to produce hashes.
 Package URL (PURL) is a _de facto_ standard to uniquely identify software packages.
 
 ### 3.3 Machine Readable Data Format
-The Telco SBOM SHALL include, at a minimum, the SPDX in one of the following machine readable formats: Tag:Value or JSON.
+An OpenChain Telco SBOM Compatible document SHALL include, at a minimum, SPDX in one of the following machine readable formats: Tag:Value or JSON.
 
 #### 3.3.1 Verification and reference material
 Tag:Value and JSON formats are described here:
@@ -131,7 +127,7 @@ Tag:Value and JSON formats are described here:
 There are 3 majors formats for SBOMs: SPDX, CycloneDX, and SWID.
 These 3 formats are the ones recommended by NTIA document "The Minimum Elements For a Software Bill of Materials (SBOM)" (see References section).
 
-The reasons for selecting SPDX as data format of the Telco SBOM Guide include the following:
+The reasons for selecting SPDX as data format of the OpenChain Telco SBOM Guide include the following:
 * SPDX is an ISO standard,
 * SPDX has more features than CycloneDX for license compliance,
 * SPDX has a human-readable format (CycloneDX has only JSON and XML),
@@ -143,7 +139,7 @@ Tag:Value is the most human-readable format, and there are converters between th
 (e.g. https://tools.spdx.org/app/convert/). JSON is a format produced by several tools.
 
 ### 3.4 Human Readable Data Format
-The Telco SBOM SHALL include, at a minimum, the SPDX in one of the following machine readable formats: Tag:Value or JSON.
+An OpenChain Telco SBOM Compatible document SHALL include, at a minimum, the SPDX in one of the following machine readable formats: Tag:Value or JSON.
 
 #### 3.4.1 Verification and reference material
 Tag:Value and JSON formats are described here:
@@ -154,7 +150,7 @@ Tag:Value and JSON formats are described here:
 As the Tag:Value format is also human readable it has been chosen so that both the requirements for a standardized machine readable and human readable version can be met using one file. An entity can release additional human readable formats but they are not required to conform to the OpenChain Telco SBOM Guide.
 
 ### 3.5 SBOM Build information
-SBOMs conforming to the Telco SBOM Guide MUST contain information as when they were created (using the SPDX `Created` field) and to which version of the software they were created (using the SPDX `CreatorComment` field).
+SBOMs conforming to the OpenChain Telco SBOM Guide MUST contain information as when they were created (using the SPDX `Created` field) and to which version of the software they were created (using the SPDX `CreatorComment` field).
 
 The `Creator` field MUST:
 * contain a line with the `Organization` keyword;
@@ -162,7 +158,7 @@ The `Creator` field MUST:
 
 The tool name and the tool version SHOULD be separated by hyphen ("-"), no other hyphen SHOULD appear on the line.
 
-SBOMs conforming to the Telco SBOM Guide MUST provide their SBOM Type as
+SBOMs conforming to the OpenChain Telco SBOM Guide MUST provide their SBOM Type as
 [defined by CISA](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)
 in the `CreatorComment` field.
 
@@ -220,7 +216,7 @@ If some components are not included, they MUST be reported as “known unknowns.
 It might not be possible, advisable or feasible to have the commercial component information in the SBOM. However, it is advisable that the SBOM should be as complete as possible.
 
 ### 3.9 SBOM in a SaaS deployment
-As the OpenChain Telco SBOM Guide is only applied on the SBOM level, there is no requirement on an entity that have elected to supply a Telco SBOM for some or even all of its software deliveries to also provide this for its SaaS offerings. However, an entity may elect to apply the OpenChain Telco SBOM Guide also to its SaaS offerings and thus also deliver the open source software used in the SaaS offerings with their transitive dependencies as an SBOM.
+As the OpenChain Telco SBOM Guide is only applied on the SBOM level, there is no requirement on an entity that have elected to supply an OpenChain Telco SBOM Compatible document for some or even all of its software deliveries to also provide this for its SaaS offerings. However, an entity may elect to apply the OpenChain Telco SBOM Guide also to its SaaS offerings and thus also deliver the open source software used in the SaaS offerings with their transitive dependencies as an SBOM.
 
 #### 3.9.1 Verification and reference material
 
