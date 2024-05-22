@@ -245,7 +245,7 @@ While the verification of SBOMs is an important topic, OpenChain Telco defers th
 SBOMs following this Guide can be built from several SBOM files with a well-defined relationship to each other using the relationship definition features in SPDX.
 
 #### 3.12.1 Verification and reference material
-There exist tools to merge several SBOMs into one, e.g. https://github.com/vmware-samples/sbom-composer
+There exist tools to merge several SBOMs into one, e.g. https://github.com/opensbom-generator/sbom-composer
 
 #### 3.12.2 Rationale
 It is often easier when dealing with a large software product to provide individual SBOMs of its parts than a single SBOM.

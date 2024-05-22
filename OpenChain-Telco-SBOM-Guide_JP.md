@@ -239,7 +239,7 @@ SBOMの検証は重要なトピックであるが、OpenChain Telco-WG は、こ
 本ガイドに従ったSBOMは、SPDXの関係定義機能を使用して、互いに明確に定義された関係を持った複数のSBOMファイルから構築することができる。
 
 #### 3.12.1 検証と参考資料
-複数のSBOMから１つのSBOMへマージするツールの一例： https://github.com/vmware-samples/sbom-composer
+複数のSBOMから１つのSBOMへマージするツールの一例： https://github.com/opensbom-generator/sbom-composer
 
 #### 3.12.2 根拠
 大規模なソフトウェア製品を扱う場合、単一のSBOMよりも、個々の部品のSBOMを提供する方が容易なことが多い。

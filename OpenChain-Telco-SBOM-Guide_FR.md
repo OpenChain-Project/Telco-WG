@@ -43,7 +43,7 @@ La définition de ces types peut être trouvée dans le
 ### SPDX
 SPDX (Software Package Data Exchange) est la [norme ISO](https://www.iso.org/standard/81870.html) (ISO/CEI 5962:2021) pour l'échange de SBOM pour un logiciel donné, y compris les licences associées et les informations sur les droits d'auteur. La norme a été créée par le [projet SPDX de la Linux Foundation](https://spdx.dev/).
 
-### OpenChain
+### OpenChain
 OpenChain signifie [OpenChain ISO/CEI 5230:2020](https://www.iso.org/standard/81039.html), la norme internationale qui spécifie les exigences clés d'un programme de conformité de licence open source de qualité afin de fournir une référence qui renforce la confiance entre les organisations échangeant des solutions logicielles intégrant des logiciels open source. La norme OpenChain est produite par le [projet OpenChain](https://www.openchainproject.org) de la Linux Foundation.
 
 ### Dépendances transitives
@@ -243,7 +243,7 @@ Bien que la vérification des SBOM soit un sujet important, OpenChain Telco repo
 Les SBOM suivant ce Guide peuvent être construits à partir de plusieurs fichiers SBOM avec une relation bien définie les uns avec les autres à l'aide des fonctionnalités de définition de relation de SPDX.
 
 #### 3.12.1 Matériel de vérification et de référence
-Il existe des outils pour fusionner plusieurs SBOM en un seul, par ex. https://github.com/vmware-samples/sbom-composer
+Il existe des outils pour fusionner plusieurs SBOM en un seul, par exemple https://github.com/opensbom-generator/sbom-composer
 
 #### 3.12.2 Justification
 Il est souvent plus facile, lorsqu'il s'agit d'un produit logiciel volumineux, de fournir des SBOM individuels de ses parties plutôt qu'un seul SBOM.
