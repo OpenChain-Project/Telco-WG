@@ -40,7 +40,7 @@ Un SBOM peut être de l'un des types suivants :
 La définition de ces types peut être trouvée dans le
 [document CISA](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf).
 
-###SPDX
+### SPDX
 SPDX (Software Package Data Exchange) est la [norme ISO](https://www.iso.org/standard/81870.html) (ISO/CEI 5962:2021) pour l'échange de SBOM pour un logiciel donné, y compris les licences associées et les informations sur les droits d'auteur. La norme a été créée par le [projet SPDX de la Linux Foundation](https://spdx.dev/).
 
 ### OpenChain
@@ -55,7 +55,7 @@ Package URL (PURL) est une norme _de facto_ pour identifier de manière unique l
 ## 3. Exigences
 
 ### 3.1 Format des données
-Un SBOM conforme au Guide SBOM OpenChain Telco DOIT adhérer à la version 2.2 du format de données SPDX tel que normalisé dans la norme ISO/CEI 5962:2021, ou à la versio 2.3 de SPDX, et comme décrit plus en détail ci-dessous en ce qui concerne les éléments inclus.
+Un SBOM conforme au Guide SBOM OpenChain Telco DOIT adhérer à la version 2.2 du format de données SPDX tel que normalisé dans la norme ISO/CEI 5962:2021, ou à la version 2.3 de SPDX, et comme décrit plus en détail ci-dessous en ce qui concerne les éléments inclus.
 
 #### 3.1.1 Matériel de vérification et de référence
 * ISO/CEI 5962:2021 Technologies de l'information — Spécification SPDX® V2.2.1
@@ -258,12 +258,12 @@ Les SBOM PEUVENT être soumis à des accords de confidentialité. Un SBOM confor
 Certaines licences de logiciels open source permettent à tout destinataire de redistribuer le logiciel. Dans ces situations, les destinataires devraient également être en mesure de redistribuer les parties pertinentes des SBOM.
 
 ## 4. Avis conforme
-Pour indiquer que le logiciel dispose d'un SBOM conforme, vous POUVEZ utiliser la déclaration suivante : « Ce logiciel est fourni avec un SBOM conforme au Guide SBOM OpenChain Telco v1.0, le Guide est disponible sur https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Guide_FR.md »
+Pour indiquer que le logiciel dispose d'un SBOM conforme, vous POUVEZ utiliser la déclaration suivante : « Ce logiciel est fourni avec un SBOM conforme au Guide SBOM OpenChain Telco v1.0, le Guide est disponible sur https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_FR.md »
 
-Vous POUVEZ, à votre choix, utiliser la déclaration suivante dans votre SBOM conforme au Guide SBOM OpenChain Telco : « Ce SBOM est conforme au Guide SBOM OpenChain Telco v1.0 https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Guide_FR.md, il est fourni gratuitement au destinataire, et le destinataire est libre de redistribuer ce SBOM à tout tiers auquel il distribue le logiciel correspondant, à condition qu'il dispose de tous les droits nécessaires pour distribuer le logiciel à ce tiers »
+Vous POUVEZ, à votre choix, utiliser la déclaration suivante dans votre SBOM conforme au Guide SBOM OpenChain Telco : « Ce SBOM est conforme au Guide SBOM OpenChain Telco v1.0 https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_FR.md, il est fourni gratuitement au destinataire, et le destinataire est libre de redistribuer ce SBOM à tout tiers auquel il distribue le logiciel correspondant, à condition qu'il dispose de tous les droits nécessaires pour distribuer le logiciel à ce tiers »
 
 La déclaration suivante PEUT être utilisée comme déclaration dans un document d'appel d'offres, de commande ou le document contractuel d'un appel d'offres, de commande de développement externalisé auprès d'un fournisseur de logiciels ou de fournisseurs de systèmes de télécommunications.
-« Lors de la publication d'un logiciel, il est OBLIGATOIRE de fournir un SBOM conforme au Guide SBOM OpenChain Telco v1.0 pour tous les logiciels publiés. Ce Guide est disponible sur [https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Guide_FR.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain%20Telco%20SBOM%20Guide_FR.md) »
+« Lors de la publication d'un logiciel, il est OBLIGATOIRE de fournir un SBOM conforme au Guide SBOM OpenChain Telco v1.0 pour tous les logiciels publiés. Ce Guide est disponible sur [https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_FR.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_FR.md) »
 
 ## 5. Références
 
