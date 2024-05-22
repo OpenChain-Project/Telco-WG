@@ -3,11 +3,11 @@ Welcome to the OpenChain Telco Work Group.
 
 You can check the [objectives and next steps of the workgroup](https://github.com/OpenChain-Project/Telco-WG/blob/main/Objectives.md).
 
-We are creating an [OpenChain Telco SBOM Guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/Draft-OpenChain-Telco-SBOM-Guide_EN.md) that is still in draft version.
+We have created an [OpenChain Telco SBOM Guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md) that is now in version 1.0.
 
-There is a [Japanese translation of the guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/Draft-OpenChain-Telco-SBOM-Guide_JP.md) that was provided by Masahiro DAIKOKU-san from KDDI Corporation.
+There is a [Japanese translation of the guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_JP.md) that was provided by Masahiro DAIKOKU-san from KDDI Corporation.
 
-There is a [French translation of the guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/Draft-OpenChain-Telco-SBOM-Guide_FR.md) that was provided by Marc-Etienne Vargenau from Nokia.
+There is a [French translation of the guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_FR.md) that was provided by Marc-Etienne Vargenau from Nokia.
 
 Our mailing list is here:
 https://lists.openchainproject.org/g/telco
