@@ -9,6 +9,8 @@ There is a [Japanese translation of the guide](https://github.com/OpenChain-Proj
 
 There is a [French translation of the guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_FR.md) that was provided by Marc-Etienne Vargenau from Nokia.
 
+There is a [Chinese translation of the guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_ZH_HANS.md) that was provided by David Liu from Bytedance.
+
 Our mailing list is here:
 https://lists.openchainproject.org/g/telco
 
