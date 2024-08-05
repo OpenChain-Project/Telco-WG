@@ -45,7 +45,7 @@ Secondly, it is impossible to reuse SPDX 2.2.2/2.3 json schema implementation in
 Thirdly, arrange order of fields in implementation according to order of fields in official specifications to make implementation more human-readable. In origin json schema implementation of SPDX, orders of fields are in a messy.
 
 ## Openchain Telco Guide JSON Schema
-ASPDX 2.2 and SPDX 2.3 are not compatible
+SPDX 2.2 and SPDX 2.3 are not compatible!
 ```
 internal $ python3 json_schema_compare.py -f spdx-v2.3-fix-schema.json spdx-v2.2.2-fix-schema.json 
 {
