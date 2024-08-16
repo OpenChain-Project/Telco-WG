@@ -95,7 +95,8 @@
             "type": "object",
             "required": [
                 "creators",
-                "created"
+                "created",
+                "comment"
             ],
             "properties": {
                 "licenseListVersion": {
@@ -117,7 +118,7 @@
                 },
                 "comment": {
                     "type": "string",
-                    "description": "an optional field for creator of the SPDX file to provide general comments about the creation of the SPDX file or any other relevant comment not included in the other fields."
+                    "description": "Mandatory. MUST provide SBOM Type as defined by CISA in the field."
                 }
             },
             "description": "One instance is required for each SPDX file produced. It provides the necessary information for forward and backward compatibility for processing tools."
@@ -134,12 +135,12 @@
                 "required": [
                     "name",
                     "SPDXID",
+                    "versionInfo",
                     "downloadLocation",
                     "licenseConcluded",
                     "licenseDeclared",
                     "copyrightText",
-                    "supplier",
-                    "version"
+                    "supplier"
                 ],
                 "properties": {
                     "name": {
@@ -151,7 +152,7 @@
                         "description": "Uniquely identify any element in an SPDX document which may be referenced by other elements."
                     },
                     "versionInfo": {
-                        "description": "Provides an indication of the version of the package that is described by this SpdxDocument.",
+                        "description": "Provides an indication of the version of the package that is described by this SpdxDocument. Telco Guide required mandatory.",
                         "type": "string"
                     },
                     "packageFileName": {
@@ -385,10 +386,6 @@
                             "description": "SPDX ID for File.  Indicates that a particular file belongs to a package.",
                             "type": "string"
                         }
-                    },
-                    "version": {
-                        "description": "Telco Guide required mandatory.",
-                        "type": "string"
                     }
                 }
             }

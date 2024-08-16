@@ -1,10 +1,10 @@
-# Schemas of OpenChain Telco Guide
-This directory is an implementation of json schemas of Telco Guide. The file [openchain-telco-guide-v1.0-schema.json](openchain-telco-guide-v1.0-schema.json) is just the json schema file you can take to your project. 
+# Schemas of OpenChain Telco SBOM Guide
+This directory is an implementation of json schemas of OpenChain Telco SBOM Guide. The file [openchain-telco-sbom-guide-1.0-schema.json](openchain-telco-sbom-guide-1.0-schema.json) is just the json schema file you can take to your project. 
 
 As further described below, a technology viewpoint is shown below how to generate json schema file from scratch if you wanna a clear comprehension of underlying logic.
 
 ## SPDX 2.2 and SPDX 2.3
-In the specification of OpenChain Telco Guide, we say 'An OpenChain Telco SBOM Guide compatible document SHALL adhere to the version 2.2 of the SPDX Data Format as standardized in ISO/IEC 5962:2021, or to the version 2.3 of the standard'. By 2024-08-05, v2.2, v2.2.1, v2.2.2 and v2.3 have been released in github website. We choose v2.2.2 and v2.3 as origin json schema implementation.
+In the specification of OpenChain Telco SBOM Guide, we say 'An OpenChain Telco SBOM Guide compatible document SHALL adhere to the version 2.2 of the SPDX Data Format as standardized in ISO/IEC 5962:2021, or to the version 2.3 of the standard'. By 2024-08-05, v2.2, v2.2.1, v2.2.2 and v2.3 have been released in github website. We choose v2.2.2 and v2.3 as origin json schema implementation.
 
 The difference between spdx 2.2 and spdx 2.3 is that spdx 2.3 require less license info. For example, you can see concluded license field in spdx 2.2 [link](https://spdx.github.io/spdx-spec/v2.2.2/package-information/#713-concluded-license-field) and in spdx 2.3 [link](https://spdx.github.io/spdx-spec/v2.3/package-information/#713-concluded-license-field).
 
@@ -40,11 +40,11 @@ internal $ python3 json_schema_compare.py -f spdx-v2.2.2-origin-schema.json spdx
 ```
 In SPDX 2.2.2 specifications, `name` field in `snippets` in not mandatory, while in SPDX 2.2.2 json schema implementation is mandatory. And field `documentNamespace`, field `checksums` in `files`, field `licenseInfoInFiles` in `files` and field `ranges` in `snippets` is mandatory in SPDX 2.2.2 specifications, while not mandatory in json schema implementation. It is the same to SPDX 2.3 version. The bugfixes for spdx have been pulled request to official github project.
 
-Secondly, it is impossible to reuse SPDX 2.2.2/2.3 json schema implementation in Telco Guide because declarations of `"additionalProperties": false` exist in it, which means you cannot extend any other field. So the fix one will omit this declaration to extend more fields.
+Secondly, it is impossible to reuse SPDX 2.2.2/2.3 json schema implementation in Open Chain Telco SBOM Guide because declarations of `"additionalProperties": false` exist in it, which means you cannot extend any other field. So the fix one will omit this declaration to extend more fields.
 
 Thirdly, arrange order of fields in implementation according to order of fields in official specifications to make implementation more human-readable. In origin json schema implementation of SPDX, orders of fields are in a messy.
 
-## Openchain Telco Guide JSON Schema
+## Openchain Telco SBOM Guide JSON Schema
 SPDX 2.2 and SPDX 2.3 are not compatible!
 ```
 internal $ python3 json_schema_compare.py -f spdx-v2.3-fix-schema.json spdx-v2.2.2-fix-schema.json 
@@ -71,28 +71,26 @@ internal $ python3 json_schema_compare.py -f spdx-v2.3-fix-schema.json spdx-v2.2
     }
 }
 ```
-SPDX 2.3 add four fields that are all not mandatory in comparison with SPDX 2.2 and require less license info mandatory fields. This means if it meets SPDX 2.3, it will meet SPDX 2.2. So we choose SPDX 2.3 as a base implementation of Telco Guide. Then we add `MUST` feild in Telco Guide which can be shown below.
+SPDX 2.3 add four fields that are all not mandatory in comparison with SPDX 2.2 and require less license info mandatory fields. This means if it meets SPDX 2.2, it will meet SPDX 2.3. So we choose SPDX 2.3 as a base implementation of Open Chain Telco SBOM Guide. Then we add `MUST` feild in Open Chain Telco SBOM Guide which can be shown below.
 ```
-internal $ python3 json_schema_compare.py -f ../openchain-telco-guide-v1.0-schema.json spdx-v2.3-fix-schema.json 
+internal $ python3 json_schema_compare.py -f ../openchain-telco-sbom-guide-1.0-schema.json spdx-v2.3-fix-schema.jso
+n
 {
     "field_mandatory_comparison": {
         "more_fields": [
+            "doc(object)->creationInfo(object)->comment",
             "doc(object)->packages(array)->packages_item(object)->copyrightText",
             "doc(object)->packages(array)->packages_item(object)->licenseConcluded",
             "doc(object)->packages(array)->packages_item(object)->licenseDeclared",
             "doc(object)->packages(array)->packages_item(object)->supplier",
-            "doc(object)->packages(array)->packages_item(object)->version"
+            "doc(object)->packages(array)->packages_item(object)->versionInfo"
         ]
     },
-    "field_existence_comparison": {
-        "more_fields": [
-            "doc(object)->packages(array)->packages_item(object)->version(string)"
-        ]
-    }
+    "field_existence_comparison": {}
 }
 ```
-The difference between Telco Guide and SPDX 2.3 can be shown below.
-- The field `version` in field `packages` is added into Telco Guide. 
-- The field `copyrightText`, `licenseConcluded`, `licenseDeclared`, `supplier`, `version` in field `packages` is declared as mandatory. 
+The difference between Open Chain Telco SBOM Guide and SPDX 2.3 can be shown below.
+- The field `comment` in field `createInfo` in declared as mandatory.
+- The field `copyrightText`, `licenseConcluded`, `licenseDeclared`, `supplier`, `versionInfo` in field `packages` is declared as mandatory. 
 - add descriptions into some fields json schema.
 - Revise `$id` and `title`.
