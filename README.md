@@ -26,6 +26,8 @@ There is a [French translation of the guide](https://github.com/OpenChain-Projec
 
 There is a [Chinese translation of the guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_ZH_HANS.md) that was provided by David Liu from Bytedance.
 
+See [announcement](https://openchainproject.org/news/2024/07/30/openchain-telco-sbom-guide-general-availability) in OpenChain website.
+
 ## Tools
 
 Nokia has provided a [Python tool](tools) to validate an SBOM against the OpenChain Telco SBOM Guide.
