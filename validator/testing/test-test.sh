@@ -1,0 +1,92 @@
+#! /usr/bin/env bash
+# -*- coding: utf-8 -*-
+source bash_test_tools
+
+function setup
+{
+   . ../.env/bin/activate 
+}
+
+function teardown
+{
+    deactivate
+}
+
+function test_no_supplier_no_checksum
+{
+    run "python3 ../openchain-talco-sbom-validator.py test-sbom-01.spdx"
+    echo "$output"
+    assert_fail
+    assert_has_output
+    assert_has_error
+    assert_output_contains "libldap-2.4-2 | Supplier field is missing"
+    assert_output_contains "libldap-2.4-2 | Checksum field is missing"
+}
+
+function test_no_name_no_version_no_supplier
+{
+    run "python3 ../openchain-talco-sbom-validator.py test-sbom-02.spdx"
+    echo "$output"
+    assert_fail
+    assert_has_output
+    assert_has_error
+    assert_output_contains "Package without a name"
+    assert_output_contains "golang.org/x/sync | Package without a version"
+    assert_output_contains "golang.org/x/sync | Package without a package"
+    assert_output_contains "libldap-2.4-2     | Supplier field is missing"
+    assert_output_contains "golang.org/x/sync | Version field is missing"
+    assert_output_contains "golang.org/x/sync | Version field is missing"
+    assert_output_contains "golang.org/x/sync | Supplier field is missing"
+    assert_output_contains "golang.org/x/sync | Checksum field is missing"
+}
+
+function test_no_homepage_offline
+{
+    run "python3 ../openchain-talco-sbom-validator.py test-sbom-03.spdx"
+    echo "$output"
+    assert_fail
+    assert_has_output
+    assert_has_error
+    assert_output_contains "Empty        | homepage must be a valid"
+    assert_output_contains "InvalidURL   | homepage must be a valid"
+    assert_output_contains "Missing      | PackageHomePage field is"
+}
+
+function test_no_homepage_online
+{
+    run "python3 ../openchain-talco-sbom-validator.py --strict-url-check test-sbom-03.spdx"
+    echo "$output"
+    assert_fail
+    assert_has_output
+    assert_has_error
+    assert_output_contains "Empty                     | homepage must be a valid"
+    assert_output_contains "InvalidURL                | homepage must be a valid"
+    assert_output_contains "CorrectFormatIncorrecttar | PackageHomePage field"
+    assert_output_contains "Missing                   | PackageHomePage field is"
+}
+
+function test_no_homepage_open_chain_offline
+{
+    run "python3 ../openchain-talco-sbom-validator.py --open-chain-telco test-sbom-03.spdx"
+    echo "$output"
+    assert_fail
+    assert_has_output
+    assert_has_error
+    assert_output_contains "Empty        | homepage must be a valid"
+    assert_output_contains "InvalidURL   | homepage must be a valid"
+}
+
+function test_no_homepage_open_chain_online
+{
+    run "python3 ../openchain-talco-sbom-validator.py --open-chain-telco --strict-url-check test-sbom-03.spdx"
+    echo "$output"
+    assert_fail
+    assert_has_output
+    assert_has_error
+    assert_output_contains "Empty                     | homepage must be a valid"
+    assert_output_contains "InvalidURL                | homepage must be a valid"
+    assert_output_contains "CorrectFormatIncorrecttar | PackageHomePage field"
+}
+
+
+testrunner
