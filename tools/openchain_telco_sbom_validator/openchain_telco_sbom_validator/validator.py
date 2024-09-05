@@ -5,7 +5,6 @@
 # Licensed under the Apache License 2.0
 # SPDX-License-Identifier: Apache-2.0
 
-import argparse
 import logging
 import sys
 import re
@@ -23,55 +22,18 @@ import ntia_conformance_checker as ntia
 import validators
 import requests
 
-def main():
+# Returns a status and a list of problems.
+# filePath: Path to the SPDX file to validate
+# strict_purl_check: Not only checks the syntax of the PURL, but also cecks if the package can be downloaded.
+# strict_url_check: Checks if the given URLs in PackageHomepages can be accesses.
+
+def validate(filePath, strict_purl_check=False, strict_url_check=False):
     logging.basicConfig(
         format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
     logger = logging.getLogger(__name__)
 
-    parser = argparse.ArgumentParser(description='A script to validate an SPDX file against the OpenChain Telco SBOM Guide.')
-    # TODO: This should go in without any parameter.
-    parser.add_argument('--debug', action="store_true",
-                        help='Print debug logs.')
-    parser.add_argument('--nr-of-errors',
-                        help='Sets a limit on the number of errors displayed')
-    parser.add_argument('input',
-                        help='The input SPDX file.')
-    parser.add_argument('--strict-purl-check', action="store_true",
-                        help='Runs a strict check on the given purls. The default behaviour is to run a non strict purl'
-                        'check what means that it is not checked if the purl is translating to a downloadable url.')
-    parser.add_argument('--strict-url-check', action="store_true",
-                        help='Runs a strict check on the URLs of the PackageHomepages. Strict check means that the'
-                        ' validator checks also if the given URL can be accessed. The default behaviour is to run a non'
-                        ' strict URL check what means that it is not checked if the URL points to a valid page. Strict'
-                        'URL check requires access to the internet and takes some time.')
-
-    args = parser.parse_args()
-
-    # print(args)
-    if args.debug:
-        logger.setLevel(logging.DEBUG)
-        logger.debug("Debug logging is ON")
-    if not args.input:
-        logger.error("ERROR! Input is a mandatory parameter.")
-        sys.exit(2)
-    else:
-        logger.info("Input file is " + args.input)
-        # TODO: Check if the file exist.
-
-    if args.nr_of_errors:
-        if not args.nr_of_errors.isnumeric():
-            logger.error(f"nr-of-errors must be a number and not {args.nr_of_errors}")
-            sys.exit(1)
-    if args.strict_purl_check:
-        logger.info("Running strict checks for purls, what means that it is tested if the purls can be translated to a downloadable url.")
-    if args.strict_url_check:
-        logger.info("Running strict checks for URL, what means that it is tested if the PackageHomePage fields are pointing to real pages.")
-
-    logger.debug("Start parsing")
-
-    filePath = str(args.input);
     try:
-        doc = parse_anything.parse_file(str(args.input))
+        doc = parse_anything.parse_file(filePath)
     except json.decoder.JSONDecodeError as e:
         logger.error("JSON syntax error at line " + str(e.lineno) + " column " + str(e.colno))
         logger.error(e.msg)
@@ -84,7 +46,7 @@ def main():
         sys.exit(1)
     logger.debug("Start validating")
 
-    problems = []
+    problems = Problems()
 
     errors = validate_full_spdx_document(doc)
     if errors:
@@ -99,7 +61,7 @@ def main():
                 if hasattr(error.context.full_element, 'name'):
                     name = error.context.full_element.name
 
-            problems.append(["SPDX validation error", f"{spdxId}", f"{name}", f"{error.validation_message}"])
+            problems.append("SPDX validation error", f"{spdxId}", f"{name}", f"{error.validation_message}")
 
     # Checking against NTIA minimum requirements
     # No need for SPDX validation as it is done previously.
@@ -132,9 +94,9 @@ def main():
                 typeFound = True
 
         if not typeFound:
-            problems.append(["Invalid CreationInfo", "General", "General", f"CreatorComment ({doc.creation_info.creator_comment}) is not in the CISA SBOM Type list (https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)"])
+            problems.append("Invalid CreationInfo", "General", "General", f"CreatorComment ({doc.creation_info.creator_comment}) is not in the CISA SBOM Type list (https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)")
     else:
-        problems.append(["Missing mandatory field from CreationInfo", "General", "General", f"CreatorComment is missing"])
+        problems.append("Missing mandatory field from CreationInfo", "General", "General", f"CreatorComment is missing")
 
     if doc.creation_info.creators:
         organisationCorrect = False
@@ -148,20 +110,20 @@ def main():
                 logger.debug(f"Creator: Tool found with the correct format ({creator})")
                 toolCorrect = True
         if not organisationCorrect:
-            problems.append(["Missing or invalid field in CreationInfo::Creator", "General", "General", "There is no Creator field with Organization keyword in it"])
+            problems.append("Missing or invalid field in CreationInfo::Creator", "General", "General", "There is no Creator field with Organization keyword in it")
         if not toolCorrect:
-            problems.append(["Missing or invalid field in CreationInfo::Creator", "General", "General","There is no Creator field with Tool keyword in it or the field does not contain the tool name and its version separated with a hyphen"])
+            problems.append("Missing or invalid field in CreationInfo::Creator", "General", "General","There is no Creator field with Tool keyword in it or the field does not contain the tool name and its version separated with a hyphen")
     else:
-        problems.append(["Missing mandatory field from CreationInfo", "General", "General", "Creator is missing"])
+        problems.append("Missing mandatory field from CreationInfo", "General", "General", "Creator is missing")
 
     for package in doc.packages:
         logger.debug(f"Package: {package}")
         if not package.version:
-            problems.append(["Missing mandatory field from Package", package.spdx_id, package.name, "Version field is missing"])
+            problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Version field is missing")
         if not package.supplier:
-            problems.append(["Missing mandatory field from Package", package.spdx_id, package.name, "Supplier field is missing"])
+            problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Supplier field is missing")
         if not package.checksums:
-            problems.append(["Missing mandatory field from Package", package.spdx_id, package.name, "Checksum field is missing"])
+            problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Checksum field is missing")
         if package.external_references:
             purlFound = False
             for ref in package.external_references:
@@ -169,17 +131,17 @@ def main():
                 if ref.category == ExternalPackageRefCategory.PACKAGE_MANAGER and ref.reference_type == "purl":
                     # Based on https://github.com/package-url/packageurl-python
                     purlFound = True
-                    if args.strict_purl_check:
+                    if strict_purl_check:
                         url = purl2url.get_repo_url(ref.locator)
                         if not url:
                             logger.debug("Purl (" + ref.locator + ") parsing resulted in empty result.")
-                            problems.append(["Useless mandatory field from Package", package.spdx_id, package.name, f"purl ({ref.locator}) in the ExternalRef cannot be converted to a downloadable URL"])
+                            problems.append("Useless mandatory field from Package", package.spdx_id, package.name, f"purl ({ref.locator}) in the ExternalRef cannot be converted to a downloadable URL")
                         else:
                             logger.debug(f"Strict PURL check is happy {url}")
             if not purlFound:
-                problems.append(["Missing mandatory field from Package", package.spdx_id, package.name, "There is no purl type ExternalRef field in the Package"])
+                problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "There is no purl type ExternalRef field in the Package")
         else:
-            problems.append(["Missing mandatory field from Package", package.spdx_id, package.name, "ExternalRef field is missing"])
+            problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "ExternalRef field is missing")
         if isinstance(package.homepage, type(None)):
             logger.debug("Package homepage is missing")
         else:
@@ -189,39 +151,17 @@ def main():
                 # Adding this to the problem list is not needed as the SPDX validator also adds it
                 # problems.append(["Invalid field in Package", package.spdx_id, package.name, f"PackageHomePage is not a valid url ({package.homepage})"])
             else:
-                if args.strict_url_check:
+                if strict_url_check:
                     try:
                         logger.debug("Checking package homepage")
                         page = requests.get(package.homepage)
                     except Exception as err:
                         logger.debug(f"Exception received ({format(err)})")
-                        problems.append(["Invalid field in Package", package.spdx_id, package.name, f"PackageHomePage field points to a nonexisting page ({package.homepage})"])
+                        problems.append("Invalid field in Package", package.spdx_id, package.name, f"PackageHomePage field points to a nonexisting page ({package.homepage})")
     if problems:
-        if args.nr_of_errors:
-            problems = problems[0:int(args.nr_of_errors)]
-
-        resultTable = PrettyTable(align = "l")
-        resultTable.padding_width = 1
-        resultTable.field_names = ["#", "Error type", "SPDX ID", "Package name", "Reason"]
-
-        # TODO: now Error type and SPDX ID uses more space than Package name and Reason, this should be vice versa
-        width = shutil.get_terminal_size().columns
-        resultTable._max_width = {"#": 4,
-                                  "Error type": int((width - 4)/6),
-                                  "SPDX ID": int((width - 4)/6),
-                                  "Package name": int((width - 4)/3),
-                                  "Reason": int((width - 4)/3)}
-        i = 0
-        for problem in problems:
-            i = i + 1
-            resultTable.add_row([i, problem[0], problem[1], problem[2], problem[3]], divider=True)
-
-        print(resultTable)
-        print(f"The SPDX file {args.input} is not compliant with the OpenChain Telco SBOM Guide")
-        sys.exit(1)
+        return False, problems
     else:
-        print(f"The SPDX file {args.input} is compliant with the OpenChain Telco SBOM Guide")
-        sys.exit(0)
+        return True
 
 def ntiaErrorLog(components, problems, doc, problemText):
     logger = logging.getLogger(__name__)
@@ -231,9 +171,9 @@ def ntiaErrorLog(components, problems, doc, problemText):
         spdxPackage = document_utils.get_element_from_spdx_id(doc, component)
         logger.debug(f"SPDX element: {spdxPackage}")
         if spdxPackage:
-            problems.append(["NTIA validation error", spdxPackage.spdx_id, spdxPackage.name, problemText])
+            problems.append("NTIA validation error", spdxPackage.spdx_id, spdxPackage.name, problemText)
         else:
-            problems.append(["NTIA validation error", "Cannot be provided", component, problemText])
+            problems.append("NTIA validation error", "Cannot be provided", component, problemText)
 
 def ntiaErrorLogNew(components, problems, doc, problemText):
     logger = logging.getLogger(__name__)
@@ -241,14 +181,45 @@ def ntiaErrorLogNew(components, problems, doc, problemText):
     for component in components:
         logger.debug(f"Erroneous component: {component}")
         if len(component) > 1:
-            problems.append(["NTIA validation error", component[1], component[0], problemText])
+            problems.append("NTIA validation error", component[1], component[0], problemText)
         else:
             spdxPackage = document_utils.get_element_from_spdx_id(doc, component)
             logger.debug(f"SPDX element: {spdxPackage}")
             if spdxPackage:
-                problems.append(["NTIA validation error", spdxPackage.spdx_id, spdxPackage.name, problemText])
+                problems.append("NTIA validation error", spdxPackage.spdx_id, spdxPackage.name, problemText)
             else:
-                problems.append(["NTIA validation error", "Cannot be provided", component, problemText])
+                problems.append("NTIA validation error", "Cannot be provided", component, problemText)
+
+class Problem:
+    def __init__(self, ErrorType, SPDX_ID, PackageName, Reason):
+        self.ErrorType = ErrorType
+        self.SPDX_ID = SPDX_ID
+        self.PackageName = PackageName
+        self.Reason = Reason
+
+    def __str__(self):
+        return f"Problem(ErrorType={ErrorType}, SPDX_ID={SPDX_ID}, PackageName={PackageName}, Reason={Reason})"
+
+    def __repr__(self):
+        return f"Problem(ErrorType={ErrorType}, SPDX_ID={SPDX_ID}, PackageName={PackageName}, Reason={Reason})"
+
+class Problems:
+    def __init__(self):
+        self.items = []
+
+    def add(self, item: Problem):
+        self.items.append(item)
+
+    def append(self, ErrorType, SPDX_ID, PackageName, Reason):
+        item = Problem(ErrorType, SPDX_ID, PackageName, Reason)
+        self.add(item)
+
+
+    def __iter__(self):
+        return iter(self.items)
+
+    def __getitem__(self, index):
+        return self.items[index]
 
 if __name__ == "__main__":
     main()
