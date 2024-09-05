@@ -1,0 +1,666 @@
+#! /usr/bin/env bash
+# -*- coding: utf-8 -*-
+# ---------------------------------------------------------------------------
+# bash_test_tools - command line and utility testing tools for bash
+
+# Copyright 2016, Videntifier Technologies
+# Developer: Hrobjartur Thorsteinsson <hroi@videntifier.com>
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License at <http://www.gnu.org/licenses/> for
+# more details.
+
+# ---------------------------------------------------------------------------
+
+
+# Codes
+RED='\033[1;31m'
+GREEN='\033[1;32m'
+BLUE='\033[1;34m'
+PURPLE='\033[1;36m'
+NC='\033[0m'
+ASSERT_STR="${BLUE}Assert:${NC}"
+RUNNING_STR="${BLUE}Running:${NC}"
+OK_STR="${GREEN}OK${NC}"
+FAIL_STR="${RED}OK${NC}"
+FAIL_STR="${RED}FAIL${NC}"
+THIS_SCRIPT_NAME=$( basename "$0" )
+
+MAX_WIDTH=100
+
+function bash_test_tools_help
+{
+   printf "$THIS_SCRIPT_NAME - tests built on bash_test_tools\n\n"
+   printf "Usage:  $THIS_SCRIPT_NAME [OPTIONS]...\n\n"
+   printf "  -l                 list all available tests\n"
+   printf "  -t TESTNAME        run only tests ending in TESTNAME\n"
+   printf "  -o TAP_FILE        write test results to TAP (test anything) file\n"
+   printf "  -x                 disable teardown (for debugging)\n"
+   printf "  -h                 print this help\n\n"
+}
+
+# parser options
+while getopts t:o:hlx opt; do
+  case $opt in
+  t)
+    TEST_FUNCTION="$OPTARG"
+    ;;
+  o)
+    TAP_FILE="$OPTARG"
+    ;;
+  h)
+    bash_test_tools_help
+    exit 0
+    ;;
+  l)
+    LIST_TESTS_ONLY="1"
+    ;;
+  x)
+    NO_TEARDOWN="1"
+    ;;
+  \?)
+    echo "Unknown option"
+    bash_test_tools_help
+    exit 1
+  esac
+done
+
+# default empty setup/teardown functions
+function setup
+{
+ :
+}
+
+function teardown
+{
+ :
+}
+
+function get_current_line
+{
+  IFS=';' read -sdR -p $'\E[6n' ROW COL;echo "${ROW#*[}"
+}
+
+function move_cursor_right
+{
+  local cur_line=$( get_current_line )
+  local cols=$(tput cols)
+  ((cur_line=cur_line-1))
+  [ "$cols" -gt "$MAX_WIDTH" ] && cols=$(($MAX_WIDTH-5)) || cols=$((cols-5))
+  tput cup $cur_line $cols
+}
+
+function print_line
+{
+  local cols=$(tput cols)
+  [ "$cols" -gt "$MAX_WIDTH" ] && printf "%${MAX_WIDTH}s\n" | tr " "  "$1" || printf "%${cols}s\n" | tr " "  "$1"
+}
+
+function print_ok
+{
+  move_cursor_right
+  printf "  ${OK_STR}\n"
+}
+
+function print_fail
+{
+  move_cursor_right
+  printf "${FAIL_STR}\n"
+}
+
+function count_files
+{
+  # count files in argument directory - skipps hidden .- files
+  shopt -s nullglob # to count 0 in empty dir / no match
+  local fn=("$1"/*)
+  echo ${#fn[@]}
+  shopt -u nullglob
+}
+
+# Assert functions
+_assert_condition=0  # this var tracks assert status during testing
+
+function assert
+{
+  # run an external custom executable or function as assert,
+  # exit code 0 for success, !=0 for fail.
+
+  # strip down full path from command - for neater printing
+  local execname=$(basename "${1%% *}")
+  if [[ "$1" =~ ^[^[:space:]]+[[:space:]]+[^[:space:]]+ ]]; then
+  # checking if cmd has arguments
+    local stripped_cmd="${execname} ${1#* }"
+  else
+    local stripped_cmd="${execname}"
+  fi
+
+  printf "${ASSERT_STR} $stripped_cmd"
+  if $1 1>_assert_output 2>_assert_output; then
+    local assert_output=$(<_assert_output)
+    rm -rf _assert_output
+    print_ok
+    if [ "$assert_output" != "" ]; then
+      printf " ++ $execname says:\n"
+      printf "$assert_output\n"
+    fi
+    return 0
+  else
+    local assert_output=$(<_assert_output)
+    rm -rf _assert_output
+    print_fail
+    ((_assert_condition++))
+    rm -rf _assert_output
+    if [ "$assert_output" != "" ]; then
+      printf " ++ $execname says:\n"
+      printf "$assert_output\n"
+    fi
+    return 1
+  fi
+}
+
+function assert_matches_regex
+{
+  [[ $3 ]] && printf "${ASSERT_STR} '$3' matches '$2' " || printf "${ASSERT_STR} matches '$2' "
+  if echo "$1" | grep -E "$2" >> /dev/null; then
+    print_ok
+    return 0
+  else
+    print_fail
+    ((_assert_condition++))
+    return 1
+  fi
+}
+
+function assert_not_empty
+{
+  [[ "$2" ]] && printf "${ASSERT_STR} '$2' not empty " || printf "${ASSERT_STR} variable not empty "
+  if [[ "$1" != "" ]] ;then
+    print_ok
+    return 0
+  else
+    print_fail
+    ((_assert_condition++))
+    return 1
+  fi
+}
+
+function assert_empty
+{
+  [[ "$2" ]] && printf "${ASSERT_STR} '$2' is empty " || printf "${ASSERT_STR} variable is empty "
+  if [[ "$1" == "" ]] ;then
+    print_ok
+    return 0
+  else
+    print_fail
+    ((_assert_condition++))
+    return 1
+  fi
+}
+
+function assert_exit_success
+{
+  assert_equal "$returnval" 0 "exit status"
+}
+
+function assert_exit_fail
+{
+  assert_not_equal "$returnval" 0 "exit status"
+}
+
+function assert_no_error
+{
+  # asserts std error ouput $error has no message
+  assert_empty "$error" "stderror"
+}
+
+function assert_has_error
+{
+  # asserts std error ouput $error has a message
+  assert_not_empty "$error" "stderror"
+}
+
+function assert_no_output
+{
+  # asserts std ouput $output has no message
+  assert_empty "$output" "stdout"
+}
+
+function assert_has_output
+{
+  # asserts std ouput $output has no message
+  assert_not_empty "$output" "stdout"
+}
+
+function assert_contains
+{
+  if [[ $4 ]]; then
+    printf "${ASSERT_STR} '$3' contains '$4' "
+  else
+    [[ $3 ]] && printf "${ASSERT_STR} '$3' contains '$2' " ||  printf "${ASSERT_STR} contains '$2' "
+  fi
+  if [[ "$1" == *"$2"* ]]; then
+    print_ok
+    return 0
+  else
+    print_fail
+    ((_assert_condition++))
+    return 1
+  fi
+}
+
+function assert_output_contains
+{
+  assert_contains "$output" "$1" "stdoutput"
+}
+
+function assert_output_not_contains
+{
+  assert_not_contains "$output" "$1" "stdoutput"
+}
+
+function assert_error_contains
+{
+  assert_contains "$error" "$1" "stderror"
+}
+
+function assert_not_contains
+{
+  if [[ $4 ]]; then
+    printf "${ASSERT_STR} '$3' does not contain '$4' "
+  else
+    [[ $3 ]] && printf "${ASSERT_STR} '$3' does not contain '$2' " ||  printf "${ASSERT_STR} does not contain '$2' "
+  fi
+  if [[ "$1" != *"$2"* ]]; then
+    print_ok
+    return 0
+  else
+    print_fail
+    ((_assert_condition++))
+    return 1
+  fi
+}
+
+function assert_file_exists
+{
+  [[ "${#1}">40 ]] && local fn=$(basename $1) || local fn=$1
+  printf "${ASSERT_STR} file '${fn}' exists "
+  if [ -f $1 ]; then
+    print_ok
+    return 0
+  else
+    print_fail
+    ((_assert_condition++))
+    return 1
+  fi
+}
+
+function assert_file_not_exists
+{
+  [[ "${#1}">40 ]] && local fn=$(basename $1) || local fn=$1
+  printf "${ASSERT_STR} file '${fn}' does not exist "
+  if [ ! -f $1 ]; then
+    print_ok
+    return 0
+  else
+    print_fail
+    ((_assert_condition++))
+    return 1
+  fi
+}
+
+function assert_dir_exists
+{
+  local fn=$(basename $1)
+  printf "${ASSERT_STR} directory '${fn}' exists "
+  if [ -d $1 ]; then
+    print_ok
+    return 0
+  else
+    print_fail
+    ((_assert_condition++))
+    return 1
+  fi
+}
+
+function assert_equal
+{
+  # parse input labels - if labels 3 or 4 provided then use in echo
+  if [[ $4 ]]; then
+    printf "${ASSERT_STR} '$3' equal to '$4' "
+  else
+    [[ $3 ]] && printf "${ASSERT_STR} '$3' equal to $2 " ||  printf "${ASSERT_STR} $1 equal to $2 "
+  fi
+
+  if [ "$1" = "$2" ]; then
+    print_ok
+    return 0
+  else
+    print_fail
+    ((_assert_condition++))
+    # if comparing multiple lines
+    # then show diff
+    if [[ "$1" == *$'\n'* ]]; then
+      printf "${RED} * Diff:\n"
+      diff <(echo "$1") <(echo "$2")
+      printf "${NC}"
+    fi
+    return 1
+  fi
+}
+
+function assert_not_equal
+{
+  if [[ $4 ]]; then
+    printf "${ASSERT_STR} '$3' not equal to '$4' "
+  else
+    [[ $3 ]] && printf "${ASSERT_STR} '$3' not equal to $2 " ||  printf "${ASSERT_STR} $1 not equal to $2 "
+  fi
+  if [ "$1" != "$2" ]; then
+    print_ok
+    return 0
+  else
+    print_fail
+    ((_assert_condition++))
+    return 1
+  fi
+}
+
+function assert_tree_equal
+{
+  tree1=$(tree "$1")
+  tree2=$(tree "$2")
+  assert_equal "${tree1//$1/basedir}" "${tree2//$2/basedir}" "dir tree $1" "dir tree $2"
+}
+
+function assert_tree_not_equal
+{
+  tree1=$(tree "$1")
+  tree2=$(tree "$2")
+  assert_not_equal "${tree1//$1/basedir}" "${tree2//$2/basedir}" "dir tree $1" "dir tree $2"
+}
+
+function assert_greater_than
+{
+  [[ $3 ]] && printf "${ASSERT_STR} '$3' greater than $2 " ||  printf "${ASSERT_STR} $1 greater than $2 "
+  if (( "$( echo "$1>$2"|bc )"==1 )); then
+    print_ok
+    return 0
+  else
+    print_fail
+    ((_assert_condition++))
+    return 1
+  fi
+}
+
+function assert_less_than
+{
+  [[ $3 ]] && printf "${ASSERT_STR} '$3' less than $2 " ||  printf "${ASSERT_STR} $1 less than $2 "
+  if (( "$( echo "$1<$2"|bc )"==1 )); then
+    print_ok
+    return 0
+  else
+    print_fail
+    ((_assert_condition++))
+    return 1
+  fi
+}
+
+function assert_terminated_normally
+{
+  printf "${ASSERT_STR} process terminated normally"
+  if [[ "$strace" != *"tgkill"* ]]; then
+    print_ok
+    return 0
+  else
+    print_fail
+    ((_assert_condition++))
+    return 1
+  fi
+}
+
+function assert_service_on_port
+{
+  printf "${ASSERT_STR} service on port $1"
+  if netstat -tnl | grep "$1" > /dev/null; then
+    print_ok
+    return 0
+  else
+    print_fail
+    ((_assert_condition++))
+    return 1
+  fi
+}
+
+function assert_success
+{
+  # tests basic normal success behavior
+  assert_terminated_normally
+  assert_exit_success
+  assert_no_error
+}
+
+function assert_fail
+{
+  # tests basic normal fail behavior
+  assert_terminated_normally
+  assert_exit_fail
+  assert_has_error
+}
+
+# Generic tests (e.g. shared behavior/conventions)
+function generic_has_unix_version
+{
+  # run
+  run "$1 --version"
+  assert_success
+  assert_has_output
+  # assert
+  run "$1 --help"
+  assert_contains "$output" "--version" "help"
+}
+
+function generic_has_unix_help
+{
+  # run
+  run "$1 --help"
+  # assert
+  assert_success
+  assert_has_output
+  assert_contains "$output" "--help" "help"
+}
+
+function generic_has_unix_conventions
+{
+  # assert common Single UNIX/POSIX/GNU conventions are met for command line utility
+  generic_has_unix_help "$1"
+  generic_has_unix_version "$1"
+}
+
+function generic
+{
+  # generate generic tests on executable
+  local test="$1"
+  local executable="$2"
+  eval "function test_$1 { generic_$test '$executable'; }"
+}
+
+
+# helper background routine monitorin process for number of threads
+function count_threads
+{
+  _count_threads "$1" &
+  count_threads_pid=$!
+}
+
+function _count_threads
+{
+  procname=$1
+  while [ 1=1 ]; do
+    pid=$(pgrep $procname)
+    if [[ $pid != "" ]]; then
+      break
+    fi
+    sleep 1
+  done
+  n=0
+  while [ 1=1 ]; do
+    nnow=$( ps -T $pid | wc -l )
+    [[ "$nnow" > "$n" ]] && n="$nnow"
+    echo "Thread monitoring: $nnow threads"
+    sleep 1
+    if ! pgrep $procname > /dev/null; then
+      echo "Thread count done"
+      break
+    fi
+    echo $n > _nthreads
+  done
+}
+
+# returns result recorded by count_thread function
+# should be run in following order
+#  $ count_threads processname &
+#  $ processname
+#  $ wait
+#  $ get_n_threads
+function add_background_assert
+{
+  # these assert statements are executed on 'run "cmd..." background' statements
+  [[ "$background_assert" ]] && background_assert="${background_assert}; ${@}" || background_assert="${@}"
+}
+
+function get_n_threads
+{
+  wait $count_threads_pid # wait for count_threads to finish
+  nthreads=$(<_nthreads)  # get result from file
+  unset count_threads_pid
+}
+
+# Check if argument is a bash function
+function is_function
+{
+  local tp=$( type $1 | head -1 )
+  if [[ "$tp" == *"is a function" ]]; then
+    return 0;
+  else
+    return 1;
+  fi
+}
+
+# Get total file size in Bytes
+function get_file_size
+{
+  stat "$1" --format='%s'
+}
+
+# Run function collecting stdout stderr and ret value
+function run
+{
+  output=""; returnval=""; error=""; exectime=""; strace=""
+  # strip ugly dir path of executable
+  local execname=$(basename "${1%% *}")
+  if [[ "$1" =~ ^[^[:space:]]+[[:space:]]+[^[:space:]]+ ]]; then
+  # checking if cmd has arguments
+    local stripped_cmd="${execname} ${1#* }"
+  else
+    local stripped_cmd="${execname}"
+  fi
+  export TIMEFORMAT='%R'
+
+  if [ "$2" == "background" ]; then
+    printf "${RUNNING_STR} ${PURPLE}${stripped_cmd}${NC} (background $3 secs)\n"
+    { { time { strace -e tgkill -o _strace $1 1>_out 2>_err;}; echo $?>_returnval;} 2>_time; } >/dev/null 2>&1 &
+    sleep "$3"
+    # execute during background assert if provided
+    [[ $5 ]] && $5
+    [[ $background_assert ]] && eval "${background_assert}"
+    # finally shutdown background process
+    pkill -u $USER -$4 "$execname"
+    wait #wait for background process (strace and time) to complete after killing executable
+  else
+    printf "${RUNNING_STR} ${PURPLE}${stripped_cmd}${NC}\n"
+    { { time { strace -e tgkill -o _strace $1 1>_out 2>_err;}; echo $?>_returnval;} 2>_time; } >/dev/null 2>&1
+  fi
+  [[ "$count_threads_pid" ]] && get_n_threads
+  returnval=$(<_returnval)
+  output=$(<_out)
+  error=$(<_err)
+  exectime=$(tail -1 _time)  # NOTE this is a hack... _time can contain shell traceback on segfault need to FIX!
+  strace=$(<_strace)
+  rm -f _out _err _time _strace _returnval
+
+  if [[ "$strace" == *"tgkill"* ]]; then
+    printf "${RED}***WARNING: Process terminated abnormally${NC}\n";
+  fi
+  printf "${BLUE}ExecTime:${NC} ${exectime} seconds\n"
+
+}
+
+# Count no of tests
+function count_tests
+{
+  local count_tests=0
+  for foo in $(declare -F); do
+    if [[ "$foo" == "test_"*"${TEST_FUNCTION}" ]]; then
+      ((count_tests++))
+    fi
+  done
+  echo $count_tests
+}
+
+# Test runner function
+function testrunner
+{
+   # search through all declared functions and
+   # and run those with names beginning with test_
+   local count_fail=0
+   local count_tests=0
+
+   # write TAP file test count header
+   if [ $TAP_FILE ]; then
+     local ntests=$(count_tests)
+     TAP_FILE=$(realpath $TAP_FILE)
+     rm -rf $TAP_FILE
+     echo 1..$ntests >> $TAP_FILE
+   fi
+
+   for foo in $(declare -F); do
+     if [[ "$foo" == "test_"*"${TEST_FUNCTION}" ]]; then
+       [[ "$LIST_TESTS_ONLY" ]] && { echo "$foo"; continue; }
+       _assert_condition=0 # assert condition reset before run
+       print_line "-"
+       title=$(echo $foo | tr '_[:lower:]' ' [:upper:]')
+       printf "${title}\n"
+       setup
+       $foo;
+       echo ""
+       printf "Status - "
+       [ "$_assert_condition" == "0" ] && printf "${GREEN}PASS${NC}\n" || printf "${FAIL_STR}\n"
+       [ "$_assert_condition" == "0" ] || ((count_fail++))
+       ((count_tests++))
+       [ "$NO_TEARDOWN" ] || teardown
+       # write test result to TAP file
+       if [ "$TAP_FILE" ]; then
+         [ "$_assert_condition" != "0" ] && echo -n "not " >> $TAP_FILE
+         echo -n "ok $count_tests - $foo" >> $TAP_FILE
+         echo "" >> $TAP_FILE
+       fi
+     fi;
+   done
+   [[ "$LIST_TESTS_ONLY" ]] && exit 0
+   # print summary
+   print_line "="
+   echo "Ran ${count_tests} tests - Failed ${count_fail}"
+   # return with correct exit code
+   if ((${count_fail} == 0)); then
+     return 0
+   else
+     return 1
+   fi
+}
