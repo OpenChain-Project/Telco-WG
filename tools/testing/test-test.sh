@@ -14,7 +14,8 @@ function teardown
 
 function test_no_supplier_no_checksum
 {
-    run "python3 ../openchain-talco-sbom-validator.py test-sbom-01.spdx"
+    echo "Test: test_no_supplier_no_checksum"
+    run "python3 ../openchain-telco-sbom-validator.py test-sbom-01.spdx"
     echo "$output"
     assert_fail
     assert_has_output
@@ -25,7 +26,8 @@ function test_no_supplier_no_checksum
 
 function test_no_name_no_version_no_supplier
 {
-    run "python3 ../openchain-talco-sbom-validator.py test-sbom-02.spdx"
+    echo "Test: test_no_name_no_version_no_supplier"
+    run "python3 ../openchain-telco-sbom-validator.py test-sbom-02.spdx"
     echo "$output"
     assert_fail
     assert_has_output
@@ -40,34 +42,11 @@ function test_no_name_no_version_no_supplier
     assert_output_contains "golang.org/x/sync | Checksum field is missing"
 }
 
-function test_no_homepage_offline
-{
-    run "python3 ../openchain-talco-sbom-validator.py test-sbom-03.spdx"
-    echo "$output"
-    assert_fail
-    assert_has_output
-    assert_has_error
-    assert_output_contains "Empty        | homepage must be a valid"
-    assert_output_contains "InvalidURL   | homepage must be a valid"
-    assert_output_contains "Missing      | PackageHomePage field is"
-}
-
-function test_no_homepage_online
-{
-    run "python3 ../openchain-talco-sbom-validator.py --strict-url-check test-sbom-03.spdx"
-    echo "$output"
-    assert_fail
-    assert_has_output
-    assert_has_error
-    assert_output_contains "Empty                     | homepage must be a valid"
-    assert_output_contains "InvalidURL                | homepage must be a valid"
-    assert_output_contains "CorrectFormatIncorrecttar | PackageHomePage field"
-    assert_output_contains "Missing                   | PackageHomePage field is"
-}
 
 function test_no_homepage_open_chain_offline
 {
-    run "python3 ../openchain-talco-sbom-validator.py --open-chain-telco test-sbom-03.spdx"
+    echo "Test: test_no_homepage_open_chain_offline"
+    run "python3 ../openchain-telco-sbom-validator.py test-sbom-03.spdx"
     echo "$output"
     assert_fail
     assert_has_output
@@ -78,7 +57,8 @@ function test_no_homepage_open_chain_offline
 
 function test_no_homepage_open_chain_online
 {
-    run "python3 ../openchain-talco-sbom-validator.py --open-chain-telco --strict-url-check test-sbom-03.spdx"
+    echo "Test: test_no_homepage_open_chain_online"
+    run "python3 ../openchain-telco-sbom-validator.py --strict-url-check test-sbom-03.spdx"
     echo "$output"
     assert_fail
     assert_has_output

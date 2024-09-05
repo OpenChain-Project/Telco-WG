@@ -93,9 +93,11 @@ def main():
             logger.debug(f"Validation error: {error.context.parent_id} - {error.context.full_element} - {error.validation_message}")
             spdxId = ""
             name = ""
-            if not isinstance(error.context.full_element, type(None)):
-                spdxId = error.context.full_element.spdx_id
-                name = error.context.full_element.name
+            if error.context.full_element is not None:
+                if hasattr(error.context.full_element, 'spdx_id'):
+                    spdxId = error.context.full_element.spdx_id
+                if hasattr(error.context.full_element, 'name'):
+                    name = error.context.full_element.name
 
             problems.append(["SPDX validation error", f"{spdxId}", f"{name}", f"{error.validation_message}"])
 
@@ -125,7 +127,7 @@ def main():
         for cisaSBOMType in cisaSBOMTypes:
             logger.debug(f"Checking {cisaSBOMType} against {doc.creation_info.creator_comment} ({doc.creation_info.creator_comment.find(cisaSBOMType)})")
             creator_comment = doc.creation_info.creator_comment.lower();
-            if 0 <= creator_comment.find(cisaSBOMType.lower()):
+            if -1 != doc.creation_info.creator_comment.find(cisaSBOMType):
                 logger.debug("Found")
                 typeFound = True
 
