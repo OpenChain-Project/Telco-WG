@@ -5,7 +5,7 @@ A script to validate SBOM-s against the OpenChain Telco SBOM Guide
 # Usage
 
 ```
-usage: python3 nokia-sbom-validator.py [options] input
+usage: python3 openchain-telco-sbom-validator.py [options] input
 
 positional arguments:
   input                 The input SPDX file.
