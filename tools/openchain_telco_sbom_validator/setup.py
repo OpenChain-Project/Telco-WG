@@ -1,3 +1,7 @@
+# © 2024 Nokia
+# Licensed under the Apache License 2.0
+# SPDX-License-Identifier: Apache-2.0
+
 from setuptools import setup
 
 setup(
@@ -30,7 +34,5 @@ setup(
         "Topic :: Communications :: Telephony",
         "Topic :: Communications",
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
     ],
 )
