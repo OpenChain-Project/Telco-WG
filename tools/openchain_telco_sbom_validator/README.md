@@ -32,7 +32,7 @@ environment run `sudo apt install python3-pip`.
 It is usually a good practice to install Python dependencies to a Python virtual environment. To be able to manage
 virtual environments you need to install `venv` with `sudo apt install python3-venv`.
 
-If you do not have a virtual environment yet cretate it with `python3 -m venv .env` and install the dependencies with
+If you do not have a virtual environment you can create it with `python3 -m venv .env` and install the dependencies with
 `pip3 install -r requirements.txt`, if you already have a virtual environment start it with `. .env/bin/activate`.
 
 # License
