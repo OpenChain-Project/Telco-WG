@@ -7,10 +7,9 @@
 
 import argparse
 import logging
-from prettytable import PrettyTable
-import shutil
 import sys
-from  validator import validate
+from openchain_telco_sbom_validator.validator import Validator
+from openchain_telco_sbom_validator.reporter import reportCli
 
 
 
@@ -19,6 +18,43 @@ def main():
         format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
     logger = logging.getLogger(__name__)
 
+    args = parseArguments() 
+
+    logger.debug("Start parsing")
+
+    filePath = str(args.input)
+    validator = Validator()
+    result, problems = validator.validate(filePath, args.strict_purl_check, args.strict_url_check)
+
+    exitCode = reportCli(result, problems, args.nr_of_errors, args.input)
+    sys.exit(exitCode)
+
+class Argument:
+    def __init__(self, argument, action, help):
+        self.argument = argument
+        self.action = action
+        self.help = help
+
+    def __srt__(self):
+        return f"argument={self.argument}, action={self.action}, help={self.help}"
+
+class AdditionalArguments:
+    def __init__(self):
+        self.items  = []
+
+    def addArgument(self, argument, action, help):
+        item = Argument(argument, action, help)
+        self.items.append(item)
+        return self
+    
+    def __iter__(self):
+        return iter(self.items)
+    
+    def __getitem__(self, index):
+        return self.items[index]
+
+def parseArguments(additionalArguments: AdditionalArguments = AdditionalArguments()):
+    logger = logging.getLogger(__name__)
     parser = argparse.ArgumentParser(description='A script to validate an SPDX file against the OpenChain Telco SBOM Guide.')
     # TODO: This should go in without any parameter.
     parser.add_argument('--debug', action="store_true",
@@ -36,9 +72,12 @@ def main():
                         ' strict URL check what means that it is not checked if the URL points to a valid page. Strict'
                         'URL check requires access to the internet and takes some time.')
 
+    for argument in additionalArguments:
+        logger.debug(f"Adding additional argument {argument}")
+        parser.add_argument(argument.argument, action=argument.action, help=argument.help)
+
     args = parser.parse_args()
 
-    # print(args)
     if args.debug:
         logger.setLevel(logging.DEBUG)
         logger.debug("Debug logging is ON")
@@ -58,39 +97,9 @@ def main():
     if args.strict_url_check:
         logger.info("Running strict checks for URL, what means that it is tested if the PackageHomePage fields are pointing to real pages.")
 
-    logger.debug("Start parsing")
+    return args
 
-    filePath = str(args.input)
 
-    result, problems = validate(filePath, args.strict_purl_check, args.strict_url_check)
-
-    if not result:
-        if problems:
-            if args.nr_of_errors:
-                problems = problems[0:int(args.nr_of_errors)]
-
-        resultTable = PrettyTable(align = "l")
-        resultTable.padding_width = 1
-        resultTable.field_names = ["#", "Error type", "SPDX ID", "Package name", "Reason"]
-
-        # TODO: now Error type and SPDX ID uses more space than Package name and Reason, this should be vice versa
-        width = shutil.get_terminal_size().columns
-        resultTable._max_width = {"#": 4,
-                                  "Error type": int((width - 4)/6),
-                                  "SPDX ID": int((width - 4)/6),
-                                  "Package name": int((width - 4)/3),
-                                  "Reason": int((width - 4)/3)}
-        i = 0
-        for problem in problems:
-            i = i + 1
-            resultTable.add_row([i, problem.ErrorType, problem.SPDX_ID, problem.PackageName, problem.Reason], divider=True)
-
-        print(resultTable)
-        print(f"The SPDX file {args.input} is not compliant with the OpenChain Telco SBOM Guide")
-        sys.exit(1)
-    else:
-        print(f"The SPDX file {args.input} is compliant with the OpenChain Telco SBOM Guide")
-        sys.exit(0)
 
 if __name__ == "__main__":
     main()
