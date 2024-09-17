@@ -16,9 +16,9 @@ from openchain_telco_sbom_validator.reporter import reportCli
 def main():
     logging.basicConfig(
         format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
-    logger = logging.getLogger(__name__)
+    logger = logging.getLogger("logger")
 
-    args = parseArguments() 
+    args = parseArguments()
 
     logger.debug("Start parsing")
 
@@ -54,7 +54,7 @@ class AdditionalArguments:
         return self.items[index]
 
 def parseArguments(additionalArguments: AdditionalArguments = AdditionalArguments()):
-    logger = logging.getLogger(__name__)
+    logger = logging.getLogger("logger")
     parser = argparse.ArgumentParser(description='A script to validate an SPDX file against the OpenChain Telco SBOM Guide.')
     # TODO: This should go in without any parameter.
     parser.add_argument('--debug', action="store_true",

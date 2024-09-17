@@ -73,5 +73,27 @@ function test_no_homepage_open_chain_online
     assert_output_contains "CorrectFormatIncorrecttar | PackageHomePage field"
 }
 
+function test_invalid_creator_comment
+{
+    echo "Test: test_invalid_creator_comment"
+    run "python3 ../openchain_telco_sbom_validator/cli.py --strict-url-check test-sbom-04.spdx"
+    echo "$output"
+    assert_fail
+    assert_has_output
+    assert_has_error
+    assert_output_contains "General       | CreatorComment (No CISA"
+}
+
+function test_no_creator_comment
+{
+    echo "Test: test_no_creator_comment"
+    run "python3 ../openchain_telco_sbom_validator/cli.py --strict-url-check test-sbom-05.spdx"
+    echo "$output"
+    assert_fail
+    assert_has_output
+    assert_has_error
+    assert_output_contains "General       | CreatorComment is missing"
+}    
+
 
 testrunner

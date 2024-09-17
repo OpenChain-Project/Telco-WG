@@ -25,6 +25,8 @@ import validators
 import requests
 import inspect
 
+logger = logging.getLogger(__name__)
+
 class Problem:
     def __init__(self, ErrorType, SPDX_ID, PackageName, Reason):
         self.ErrorType = ErrorType
@@ -98,7 +100,7 @@ class Validator:
 # strict_purl_check: Not only checks the syntax of the PURL, but also cecks if the package can be downloaded.
 # strict_url_check: Checks if the given URLs in PackageHomepages can be accesses.
     def validate(self, filePath, strict_purl_check=False, strict_url_check=False, functionRegistry:FunctionRegistry = FunctionRegistry()):
-        logger = logging.getLogger(__name__)
+        logger.debug("Test debug")
 
         try:
             doc = parse_anything.parse_file(filePath)
@@ -246,7 +248,7 @@ class Validator:
             return True
 
     def ntiaErrorLog(self, components, problems, doc, problemText):
-        logger = logging.getLogger(__name__)
+        logger = logging.getLogger("logger")
         logger.debug(f"# of components: {len(components)}")
         for component in components:
             logger.debug(f"Erroneous component: {component}")
@@ -258,7 +260,7 @@ class Validator:
                 problems.append("NTIA validation error", "Cannot be provided", component, problemText)
 
     def ntiaErrorLogNew(self, components, problems, doc, problemText):
-        logger = logging.getLogger(__name__)
+        logger = logging.getLogger("logger")
         logger.debug(f"# of components: {len(components)}")
         for component in components:
             logger.debug(f"Erroneous component: {component}")
