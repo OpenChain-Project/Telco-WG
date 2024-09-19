@@ -7,7 +7,7 @@ LicenseListVersion: 3.21
 Creator: Organization: Anchore, Inc
 Creator: Tool: syft-0.85.0
 Created: 2023-07-19T08:04:05Z
-CreatorComment: CISA SBOM Type: Deployed
+CreatorComment: No CISA SBOM type
 
 ##### Package: libldap-2.4-2
 
@@ -16,6 +16,7 @@ SPDXID: SPDXRef-Package-deb-libldap-2.4-2-796a192b709a2a2b
 PackageVersion: 2.4.57+dfsg-3+deb11u1
 PackageOriginator: Person: Debian OpenLDAP Maintainers <pkg-openldap-devel@lists.alioth.debian.org>
 PackageDownloadLocation: NOASSERTION
+PackageHomePage: https://www.openldap.org/
 FilesAnalyzed: true
 PackageVerificationCode: 8360ca10f484b118d367165552d0b934835d128a
 PackageSourceInfo: acquired package info from DPKG DB: /usr/share/doc/libldap-2.4-2/copyright, /var/lib/dpkg/info/libldap-2.4-2:amd64.md5sums, /var/lib/dpkg/status
@@ -34,49 +35,5 @@ ExternalRef: SECURITY cpe23Type cpe:2.3:a:libldap:libldap-2.4-2:2.4.57\+dfsg-3\+
 ExternalRef: SECURITY cpe23Type cpe:2.3:a:libldap:libldap_2.4_2:2.4.57\+dfsg-3\+deb11u1:*:*:*:*:*:*:*
 ExternalRef: PACKAGE-MANAGER purl pkg:deb/debian/libldap-2.4-2@2.4.57+dfsg-3+deb11u1?arch=amd64&upstream=openldap&distro=debian-11
 
-##### Package: None (was: golang.org/x/sync)
-
-PackageName: 
-SPDXID: SPDXRef-Package-go-module-golang.org-x-sync-cfad770bf3617997
-PackageVersion: v0.0.0-20210220032951-036812b2e83c
-PackageDownloadLocation: NOASSERTION
-FilesAnalyzed: false
-PackageSourceInfo: acquired package info from go module information: /opt/bitnami/mongodb/bin/mongotop
-PackageLicenseConcluded: NOASSERTION
-PackageLicenseDeclared: NOASSERTION
-PackageCopyrightText: NOASSERTION
-ExternalRef: SECURITY cpe23Type cpe:2.3:a:golang:x\/sync:v0.0.0-20210220032951-036812b2e83c:*:*:*:*:*:*:*
-ExternalRef: PACKAGE-MANAGER purl pkg:golang/golang.org/x/sync@v0.0.0-20210220032951-036812b2e83c
-
-##### Package: None (was: golang.org/x/sync)
-
-PackageName: 
-SPDXID: SPDXRef-Package-go-module-golang.org-x-sync-e05f5c4b166f0bfa
-PackageVersion: v0.0.0-20210220032951-036812b2e83c
-PackageDownloadLocation: NOASSERTION
-FilesAnalyzed: false
-PackageSourceInfo: acquired package info from go module information: /opt/bitnami/mongodb/bin/mongodump
-PackageLicenseConcluded: NOASSERTION
-PackageLicenseDeclared: NOASSERTION
-PackageCopyrightText: NOASSERTION
-ExternalRef: SECURITY cpe23Type cpe:2.3:a:golang:x\/sync:v0.0.0-20210220032951-036812b2e83c:*:*:*:*:*:*:*
-ExternalRef: PACKAGE-MANAGER purl pkg:golang/golang.org/x/sync@v0.0.0-20210220032951-036812b2e83c
-
-##### Package: golang.org/x/sync
-
-PackageName: golang.org/x/sync
-SPDXID: SPDXRef-Package-go-module-golang.org-x-sync-e05f5c4b166f0bfa1
-PackageVersion: 
-PackageDownloadLocation: NOASSERTION
-FilesAnalyzed: false
-PackageSourceInfo: acquired package info from go module information: /opt/bitnami/mongodb/bin/mongodump
-PackageLicenseConcluded: NOASSERTION
-PackageLicenseDeclared: NOASSERTION
-PackageCopyrightText: NOASSERTION
-ExternalRef: SECURITY cpe23Type cpe:2.3:a:golang:x\/sync:v0.0.0-20210220032951-036812b2e83c:*:*:*:*:*:*:*
-ExternalRef: PACKAGE-MANAGER purl pkg:golang/golang.org/x/sync@v0.0.0-20210220032951-036812b2e83c
-
-
 LicenseID: LicenseRef-Autoconf
 ExtractedText: Autoconf
-Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-DOCUMENT
