@@ -11,14 +11,20 @@ import sys
 from openchain_telco_sbom_validator.validator import Validator
 from openchain_telco_sbom_validator.reporter import reportCli
 
-
+logger = logging.getLogger(__name__)
+logger.propagate = True
 
 def main():
-    logging.basicConfig(
-        format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
-    logger = logging.getLogger("logger")
-
     args = parseArguments()
+
+    logLevel = ""
+    if args.debug:
+        logLevel = logging.DEBUG
+        logger.debug("Debug logging is ON")
+    else:
+        logLevel = logging.INFO
+    
+    logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logLevel)
 
     logger.debug("Start parsing")
 
@@ -54,7 +60,6 @@ class AdditionalArguments:
         return self.items[index]
 
 def parseArguments(additionalArguments: AdditionalArguments = AdditionalArguments()):
-    logger = logging.getLogger("logger")
     parser = argparse.ArgumentParser(description='A script to validate an SPDX file against the OpenChain Telco SBOM Guide.')
     # TODO: This should go in without any parameter.
     parser.add_argument('--debug', action="store_true",
@@ -78,9 +83,6 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
 
     args = parser.parse_args()
 
-    if args.debug:
-        logger.setLevel(logging.DEBUG)
-        logger.debug("Debug logging is ON")
     if not args.input:
         logger.error("ERROR! Input is a mandatory parameter.")
         sys.exit(2)
