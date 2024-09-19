@@ -62,11 +62,24 @@ PackageCopyrightText: NOASSERTION
 ExternalRef: SECURITY cpe23Type cpe:2.3:a:golang:x\/sync:v0.0.0-20210220032951-036812b2e83c:*:*:*:*:*:*:*
 ExternalRef: PACKAGE-MANAGER purl pkg:golang/golang.org/x/sync@v0.0.0-20210220032951-036812b2e83c
 
-##### Package: golang.org/x/sync
+##### Package: golang.org/x/sync-empty-version
 
-PackageName: golang.org/x/sync
+PackageName: golang.org/x/sync-empty-version
 SPDXID: SPDXRef-Package-go-module-golang.org-x-sync-e05f5c4b166f0bfa1
 PackageVersion: 
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageSourceInfo: acquired package info from go module information: /opt/bitnami/mongodb/bin/mongodump
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+ExternalRef: SECURITY cpe23Type cpe:2.3:a:golang:x\/sync:v0.0.0-20210220032951-036812b2e83c:*:*:*:*:*:*:*
+ExternalRef: PACKAGE-MANAGER purl pkg:golang/golang.org/x/sync@v0.0.0-20210220032951-036812b2e83c
+
+##### Package: golang.org/x/sync-noversion
+
+PackageName: golang.org/x/sync-noversion
+SPDXID: SPDXRef-Package-go-module-golang.org-x-sync-e05f5c4b166f0bfa2
 PackageDownloadLocation: NOASSERTION
 FilesAnalyzed: false
 PackageSourceInfo: acquired package info from go module information: /opt/bitnami/mongodb/bin/mongodump
