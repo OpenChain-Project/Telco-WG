@@ -6,8 +6,8 @@ from setuptools import setup
 
 setup(
     name='openchain_telco_sbom_validator',
-    version='0.0.5',    
-    description='Validator against the OpenChain Telco SBOM Guide',
+    version='0.1',    
+    description='Validator against version 1 of the OpenChain Telco SBOM Guide',
     url='https://github.com/OpenChain-Project/Telco-WG/tree/main/tools',
     author='Gergely Csatari, Marc-Etienne Vargenau',
     author_email='gergely.csatari@nokia.com, marc-etienne.vargenau@nokia.com',
@@ -35,4 +35,5 @@ setup(
         "Topic :: Communications",
         'Programming Language :: Python :: 3',
     ],
+    zip_safe=True,
 )

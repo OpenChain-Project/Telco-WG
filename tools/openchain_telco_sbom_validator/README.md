@@ -1,6 +1,6 @@
 # openchain-telco-sbom-validator
 
-A script to validate SBOMs against the OpenChain Telco SBOM Guide
+A script to validate SBOMs against version 1 of the OpenChain Telco SBOM Guide
 
 # Installation 
 
