@@ -1,16 +1,16 @@
 # openchain-telco-sbom-validator
 
-A script to validate SBOMs against version 1 of the OpenChain Telco SBOM Guide
+A script to validate SBOMs against version 1.0 of the OpenChain Telco SBOM Guide.
 
 # Installation 
 
 From this folder issue `pip3 install .`.
 
-We are workging on the publication to Pypi also. 
+We are working on the publication to Pypi also. 
 
 ## Installation of prerequisities
 
-This script is written in python and uses a requirements.txt to list its dependencies. To install python on an Ubuntu
+This script is written in Python and uses a requirements.txt to list its dependencies. To install Python on an Ubuntu
 environment run `sudo apt install python3-pip`.
 
 It is usually a good practice to install Python dependencies to a Python virtual environment. To be able to manage

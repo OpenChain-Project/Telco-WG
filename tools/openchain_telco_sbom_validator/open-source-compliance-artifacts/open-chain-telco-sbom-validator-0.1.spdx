@@ -1,0 +1,443 @@
+## Document Information
+SPDXVersion: SPDX-2.2
+DataLicense: CC0-1.0
+SPDXID: SPDXRef-DOCUMENT
+DocumentName: open-chain-telco-sbom-validator-0.1
+DocumentNamespace: https://nokia.com/spdx/open-chain-telco-sbom-validator-0.1
+
+## Creation Information
+LicenseListVersion: 3.22
+Creator: Organization: Nokia
+Creator: Tool: Nokia Compliance Tool - 1.0
+Created: 2024-09-09T12:12:33Z
+CreatorComment: CISA SBOM type: Source
+
+## Package Information
+PackageName: openchain_telco_sbom_validator-with-requirements-requirements.txt
+SPDXID: SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1
+PackageVersion: 0.1
+PackageDownloadLocation: NONE
+FilesAnalyzed: false
+PackageChecksum: SHA256: d74a3c7142c82926b73d6928c04dc85e5759b649b403e024d7a44e9998415177
+PackageHomePage: https://github.com/OpenChain-Project/Telco-WG/tree/main/tools
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: Apache-2.0
+PackageCopyrightText: (c) 2024 Nokia Authors Gergely Csatari, Marc-Etienne Vargenau
+PackageSupplier: Organization: Nokia
+PackageOriginator: Organization: Nokia
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/openchain_telco_sbom_validator@0.1
+
+## Package Information
+PackageName: beartype
+SPDXID: SPDXRef-Package-PyPI-beartype-0.18.5
+PackageVersion: 0.18.5
+PackageDownloadLocation: git+https://github.com/beartype/beartype.git
+FilesAnalyzed: false
+PackageChecksum: SHA256: 5301a14f2a9a5540fe47ec6d34d758e9cd8331d36c4760fc7a5499ab86310089
+PackageHomePage: https://beartype.readthedocs.io
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: MIT
+PackageCopyrightText: Copyright (c) 2014-2024 Beartype authors
+PackageSummary: Unbearably fast runtime type checking in pure Python.
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/beartype@0.18.5
+
+## Package Information
+PackageName: boolean-py
+SPDXID: SPDXRef-Package-PyPI-boolean-py-4.0
+PackageVersion: 4.0
+PackageDownloadLocation: git+https://github.com/bastikr/boolean.py.git
+FilesAnalyzed: false
+PackageChecksum: SHA256: 2876f2051d7d6394a531d82dc6eb407faa0b01a0a0b3083817ccd7323b8d96bd
+PackageHomePage: https://github.com/bastikr/boolean.py
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: BSD-2-Clause
+PackageCopyrightText: Copyright (c) 2009-2020 Sebastian Kraemer, basti.kr@gmail.com and others
+PackageSummary: Define boolean algebras, create and parse boolean expressions and create custom boolean DSL.
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/boolean-py@4.0
+
+## Package Information
+PackageName: certifi
+SPDXID: SPDXRef-Package-PyPI-certifi-2024.8.30
+PackageVersion: 2024.8.30
+PackageDownloadLocation: git+https://github.com/certifi/python-certifi.git
+FilesAnalyzed: false
+PackageChecksum: SHA256: 922820b53db7a7257ffbda3f597266d435245903d80737e34f8a45ff3e3230d8
+PackageHomePage: https://github.com/certifi/python-certifi
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: MPL-2.0
+PackageCopyrightText: (c) 2009, 2012, 2015 Entrust, Inc.
+PackageSummary: Python package for providing Mozilla's CA Bundle.
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/certifi@2024.8.30
+
+## Package Information
+PackageName: charset-normalizer
+SPDXID: SPDXRef-Package-PyPI-charset-normalizer-3.3.2
+PackageVersion: 3.3.2
+PackageDownloadLocation: git+https://github.com/Ousret/charset_normalizer.git
+FilesAnalyzed: false
+PackageChecksum: SHA256: 753f10e867343b4511128c6ed8c82f7bec3bd026875576dfd88483c5c73b2fd8
+PackageHomePage: https://github.com/Ousret/charset_normalizer
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: MIT
+PackageCopyrightText: <text>Copyright (c) 2019, 2021 Ahmed TAHRI @Ousret (https://github.com/Ousret)
+(c) 2012 Denny Vrandecic (http://simia.net/letters/)
+(c) https://stackoverflow.com/questions/3041986/apt-command-line-interface-like-yes-no-input</text>
+PackageSummary: The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet.
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/charset-normalizer@3.3.2
+
+## Package Information
+PackageName: click
+SPDXID: SPDXRef-Package-PyPI-click-8.1.7
+PackageVersion: 8.1.7
+PackageDownloadLocation: git+https://github.com/pallets/click.git
+FilesAnalyzed: false
+PackageChecksum: SHA256: ae74fb96c20a0277a1d615f1e4d73c8414f5a98db8b799a7931d1582f3390c28
+PackageHomePage: https://palletsprojects.com/p/click/
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: BSD-3-Clause
+PackageCopyrightText: <text>Copyright 2001-2006 Gregory P. Ward
+copyright 2014 Pallets
+Copyright 2002-2006 Python Software Foundation</text>
+PackageSummary: Composable command line interface toolkit
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/click@8.1.7
+
+## Package Information
+PackageName: idna
+SPDXID: SPDXRef-Package-PyPI-idna-3.8
+PackageVersion: 3.8
+PackageDownloadLocation: git+https://github.com/kjd/idna.git
+FilesAnalyzed: false
+PackageChecksum: SHA256: 050b4e5baadcd44d760cedbd2b8e639f2ff89bbc7a5730fcc662954303377aac
+PackageHomePage: NONE
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: Copyright (c) 2013-2024 Kim Davies and contributors
+PackageSummary: Internationalized Domain Names in Applications (IDNA)
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/idna@3.8
+
+## Package Information
+PackageName: isodate
+SPDXID: SPDXRef-Package-PyPI-isodate-0.6.1
+PackageVersion: 0.6.1
+PackageDownloadLocation: git+https://github.com/gweis/isodate.git
+FilesAnalyzed: false
+PackageChecksum: SHA256: 0751eece944162659049d35f4f549ed815792b38793f07cf73381c1c87cbed96
+PackageHomePage: https://github.com/gweis/isodate/
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: BSD-3-Clause
+PackageCopyrightText: Copyright 2009 Gerhard Weis
+PackageSummary: An ISO 8601 date/time/duration parser and formatter
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/isodate@0.6.1
+
+## Package Information
+PackageName: license-expression
+SPDXID: SPDXRef-Package-PyPI-license-expression-30.3.1
+PackageVersion: 30.3.1
+PackageDownloadLocation: git+https://github.com/aboutcode-org/license-expression.git
+FilesAnalyzed: false
+PackageChecksum: SHA256: 97904b9185c7bbb1e98799606fa7424191c375e70ba63a524b6f7100e42ddc46
+PackageHomePage: https://github.com/aboutcode-org/license-expression
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: Apache-2.0
+PackageCopyrightText: <text>Copyright (c) The warehouse developers
+Copyright (c) nexB Inc. and others
+Copyright (c) 2008-2020 The pip developers</text>
+PackageSummary: license-expression is a comprehensive utility library to parse, compare, simplify and normalize license expressions (such as SPDX license expressions) using boolean logic.
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/license-expression@30.3.1
+
+## Package Information
+PackageName: ntia-conformance-checker
+SPDXID: SPDXRef-Package-PyPI-ntia-conformance-checker-3.0.0
+PackageVersion: 3.0.0
+PackageDownloadLocation: https://files.pythonhosted.org/packages/ce/03/6ed9ac62d454b7d428a33fbe664bbabff9b00cd49eeb09e51bfca906089e/ntia_conformance_checker-3.0.0.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: 2e1b4383628695df24e48c336a5ddebc7ddec7a6fda7d42dad199540dd0bc048
+PackageHomePage: NONE
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: Apache-2.0
+PackageCopyrightText: NONE
+PackageSummary: Check SPDX SBOM for NTIA minimum elements
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/ntia-conformance-checker@3.0.0
+
+## Package Information
+PackageName: packageurl-python
+SPDXID: SPDXRef-Package-PyPI-packageurl-python-0.15.6
+PackageVersion: 0.15.6
+PackageDownloadLocation: git+https://github.com/package-url/packageurl-python.git
+FilesAnalyzed: false
+PackageChecksum: SHA256: a40210652c89022772a6c8340d6066f7d5dc67132141e5284a4db7a27d0a8ab0
+PackageHomePage: https://github.com/package-url/packageurl-python
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: MIT
+PackageCopyrightText: NONE
+PackageSummary: A purl aka. Package URL parser and builder
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/packageurl-python@0.15.6
+
+## Package Information
+PackageName: ply
+SPDXID: SPDXRef-Package-PyPI-ply-3.11
+PackageVersion: 3.11
+PackageDownloadLocation: https://files.pythonhosted.org/packages/e5/69/882ee5c9d017149285cab114ebeab373308ef0f874fcdac9beb90e0ac4da/ply-3.11.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: 00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3
+PackageHomePage: http://www.dabeaz.com/ply/
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: BSD-3-Clause
+PackageCopyrightText: Copyright (c) 2001-2018 David M. Beazley (Dabeaz LLC)
+PackageSummary: Python Lex & Yacc
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/ply@3.11
+
+## Package Information
+PackageName: prettytable
+SPDXID: SPDXRef-Package-PyPI-prettytable-3.11.0
+PackageVersion: 3.11.0
+PackageDownloadLocation: git+https://github.com/jazzband/prettytable.git
+FilesAnalyzed: false
+PackageChecksum: SHA256: aa17083feb6c71da11a68b2c213b04675c4af4ce9c541762632ca3f2cb3546dd
+PackageHomePage: NONE
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: Copyright (c) 2009-2014 Luke Maurits <luke@maurits.id.au>
+PackageSummary: A simple Python library for easily displaying tabular data in a visually appealing ASCII table format
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/prettytable@3.11.0
+
+## Package Information
+PackageName: pyparsing
+SPDXID: SPDXRef-Package-PyPI-pyparsing-3.1.4
+PackageVersion: 3.1.4
+PackageDownloadLocation: https://files.pythonhosted.org/packages/83/08/13f3bce01b2061f2bbd582c9df82723de943784cf719a35ac886c652043a/pyparsing-3.1.4.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: f86ec8d1a83f11977c9a6ea7598e8c27fc5cddfa5b07ea2241edbbde1d7bc032
+PackageHomePage: NONE
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: MIT
+PackageCopyrightText: <text>Copyright 2008 Chris Lambrou
+Copyright 2002-2021, 2023-2024 Paul McGuire
+Copyright (c) 2003-2024 Paul McGuire
+Copyright 2004 by Alberto Santini</text>
+PackageSummary: pyparsing module - Classes and methods to define and execute parsing grammars
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/pyparsing@3.1.4
+
+## Package Information
+PackageName: pyyaml
+SPDXID: SPDXRef-Package-PyPI-pyyaml-6.0.2
+PackageVersion: 6.0.2
+PackageDownloadLocation: git+https://github.com/yaml/pyyaml.git
+FilesAnalyzed: false
+PackageChecksum: SHA256: 3ad2a3decf9aaba3d29c8f537ac4b243e36bef957511b4766cb0057d32b0be85
+PackageHomePage: https://pyyaml.org/
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: MIT
+PackageCopyrightText: <text>Copyright (c) 2017-2021 Ingy
+Copyright (c) 2006-2016 Kirill Simonov <xi@resolvent.net></text>
+PackageSummary: YAML parser and emitter for Python
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/pyyaml@6.0.2
+
+## Package Information
+PackageName: rdflib
+SPDXID: SPDXRef-Package-PyPI-rdflib-7.0.0
+PackageVersion: 7.0.0
+PackageDownloadLocation: git+https://github.com/RDFLib/rdflib.git
+FilesAnalyzed: false
+PackageChecksum: SHA256: 0438920912a642c866a513de6fe8a0001bd86ef975057d6962c79ce4771687cd
+PackageHomePage: https://github.com/RDFLib/rdflib
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: BSD-3-Clause
+PackageCopyrightText: <text>Copyright (c) 2004 Examples-R-Us
+Copyright 2010 Gunnar A. Grimnes
+Copyright (c) 2002-2023 RDFLib Team
+copyright 2009-2023 RDFLib Team
+copyright (c) 2001 W3C
+Copyright (c) World Wide Web Consortium, (Massachusetts Institute of Technology, European Research Consortium for Informatics and Mathematics, Keio University) and others
+Copyright 2007-2010 by the Sphinx team
+Copyright clause at <http://www.w3.org/Consortium/Legal/copyright-software.html></text>
+PackageSummary: RDFLib is a Python library for working with RDF, a simple yet powerful language for representing information.
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/rdflib@7.0.0
+
+## Package Information
+PackageName: requests
+SPDXID: SPDXRef-Package-PyPI-requests-2.32.3
+PackageVersion: 2.32.3
+PackageDownloadLocation: git+https://github.com/psf/requests.git
+FilesAnalyzed: false
+PackageChecksum: SHA256: 70761cfe03c773ceb22aa2f671b4757976145175cdfca038c02654d061d6dcc6
+PackageHomePage: https://requests.readthedocs.io
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: Apache-2.0
+PackageCopyrightText: <text>Copyright 2019 Kenneth Reitz
+copyright MMXVIX. A https://kenreitz.org/projects'> Kenneth Reitz Project
+copyright (c) 2012, 2017 by Kenneth Reitz</text>
+PackageSummary: Python HTTP for Humans.
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/requests@2.32.3
+
+## Package Information
+PackageName: semantic-version
+SPDXID: SPDXRef-Package-PyPI-semantic-version-2.10.0
+PackageVersion: 2.10.0
+PackageDownloadLocation: git+https://github.com/rbarrois/python-semanticversion.git
+FilesAnalyzed: false
+PackageChecksum: SHA256: de78a3b8e0feda74cabc54aab2da702113e33ac9d9eb9d2389bcf1f58b7d9177
+PackageHomePage: https://github.com/rbarrois/python-semanticversion
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: BSD-3-Clause
+PackageCopyrightText: copyright 2012-2019 The python-semanticversion project
+PackageSummary: A library implementing the 'SemVer' scheme.
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/semantic-version@2.10.0
+
+## Package Information
+PackageName: six
+SPDXID: SPDXRef-Package-PyPI-six-1.16.0
+PackageVersion: 1.16.0
+PackageDownloadLocation: git+https://github.com/benjaminp/six.git
+FilesAnalyzed: false
+PackageChecksum: SHA256: 8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254
+PackageHomePage: https://github.com/benjaminp/six
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: MIT
+PackageCopyrightText: Copyright (c) 2010-2020 Benjamin Peterson
+PackageSummary: Python 2 and 3 compatibility utilities
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/six@1.16.0
+
+## Package Information
+PackageName: spdx-tools
+SPDXID: SPDXRef-Package-PyPI-spdx-tools-0.8.2
+PackageVersion: 0.8.2
+PackageDownloadLocation: https://files.pythonhosted.org/packages/32/d8/a67445be5981469fdbaf7f765f53c920f699e7e512cc931b650a935c3199/spdx-tools-0.8.2.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: aea4ac9c2c375e7f439b1cef5ff32ef34914c083de0f61e08ed67cd3d9deb2a9
+PackageHomePage: NONE
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: Apache-2.0
+PackageCopyrightText: <text>Copyright (c) 2014 Ahmed H. Ismail
+copyright (c) 2000-2003 BEA Systems, <http://www.bea.com/> PackageComment ModificationRecord
+(c) Chris Sainty (chris@sainty.com)
+Copyright (c) 1991 Free Software Foundation, Inc.
+(c) Copyright 2000-2009 Hewlett-Packard Development Company
+Copyright 2008-2010 John Smith The Regents of the University of California
+Copyright 2022-2023 SPDX Contributors
+Copyright 2010-2011 Source Auditor Inc. Open Logic Inc.
+Copyright 2001-2011 The Apache Software Foundation
+Copyright (c) 2020 Yash Varshney</text>
+PackageSummary: SPDX parser and tools.
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/spdx-tools@0.8.2
+
+## Package Information
+PackageName: uritools
+SPDXID: SPDXRef-Package-PyPI-uritools-4.0.3
+PackageVersion: 4.0.3
+PackageDownloadLocation: git+https://github.com/tkem/uritools.git
+FilesAnalyzed: false
+PackageChecksum: SHA256: bae297d090e69a0451130ffba6f2f1c9477244aa0a5543d66aed2d9f77d0dd9c
+PackageHomePage: https://github.com/tkem/uritools/
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: MIT
+PackageCopyrightText: Copyright (c) 2014-2024 Thomas Kemmer
+PackageSummary: URI parsing, classification and composition
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/uritools@4.0.3
+
+## Package Information
+PackageName: urllib3
+SPDXID: SPDXRef-Package-PyPI-urllib3-2.2.2
+PackageVersion: 2.2.2
+PackageDownloadLocation: git+https://github.com/urllib3/urllib3.git
+FilesAnalyzed: false
+PackageChecksum: SHA256: a448b2f64d686155468037e1ace9f2d2199776e17f0a46610480d311f73e3472
+PackageHomePage: NONE
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: MIT
+PackageCopyrightText: Copyright (c) 2008-2020 Andrey Petrov and contributors
+PackageSummary: HTTP library with thread-safe connection pooling, file post, and more.
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/urllib3@2.2.2
+
+## Package Information
+PackageName: validators
+SPDXID: SPDXRef-Package-PyPI-validators-0.33.0
+PackageVersion: 0.33.0
+PackageDownloadLocation: https://files.pythonhosted.org/packages/5d/af/5ad4fed95276e3eb7628d858c88cd205799bcad847e46223760a3129cbb1/validators-0.33.0.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: 535867e9617f0100e676a1257ba1e206b9bfd847ddc171e4d44811f07ff0bfbf
+PackageHomePage: NONE
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: MIT
+PackageCopyrightText: Copyright (c) 2013-2024 Konsta Vesterinen
+PackageSummary: # validators - Python Data Validation for Humans™
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/validators@0.33.0
+
+## Package Information
+PackageName: wcwidth
+SPDXID: SPDXRef-Package-PyPI-wcwidth-0.2.13
+PackageVersion: 0.2.13
+PackageDownloadLocation: git+https://github.com/jquast/wcwidth.git
+FilesAnalyzed: false
+PackageChecksum: SHA256: 3da69048e4540d84af32131829ff948f1e022c1c6bdb8d6102117aac784f6859
+PackageHomePage: https://github.com/jquast/wcwidth
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: MIT
+PackageCopyrightText: Copyright (c) 2014 Jeff Quast <contact@jeffquast.com>
+PackageSummary: Measures the displayed width of unicode strings in a terminal
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/wcwidth@0.2.13
+
+## Package Information
+PackageName: xmltodict
+SPDXID: SPDXRef-Package-PyPI-xmltodict-0.13.0
+PackageVersion: 0.13.0
+PackageDownloadLocation: git+https://github.com/martinblech/xmltodict.git
+FilesAnalyzed: false
+PackageChecksum: SHA256: aa89e8fd76320154a40d19a0df04a4695fb9dc5ba977cbb68ab3e4eb225e7852
+PackageHomePage: https://github.com/martinblech/xmltodict
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: MIT
+PackageCopyrightText: Copyright (c) 2012 Martin Blech and individual contributors
+PackageSummary: Makes working with XML feel like you are working with JSON
+PackageSupplier: Organization: Pypi https://pypi.org/
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/xmltodict@0.13.0
+
+## Relationships
+Relationship: SPDXRef-Package-PyPI-isodate-0.6.1 DEPENDS_ON SPDXRef-Package-PyPI-six-1.16.0
+Relationship: SPDXRef-Package-PyPI-license-expression-30.3.1 DEPENDS_ON SPDXRef-Package-PyPI-boolean-py-4.0
+Relationship: SPDXRef-Package-PyPI-ntia-conformance-checker-3.0.0 DEPENDS_ON SPDXRef-Package-PyPI-spdx-tools-0.8.2
+Relationship: SPDXRef-Package-PyPI-prettytable-3.11.0 DEPENDS_ON SPDXRef-Package-PyPI-wcwidth-0.2.13
+Relationship: SPDXRef-Package-PyPI-rdflib-7.0.0 DEPENDS_ON SPDXRef-Package-PyPI-isodate-0.6.1
+Relationship: SPDXRef-Package-PyPI-rdflib-7.0.0 DEPENDS_ON SPDXRef-Package-PyPI-pyparsing-3.1.4
+Relationship: SPDXRef-Package-PyPI-requests-2.32.3 DEPENDS_ON SPDXRef-Package-PyPI-certifi-2024.8.30
+Relationship: SPDXRef-Package-PyPI-requests-2.32.3 DEPENDS_ON SPDXRef-Package-PyPI-charset-normalizer-3.3.2
+Relationship: SPDXRef-Package-PyPI-requests-2.32.3 DEPENDS_ON SPDXRef-Package-PyPI-idna-3.8
+Relationship: SPDXRef-Package-PyPI-requests-2.32.3 DEPENDS_ON SPDXRef-Package-PyPI-urllib3-2.2.2
+Relationship: SPDXRef-Package-PyPI-spdx-tools-0.8.2 DEPENDS_ON SPDXRef-Package-PyPI-beartype-0.18.5
+Relationship: SPDXRef-Package-PyPI-spdx-tools-0.8.2 DEPENDS_ON SPDXRef-Package-PyPI-click-8.1.7
+Relationship: SPDXRef-Package-PyPI-spdx-tools-0.8.2 DEPENDS_ON SPDXRef-Package-PyPI-license-expression-30.3.1
+Relationship: SPDXRef-Package-PyPI-spdx-tools-0.8.2 DEPENDS_ON SPDXRef-Package-PyPI-ply-3.11
+Relationship: SPDXRef-Package-PyPI-spdx-tools-0.8.2 DEPENDS_ON SPDXRef-Package-PyPI-pyyaml-6.0.2
+Relationship: SPDXRef-Package-PyPI-spdx-tools-0.8.2 DEPENDS_ON SPDXRef-Package-PyPI-rdflib-7.0.0
+Relationship: SPDXRef-Package-PyPI-spdx-tools-0.8.2 DEPENDS_ON SPDXRef-Package-PyPI-semantic-version-2.10.0
+Relationship: SPDXRef-Package-PyPI-spdx-tools-0.8.2 DEPENDS_ON SPDXRef-Package-PyPI-uritools-4.0.3
+Relationship: SPDXRef-Package-PyPI-spdx-tools-0.8.2 DEPENDS_ON SPDXRef-Package-PyPI-xmltodict-0.13.0
+Relationship: SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1 DEPENDS_ON SPDXRef-Package-PyPI-ntia-conformance-checker-3.0.0
+Relationship: SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1 DEPENDS_ON SPDXRef-Package-PyPI-packageurl-python-0.15.6
+Relationship: SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1 DEPENDS_ON SPDXRef-Package-PyPI-prettytable-3.11.0
+Relationship: SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1 DEPENDS_ON SPDXRef-Package-PyPI-requests-2.32.3
+Relationship: SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1 DEPENDS_ON SPDXRef-Package-PyPI-validators-0.33.0
+Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1
