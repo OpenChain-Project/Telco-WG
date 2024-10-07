@@ -4,9 +4,7 @@ A script to validate SBOMs against version 1.0 of the OpenChain Telco SBOM Guide
 
 # Installation 
 
-From this folder issue `pip3 install .`.
-
-We are working on the publication to Pypi also. 
+From this folder issue `pip3 install openchain-telco-sbom-validator`.
 
 ## Installation of prerequisities
 
