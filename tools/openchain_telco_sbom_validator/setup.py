@@ -6,7 +6,7 @@ from setuptools import setup
 
 setup(
     name='openchain_telco_sbom_validator',
-    version='0.1',    
+    version='0.1.4',    
     description='Validator against version 1 of the OpenChain Telco SBOM Guide',
     url='https://github.com/OpenChain-Project/Telco-WG/tree/main/tools',
     author='Gergely Csatari, Marc-Etienne Vargenau',
@@ -23,7 +23,7 @@ setup(
 
     entry_points={
     'console_scripts': [
-        'open-chain-telco-sbom-validator=openchain_telco_sbom_validator.cli:main'
+        'openchain-telco-sbom-validator=openchain_telco_sbom_validator.cli:main'
         ],
     },
     classifiers=[
