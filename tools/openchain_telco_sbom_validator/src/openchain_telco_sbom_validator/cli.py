@@ -26,7 +26,7 @@ def main():
     
     logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logLevel)
 
-    logger.debug("Start parsing")
+    logger.debug("Start parsing.")
 
     filePath = str(args.input)
     validator = Validator()

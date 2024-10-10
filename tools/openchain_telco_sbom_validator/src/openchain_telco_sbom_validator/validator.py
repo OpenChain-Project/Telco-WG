@@ -50,12 +50,13 @@ class Problems:
         item = Problem(ErrorType, SPDX_ID, PackageName, Reason)
         self.add(item)
 
-
     def __iter__(self):
         return iter(self.items)
 
     def __getitem__(self, index):
         return self.items[index]
+    def __len__(self):
+        return len(self.items)
 
 class FunctionRegistry:
     def __init__(self):
@@ -109,7 +110,7 @@ class Validator:
                 logger.error(message)
             logger.error("Exiting")
             sys.exit(1)
-        logger.debug("Start validating. Plutty")
+        logger.debug("Start validating.")
 
         problems = Problems()
 
@@ -241,7 +242,7 @@ class Validator:
         if problems:
             return False, problems
         else:
-            return True
+            return True, None
 
     def ntiaErrorLog(self, components, problems, doc, problemText):
         logger.debug(f"# of components: {len(components)}")

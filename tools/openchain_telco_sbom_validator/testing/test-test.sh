@@ -7,9 +7,12 @@
 
 source bash_test_tools
 
+# Documentation is here: https://thorsteinssonh.github.io/bash_test_tools/
+
 function setup
 {
-   . ../.env/bin/activate 
+   . ../.env/bin/activate
+   pip3 install -e ../
 }
 
 function teardown
@@ -27,6 +30,7 @@ function test_no_supplier_no_checksum
     assert_has_output
     assert_output_contains "libldap-2.4-2 | Supplier field is missing"
     assert_output_contains "libldap-2.4-2 | Checksum field is missing"
+    assert_output_contains "The SPDX file test-sbom-01.spdx is not compliant with the OpenChain Telco SBOM Guide"
 }
 
 function test_no_name_no_version_no_supplier
@@ -47,7 +51,7 @@ function test_no_name_no_version_no_supplier
     assert_output_contains "golang.org/x/sync-        | Version field is missing"
     assert_output_contains "golang.org/x/sync-        | Supplier field is missing"
     assert_output_contains "golang.org/x/sync-        | Checksum field is missing"
-
+    assert_output_contains "The SPDX file test-sbom-02.spdx is not compliant with the OpenChain Telco SBOM Guide"
 }
 
 
@@ -61,6 +65,7 @@ function test_no_homepage_open_chain_offline
     assert_has_output
     assert_output_contains "Empty        | homepage must be a valid"
     assert_output_contains "InvalidURL   | homepage must be a valid"
+    assert_output_contains "The SPDX file test-sbom-03.spdx is not compliant with the OpenChain Telco SBOM Guide"
 }
 
 function test_no_homepage_open_chain_online
@@ -74,6 +79,7 @@ function test_no_homepage_open_chain_online
     assert_output_contains "Empty                     | homepage must be a valid"
     assert_output_contains "InvalidURL                | homepage must be a valid"
     assert_output_contains "CorrectFormatIncorrecttar | PackageHomePage field"
+    assert_output_contains "The SPDX file test-sbom-03.spdx is not compliant with the OpenChain Telco SBOM Guide"
 }
 
 function test_invalid_creator_comment
@@ -85,6 +91,7 @@ function test_invalid_creator_comment
     assert_exit_fail
     assert_has_output
     assert_output_contains "General       | CreatorComment (No CISA"
+    assert_output_contains "The SPDX file test-sbom-04.spdx is not compliant with the OpenChain Telco SBOM Guide"
 }
 
 function test_no_creator_comment
@@ -96,7 +103,31 @@ function test_no_creator_comment
     assert_exit_fail
     assert_has_output
     assert_output_contains "General       | CreatorComment is missing"
-}    
+    assert_output_contains "The SPDX file test-sbom-05.spdx is not compliant with the OpenChain Telco SBOM Guide"
+}
+
+function test_no_version_json
+{
+    echo "Test: test_no_version_json"
+    run "python3 ../src/openchain_telco_sbom_validator/cli.py --strict-url-check test-sbom-06.spdx.json"
+    echo "$output"
+    assert_terminated_normally
+    assert_exit_fail
+    assert_has_output
+    assert_output_contains "scanoss/engine | Version field is missing"
+    assert_output_contains "The SPDX file test-sbom-06.spdx.json is not compliant with the OpenChain Telco SBOM Guide"
+}
+
+function test_ok_json
+{
+    echo "Test: test_ok_json"
+    run "python3 ../src/openchain_telco_sbom_validator/cli.py --strict-url-check test-sbom-07.spdx.json"
+    echo "$output"
+    assert_terminated_normally
+    assert_exit_success
+    assert_has_output
+    assert_output_contains "The SPDX file test-sbom-07.spdx.json is compliant with the OpenChain Telco SBOM Guide"
+}
 
 
 testrunner

@@ -1,0 +1,56 @@
+{
+    "spdxVersion": "SPDX-2.2",
+    "dataLicense": "CC0-1.0",
+    "SPDXID": "SPDXRef-DOCUMENT",
+    "name": "SBOM for scanoss/engine",
+    "documentNamespace": "https://spdx.org/spdxdocs/scanner.c-master-f804e73240bc7f145d226c2aebccd094a30bf5156514b8ba24216b4d44e7b06b",
+    "creationInfo": {
+        "creators": [
+            "Tool: SCANOSS SBOM Workbench-1-15.0",
+            "Person: agustin",
+            "Organization: SCANOSS"
+        ],
+        "created": "2024-10-02T14:02:58Z",
+        "comment": "SBOM Build information - SBOM Type: Build"
+    },
+   "packages": [
+    {
+        "name": "scanoss/engine",
+        "SPDXID": "SPDXRef-e92b7b118e817b7c62494b38f693d2d3",
+        "versionInfo": "",
+        "supplier": "Organization: SCANOSS",
+        "downloadLocation": "https://github.com/scanoss/engine",
+        "filesAnalyzed": false,
+        "checksums": [
+            {
+                "algorithm": "SHA1",
+                "checksumValue": "5d21f846c3bd1a7c91c4cf2ac57d3299dfcc2f67"
+            }
+        ],
+        "homepage": "https://github.com/scanoss/engine",
+        "licenseDeclared": "GPL-2.0-only",
+        "licenseConcluded": "GPL-2.0-only",
+        "copyrightText": "NOASSERTION",
+        "externalRefs": [
+            {
+                "referenceCategory": "PACKAGE-MANAGER",
+                "referenceLocator": "pkg:github/scanoss/engine@5.4.0",
+                "referenceType": "purl"
+            }
+        ]
+    }
+],
+ "relationships": [
+        {
+            "spdxElementId": "SPDXRef-DOCUMENT",
+            "relatedSpdxElement": "SPDXRef-e92b7b118e817b7c62494b38f693d2d3",
+            "relationshipType": "DESCRIBES"
+        },
+        {
+	    "spdxElementId": "SPDXRef-DOCUMENT",
+	    "relatedSpdxElement": "SPDXRef-e92b7b118e817b7c62494b38f693d2d3",
+	    "relationshipType": "CONTAINS"
+	}
+    ],
+"documentDescribes": ["SPDXRef-e92b7b118e817b7c62494b38f693d2d3"]
+}
