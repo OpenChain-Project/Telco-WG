@@ -96,7 +96,7 @@ class Validator:
         return None
 
     def validate(self, filePath, strict_purl_check=False, strict_url_check=False, functionRegistry:FunctionRegistry = FunctionRegistry()):
-        """ Validates, Returns a status and a list of problems. filePath: Path to the SPDX file to validate. strict_purl_check: Not only checks the syntax of the PURL, but also cecks if the package can be downloaded. strict_url_check: Checks if the given URLs in PackageHomepages can be accesses."""
+        """ Validates, Returns a status and a list of problems. filePath: Path to the SPDX file to validate. strict_purl_check: Not only checks the syntax of the PURL, but also checks if the package can be downloaded. strict_url_check: Checks if the given URLs in PackageHomepages can be accessed."""
 
         try:
             doc = parse_anything.parse_file(filePath)
@@ -213,9 +213,9 @@ class Validator:
             else:
                 logger.debug(f"Package homepage is ({package.homepage})")
                 if not validators.url(package.homepage):
-                    logger.debug("Package homepage is not a valid url")
+                    logger.debug("Package homepage is not a valid URL")
                     # Adding this to the problem list is not needed as the SPDX validator also adds it
-                    # problems.append(["Invalid field in Package", package.spdx_id, package.name, f"PackageHomePage is not a valid url ({package.homepage})"])
+                    # problems.append(["Invalid field in Package", package.spdx_id, package.name, f"PackageHomePage is not a valid URL ({package.homepage})"])
                 else:
                     if strict_url_check:
                         try:
