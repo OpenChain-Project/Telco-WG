@@ -2,8 +2,8 @@
 SPDXVersion: SPDX-2.2
 DataLicense: CC0-1.0
 SPDXID: SPDXRef-DOCUMENT
-DocumentName: open-chain-telco-sbom-validator-0.1
-DocumentNamespace: https://nokia.com/spdx/open-chain-telco-sbom-validator-0.1
+DocumentName: openchain-telco-sbom-validator-0.1.6
+DocumentNamespace: https://nokia.com/spdx/openchain-telco-sbom-validator-0.1.6
 
 ## Creation Information
 LicenseListVersion: 3.22
@@ -14,8 +14,8 @@ CreatorComment: CISA SBOM type: Source
 
 ## Package Information
 PackageName: openchain_telco_sbom_validator-with-requirements-requirements.txt
-SPDXID: SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1
-PackageVersion: 0.1
+SPDXID: SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1.6
+PackageVersion: 0.1.6
 PackageDownloadLocation: NONE
 FilesAnalyzed: false
 PackageChecksum: SHA256: d74a3c7142c82926b73d6928c04dc85e5759b649b403e024d7a44e9998415177
@@ -25,7 +25,7 @@ PackageLicenseDeclared: Apache-2.0
 PackageCopyrightText: (c) 2024 Nokia Authors Gergely Csatari, Marc-Etienne Vargenau
 PackageSupplier: Organization: Nokia
 PackageOriginator: Organization: Nokia
-ExternalRef: PACKAGE-MANAGER purl pkg:pypi/openchain_telco_sbom_validator@0.1
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/openchain_telco_sbom_validator@0.1.6
 
 ## Package Information
 PackageName: beartype
@@ -435,9 +435,9 @@ Relationship: SPDXRef-Package-PyPI-spdx-tools-0.8.2 DEPENDS_ON SPDXRef-Package-P
 Relationship: SPDXRef-Package-PyPI-spdx-tools-0.8.2 DEPENDS_ON SPDXRef-Package-PyPI-semantic-version-2.10.0
 Relationship: SPDXRef-Package-PyPI-spdx-tools-0.8.2 DEPENDS_ON SPDXRef-Package-PyPI-uritools-4.0.3
 Relationship: SPDXRef-Package-PyPI-spdx-tools-0.8.2 DEPENDS_ON SPDXRef-Package-PyPI-xmltodict-0.13.0
-Relationship: SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1 DEPENDS_ON SPDXRef-Package-PyPI-ntia-conformance-checker-3.0.0
-Relationship: SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1 DEPENDS_ON SPDXRef-Package-PyPI-packageurl-python-0.15.6
-Relationship: SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1 DEPENDS_ON SPDXRef-Package-PyPI-prettytable-3.11.0
-Relationship: SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1 DEPENDS_ON SPDXRef-Package-PyPI-requests-2.32.3
-Relationship: SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1 DEPENDS_ON SPDXRef-Package-PyPI-validators-0.33.0
-Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1
+Relationship: SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1.6 DEPENDS_ON SPDXRef-Package-PyPI-ntia-conformance-checker-3.0.0
+Relationship: SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1.6 DEPENDS_ON SPDXRef-Package-PyPI-packageurl-python-0.15.6
+Relationship: SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1.6 DEPENDS_ON SPDXRef-Package-PyPI-prettytable-3.11.0
+Relationship: SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1.6 DEPENDS_ON SPDXRef-Package-PyPI-requests-2.32.3
+Relationship: SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1.6 DEPENDS_ON SPDXRef-Package-PyPI-validators-0.33.0
+Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1.6

@@ -1,20 +1,22 @@
 # openchain-telco-sbom-validator
 
-A script to validate SBOMs against version 1.0 of the OpenChain Telco SBOM Guide.
+A script to validate SBOMs against version 1.0 of
+the [OpenChain Telco SBOM Guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md).
 
-# Installation 
+# Installation
 
-From this folder issue `pip3 install openchain-telco-sbom-validator`.
+To install from [PyPI](https://pypi.org/project/openchain-telco-sbom-validator/), issue `pip3 install openchain-telco-sbom-validator`.
 
-## Installation of prerequisities
+# Manual installation
 
-This script is written in Python and uses a requirements.txt to list its dependencies. To install Python on an Ubuntu
+This script is written in Python and uses a `requirements.txt` to list its dependencies. To install Python on an Ubuntu
 environment run `sudo apt install python3-pip`.
 
 It is usually a good practice to install Python dependencies to a Python virtual environment. To be able to manage
 virtual environments you need to install `venv` with `sudo apt install python3-venv`.
 
-If you do not have a virtual environment yet cretate it with `python3 -m venv .env`, if you already have a virtual environment start it with `. .env/bin/activate`.
+If you do not have a virtual environment you can create it with `python3 -m venv .env`,
+if you already have a virtual environment start it with `. .env/bin/activate`.
 
 
 # Usage
@@ -22,7 +24,7 @@ If you do not have a virtual environment yet cretate it with `python3 -m venv .e
 ## From command line
 
 ```
-usage: open-chain-telco-sbom-validator [options] input
+usage: openchain-telco-sbom-validator [options] input
 
 positional arguments:
   input                 The input SPDX file.
@@ -55,9 +57,9 @@ from openchain_telco_sbom_validator.validator import Validator
 
 def main():
     # Instantiate a validator
-    
+
     myValidator = Validator()
-    
+
     # Do validate
     result, problems = myValidator.validate(filePath,          # path to the SPDX file as a string
                                             strict_purl_check, # If strict purl check is needed
@@ -96,7 +98,7 @@ It is possible to add additional CLI arguments if needed for example:
 
 #### Additional checks
 
-It is possible to add additional checks both on global and on package level. 
+It is possible to add additional checks both on global and on package level.
 
 ```
     # Import in addition of the previous imports

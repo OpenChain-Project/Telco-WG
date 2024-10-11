@@ -10,12 +10,12 @@
         "comment": "CISA SBOM type: Source"
     },
     "dataLicense": "CC0-1.0",
-    "name": "open-chain-telco-sbom-validator-0.1",
+    "name": "openchain-telco-sbom-validator-0.1.6",
     "spdxVersion": "SPDX-2.2",
-    "documentNamespace": "https://nokia.com/spdx/open-chain-telco-sbom-validator-0.1",
+    "documentNamespace": "https://nokia.com/spdx/openchain-telco-sbom-validator-0.1.6",
     "packages": [
         {
-            "SPDXID": "SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1",
+            "SPDXID": "SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1.6",
             "checksums": [
                 {
                     "algorithm": "SHA256",
@@ -27,7 +27,7 @@
             "externalRefs": [
                 {
                     "referenceCategory": "PACKAGE_MANAGER",
-                    "referenceLocator": "pkg:pypi/openchain_telco_sbom_validator@0.1",
+                    "referenceLocator": "pkg:pypi/openchain_telco_sbom_validator@0.1.6",
                     "referenceType": "purl"
                 }
             ],
@@ -38,7 +38,7 @@
             "name": "openchain_telco_sbom_validator-with-requirements-requirements.txt",
             "originator": "Organization: Nokia",
             "supplier": "Organization: Nokia",
-            "versionInfo": "0.1"
+            "versionInfo": "0.1.6"
         },
         {
             "SPDXID": "SPDXRef-Package-PyPI-beartype-0.18.5",
@@ -762,33 +762,33 @@
             "relationshipType": "DEPENDS_ON"
         },
         {
-            "spdxElementId": "SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1",
+            "spdxElementId": "SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1.6",
             "relatedSpdxElement": "SPDXRef-Package-PyPI-ntia-conformance-checker-3.0.0",
             "relationshipType": "DEPENDS_ON"
         },
         {
-            "spdxElementId": "SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1",
+            "spdxElementId": "SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1.6",
             "relatedSpdxElement": "SPDXRef-Package-PyPI-packageurl-python-0.15.6",
             "relationshipType": "DEPENDS_ON"
         },
         {
-            "spdxElementId": "SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1",
+            "spdxElementId": "SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1.6",
             "relatedSpdxElement": "SPDXRef-Package-PyPI-prettytable-3.11.0",
             "relationshipType": "DEPENDS_ON"
         },
         {
-            "spdxElementId": "SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1",
+            "spdxElementId": "SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1.6",
             "relatedSpdxElement": "SPDXRef-Package-PyPI-requests-2.32.3",
             "relationshipType": "DEPENDS_ON"
         },
         {
-            "spdxElementId": "SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1",
+            "spdxElementId": "SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1.6",
             "relatedSpdxElement": "SPDXRef-Package-PyPI-validators-0.33.0",
             "relationshipType": "DEPENDS_ON"
         },
         {
             "spdxElementId": "SPDXRef-DOCUMENT",
-            "relatedSpdxElement": "SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1",
+            "relatedSpdxElement": "SPDXRef-Project-PIP-openchain-telco-sbom-validator-with-requirements-requirements.txt-0.1.6",
             "relationshipType": "DESCRIBES"
         }
     ]
