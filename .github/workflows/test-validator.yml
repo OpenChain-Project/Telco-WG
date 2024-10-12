@@ -1,0 +1,15 @@
+name: "Test validator"
+on: 
+    pull_request:
+        paths:
+            - 'tools/openchain_telco_sbom_validator/**'
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repository code
+      uses: actions/checkout@v4
+    - name: Run tests
+      run: | 
+        tools/openchain_telco_sbom_validator/testing/test-test.sh
