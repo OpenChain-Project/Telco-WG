@@ -8,7 +8,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-        TERM: dumb
+        TERM: vt100
     steps:
     - name: Check out repository code
       uses: actions/checkout@v4
