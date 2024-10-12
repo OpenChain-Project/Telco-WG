@@ -19,4 +19,5 @@ jobs:
     - name: Run tests
       run: | 
         cd tools/openchain_telco_sbom_validator/testing/
+        export TERM=xterm-256color
         ./test-test.sh
