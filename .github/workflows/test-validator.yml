@@ -10,9 +10,11 @@ jobs:
     steps:
     - name: Check out repository code
       uses: actions/checkout@v4
-    - name: Get test tools
+    - name: Building environment
       run: | 
-        cd tools/openchain_telco_sbom_validator/testing/
+        cd tools/openchain_telco_sbom_validator/
+        python3 -m venv .env
+        cd testing/
         wget https://raw.githubusercontent.com/thorsteinssonh/bash_test_tools/master/bash_test_tools 
     - name: Run tests
       run: | 
