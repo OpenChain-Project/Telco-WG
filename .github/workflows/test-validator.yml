@@ -5,11 +5,15 @@ on:
             - 'tools/openchain_telco_sbom_validator/**'
 
 jobs:
-  docs:
+  test:
     runs-on: ubuntu-latest
     steps:
     - name: Check out repository code
       uses: actions/checkout@v4
+    - name: Get test tools
+      run: | 
+        cd tools/openchain_telco_sbom_validator/testing/
+        wget https://raw.githubusercontent.com/thorsteinssonh/bash_test_tools/master/bash_test_tools 
     - name: Run tests
       run: | 
-        tools/openchain_telco_sbom_validator/testing/test-test.sh
+        testing/test-test.sh
