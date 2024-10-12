@@ -16,4 +16,4 @@ jobs:
         wget https://raw.githubusercontent.com/thorsteinssonh/bash_test_tools/master/bash_test_tools 
     - name: Run tests
       run: | 
-        testing/test-test.sh
+        test-test.sh
