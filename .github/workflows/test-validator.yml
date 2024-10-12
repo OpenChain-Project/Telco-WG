@@ -16,6 +16,5 @@ jobs:
         wget https://raw.githubusercontent.com/thorsteinssonh/bash_test_tools/master/bash_test_tools 
     - name: Run tests
       run: | 
-        pwd
-        ls -la
+        cd tools/openchain_telco_sbom_validator/testing/
         ./test-test.sh
