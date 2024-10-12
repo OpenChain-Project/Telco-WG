@@ -7,6 +7,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+        TERM: dumb
     steps:
     - name: Check out repository code
       uses: actions/checkout@v4
@@ -19,5 +21,4 @@ jobs:
     - name: Run tests
       run: | 
         cd tools/openchain_telco_sbom_validator/testing/
-        export TERM=xterm-256color
         ./test-test.sh
