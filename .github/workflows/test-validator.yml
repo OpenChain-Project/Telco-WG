@@ -21,4 +21,5 @@ jobs:
     - name: Run tests
       run: | 
         cd tools/openchain_telco_sbom_validator/testing/
+        echo $TERM
         ./test-test.sh
