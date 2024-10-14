@@ -7,7 +7,7 @@ LicenseListVersion: 3.21
 Creator: Organization: Anchore, Inc
 Creator: Tool: syft-0.85.0
 Created: 2023-07-19T08:04:05Z
-CreatorComment: CISA SBOM Type: analyzed
+CreatorComment: CISA SBOM Type: Analyzed
 
 ##### Package: libldap-2.4-2
 
