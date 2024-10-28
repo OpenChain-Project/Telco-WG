@@ -72,6 +72,9 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
                         required=False)
     parser.add_argument('--nr-of-errors',
                         help='Sets a limit on the number of errors displayed')
+    parser.add_argument('input',
+                        help='The input SPDX file.',
+                        nargs="?")
     parser.add_argument('--strict-purl-check', action="store_true",
                         help='Runs a strict check on the given purls. The default behaviour is to run a non strict purl'
                         'check what means that it is not checked if the purl is translating to a downloadable url.')
