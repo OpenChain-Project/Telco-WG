@@ -1,5 +1,6 @@
 from prettytable import PrettyTable
 import shutil
+from importlib.metadata import version, PackageNotFoundError
 
 def reportCli(result, problems, nr_of_errors, input):
     if not result:
@@ -29,3 +30,10 @@ def reportCli(result, problems, nr_of_errors, input):
     else:
         print(f"The SPDX file {input} is compliant with the OpenChain Telco SBOM Guide")
         return 0
+
+def reportVersion():
+    try:
+        __version__ = version("openchain-telco-sbom-validator")
+    except PackageNotFoundError:
+        __version__ = "unknown" 
+    print(f"OpenChain Telco SBOM Validator version {__version__}")
