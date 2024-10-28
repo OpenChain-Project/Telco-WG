@@ -6,7 +6,6 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import logging
-import sys
 import re
 import json
 from spdx_tools.spdx.model.document import Document
@@ -158,13 +157,12 @@ class Validator:
 
         if doc.creation_info.creator_comment:
             logger.debug(f"CreatorComment: {doc.creation_info.creator_comment}")
-            cisaSBOMTypes = ["Design", "Source", "Build", "Analyzed", "Deployed", "Runtime"]
+            cisaSBOMTypes = ["design", "source", "build", "analyzed", "deployed", "runtime"]
 
             typeFound = False
             for cisaSBOMType in cisaSBOMTypes:
                 logger.debug(f"Checking {cisaSBOMType} against {doc.creation_info.creator_comment} ({doc.creation_info.creator_comment.find(cisaSBOMType)})")
-                creator_comment = doc.creation_info.creator_comment.lower();
-                if -1 != doc.creation_info.creator_comment.find(cisaSBOMType):
+                if -1 != doc.creation_info.creator_comment.lower().find(cisaSBOMType):
                     logger.debug("Found")
                     typeFound = True
 
@@ -194,7 +192,9 @@ class Validator:
         for package in doc.packages:
             logger.debug(f"Package: {package}")
             if not package.version:
-                problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Version field is missing")
+                pass
+                ### This is already detected during the NTIA check. 
+                #problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Version field is missing")
             if not package.supplier:
                 problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Supplier field is missing")
             if not package.checksums:
