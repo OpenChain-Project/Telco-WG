@@ -8,8 +8,9 @@
 import argparse
 import logging
 import sys
+
 from openchain_telco_sbom_validator.validator import Validator
-from openchain_telco_sbom_validator.reporter import reportCli
+from openchain_telco_sbom_validator.reporter import reportCli,reportVersion
 
 logger = logging.getLogger(__name__)
 logger.propagate = True
@@ -26,6 +27,10 @@ def main():
     
     logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logLevel)
 
+    if args.version:
+        reportVersion()
+        sys.exit(0)
+    
     logger.debug("Start parsing.")
 
     filePath = str(args.input)
@@ -63,11 +68,13 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
     parser = argparse.ArgumentParser(description='A script to validate an SPDX file against version 1 of the OpenChain Telco SBOM Guide.')
     # TODO: This should go in without any parameter.
     parser.add_argument('--debug', action="store_true",
-                        help='Print debug logs.')
+                        help='Print debug logs.', 
+                        required=False)
     parser.add_argument('--nr-of-errors',
                         help='Sets a limit on the number of errors displayed')
     parser.add_argument('input',
-                        help='The input SPDX file.')
+                        help='The input SPDX file.',
+                        nargs="?")
     parser.add_argument('--strict-purl-check', action="store_true",
                         help='Runs a strict check on the given purls. The default behaviour is to run a non strict purl'
                         'check what means that it is not checked if the purl is translating to a downloadable url.')
@@ -76,6 +83,9 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
                         ' validator checks also if the given URL can be accessed. The default behaviour is to run a non'
                         ' strict URL check what means that it is not checked if the URL points to a valid page. Strict'
                         'URL check requires access to the internet and takes some time.')
+    parser.add_argument('--version', action="store_true",
+                        help='Prints version and exits', 
+                        required=False)
 
     for argument in additionalArguments:
         logger.debug(f"Adding additional argument {argument}")
@@ -83,12 +93,13 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
 
     args = parser.parse_args()
 
-    if not args.input:
-        logger.error("ERROR! Input is a mandatory parameter.")
-        sys.exit(2)
-    else:
-        logger.info("Input file is " + args.input)
-        # TODO: Check if the file exist.
+    if not args.version:
+        if not args.input:
+            logger.error("ERROR! Input is a mandatory parameter.")
+            sys.exit(2)
+        else:
+            logger.info("Input file is " + args.input)
+            # TODO: Check if the file exist.
 
     if args.nr_of_errors:
         if not args.nr_of_errors.isnumeric():

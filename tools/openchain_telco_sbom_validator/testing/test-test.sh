@@ -129,5 +129,32 @@ function test_ok_json
     assert_output_contains "The SPDX file test-sbom-07.spdx.json is compliant with the OpenChain Telco SBOM Guide"
 }
 
+function test_cli_empty
+{
+    echo "Test: test_cli_empty"
+    run "openchain-telco-sbom-validator"
+    echo "---out-------"
+    echo "$output"
+    echo "---endout-------"
+    echo "---error-------"
+    echo "$error"
+    echo "---enderror------"
+    assert_terminated_normally
+    assert_exit_fail
+    assert_has_error
+    assert_error_contains "ERROR! Input is a mandatory parameter."
+}
+
+function test_cli_version
+{
+    echo "Test: test_cli_version"
+    run "openchain-telco-sbom-validator --version"
+    echo "$output"
+    assert_terminated_normally
+    assert_exit_success
+    assert_has_output
+    assert_output_contains "OpenChain Telco SBOM Validator version"
+}
+
 
 testrunner
