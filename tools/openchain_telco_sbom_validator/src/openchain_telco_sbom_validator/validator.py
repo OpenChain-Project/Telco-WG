@@ -196,7 +196,9 @@ class Validator:
                 ### This is already detected during the NTIA check. 
                 #problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Version field is missing")
             if not package.supplier:
-                problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Supplier field is missing")
+                pass
+                ### This is already detected during the NTIA check. 
+                #problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Supplier field is missing")
             if not package.checksums:
                 problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Checksum field is missing")
             if package.external_references:
