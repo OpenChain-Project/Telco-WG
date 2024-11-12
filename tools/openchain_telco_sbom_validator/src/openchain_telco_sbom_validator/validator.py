@@ -6,7 +6,6 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import logging
-import sys
 import re
 import json
 from spdx_tools.spdx.model.document import Document
@@ -16,7 +15,6 @@ from spdx_tools.spdx.validation.document_validator import validate_full_spdx_doc
 from spdx_tools.spdx.parser.error import SPDXParsingError
 from spdx_tools.spdx.model.package import  ExternalPackageRefCategory
 from spdx_tools.spdx import document_utils
-from prettytable import PrettyTable
 from packageurl.contrib import purl2url
 import ntia_conformance_checker as ntia
 import validators
@@ -96,23 +94,29 @@ class Validator:
         return None
 
     def validate(self, filePath, strict_purl_check=False, strict_url_check=False, functionRegistry:FunctionRegistry = FunctionRegistry()):
-        """ Validates, Returns a status and a list of problems. filePath: Path to the SPDX file to validate. strict_purl_check: Not only checks the syntax of the PURL, but also checks if the package can be downloaded. strict_url_check: Checks if the given URLs in PackageHomepages can be accessed."""
+        """ Validates, Returns a status and a list of problems.
+            filePath: Path to the SPDX file to validate.
+            strict_purl_check: Not only checks the syntax of the PURL, but also checks if the package can be downloaded.
+            strict_url_check: Checks if the given URLs in PackageHomepages can be accessed."""
+
+        self.__test()
+        problems = Problems()
 
         try:
             doc = parse_anything.parse_file(filePath)
         except json.decoder.JSONDecodeError as e:
             logger.error("JSON syntax error at line " + str(e.lineno) + " column " + str(e.colno))
             logger.error(e.msg)
-            sys.exit(1)
+            problems.append("File error", "", "", f"JSON syntax error at line {e.lineno} column {e.colno})")
+            return False, problems
         except SPDXParsingError as e:
             logger.error("ERROR! The file is not an SPDX file")
             for message in e.messages:
                 logger.error(message)
-            logger.error("Exiting")
-            sys.exit(1)
-        logger.debug("Start validating.")
+            problems.append("File error", "", "", "The file is not an SPDX file")
+            return False, problems
 
-        problems = Problems()
+        logger.debug("Start validating.")
 
         errors = validate_full_spdx_document(doc)
         if errors:
@@ -136,26 +140,29 @@ class Validator:
         if not sbomNTIA.ntia_minimum_elements_compliant:
             logger.debug("NTIA validation failed")
             components = sbomNTIA.get_components_without_names()
-            self.ntiaErrorLog(components, problems, doc,"Package without a name")
-            self.components = sbomNTIA.get_components_without_versions(return_tuples=True)
-            self.ntiaErrorLogNew(components, problems, doc,"Package without a version")
+            #logger.debug(f"components: {components}, problems: {str(problems)}, doc: {doc}")
+            self.__ntiaErrorLog(components, problems, doc, "Package without a name")
+            
+            #self.ntiaErrorLog(components, problems, doc, "Package without a name")
+            #self.ntiaErrorLogNew(components, problems, doc, "Package without a version")
+            components = sbomNTIA.get_components_without_versions(return_tuples=True)
+            self.__ntiaErrorLogNew(components, problems, doc, "Package without a version")
             components = sbomNTIA.get_components_without_suppliers(return_tuples=True)
-            self.ntiaErrorLogNew(components, problems, doc,"Package without a package supplier or package originator")
+            self.__ntiaErrorLogNew(components, problems, doc, "Package without a package supplier or package originator")
             components = sbomNTIA.get_components_without_identifiers()
-            self.ntiaErrorLog(components, problems, doc,"Package without an identifyer")
+            self.__ntiaErrorLog(components, problems, doc, "Package without an identifyer")
 
         else:
             logger.debug("NTIA validation succesful")
 
         if doc.creation_info.creator_comment:
             logger.debug(f"CreatorComment: {doc.creation_info.creator_comment}")
-            cisaSBOMTypes = ["Design", "Source", "Build", "Analyzed", "Deployed", "Runtime"]
+            cisaSBOMTypes = ["design", "source", "build", "analyzed", "deployed", "runtime"]
 
             typeFound = False
             for cisaSBOMType in cisaSBOMTypes:
                 logger.debug(f"Checking {cisaSBOMType} against {doc.creation_info.creator_comment} ({doc.creation_info.creator_comment.find(cisaSBOMType)})")
-                creator_comment = doc.creation_info.creator_comment.lower();
-                if -1 != doc.creation_info.creator_comment.find(cisaSBOMType):
+                if -1 != doc.creation_info.creator_comment.lower().find(cisaSBOMType):
                     logger.debug("Found")
                     typeFound = True
 
@@ -185,9 +192,13 @@ class Validator:
         for package in doc.packages:
             logger.debug(f"Package: {package}")
             if not package.version:
-                problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Version field is missing")
+                pass
+                ### This is already detected during the NTIA check. 
+                #problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Version field is missing")
             if not package.supplier:
-                problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Supplier field is missing")
+                pass
+                ### This is already detected during the NTIA check. 
+                #problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Supplier field is missing")
             if not package.checksums:
                 problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Checksum field is missing")
             if package.external_references:
@@ -244,7 +255,7 @@ class Validator:
         else:
             return True, None
 
-    def ntiaErrorLog(self, components, problems, doc, problemText):
+    def __ntiaErrorLog(self, components, problems, doc, problemText):
         logger.debug(f"# of components: {len(components)}")
         for component in components:
             logger.debug(f"Erroneous component: {component}")
@@ -255,7 +266,7 @@ class Validator:
             else:
                 problems.append("NTIA validation error", "Cannot be provided", component, problemText)
 
-    def ntiaErrorLogNew(self, components, problems, doc, problemText):
+    def __ntiaErrorLogNew(self, components, problems, doc, problemText):
         logger.debug(f"# of components: {len(components)}")
         for component in components:
             logger.debug(f"Erroneous component: {component}")
@@ -269,6 +280,5 @@ class Validator:
                 else:
                     problems.append("NTIA validation error", "Cannot be provided", component, problemText)
 
-
-if __name__ == "__main__":
-    main()
+    def __test(self):
+        pass

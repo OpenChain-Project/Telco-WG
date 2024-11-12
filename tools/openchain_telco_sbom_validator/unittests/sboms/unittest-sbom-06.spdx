@@ -11,13 +11,15 @@ CreatorComment: CISA SBOM Type: Analyzed
 
 ##### Package: libldap-2.4-2
 
-PackageName: libldap-2.4-2
+PackageName: libldap-2.4-2-empty-version
 SPDXID: SPDXRef-Package-deb-libldap-2.4-2-796a192b709a2a2b
-PackageVersion: 2.4.57+dfsg-3+deb11u1
+PackageVersion: 
 PackageOriginator: Person: Debian OpenLDAP Maintainers <pkg-openldap-devel@lists.alioth.debian.org>
+PackageSupplier: Person: Jane Doe (jane.doe@example.com)
+PackageChecksum: SHA256: e325881d738b1091d0105778523ad60eb61e62557b9dc15624e08144b3991d08
 PackageDownloadLocation: NOASSERTION
-PackageHomePage: https://www.openldap.org/
 FilesAnalyzed: true
+PackageHomePage: https://www.openldap.org/
 PackageVerificationCode: 8360ca10f484b118d367165552d0b934835d128a
 PackageSourceInfo: acquired package info from DPKG DB: /usr/share/doc/libldap-2.4-2/copyright, /var/lib/dpkg/info/libldap-2.4-2:amd64.md5sums, /var/lib/dpkg/status
 PackageLicenseConcluded: NOASSERTION
@@ -34,6 +36,7 @@ ExternalRef: SECURITY cpe23Type cpe:2.3:a:libldap_2.4:libldap_2.4_2:2.4.57\+dfsg
 ExternalRef: SECURITY cpe23Type cpe:2.3:a:libldap:libldap-2.4-2:2.4.57\+dfsg-3\+deb11u1:*:*:*:*:*:*:*
 ExternalRef: SECURITY cpe23Type cpe:2.3:a:libldap:libldap_2.4_2:2.4.57\+dfsg-3\+deb11u1:*:*:*:*:*:*:*
 ExternalRef: PACKAGE-MANAGER purl pkg:deb/debian/libldap-2.4-2@2.4.57+dfsg-3+deb11u1?arch=amd64&upstream=openldap&distro=debian-11
+
 
 LicenseID: LicenseRef-Autoconf
 ExtractedText: Autoconf
