@@ -1,0 +1,140 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "creationInfo": {
+    "comment": "This document was created by analyzing packages created during the build.",
+    "created": "2024-09-19T13:17:55Z",
+    "creators": [
+      "Tool: OpenEmbedded Core create-spdx.bbclass",
+      "Organization: OpenEmbedded ()",
+      "Person: N/A ()"
+    ],
+    "licenseListVersion": "3.14"
+  },
+  "dataLicense": "CC0-1.0",
+  "documentNamespace": "http://spdx.org/spdxdoc/alarm-a89a4665-0835-5596-9956-17f2a0fd5562",
+  "externalDocumentRefs": [
+    {
+      "checksum": {
+        "algorithm": "SHA1",
+        "checksumValue": "9642680ac03cefca366190172674968a6bf1e0bc"
+      },
+      "externalDocumentId": "DocumentRef-recipe-alarm",
+      "spdxDocument": "http://spdx.org/spdxdoc/recipe-alarm-7437445b-18f5-5395-8472-5062f4bd2455"
+    }
+  ],
+  "files": [
+    {
+      "SPDXID": "SPDXRef-PackagedFile-alarm-1",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "2103860dd632f2db231c28aa63f12a5ad4ab1a82"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e6719c35cbc4c24a58691e8d5d106d2c12b3337d0a2270e4fd0f369bfe6d27c2"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libfatalfault.so.1.0.7",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-alarm-2",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "7c295b13c9d582c58f1673d2c48c3aaadf803b0a"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "f628f6a3a7f3e53c8b817c4c796032c5220ad16a1225a8331927d233f6bd5d56"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libem_fault.so.0.0.0",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-alarm-3",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "18cc549b314e1ffbc5ba9e612b4b01545e376af9"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "3c82507daa1bbdf0efdf9a83cde37bb9161723e662cdb21e313e4c84c1ec063f"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libfault.so.1.0.1",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    }
+  ],
+  "name": "alarm",
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-Package-alarm",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "hasFiles": [
+        "SPDXRef-PackagedFile-alarm-1",
+        "SPDXRef-PackagedFile-alarm-2",
+        "SPDXRef-PackagedFile-alarm-3"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NONE",
+      "licenseInfoFromFiles": [
+        "NOASSERTION"
+      ],
+      "name": "alarm",
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "b4ac1ef52046d0b5c3e0d2601086daa6497c6ea5"
+      },
+      "supplier": "Organization: OpenEmbedded ()",
+      "versionInfo": "5.11.4"
+    }
+  ],
+  "relationships": [
+    {
+      "relatedSpdxElement": "DocumentRef-recipe-alarm:SPDXRef-Recipe-alarm",
+      "relationshipType": "GENERATED_FROM",
+      "spdxElementId": "SPDXRef-Package-alarm"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-PackagedFile-alarm-1",
+      "relationshipType": "CONTAINS",
+      "spdxElementId": "SPDXRef-Package-alarm"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-PackagedFile-alarm-2",
+      "relationshipType": "CONTAINS",
+      "spdxElementId": "SPDXRef-Package-alarm"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-PackagedFile-alarm-3",
+      "relationshipType": "CONTAINS",
+      "spdxElementId": "SPDXRef-Package-alarm"
+    }
+  ],
+  "spdxVersion": "SPDX-2.2"
+}

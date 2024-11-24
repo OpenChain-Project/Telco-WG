@@ -15,8 +15,8 @@ from spdx_tools.spdx.parser import parse_anything
 from spdx_tools.spdx.validation.document_validator import validate_full_spdx_document
 from spdx_tools.spdx.parser.error import SPDXParsingError
 from spdx_tools.spdx.model.package import  ExternalPackageRefCategory
+from spdx_tools.spdx.model.relationship import RelationshipType
 from spdx_tools.spdx import document_utils
-from prettytable import PrettyTable
 from packageurl.contrib import purl2url
 import ntia_conformance_checker as ntia
 import validators
@@ -46,6 +46,7 @@ class Problem:
 class Problems:
     def __init__(self):
         self.items = []
+        self.checked_files = []
         self.print_file = False
 
     def add(self, item: Problem):
@@ -54,6 +55,13 @@ class Problems:
     def append(self, ErrorType, SPDX_ID, PackageName, Reason, file=""):
         item = Problem(ErrorType, SPDX_ID, PackageName, Reason, file)
         self.add(item)
+
+    def get_files_as_string(self):
+        file_list = ""
+        for file in self.checked_files[:-1]:
+            file_list += f"{file}, "
+        file_list += self.checked_files[-1]
+        return file_list
 
     def do_print_file(self):
         self.print_file = True
@@ -102,9 +110,29 @@ class FunctionRegistry:
 class Validator:
 
     def __init__(self):
+        self.referringLogics = {}
+        self.addReferringLogics("none", referred_none)
+        self.addReferringLogics("yocto-all", referred_yocto_all)
+        self.addReferringLogics("yocto-contains-only", referred_yocto_contains_only)
+        
         return None
 
-    def validate(self, filePath, strict_purl_check=False, strict_url_check=False, functionRegistry:FunctionRegistry = FunctionRegistry(), problems=None):
+    def addReferringLogics(self, name, function):
+        logger.debug(f"Registering referring logic {name}, {function}")
+        requiredSignature = inspect.signature(_dummy_referred_logic)
+        functSignature = inspect.signature(function)
+        if functSignature != requiredSignature:
+            raise TypeError(f"Function {function.__name__} does not match the required signature")
+        
+        self.referringLogics[name] = function
+
+    def validate(self,
+                 filePath,
+                 strict_purl_check=False, 
+                 strict_url_check=False,
+                 functionRegistry:FunctionRegistry = FunctionRegistry(),
+                 problems=None, 
+                 referringLogic="none"):
         """ Validates, Returns a status and a list of problems. filePath: Path to the SPDX file to validate. strict_purl_check: Not only checks the syntax of the PURL, but also checks if the package can be downloaded. strict_url_check: Checks if the given URLs in PackageHomepages can be accessed."""
 
         current_frame = inspect.currentframe()
@@ -120,6 +148,8 @@ class Validator:
             problems = Problems()
         else:
             logger.debug(f"Inherited {len(problems)} problems")
+
+        problems.checked_files.append(os.path.basename(filePath))
 
         try:
             doc = parse_anything.parse_file(filePath)
@@ -262,45 +292,24 @@ class Validator:
                 logger.debug(f"Executing function {function.__name__}({type(problems)}, {type(doc)}")
                 function(problems, doc)
 
-        ref_base = ""
-        if doc.creation_info.document_namespace:
-            # http://spdx.org/spdxdoc/recipe-serviceuser-user-7abdc33d-d61f-549c-a5f7-05ffbd5118e8
-            result = re.search("^(.*/)[\w-]+$", doc.creation_info.document_namespace)
-            if result:
-                ref_base = result.group(1)
-                logger.debug(f"Reference base is {ref_base}")
+        list_of_referred_sboms = []
 
-        ############################################################################
-        # This is only for debugging purposes. It is not clear at all how referred documents can be accessed    
-        if doc.creation_info.external_document_refs:
-            logger.debug(f"--------------We have refs!------------")
-            for ref in doc.creation_info.external_document_refs:
-                logger.debug(f"SPDX document referenced {ref.document_uri}")
-                doc_location = str(ref.document_uri).replace(ref_base, "")
-                #logger.debug(f"Doc location 1: {doc_location}")
-                # Assumption is that the UUID looks like this: c146050a-959a-5836-966f-98e79d6e765f
-                # 8-4-4-4-12
-                result = re.search("([\w-]+)-[\w-]{8}(-[\w-]{4}){3}-[\w-]{12}$", doc_location)
-                if result:
-                    doc_location = result.group(1)
+        if referringLogic in self.referringLogics:
+            logger.debug(f"What is this: {referringLogic},  {self.referringLogics[referringLogic]}")
+            list_of_referred_sboms = self.referringLogics[referringLogic](self, doc, dir_name)
 
-
-                    doc_location = f"{dir_name}/{doc_location}.spdx.json"
-                    logger.debug(f"Document location is: {doc_location}")
-                self.validate(
-                    filePath=doc_location,
-                    strict_purl_check=strict_purl_check,
-                    strict_url_check=strict_url_check, 
-                    functionRegistry=functionRegistry, 
-                    problems=problems, 
-                )
-        ############################################################################
-
-
+        for referred_sbom in list_of_referred_sboms:
+            self.validate(
+                filePath=referred_sbom,
+                strict_purl_check=strict_purl_check,
+                strict_url_check=strict_url_check, 
+                functionRegistry=functionRegistry, 
+                problems=problems,
+                referringLogic=referringLogic)
         if problems:
             return False, problems
         else:
-            return True, None
+            return True, problems
 
     def ntiaErrorLog(self, components, problems, doc, problemText, file):
         logger.debug(f"# of components: {len(components)}")
@@ -327,3 +336,71 @@ class Validator:
                 else:
                     problems.append("NTIA validation error", "Cannot be provided", component, problemText, file)
 
+def referred_yocto_all(self, doc: Document, dir_name: str):
+    logger.debug("In Yocto all")
+    documents = []
+    if doc.creation_info.document_namespace:
+        # http://spdx.org/spdxdoc/recipe-serviceuser-user-7abdc33d-d61f-549c-a5f7-05ffbd5118e8
+        result = re.search("^(.*/)[\w-]+$", doc.creation_info.document_namespace)
+        if result:
+            ref_base = result.group(1)
+            logger.debug(f"Reference base is {ref_base}")
+
+    if doc.creation_info.external_document_refs:
+        logger.debug(f"--------------We have refs!------------")
+        for ref in doc.creation_info.external_document_refs:
+            logger.debug(f"SPDX document referenced {ref.document_uri}")
+            doc_location = str(ref.document_uri).replace(ref_base, "")
+            #logger.debug(f"Doc location 1: {doc_location}")
+            # Assumption is that the UUID looks like this: c146050a-959a-5836-966f-98e79d6e765f
+            # 8-4-4-4-12
+            result = re.search("([\w-]+)-[\w-]{8}(-[\w-]{4}){3}-[\w-]{12}$", doc_location)
+            if result:
+                doc_location = result.group(1)
+
+                doc_location = f"{dir_name}/{doc_location}.spdx.json"
+                logger.debug(f"Document location is: {doc_location}")
+                documents.append(doc_location)
+    return documents
+
+def referred_yocto_contains_only(self, doc: Document, dir_name: str):
+    logger.debug("In Yocto contains only")
+    documents = []
+    if doc.creation_info.document_namespace:
+        # http://spdx.org/spdxdoc/recipe-serviceuser-user-7abdc33d-d61f-549c-a5f7-05ffbd5118e8
+        result = re.search("^(.*/)[\w-]+$", doc.creation_info.document_namespace)
+        if result:
+            ref_base = result.group(1)
+            logger.debug(f"Reference base is {ref_base}")
+    external_refs = {}
+    if doc.creation_info.external_document_refs:
+        logger.debug(f"--------------We have refs!------------")
+        for ref in doc.creation_info.external_document_refs:
+            logger.debug(f"SPDX document referenced {ref.document_uri}")
+            doc_location = str(ref.document_uri).replace(ref_base, "")
+            #logger.debug(f"Doc location 1: {doc_location}")
+            # Assumption is that the UUID looks like this: c146050a-959a-5836-966f-98e79d6e765f
+            # 8-4-4-4-12
+            result = re.search("([\w-]+)-[\w-]{8}(-[\w-]{4}){3}-[\w-]{12}$", doc_location)
+            if result:
+                doc_location = result.group(1)
+                doc_location = f"{dir_name}/{doc_location}.spdx.json"
+                logger.debug(f"Document location is: {doc_location}, ref: {ref.document_ref_id}")
+                external_refs[ref.document_ref_id] = doc_location
+    if doc.relationships:
+        for relationship in doc.relationships:
+            if relationship.relationship_type == RelationshipType.CONTAINS:
+                spdx_document_id = relationship.related_spdx_element_id.split(":")[0]
+                logger.debug(f"SPDX document is {spdx_document_id}")
+                if spdx_document_id in external_refs:
+                    logger.debug(f"Adding {external_refs[spdx_document_id]} to the referred file list")
+                    documents.append(external_refs[spdx_document_id])
+    return documents
+
+
+
+def referred_none(self, doc: Document, dir_name: str):
+    return []
+
+def _dummy_referred_logic(self, doc: Document, dir_name: str):
+    pass

@@ -8,6 +8,7 @@
 import argparse
 import logging
 import sys
+from spdx_tools.spdx.model.document import Document
 
 from openchain_telco_sbom_validator.validator import Validator
 from openchain_telco_sbom_validator.reporter import reportCli,reportVersion
@@ -35,7 +36,10 @@ def main():
 
     filePath = str(args.input)
     validator = Validator()
-    result, problems = validator.validate(filePath, args.strict_purl_check, args.strict_url_check)
+    result, problems = validator.validate(filePath,
+                                          args.strict_purl_check,
+                                          args.strict_url_check,
+                                          referringLogic=args.reference_logic)
 
     exitCode = reportCli(result, problems, args.nr_of_errors, args.input)
     sys.exit(exitCode)
@@ -63,7 +67,7 @@ class AdditionalArguments:
     
     def __getitem__(self, index):
         return self.items[index]
-
+    
 def parseArguments(additionalArguments: AdditionalArguments = AdditionalArguments()):
     parser = argparse.ArgumentParser(description='A script to validate an SPDX file against version 1 of the OpenChain Telco SBOM Guide.')
     # TODO: This should go in without any parameter.
@@ -83,6 +87,12 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
                         ' validator checks also if the given URL can be accessed. The default behaviour is to run a non'
                         ' strict URL check what means that it is not checked if the URL points to a valid page. Strict'
                         'URL check requires access to the internet and takes some time.')
+    parser.add_argument('--reference-logic',
+                        help='Defines the logic how the referenced files are accessible. If not added the referenced'
+                        'files will not be investigated.'
+                        'Built in supported logics are none (no linked files are investigated) yocto-all (all external'
+                        'refs are investigated) and yocto-contains-only (only those files are investigated which are in'
+                        'CONTAIN relatioships). It is possible to register more reference logics in library mode')
     parser.add_argument('--version', action="store_true",
                         help='Prints version and exits', 
                         required=False)

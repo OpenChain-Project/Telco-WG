@@ -1,0 +1,708 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "creationInfo": {
+    "comment": "This document was created by analyzing packages created during the build.",
+    "created": "2024-09-19T13:12:42Z",
+    "creators": [
+      "Tool: OpenEmbedded Core create-spdx.bbclass",
+      "Organization: OpenEmbedded ()",
+      "Person: N/A ()"
+    ],
+    "licenseListVersion": "3.14"
+  },
+  "dataLicense": "CC0-1.0",
+  "documentNamespace": "http://spdx.org/spdxdoc/em-accessories-53e18417-f793-5345-aa0e-24f7c9b4f8c8",
+  "externalDocumentRefs": [],
+  "files": [
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-1",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "7177650c6b1383ec8d6bdacbd6abac737d96d60e"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "acf78dd0f1a304a7932d5b19c2c8b1edb0ddf5c2933453f48bbc62b72a6cded0"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/bin/emperftool",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-2",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "7177650c6b1383ec8d6bdacbd6abac737d96d60e"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "acf78dd0f1a304a7932d5b19c2c8b1edb0ddf5c2933453f48bbc62b72a6cded0"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/bin/emstatsctl",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-3",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "7177650c6b1383ec8d6bdacbd6abac737d96d60e"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "acf78dd0f1a304a7932d5b19c2c8b1edb0ddf5c2933453f48bbc62b72a6cded0"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/bin/emperfctl",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-4",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "7177650c6b1383ec8d6bdacbd6abac737d96d60e"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "acf78dd0f1a304a7932d5b19c2c8b1edb0ddf5c2933453f48bbc62b72a6cded0"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/bin/emechoserverctl",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-5",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "ffb5a28f419c619467550beb459a810fae5948c4"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "85546ef36343f644d9827c4a3e8554173579cf38439cbabbfd9939a688b12779"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libra_time.so.5.0.18",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-6",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "9da8544e20e6e0a1bfe04135b5b34861ea2b191d"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "0aa49beef570b20f4296eee9d13be873f773a358e7d9abc2fb2cc197cd167f7a"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libem_perf.so.13.1.1",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-7",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "ef4f0cb630e95b1f3c48e361170c5e20a47e43d1"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "b0f5c31d0571627dce604194bdb0d13bc4cebfba1829ca052bc9cebae433e4aa"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libcommon_timer.so.0.0.0",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-8",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "32a03ea98c6169d02a82c3f2b9751d8b400add93"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "4f76a5bb27e6e8842024b551346bf1a3cc0237e383720eca424b5b5c17f92b39"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libem_stats_client.so.1.0.2",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-9",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "7945f99eefb9ba72220b559018618d6aaaf57116"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "89f53bdb6b3e2a0306a4954aa66a6e4a953ced21149d06651c232cd6b2d0b200"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libem_echo_server.so.0.0.0",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-10",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "a6027e82fec76dc9f23e2a6084a54923ab8f5303"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "7c4550171306437d5fc45e5d91935e52b3b8f29d53bd9e673a0bd52099d38ece"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libem_utc.so.1.0.2",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-11",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "06c2ca00c9d5edb3cf56a6ab09b4925461eab18e"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "fdd96818c158441c7a52658903f8ca68540fb39d87b59f21e9ead39be1ab3874"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libem_zmq.so.11.0.0",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-12",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "4bda7f137165830bad8d5a851ccbc703d6ad9716"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "4da3c4f3b39f242f91ec2a85808483b1d7871d1baaf83fc5df1865494f9838c1"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libem_pipe.so.8.3.1",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-13",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "d195096a11f675604ac5ea19175fb598d6fd0906"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "b2587527ced8cb889dcc5bf6556b95beeb934475d38134507957c27531daa03c"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libem_perf_ext.so.13.1.1",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-14",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "08b423c972092f9123036887d88a1298a99cf9a3"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "31e7d65b760ec6d3d484f680dcdab584f3b522d1a3191aa2b81a85509f5ee1d8"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libem_sw_event.so.9.1.5",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-15",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "7bc7cbbbb8e6c525ee554860508cc28b0ac19863"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "2e503872bdc5efea39e48ece00338b29f2234305c280c368d8d5efe49cdaa638"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libevent_handler.so.1.0.1",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-16",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "c4dd3e6762d798d4d9f4f9999a9711d1b392230c"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "5aff56776952a81bd2096d587bc75494e73ded70cd4cb3f5226d433d56c60dfe"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libem_sw_event_get_time.so.9.1.5",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-17",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "273d83eaac54f8e3d26f82a0fd4ceb52cfb1af34"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "5ebd9f14bbed24bff95034cf959b575f935f89cddbdbb85d3de18917ab9f7d55"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libem_resource.so.0.0.0",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-18",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "cec41ab27f4072e35a9ac77c8636e3dc076d4b47"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e920210b7f6e91055467ca5a2b5315423cc25058893d3476d3c5d419645334a9"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libem_stats.so.0.2.4",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-19",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "37518f613a31013d174646aed372783da1225b19"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "a87c37b038c8c9d5b358e78af9ca4477163797418ada4f0d096cf20881358ec0"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libem_sync_generator.so.0.0.8",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-20",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "8a8ddfcb42b7410981a5cc1916d7f25558c4729b"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "dc1107ee14d5a07c8aee334a2a4677468add7340e93a74e7fb93adb6a6d28cc5"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libem_user_io.so.9.1.3",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-21",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "f7928274690f4e0cd7dfc99b45a7fe293c5c922f"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "53fb6a1e07e222f69e66935e0372d0da56b668c1fc84243c5a3dccc3e1dfe9ab"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libem_ethswitch.so.0.1.0",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-22",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "e5411c5f48b7856531c8d7fac841d81b7fc124aa"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e66ace2a80744c23579536416064ac54d3d07c6e4ac380e956686a54fc4a82f5"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libem_supervisor.so.0.0.4",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-23",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "314593c4991ec5f86150aed7168c7612ef30e93f"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "1e19a2576e473d57c05374e2835a0e5207d5571eeb21c20e77ea886f68dc84e5"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libem_config.so.0.0.0",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-24",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "c3d44376ed8d68b14b90d22c277df97099dfc58c"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "4393e593cd1c61513173e0736f66e875af3e08195238a068a0c5f2edd7c37253"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/python3.10/site-packages/em-accessories/emperftool.py",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-25",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "1951ab3f3ab866dba6f97b05bee7f5d61a3d0a21"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "93440cefd1068daaf096b8ab063556141e3e46d13734f9285925570e5f0a3c91"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/python3.10/site-packages/em-accessories/emperfctl.py",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-26",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "2140760ec7e6da25c601092890ea7515a9a53293"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "006cedeb4e0e386cd8b4de86f06c4debdc9b55c34382204649691814dc05f6f5"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/python3.10/site-packages/em-accessories/emechoserverctl.py",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-27",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "e6dfc72b5e655764861417fd25296d46e7f4596d"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "490b5a6aae0f275f6e39388f6227bd7d2f5e9375af06231265eed8347453c408"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/python3.10/site-packages/em-accessories/em_perf.py",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-28",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "2318634f93979f073fc9ad3a3fe883bebca5e01a"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "b53a3fd8d57e6e2c1104eafad8e37e7a07a740a27afcc7ded461a19fd7ee9b86"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/python3.10/site-packages/em-accessories/emstatsctl.py",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-em-accessories-29",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "da6831931c08dbb7833ad93ee495e239ba67476b"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "a6198ae42abcfc7f38a66ec77071561a00a54661f3f5a6ca1af816b65489a9ee"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "etc/usas/em_queue.conf",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    }
+  ],
+  "name": "em-accessories",
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-Package-em-accessories",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "hasFiles": [
+        "SPDXRef-PackagedFile-em-accessories-1",
+        "SPDXRef-PackagedFile-em-accessories-2",
+        "SPDXRef-PackagedFile-em-accessories-3",
+        "SPDXRef-PackagedFile-em-accessories-4",
+        "SPDXRef-PackagedFile-em-accessories-5",
+        "SPDXRef-PackagedFile-em-accessories-6",
+        "SPDXRef-PackagedFile-em-accessories-7",
+        "SPDXRef-PackagedFile-em-accessories-8",
+        "SPDXRef-PackagedFile-em-accessories-9",
+        "SPDXRef-PackagedFile-em-accessories-10",
+        "SPDXRef-PackagedFile-em-accessories-11",
+        "SPDXRef-PackagedFile-em-accessories-12",
+        "SPDXRef-PackagedFile-em-accessories-13",
+        "SPDXRef-PackagedFile-em-accessories-14",
+        "SPDXRef-PackagedFile-em-accessories-15",
+        "SPDXRef-PackagedFile-em-accessories-16",
+        "SPDXRef-PackagedFile-em-accessories-17",
+        "SPDXRef-PackagedFile-em-accessories-18",
+        "SPDXRef-PackagedFile-em-accessories-19",
+        "SPDXRef-PackagedFile-em-accessories-20",
+        "SPDXRef-PackagedFile-em-accessories-21",
+        "SPDXRef-PackagedFile-em-accessories-22",
+        "SPDXRef-PackagedFile-em-accessories-23",
+        "SPDXRef-PackagedFile-em-accessories-24",
+        "SPDXRef-PackagedFile-em-accessories-25",
+        "SPDXRef-PackagedFile-em-accessories-26",
+        "SPDXRef-PackagedFile-em-accessories-27",
+        "SPDXRef-PackagedFile-em-accessories-28",
+        "SPDXRef-PackagedFile-em-accessories-29"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NONE",
+      "licenseInfoFromFiles": [
+        "NOASSERTION"
+      ],
+      "name": "em-accessories",
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "522b765acc04fc39242b270871e7ea3d13cf4d30"
+      },
+      "supplier": "Organization: OpenEmbedded ()",
+      "versionInfo": "22.5.8"
+    }
+  ],
+  "relationships": [],
+  "spdxVersion": "SPDX-2.2"
+}

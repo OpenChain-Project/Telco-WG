@@ -1,0 +1,1867 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "creationInfo": {
+    "comment": "This document was created by analyzing recipe files during the build.",
+    "created": "2024-09-19T13:17:55Z",
+    "creators": [
+      "Tool: OpenEmbedded Core create-spdx.bbclass",
+      "Organization: OpenEmbedded ()",
+      "Person: N/A ()"
+    ],
+    "licenseListVersion": "3.14"
+  },
+  "dataLicense": "CC0-1.0",
+  "documentNamespace": "http://spdx.org/spdxdoc/recipe-alarm-7437445b-18f5-5395-8472-5062f4bd2455",
+  "externalDocumentRefs": [],
+  "files": [
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-1",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "455bdf2f6a7755b0e3ad23155dc5274c9d513e60"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "ece76b4f4199573ab5c9295a55a00334aefcfd382ae94bd330f0dcc1ddee74ab"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/configure.ac",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-2",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "689d5e029ef7773334a229d94d8bb7f0b870f618"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "01f0a1547aead5f720e53a8d35ffa761e9d25f90c73e33e6afdc20df9faa236f"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/install_dep.ini",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-3",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "b8ac94fec4d0102a0cfa3364e5a27ffc2fbe56f2"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "7b311f6bbe8d1cb3a303173cc7478e3fceb58bcdd6b4447a48d31ca98875e38d"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/SCI.meta",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-4",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "0623b3de2d6b5434f3bec49d35e5cc7f27aa071c"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "fac34ff52721c66182283140873fd830acc16c75b4c9ba2ce583fbfb554273cf"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/sonar-project.properties",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-5",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "c5bf60deed6af8ec1db274dd526f7294f7e2d100"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "582bedbebd2c8c0adadf8f929d7082141c20a76b2296f8cd3f8abec64f25fdbb"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/branch-ci-lts22.jf",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-6",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "a129f0a4ca809ec2b6b2ffc0ed50958f01fc2d88"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "b9d19574b9fa41a2ed8b22e29392d24453c94feabe5a5178a89a0e941778eb41"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/branch-ci.jf",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-7",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "d2fcb5d650b7156e65a9c62150fc8d563ccf8a9f"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "082ae4eafb7572054346680afd374c4ed3986cd475e2d9d9aeeb222b030a4d8b"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/build_info.yml",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-8",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "b13b0c9c87bc37a4e2c8489b10d820e3e52b8aef"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "9d813dae0395679360a1efe804ea749f444a4d4238a02730d28cb995e36ab090"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/Makefile.am",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-9",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "f1cddaaca9a99e76946dfc28af8d1aa19bd78699"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "7db1968686b4421a6252173474a8da42205a8e4748e9baa9738b59bd5bb03644"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/README.md",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-10",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "ca330a332cd9369b5bf57e5c6a3268422aadfb35"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "dd486d3c1b32c7f005203cafd6cbd211b56a7c6e478dfee6d3e7a2bdce6e83fd"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/.gitignore",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-11",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "2fa36045dbf26c8370c7c757c96c171c642ef193"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "2b4b07d983ba08dcf213753536cc6ac0923d4f20c5751b79290a5138aea44096"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/.gitmodules",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-12",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "39b2ddc47b3aeb582bf71450d1693318084130e4"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "9d614915cd5decb76456f53fbfcc8397f7189a8bddd9d7e2c3de5608db358b9a"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/style-check.json",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-13",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "e1699d7434a8d2f512e1e27921a20779fc7946e2"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "61bc6e01fa21f622c25dd9be2fe42326a1ccd6c2e77ff0cdfdca2c1533ae6a2e"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/test/ut_main/Makefile.am",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-14",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "03b7065e1273da008d19b0cc6056bfe506f77a6f"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "a47b3616b9d7db4f720e883976940548ce3e7a8c897af619ae6ec9e645e04004"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/test/ut_stubs/logger_stub.cpp",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-15",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "b2f97648d39d5ca68e3255c97ae33dcb2a287f9d"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "6e771e48a0c90b547a17314096974b1a4fe1c55eccc7f5fcc18e962048389e56"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/test/ut_stubs/em_comparators.hpp",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-16",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "0418b7cf0143ac118c938d900f62cd9964548abe"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "6e7b0caa7ce2e7b47c79ac291bffd1408d6e47efbe6bd63a0e3f8561627641ea"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/test/ut_stubs/syscom_async_stub.hpp",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-17",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "fc57c66a619f6fc96a0e2055339314a3f6284168"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "065c2eec28036024f26ee3f22b8dd367b9a5c860bc24e774cf1be6de60259117"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/test/ut_stubs/em_sw_event_stub.hpp",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-18",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "981427c1ea8d24b22f19cd648a076531f1712c37"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "b1439c712e8fa50b277caa26b87283929198d1569b575d170becc78c2db16389"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/test/ut_stubs/em_sw_event_stub.cpp",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-19",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "c428f8c348092d12fbe5a8ef05bdb338646fcb4f"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "3cf2caa5fcb1ea09e7bfecdfedb54180dbde764ee3ddb69b8da7502f77ec6f6c"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/test/ut_stubs/em_resource_stub.cpp",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-20",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "81b6014c87104ed68ddfddcfbac31997a561c7f6"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "78ccfe20b5a61e16a095d8120d3ed6e62322969bdd480b9fb5449a2207fadfe5"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/test/ut_stubs/libc_stub.hpp",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-21",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "d779235c6865cd026c70fdb664326740822d911a"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "550e520ab92d87048f819af037ef861d3c992ec212b13f912936837dc0de088c"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/test/ut_stubs/syscom_em_stub.cpp",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-22",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "6fd15b749564649407ff8e293ca250b37ecee8db"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "2a04c3a05d4437e25ce902de0054fa33c1e345f0e98897542d45eb2c309302a2"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/test/ut_stubs/libc_stub.cpp",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-23",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "e46b38492d19fe9763c7f561be758061ad409e52"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "97ac519122acd26375db0e3d7ba719a3f78833c93a17140f477ec3b911fec4c0"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/test/ut_stubs/em_config_stub.cpp",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-24",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "41013845dcf04145214e9414860a7624b08972d6"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "6bcb31de6d2ecfc91a1df7c36aedb0ec30d21a1ea549ecf91f5a199141b0b0bf"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/test/ut_stubs/syscom_async_stub.cpp",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-25",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "e658889c8afab258391bf26dcc05aa89b2e7348e"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "69a49e85dcb64a545df845b20dcefab0c6361cdc8e4fb5add2e65abd2381ad35"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/test/ut_stubs/Makefile.am",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-26",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "e7011a831eb5b9990174215c35e75d401cfcefba"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "934bc3805a66749876cc810d15661c4953addecded34d3c740182f65a8c95956"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/test/ut_stubs/em_stub.cpp",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-27",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "6e94c6c5f897f367fe4bb4f073ce08714cf55df4"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "6190ea4c4f0554fa0865cf58f24c5afb516faefa418811edb2d0a4305539f22f"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/test/ut_stubs/em_stub.hpp",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-28",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "95cecff17dc87b0a5fb4ce144f787e5d2210ada5"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "2414f46ee8d8373cb39fcd45bf47e2b797be86e306d78bd133f817aff101a623"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/test/ut_stubs/syscom_msg_stub.cpp",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-29",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "fe2b799cf5c01ac4a91577243ad15df21d776a43"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "dce7856c5f273bdc5d6041ce2c77f679b450750661f46719fad36c9524b35c5c"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/em-fault/test_faults.conf",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-30",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "51c06aaa7da3b0d3ae83b766229640c4f65cc41f"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "67f24db4ff834d03bd6d14c2d6cd753e78f996ead8f9e06e1026833782824886"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/em-fault/em_fault.h",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-31",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "1a7f3c4df7020906da1f6b6d9f65f79784763d5c"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "073facf87135b22cd9567f082c9a0d45b28c0902628437e547843fcc068d2aba"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/em-fault/em_fault.c",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-32",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "1341b5ceaf5408c471ad44d9b64a20f814c9ca03"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "79389302f31179dd0f6f1a7f9547bd8450824ac61b637a19997b11a726c9ff1a"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/em-fault/em_fault_test.conf",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-33",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "c72b425d3710ffd0e5c1e22a196b6e9b17cdfb56"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "cd353605dac97dd36401384e0ba2864c45de6bfecd5ed4b71cbd2042b213e153"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/em-fault/test_run.sh",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-34",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "5c7246ff51da4906e1f9dced75e05c8a4ca3a42a"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e3397e3d7c74c01abda96631c6f715e33c07a1d5e431033bdd9d311403ad5151"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/em-fault/em_fault.pc.in",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-35",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "15377f65f0776dd98c27974a7528612b86d7a3fa"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "4ba222a43ed21f5f5f4c1a47d1fa5513d077fda079046ca3b11326bb06a36289"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/em-fault/em_fault_test.c",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-36",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "89a8cd9087228b0fc089a4bdf80ae444e915cc4c"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "b79930c86ae5a538cdb6581cab3ba77226f55f634128d3ddb335501a6f4db446"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/em-fault/Makefile.am",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-37",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "b2aaef8c720f4ec7ffae7168d8644ab660234caf"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "9ca4111f513c454541feac949e2fc50f008bcce287743fae1a84ed02258fb9fa"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/em-fault/em_fault_dummy.c",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-38",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "0dd0fb685a6b6b6f4eb335da6999c732d7593063"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "542630669e1e55e7a5997f97afc9ecde747424bdfcb33327ca519424c30e7c67"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/em-fault/ut_em_fault.cpp",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-39",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "88d7e170a8b256a37faae1236b94a0e6111bce13"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "fa274e1bc73d90022bd8b0e00058afe3884e0fab269d8f1bb296ee046a5bdb19"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/fatal-fault/fatal_fault.h",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-40",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "d9acf0e93d1962c40f7b30b0e74adb821489f05a"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "3ab03b4e36cb7b11a8edfecd2d8e02c49c542d925575c0ca7dd858680df30e32"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/fatal-fault/ut_main.cpp",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-41",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "95521218c42de633d9a3abdbe2cec25b40a90e24"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "af269fb14b96ffdcd709fade011729586982689c8a24c35ee14c1729daa07c9b"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/fatal-fault/Makefile.am",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-42",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "dfa9246739f84d9beddf8818cf6edb56b1e5e7c1"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "795c93bc57b100edc062ea9241ab484906c57b9e7fe8a281a77fc3202026dd68"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/fatal-fault/fatal_fault.pc.in",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-43",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "f3ca7cfdf259a8498ee51f0bb0fea2cad0a0c412"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "1aee80d69c6cd6da3ab4dd88acd519536013c72278840939ec73a74edf3b5ba8"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/fatal-fault/fatal_fault.c",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-44",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "ccc1bc1654cb7cb53a5c2b70a7a78d121de3d90f"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "a9aaa4bbcee474cb4413f4a997838e5e0e585874eb021bb9ad549cbb1d4bdf54"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/fatal-fault/fatal_fault_test.c",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-45",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "2b459a7f35ecc462fe1634e9550e317748a8cf4b"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "cab19e2e6030383d663a957fbf6fcefd989e6fc7b3befb6a90d41968ee18930d"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/fatal-fault/ut_fatal_fault.cpp",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-46",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "2d53c43cf28791fffa1854ae8e7955808db71096"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "9e0e2d61762fbbcb8f3a1d737c0c24add5e1468e4cc2852fddc76ca75b6b81c4"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/common/fault_common.c",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-47",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "c0b279611e0c5efe1f2efa2a537fb4738943ddb2"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "d11b8f19b2093e8e1c57bdb89722e567a3cea9b8f57db8e3dabcb85aafc0cfb7"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/common/ut_fault_common.cpp",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-48",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "243cb8aa6dfd558f837fe3c23e2b432f01a47c1f"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "7d94a9b37835da397b80144a6d7ca8b97e5edf9d929a3a04c01e682d55eb2998"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/common/Makefile.am",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-49",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "5e51c716762a36bae3cc76b54bb08212055f1227"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "2e6ac47ec708693e2d4d9aeefdaff15760c65faba1adfd3c4bff2d0b47b5385d"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/common/fault_common.h",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-50",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "e6520c741525e6186d5ab595c284bc46616071f9"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e9315d8c3a71e2265777afc99551d5014073d8510ca40d767aa349d6c12a51d7"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/fault/fault.h",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-51",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "ded42998eed0faaa119485232a30c638795cbc60"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "9cc02e1e20d1edd042c7f07aa922e024e27e9a58b059bb6ddc3755aef1321b24"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/fault/fault_atomic_operations.h",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-52",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "fe2b799cf5c01ac4a91577243ad15df21d776a43"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "dce7856c5f273bdc5d6041ce2c77f679b450750661f46719fad36c9524b35c5c"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/fault/test_faults.conf",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-53",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "9da8842f629c59bbfac1da1612c8bc3d44c9c6c9"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "46bea63ff339ce1b3777b7e76a4a49f522e38c5f52c2a69d595afc82434524bb"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/fault/fault.c",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-54",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "13c8c7f515a1567f8dcad8b685d8a13bb7d055f9"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "6fee6cb9e61c0fd869cad2592ce49193c7e110e3318f2388f88e93e9cabc8618"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/fault/ut_fault_atomic_array.cpp",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-55",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "f1bd733f7ee121e789eb3e0c418e40a80f0c2a3c"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "d4200d6216ac25abce003a3e0d2de749e9d1f7248c485654503a51c1ba8fb895"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/fault/fault_atomic_array.h",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-56",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "e09a5724f86cb5804cecf4fb4330d23bc81fd3df"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "353bba566854a0bb40a546b75cb27ae3f02944b3f49d4aabf779e1bdcc2fa65b"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/fault/test_run.sh",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-57",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "ba0d4edf67c8b08a16c9c39f3311c6b037e86790"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "d71c083db008200a2f3f846e7f682ddf2662dd5cb1cd564cff843f1e2d507165"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/fault/fault.pc.in",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-58",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "f80b3c60acf287454a9fdd9c101dabf8c53276b9"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "3a1d0ed73b045fbd4e80332851522cfcb07223f4410e87cb68f25ee250f579d0"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/fault/Makefile.am",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-59",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "9afaa7361f7e238315432a0de241c9607e9214c1"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "4826766d687d9879c823169d759235335aa1964a700fc799f9c4d62562733850"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/fault/ut_fault.cpp",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-60",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "1f48fa943c651ee3e75a52f91f45347496f62829"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "01b523780e0b2379e9ad1c3f84120bb289ce82efc2395068a5d77914e3769671"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/fault/fault_test.c",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-61",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "6d0b44d6fd1a747c93553ad0e1fc97d3f34d382d"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "57c3e19ccba6de775cc8299645111d4186ccc4b3774311b3471c171bd4d07683"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/fault/fault_atomic_array.c",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-62",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "3eb951f5947a584a5cf7d1fd37c67a6f59dc28ea"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "fbbb81e53e6e2935d06e30a111febad852c25c063e829edaae73342773269d09"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/sct/fault.robot",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-63",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "344dae4691005976c5140d182da8afefb732c303"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "c5989dae1e65fa17142730fde74e66b04106311f9c17bb190148bf1c00486301"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/sct/em_fault.robot",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-64",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "a1a5c3bfecc9afb0aadf9016a3ce037e5b65a9b2"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "6cf0eb892aa49566754438a79fd60ff184c7ca2f9741a6c9075a7bc57a46504f"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/sct/syscomd.conf",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-65",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "5d31ffc3fb3d8db6b17ccf3bcfd8154b13a39355"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "5823e1be850db311f736af3e758eb2db41e59fc217e5c38ad76208a66604d7c5"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/sct/fatal_fault.robot",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-66",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "c7866bed04614f08c4815c88b25043b82db95d5e"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "ce8505e169a06f1c1552321682395f22c578740128f9296119389d4f2978fe49"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/sct/resources/fault_expected_lines.py",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-67",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "df571cbacd7ec74e57de0e2aa4d2c0336c9ecf8c"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "c97b96ae8b2754ecadb0be3ef545bcfa7d49954cc273850b4281ad118a013f46"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/sct/resources/fault_keywords.py",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-68",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "69ce41a4d6ec4191f128eaa8e3a7d2adcb0f13b1"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "f8a39f03e4e61c2c47f8011d1bd756190581752c354009f42026307b1273671e"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/sct/resources/fault_common.resource",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-69",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "0bc5b18d0efe9c72840fb86ad1ae27ba100ef3a6"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "b0f0960436d9512a8674b0a4be015dd28bebc8bad539a96cf58441b8fc1af4bc"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/sct/resources/em_fault_expected_lines.py",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-70",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "4dab74b7e7828909bafb67a1ec7ccaff0f7e95a5"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e1c5497536f23439334705d54949bf55ba461937f68f3a1d214507bd07f5c7f3"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/sct/resources/abip/variables.py",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-71",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "4dab74b7e7828909bafb67a1ec7ccaff0f7e95a5"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e1c5497536f23439334705d54949bf55ba461937f68f3a1d214507bd07f5c7f3"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/sct/resources/abio/variables.py",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-72",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "d543d8eb2cb14ecab8f998fe0b9ec9ed5d077f9b"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "2abd9a81c8ef89762f2f07dcc785382a0fc93410da495c6db995d56fd24143c4"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/sct/resources/x86/variables.py",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-73",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "4dab74b7e7828909bafb67a1ec7ccaff0f7e95a5"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e1c5497536f23439334705d54949bf55ba461937f68f3a1d214507bd07f5c7f3"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/sct/resources/ebb/variables.py",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-74",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "4dab74b7e7828909bafb67a1ec7ccaff0f7e95a5"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e1c5497536f23439334705d54949bf55ba461937f68f3a1d214507bd07f5c7f3"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/sct/resources/thor-asim/variables.py",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-75",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "4dab74b7e7828909bafb67a1ec7ccaff0f7e95a5"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e1c5497536f23439334705d54949bf55ba461937f68f3a1d214507bd07f5c7f3"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/sct/resources/abin/variables.py",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-76",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "4dab74b7e7828909bafb67a1ec7ccaff0f7e95a5"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e1c5497536f23439334705d54949bf55ba461937f68f3a1d214507bd07f5c7f3"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/sct/resources/asof/variables.py",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-77",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "4dab74b7e7828909bafb67a1ec7ccaff0f7e95a5"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e1c5497536f23439334705d54949bf55ba461937f68f3a1d214507bd07f5c7f3"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/sct/resources/asoe/variables.py",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-78",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "4dab74b7e7828909bafb67a1ec7ccaff0f7e95a5"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e1c5497536f23439334705d54949bf55ba461937f68f3a1d214507bd07f5c7f3"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/sct/resources/abil/variables.py",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alarm-79",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "4dab74b7e7828909bafb67a1ec7ccaff0f7e95a5"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e1c5497536f23439334705d54949bf55ba461937f68f3a1d214507bd07f5c7f3"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "git/sct/resources/thor-ebb/variables.py",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    }
+  ],
+  "name": "recipe-alarm",
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-Recipe-alarm",
+      "copyrightText": "NOASSERTION",
+      "description": "Class for SCM related tasks",
+      "downloadLocation": "git://gerrit-essl2.int.net.nokia.com:29418/MN/BREAM/alarm",
+      "externalRefs": [
+        {
+          "referenceCategory": "SECURITY",
+          "referenceLocator": "cpe:2.3:a:*:alarm:5.11.4:*:*:*:*:*:*:*",
+          "referenceType": "http://spdx.org/rdf/references/cpe23Type"
+        }
+      ],
+      "hasFiles": [
+        "SPDXRef-SourceFile-alarm-1",
+        "SPDXRef-SourceFile-alarm-2",
+        "SPDXRef-SourceFile-alarm-3",
+        "SPDXRef-SourceFile-alarm-4",
+        "SPDXRef-SourceFile-alarm-5",
+        "SPDXRef-SourceFile-alarm-6",
+        "SPDXRef-SourceFile-alarm-7",
+        "SPDXRef-SourceFile-alarm-8",
+        "SPDXRef-SourceFile-alarm-9",
+        "SPDXRef-SourceFile-alarm-10",
+        "SPDXRef-SourceFile-alarm-11",
+        "SPDXRef-SourceFile-alarm-12",
+        "SPDXRef-SourceFile-alarm-13",
+        "SPDXRef-SourceFile-alarm-14",
+        "SPDXRef-SourceFile-alarm-15",
+        "SPDXRef-SourceFile-alarm-16",
+        "SPDXRef-SourceFile-alarm-17",
+        "SPDXRef-SourceFile-alarm-18",
+        "SPDXRef-SourceFile-alarm-19",
+        "SPDXRef-SourceFile-alarm-20",
+        "SPDXRef-SourceFile-alarm-21",
+        "SPDXRef-SourceFile-alarm-22",
+        "SPDXRef-SourceFile-alarm-23",
+        "SPDXRef-SourceFile-alarm-24",
+        "SPDXRef-SourceFile-alarm-25",
+        "SPDXRef-SourceFile-alarm-26",
+        "SPDXRef-SourceFile-alarm-27",
+        "SPDXRef-SourceFile-alarm-28",
+        "SPDXRef-SourceFile-alarm-29",
+        "SPDXRef-SourceFile-alarm-30",
+        "SPDXRef-SourceFile-alarm-31",
+        "SPDXRef-SourceFile-alarm-32",
+        "SPDXRef-SourceFile-alarm-33",
+        "SPDXRef-SourceFile-alarm-34",
+        "SPDXRef-SourceFile-alarm-35",
+        "SPDXRef-SourceFile-alarm-36",
+        "SPDXRef-SourceFile-alarm-37",
+        "SPDXRef-SourceFile-alarm-38",
+        "SPDXRef-SourceFile-alarm-39",
+        "SPDXRef-SourceFile-alarm-40",
+        "SPDXRef-SourceFile-alarm-41",
+        "SPDXRef-SourceFile-alarm-42",
+        "SPDXRef-SourceFile-alarm-43",
+        "SPDXRef-SourceFile-alarm-44",
+        "SPDXRef-SourceFile-alarm-45",
+        "SPDXRef-SourceFile-alarm-46",
+        "SPDXRef-SourceFile-alarm-47",
+        "SPDXRef-SourceFile-alarm-48",
+        "SPDXRef-SourceFile-alarm-49",
+        "SPDXRef-SourceFile-alarm-50",
+        "SPDXRef-SourceFile-alarm-51",
+        "SPDXRef-SourceFile-alarm-52",
+        "SPDXRef-SourceFile-alarm-53",
+        "SPDXRef-SourceFile-alarm-54",
+        "SPDXRef-SourceFile-alarm-55",
+        "SPDXRef-SourceFile-alarm-56",
+        "SPDXRef-SourceFile-alarm-57",
+        "SPDXRef-SourceFile-alarm-58",
+        "SPDXRef-SourceFile-alarm-59",
+        "SPDXRef-SourceFile-alarm-60",
+        "SPDXRef-SourceFile-alarm-61",
+        "SPDXRef-SourceFile-alarm-62",
+        "SPDXRef-SourceFile-alarm-63",
+        "SPDXRef-SourceFile-alarm-64",
+        "SPDXRef-SourceFile-alarm-65",
+        "SPDXRef-SourceFile-alarm-66",
+        "SPDXRef-SourceFile-alarm-67",
+        "SPDXRef-SourceFile-alarm-68",
+        "SPDXRef-SourceFile-alarm-69",
+        "SPDXRef-SourceFile-alarm-70",
+        "SPDXRef-SourceFile-alarm-71",
+        "SPDXRef-SourceFile-alarm-72",
+        "SPDXRef-SourceFile-alarm-73",
+        "SPDXRef-SourceFile-alarm-74",
+        "SPDXRef-SourceFile-alarm-75",
+        "SPDXRef-SourceFile-alarm-76",
+        "SPDXRef-SourceFile-alarm-77",
+        "SPDXRef-SourceFile-alarm-78",
+        "SPDXRef-SourceFile-alarm-79"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NONE",
+      "licenseInfoFromFiles": [
+        "NOASSERTION"
+      ],
+      "name": "alarm",
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "8a80b163f785e4b6a9c893425fda01c4dcdb3cc9"
+      },
+      "summary": "Fault, EM-Fault and Fatal-Fault libraries",
+      "supplier": "Organization: OpenEmbedded ()",
+      "versionInfo": "5.11.4"
+    }
+  ],
+  "relationships": [],
+  "spdxVersion": "SPDX-2.2"
+}
