@@ -133,17 +133,20 @@ class Validator:
                  functionRegistry:FunctionRegistry = FunctionRegistry(),
                  problems=None, 
                  referringLogic="none"):
-        """ Validates, Returns a status and a list of problems. filePath: Path to the SPDX file to validate. strict_purl_check: Not only checks the syntax of the PURL, but also checks if the package can be downloaded. strict_url_check: Checks if the given URLs in PackageHomepages can be accessed."""
+        """ Validates, Returns a status and a list of problems.
+            filePath: Path to the SPDX file to validate.
+            strict_purl_check: Not only checks the syntax of the PURL, but also checks if the package can be downloaded.
+            strict_url_check: Checks if the given URLs in PackageHomepages can be accessed.
+            functionRegistry: is an optionsl functionRegistry class to inject custom checks.
+            problems: is the problem list for linked SBOM handling
+            referringLogic: defines the logic how to determine the location of referred files"""
 
         current_frame = inspect.currentframe()
         caller_frame = inspect.getouterframes(current_frame, 2)
-        file = os.path.basename(filePath)
         if caller_frame and caller_frame[1].function == self.validate.__name__:
             logger.debug("Validate was called recursively")
             problems.do_print_file()
-        logger.debug(f"File path is {os.path.dirname(filePath)}, filename is {os.path.basename(filePath)}")
-        dir_name = os.path.dirname(filePath)
-        
+
         if problems==None:
             problems = Problems()
         else:
@@ -151,21 +154,31 @@ class Validator:
 
         problems.checked_files.append(os.path.basename(filePath))
 
+        if filePath == "":
+            logger.error(f"File path is a mandatory parameter.")
+            problems.append("File error", "General", "General", f"File path is empty", filePath)
+            return False, problems
+
+        file = os.path.basename(filePath)
+        dir_name = os.path.dirname(filePath)
+        logger.debug(f"File path is {dir_name}, filename is {file}")
+        
+
         try:
             doc = parse_anything.parse_file(filePath)
         except json.decoder.JSONDecodeError as e:
             logger.error(f"JSON syntax error at line {e.lineno} column {e.colno}")
             logger.error(e.msg)
-            problems.append("Invalid file", "General", "General", f"JSON syntax error at line {e.lineno} column {e.colno}", file)
+            problems.append("File error", "General", "General", f"JSON syntax error at line {e.lineno} column {e.colno}", file)
             return False, problems
         except SPDXParsingError as e:
             logger.error("ERROR! The file is not an SPDX file")
             all_messages = ""
             for message in e.messages:
                 logger.error(message)
-                all_messages += message
-            problems.append("SPDX Validation error.", "General", "General", f"{all_messages}", file)
+            problems.append("File error", "", "", "The file is not an SPDX file", file)
             return False, problems
+
         logger.debug("Start validating.")
 
         errors = validate_full_spdx_document(doc)
@@ -190,26 +203,29 @@ class Validator:
         if not sbomNTIA.ntia_minimum_elements_compliant:
             logger.debug("NTIA validation failed")
             components = sbomNTIA.get_components_without_names()
-            self.ntiaErrorLog(components, problems, doc,"Package without a name", file)
-            self.components = sbomNTIA.get_components_without_versions(return_tuples=True)
-            self.ntiaErrorLogNew(components, problems, doc,"Package without a version", file)
+            #logger.debug(f"components: {components}, problems: {str(problems)}, doc: {doc}")
+            self.__ntiaErrorLog(components, problems, doc, "Package without a name", file)
+            
+            #self.ntiaErrorLog(components, problems, doc, "Package without a name")
+            #self.ntiaErrorLogNew(components, problems, doc, "Package without a version")
+            components = sbomNTIA.get_components_without_versions(return_tuples=True)
+            self.__ntiaErrorLogNew(components, problems, doc, "Package without a version", file)
             components = sbomNTIA.get_components_without_suppliers(return_tuples=True)
-            self.ntiaErrorLogNew(components, problems, doc,"Package without a package supplier or package originator", file)
+            self.__ntiaErrorLogNew(components, problems, doc, "Package without a package supplier or package originator", file)
             components = sbomNTIA.get_components_without_identifiers()
-            self.ntiaErrorLog(components, problems, doc,"Package without an identifyer", file)
+            self.__ntiaErrorLog(components, problems, doc, "Package without an identifyer", file)
 
         else:
             logger.debug("NTIA validation succesful")
 
         if doc.creation_info.creator_comment:
             logger.debug(f"CreatorComment: {doc.creation_info.creator_comment}")
-            cisaSBOMTypes = ["Design", "Source", "Build", "Analyzed", "Deployed", "Runtime"]
+            cisaSBOMTypes = ["design", "source", "build", "analyzed", "deployed", "runtime"]
 
             typeFound = False
             for cisaSBOMType in cisaSBOMTypes:
                 logger.debug(f"Checking {cisaSBOMType} against {doc.creation_info.creator_comment} ({doc.creation_info.creator_comment.find(cisaSBOMType)})")
-                creator_comment = doc.creation_info.creator_comment.lower();
-                if -1 != doc.creation_info.creator_comment.find(cisaSBOMType):
+                if -1 != doc.creation_info.creator_comment.lower().find(cisaSBOMType):
                     logger.debug("Found")
                     typeFound = True
 
@@ -239,9 +255,13 @@ class Validator:
         for package in doc.packages:
             logger.debug(f"Package: {package}")
             if not package.version:
-                problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Version field is missing", file)
+                pass
+                ### This is already detected during the NTIA check. 
+                #problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Version field is missing")
             if not package.supplier:
-                problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Supplier field is missing", file)
+                pass
+                ### This is already detected during the NTIA check. 
+                #problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Supplier field is missing")
             if not package.checksums:
                 problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Checksum field is missing", file)
             if package.external_references:
@@ -311,7 +331,7 @@ class Validator:
         else:
             return True, problems
 
-    def ntiaErrorLog(self, components, problems, doc, problemText, file):
+    def __ntiaErrorLog(self, components, problems, doc, problemText, file):
         logger.debug(f"# of components: {len(components)}")
         for component in components:
             logger.debug(f"Erroneous component: {component}")
@@ -322,7 +342,7 @@ class Validator:
             else:
                 problems.append("NTIA validation error", "Cannot be provided", component, problemText, file)
 
-    def ntiaErrorLogNew(self, components, problems, doc, problemText, file):
+    def __ntiaErrorLogNew(self, components, problems, doc, problemText, file):
         logger.debug(f"# of components: {len(components)}")
         for component in components:
             logger.debug(f"Erroneous component: {component}")
@@ -396,8 +416,6 @@ def referred_yocto_contains_only(self, doc: Document, dir_name: str):
                     logger.debug(f"Adding {external_refs[spdx_document_id]} to the referred file list")
                     documents.append(external_refs[spdx_document_id])
     return documents
-
-
 
 def referred_none(self, doc: Document, dir_name: str):
     return []
