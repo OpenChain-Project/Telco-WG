@@ -1,0 +1,47 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "creationInfo": {
+    "comment": "This document was created by analyzing package runtime dependencies.",
+    "created": "2024-09-19T13:18:23Z",
+    "creators": [
+      "Tool: OpenEmbedded Core create-spdx.bbclass",
+      "Organization: OpenEmbedded ()",
+      "Person: N/A ()"
+    ],
+    "licenseListVersion": "3.14"
+  },
+  "dataLicense": "CC0-1.0",
+  "documentNamespace": "http://spdx.org/spdxdoc/runtime-alarm-d99ec519-43f0-5e6f-a178-d50df7c99645",
+  "externalDocumentRefs": [
+    {
+      "checksum": {
+        "algorithm": "SHA1",
+        "checksumValue": "284bc7e009c05041f4d82d831cc4ea83c14f89cc"
+      },
+      "externalDocumentId": "DocumentRef-package-alarm",
+      "spdxDocument": "http://spdx.org/spdxdoc/alarm-a89a4665-0835-5596-9956-17f2a0fd5562"
+    },
+    {
+      "checksum": {
+        "algorithm": "SHA1",
+        "checksumValue": "a13ea50dde972f54747a90838e8d383d27dc3cf8"
+      },
+      "externalDocumentId": "DocumentRef-runtime-dependency-em-accessories",
+      "spdxDocument": "http://spdx.org/spdxdoc/em-accessories-53e18417-f793-5345-aa0e-24f7c9b4f8c8"
+    }
+  ],
+  "name": "runtime-alarm",
+  "relationships": [
+    {
+      "relatedSpdxElement": "DocumentRef-package-alarm:SPDXRef-DOCUMENT",
+      "relationshipType": "AMENDS",
+      "spdxElementId": "SPDXRef-DOCUMENT"
+    },
+    {
+      "relatedSpdxElement": "DocumentRef-package-alarm:SPDXRef-Package-alarm",
+      "relationshipType": "RUNTIME_DEPENDENCY_OF",
+      "spdxElementId": "DocumentRef-runtime-dependency-em-accessories:SPDXRef-Package-em-accessories"
+    }
+  ],
+  "spdxVersion": "SPDX-2.2"
+}

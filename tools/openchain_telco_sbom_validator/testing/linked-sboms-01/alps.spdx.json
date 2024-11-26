@@ -1,0 +1,133 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "creationInfo": {
+    "comment": "This document was created by analyzing packages created during the build.",
+    "created": "2024-09-19T13:15:33Z",
+    "creators": [
+      "Tool: OpenEmbedded Core create-spdx.bbclass",
+      "Organization: OpenEmbedded ()",
+      "Person: N/A ()"
+    ],
+    "licenseListVersion": "3.14"
+  },
+  "dataLicense": "CC0-1.0",
+  "documentNamespace": "http://spdx.org/spdxdoc/alps-717e3bbe-606c-55de-a47f-f82c29bce191",
+  "externalDocumentRefs": [],
+  "files": [
+    {
+      "SPDXID": "SPDXRef-PackagedFile-alps-1",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "9994e47d3d6780110d7e70741db45146aae2bd4a"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "dc90b6db2d211352941064355dccb715cf5100bfe797d3b6f626e7188db7c394"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libalps_tunnels_uhtunnel.so.0.0.0",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-alps-2",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "597bccb303026af2cf6de59090263d5f5954a8d3"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "5a51cd0ef82e630137c77256d51697564765986ecdc6680fab0b436de1ab8d16"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libalps_power_control.so.0.0.0",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-alps-3",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "1497a44fb064038d7c0e5d97699d8684c1653c9a"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "5c5dec556aec01268fcba47647ffb1b1d05b8754f2f2bbd6f43dd5d5b51eb339"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libalps_portcontrol.so.0.0.0",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-alps-4",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "22a3be5589996ea6c79f07a6c95ef7d8601ae61b"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "19b9d0d9e8911995f4ef2fe72c6bbd50763283bb2c4803af25fce870091de6b3"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/lib/libalps_tunnels_uutunnel.so.0.0.0",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    }
+  ],
+  "name": "alps",
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-Package-alps",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "hasFiles": [
+        "SPDXRef-PackagedFile-alps-1",
+        "SPDXRef-PackagedFile-alps-2",
+        "SPDXRef-PackagedFile-alps-3",
+        "SPDXRef-PackagedFile-alps-4"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NONE",
+      "licenseInfoFromFiles": [
+        "NOASSERTION"
+      ],
+      "name": "alps",
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "10c4ac228f7f4dab90bd5ef9930ae54bb956de7c"
+      },
+      "supplier": "Organization: OpenEmbedded ()",
+      "versionInfo": "3.26.1"
+    }
+  ],
+  "relationships": [],
+  "spdxVersion": "SPDX-2.2"
+}

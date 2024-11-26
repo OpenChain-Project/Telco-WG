@@ -1,4 +1,13 @@
 from openchain_telco_sbom_validator import validator
+import logging
+
+logger = logging.getLogger(__name__)
+logger.propagate = True
+
+logLevel = logging.DEBUG
+logger.debug("Debug logging is ON")
+
+
 
 def test_nok_empty_file():
     v = validator.Validator()

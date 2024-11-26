@@ -1,0 +1,17 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "creationInfo": {
+    "comment": "This document was created by analyzing package runtime dependencies.",
+    "created": "2024-09-19T13:16:33Z",
+    "creators": [
+      "Tool: OpenEmbedded Core create-spdx.bbclass",
+      "Organization: OpenEmbedded ()",
+      "Person: N/A ()"
+    ],
+    "licenseListVersion": "3.14"
+  },
+  "dataLicense": "CC0-1.0",
+  "documentNamespace": "http://spdx.org/spdxdoc/runtime-alps-5a729a35-3b9b-5f22-8516-ce0c299cbec1",
+  "name": "runtime-alps",
+  "spdxVersion": "SPDX-2.2"
+}

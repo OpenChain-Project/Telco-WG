@@ -9,6 +9,7 @@ def test_nok_package_function():
     result, problems = v.validate(filePath = "sboms/unittest-sbom-12.spdx", functionRegistry=functions)
     assert result == False
     assert len(problems) == 2
+
     assert problems[0].ErrorType == "Missing mandatory field from Package"
     assert problems[0].Reason == "There is no purl type ExternalRef field in the Package"
     assert problems[0].SPDX_ID == "SPDXRef-Package-deb-nopurl-libldap-2.4-2-796a192b709a2a2b"
@@ -18,6 +19,7 @@ def test_nok_package_function():
     assert problems[1].Reason == "PackageHomePage field is missing"
     assert problems[1].SPDX_ID == "SPDXRef-Package-deb-nohomepage-libldap-2.4-2-796a192b709a2a2b"
     assert problems[1].PackageName == "nohomepage-libldap-2.4-2"
+
 
 def checkPackageHomepage(problems: validator.Problems, package: Package):
     if isinstance(package.homepage, type(None)):

@@ -1,0 +1,173 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "creationInfo": {
+    "comment": "This document was created by analyzing packages created during the build.",
+    "created": "2024-09-19T12:55:30Z",
+    "creators": [
+      "Tool: OpenEmbedded Core create-spdx.bbclass",
+      "Organization: OpenEmbedded ()",
+      "Person: N/A ()"
+    ],
+    "licenseListVersion": "3.14"
+  },
+  "dataLicense": "CC0-1.0",
+  "documentNamespace": "http://spdx.org/spdxdoc/alignmentpavendors-a7cf1096-d17a-5e0a-b3d8-2310355c80a3",
+  "externalDocumentRefs": [
+    {
+      "checksum": {
+        "algorithm": "SHA1",
+        "checksumValue": "2bcd0cd44fe211f6b9438cce2d68cd793055bc23"
+      },
+      "externalDocumentId": "DocumentRef-recipe-alignmentpavendors",
+      "spdxDocument": "http://spdx.org/spdxdoc/recipe-alignmentpavendors-fe777936-b492-5e26-a994-a99932af7af9"
+    }
+  ],
+  "files": [
+    {
+      "SPDXID": "SPDXRef-PackagedFile-alignmentpavendors-1",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "98ea67a055175ff219e6d282f56048caada0acb9"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "b1f306fa879e8ac75498b9a5415bd4cf781ffb1802cb060ccdb4f22db47343d7"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "lib/systemd/system-preset/98-alignmentpavendors.preset",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-alignmentpavendors-2",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "0428284feff657cbd76c440563388961c073e714"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "7772ae78ae9f51ed3642e84f83f7ee23bf39e2d79722cef1ea7700316b05d8f7"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "lib/systemd/system/alignmentPAvendors.service",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-alignmentpavendors-3",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "5413586c82494ec146a9d828251b3af4993de91c"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e98c7d8d0a25d11fae13392e4d22b695ea8240fc79d7b3ec1e7b36a564db71e7"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "usr/bin/alignmentPAvendors",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-alignmentpavendors-4",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "28b6a50ac75d8437e2814cedbb86a8d2b614ed1b"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "7a957efa39ddd2a8928f6e4dfb700f424caedda366014cebc9c316cb3a7d7108"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "etc/comagenerated/tcs_sn_87_2_7_0.txt",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    }
+  ],
+  "name": "alignmentpavendors",
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-Package-alignmentpavendors",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "hasFiles": [
+        "SPDXRef-PackagedFile-alignmentpavendors-1",
+        "SPDXRef-PackagedFile-alignmentpavendors-2",
+        "SPDXRef-PackagedFile-alignmentpavendors-3",
+        "SPDXRef-PackagedFile-alignmentpavendors-4"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NONE",
+      "licenseInfoFromFiles": [
+        "NOASSERTION"
+      ],
+      "name": "alignmentpavendors",
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "cfab78f3f53d1ca2e93fcc68ab8c5beb0da584af"
+      },
+      "supplier": "Organization: OpenEmbedded ()",
+      "versionInfo": "1.0"
+    }
+  ],
+  "relationships": [
+    {
+      "relatedSpdxElement": "DocumentRef-recipe-alignmentpavendors:SPDXRef-Recipe-alignmentpavendors",
+      "relationshipType": "GENERATED_FROM",
+      "spdxElementId": "SPDXRef-Package-alignmentpavendors"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-alignmentpavendors",
+      "relationshipType": "DESCRIBES",
+      "spdxElementId": "SPDXRef-DOCUMENT"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-PackagedFile-alignmentpavendors-1",
+      "relationshipType": "CONTAINS",
+      "spdxElementId": "SPDXRef-Package-alignmentpavendors"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-PackagedFile-alignmentpavendors-2",
+      "relationshipType": "CONTAINS",
+      "spdxElementId": "SPDXRef-Package-alignmentpavendors"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-PackagedFile-alignmentpavendors-3",
+      "relationshipType": "CONTAINS",
+      "spdxElementId": "SPDXRef-Package-alignmentpavendors"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-PackagedFile-alignmentpavendors-4",
+      "relationshipType": "CONTAINS",
+      "spdxElementId": "SPDXRef-Package-alignmentpavendors"
+    }
+  ],
+  "spdxVersion": "SPDX-2.2"
+}

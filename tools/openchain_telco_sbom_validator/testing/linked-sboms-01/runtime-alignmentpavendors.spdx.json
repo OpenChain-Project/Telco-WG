@@ -1,0 +1,34 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "creationInfo": {
+    "comment": "This document was created by analyzing package runtime dependencies.",
+    "created": "2024-09-19T12:56:06Z",
+    "creators": [
+      "Tool: OpenEmbedded Core create-spdx.bbclass",
+      "Organization: OpenEmbedded ()",
+      "Person: N/A ()"
+    ],
+    "licenseListVersion": "3.14"
+  },
+  "dataLicense": "CC0-1.0",
+  "documentNamespace": "http://spdx.org/spdxdoc/runtime-alignmentpavendors-90c55062-7c92-5fea-b6f9-fafe2b419839",
+  "externalDocumentRefs": [
+    {
+      "checksum": {
+        "algorithm": "SHA1",
+        "checksumValue": "56aed1db68ab1ecf46fdd4f0ad874c65c0ea85e8"
+      },
+      "externalDocumentId": "DocumentRef-package-alignmentpavendors",
+      "spdxDocument": "http://spdx.org/spdxdoc/alignmentpavendors-a7cf1096-d17a-5e0a-b3d8-2310355c80a3"
+    }
+  ],
+  "name": "runtime-alignmentpavendors",
+  "relationships": [
+    {
+      "relatedSpdxElement": "DocumentRef-package-alignmentpavendors:SPDXRef-DOCUMENT",
+      "relationshipType": "AMENDS",
+      "spdxElementId": "SPDXRef-DOCUMENT"
+    }
+  ],
+  "spdxVersion": "SPDX-2.2"
+}

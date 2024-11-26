@@ -1,0 +1,119 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "creationInfo": {
+    "comment": "This document was created by analyzing recipe files during the build.",
+    "created": "2024-09-19T12:55:30Z",
+    "creators": [
+      "Tool: OpenEmbedded Core create-spdx.bbclass",
+      "Organization: OpenEmbedded ()",
+      "Person: N/A ()"
+    ],
+    "licenseListVersion": "3.14"
+  },
+  "dataLicense": "CC0-1.0",
+  "documentNamespace": "http://spdx.org/spdxdoc/recipe-alignmentpavendors-fe777936-b492-5e26-a994-a99932af7af9",
+  "externalDocumentRefs": [],
+  "files": [
+    {
+      "SPDXID": "SPDXRef-SourceFile-alignmentpavendors-1",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "5413586c82494ec146a9d828251b3af4993de91c"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e98c7d8d0a25d11fae13392e4d22b695ea8240fc79d7b3ec1e7b36a564db71e7"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "alignmentPAvendors.sh",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alignmentpavendors-2",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "0428284feff657cbd76c440563388961c073e714"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "7772ae78ae9f51ed3642e84f83f7ee23bf39e2d79722cef1ea7700316b05d8f7"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "alignmentPAvendors.service",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-SourceFile-alignmentpavendors-3",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "28b6a50ac75d8437e2814cedbb86a8d2b614ed1b"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "7a957efa39ddd2a8928f6e4dfb700f424caedda366014cebc9c316cb3a7d7108"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "tcs_sn_87_2_7_0.txt",
+      "fileTypes": [
+        "SOURCE"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    }
+  ],
+  "name": "recipe-alignmentpavendors",
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-Recipe-alignmentpavendors",
+      "copyrightText": "NOASSERTION",
+      "description": "Provides alignmentPAvendors",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "SECURITY",
+          "referenceLocator": "cpe:2.3:a:*:alignmentpavendors:1.0:*:*:*:*:*:*:*",
+          "referenceType": "http://spdx.org/rdf/references/cpe23Type"
+        }
+      ],
+      "hasFiles": [
+        "SPDXRef-SourceFile-alignmentpavendors-1",
+        "SPDXRef-SourceFile-alignmentpavendors-2",
+        "SPDXRef-SourceFile-alignmentpavendors-3"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NONE",
+      "licenseInfoFromFiles": [
+        "NOASSERTION"
+      ],
+      "name": "alignmentpavendors",
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "456135deb1aa69e3ab16d671307b661601f91e51"
+      },
+      "summary": "alignmentpavendors version 1.0-r1",
+      "supplier": "Organization: OpenEmbedded ()",
+      "versionInfo": "1.0"
+    }
+  ],
+  "relationships": [],
+  "spdxVersion": "SPDX-2.2"
+}

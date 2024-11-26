@@ -1,10 +1,16 @@
 from openchain_telco_sbom_validator import validator
 
+import logging
+
+
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
+
 def test_ok_creator_comment():
     v = validator.Validator()
     # CreatorComment: CISA SBOM Type: Analyzed
     result, problems = v.validate(filePath = "sboms/unittest-sbom-02.spdx")
-    assert problems is None
+    assert len(problems) == 0
     assert result == True
     # CreatorComment: CISA SBOM Type: analyzed
     result, problems = v.validate(filePath = "sboms/unittest-sbom-07.spdx")
@@ -21,7 +27,7 @@ def test_ok_creator_comment():
 
     # CreatorComment: runtime
     result, problems = v.validate(filePath = "sboms/unittest-sbom-08.spdx")
-    assert problems is None
+    assert len(problems) == 0
     assert result == True
 
 def test_nok_creater_comment_incorrect_cisa():
