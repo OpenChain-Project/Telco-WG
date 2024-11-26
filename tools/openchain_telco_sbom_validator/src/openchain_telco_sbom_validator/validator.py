@@ -179,6 +179,11 @@ class Validator:
             problems.append("File error", "General", "General", f"File path is empty", filePath)
             return False, problems
 
+        if not os.path.isfile(filePath):
+            logger.error(f"File does not exist {filePath}")
+            problems.append("File error", "General", "General", f"File does not exits ({filePath})", filePath)
+            return False, problems
+
         file = os.path.basename(filePath)
         dir_name = os.path.dirname(filePath)
         logger.debug(f"File path is {dir_name}, filename is {file}")
