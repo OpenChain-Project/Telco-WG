@@ -192,5 +192,18 @@ function test_linked_yocto-contains-only
     assert_output_contains "One or more of the SPDX files linked-sbom-01.spdx.json, alarm.spdx.json, alignmentpavendors.spdx.json, alps.spdx.json are not compliant with the OpenChain Telco SBOM Guide"
 }
 
+function test_linked_nonexistent
+{
+    echo "Test: test_linked_none"
+    run "openchain-telco-sbom-validator --reference-logic nonexistent linked-sboms-01/linked-sbom-01.spdx.json"
+    echo "$output"
+    assert_terminated_normally
+    assert_exit_fail
+    assert_has_output
+    assert_output_contains "10 | Missing"
+    assert_output_contains "One or more of the SPDX files linked-sbom-01.spdx.json, alarm.spdx.json, alignmentpavendors.spdx.json, alps.spdx.json are not compliant with the OpenChain Telco SBOM Guide"
+}
+
+
 
 testrunner

@@ -74,6 +74,14 @@ class Problems:
 
     def __len__(self):
         return len(self.items)
+    
+    def __bool__(self):
+        if len(self.items) > 0:
+            return True
+        else:
+            return False
+    def __str__(self):
+        return f"I have {len(self.items)} problems"
 
 class FunctionRegistry:
     def __init__(self):
@@ -123,8 +131,20 @@ class Validator:
         functSignature = inspect.signature(function)
         if functSignature != requiredSignature:
             raise TypeError(f"Function {function.__name__} does not match the required signature")
-        
         self.referringLogics[name] = function
+
+    def getReferringLogicNames(self):
+        name_list = ""
+        keys = self.referringLogics.keys()
+        keys_len = len(self.referringLogics.keys())
+        i = 1
+        for name in keys:
+            if i < keys_len:
+                name_list += f"{name}, "
+            else:
+                name_list += f"{name}"
+            i += 1
+        return name_list
 
     def validate(self,
                  filePath,
@@ -315,8 +335,10 @@ class Validator:
         list_of_referred_sboms = []
 
         if referringLogic in self.referringLogics:
-            logger.debug(f"What is this: {referringLogic},  {self.referringLogics[referringLogic]}")
+            logger.debug(f"Executing referring logic: {referringLogic},  {self.referringLogics[referringLogic]}")
             list_of_referred_sboms = self.referringLogics[referringLogic](self, doc, dir_name)
+        else:
+            logger.warning(f"Referring logic {referringLogic} is not in the registered referring logic list {self.getReferringLogicNames()}")
 
         for referred_sbom in list_of_referred_sboms:
             self.validate(

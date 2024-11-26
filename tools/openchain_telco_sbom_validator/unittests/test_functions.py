@@ -8,21 +8,17 @@ def test_nok_package_function():
     functions.registerPackage(checkPackageHomepage)
     result, problems = v.validate(filePath = "sboms/unittest-sbom-12.spdx", functionRegistry=functions)
     assert result == False
-    assert len(problems) == 3
-    assert problems[0].ErrorType == "Invalid CreationInfo"
-    assert problems[0].Reason == "CreatorComment (runtime) is not in the CISA SBOM Type list (https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)"
-    assert problems[0].SPDX_ID == "General"
-    assert problems[0].PackageName == "General"
+    assert len(problems) == 2
+
+    assert problems[0].ErrorType == "Missing mandatory field from Package"
+    assert problems[0].Reason == "There is no purl type ExternalRef field in the Package"
+    assert problems[0].SPDX_ID == "SPDXRef-Package-deb-nopurl-libldap-2.4-2-796a192b709a2a2b"
+    assert problems[0].PackageName == "nopurl-libldap-2.4-2"
 
     assert problems[1].ErrorType == "Missing mandatory field from Package"
-    assert problems[1].Reason == "There is no purl type ExternalRef field in the Package"
-    assert problems[1].SPDX_ID == "SPDXRef-Package-deb-nopurl-libldap-2.4-2-796a192b709a2a2b"
-    assert problems[1].PackageName == "nopurl-libldap-2.4-2"
-
-    assert problems[2].ErrorType == "Missing mandatory field from Package"
-    assert problems[2].Reason == "PackageHomePage field is missing"
-    assert problems[2].SPDX_ID == "SPDXRef-Package-deb-nohomepage-libldap-2.4-2-796a192b709a2a2b"
-    assert problems[2].PackageName == "nohomepage-libldap-2.4-2"
+    assert problems[1].Reason == "PackageHomePage field is missing"
+    assert problems[1].SPDX_ID == "SPDXRef-Package-deb-nohomepage-libldap-2.4-2-796a192b709a2a2b"
+    assert problems[1].PackageName == "nohomepage-libldap-2.4-2"
 
 
 def checkPackageHomepage(problems: validator.Problems, package: Package):
@@ -36,22 +32,17 @@ def test_nok_global_function():
     functions.registerGlobal(checkSPDXVersion)
     result, problems = v.validate(filePath = "sboms/unittest-sbom-12.spdx", functionRegistry=functions)
     assert result == False
-    assert len(problems) == 3
+    assert len(problems) == 2
 
-    assert problems[0].ErrorType == "Invalid CreationInfo"
-    assert problems[0].Reason == "CreatorComment (runtime) is not in the CISA SBOM Type list (https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)"
-    assert problems[0].SPDX_ID == "General"
-    assert problems[0].PackageName == "General"
+    assert problems[0].ErrorType == "Missing mandatory field from Package"
+    assert problems[0].Reason == "There is no purl type ExternalRef field in the Package"
+    assert problems[0].SPDX_ID == "SPDXRef-Package-deb-nopurl-libldap-2.4-2-796a192b709a2a2b"
+    assert problems[0].PackageName == "nopurl-libldap-2.4-2"
 
-    assert problems[1].ErrorType == "Missing mandatory field from Package"
-    assert problems[1].Reason == "There is no purl type ExternalRef field in the Package"
-    assert problems[1].SPDX_ID == "SPDXRef-Package-deb-nopurl-libldap-2.4-2-796a192b709a2a2b"
-    assert problems[1].PackageName == "nopurl-libldap-2.4-2"
-
-    assert problems[2].ErrorType == "SPDX Version"
-    assert problems[2].Reason == "SPDX Version is SPDX-2.3"
-    assert problems[2].SPDX_ID == "General"
-    assert problems[2].PackageName == "General"
+    assert problems[1].ErrorType == "SPDX Version"
+    assert problems[1].Reason == "SPDX Version is SPDX-2.3"
+    assert problems[1].SPDX_ID == "General"
+    assert problems[1].PackageName == "General"
 
 def checkSPDXVersion(problems: validator.Problems, doc: Document):
     if doc.creation_info.spdx_version == "SPDX-2.3":

@@ -39,7 +39,13 @@ options:
   --strict-url-check    Runs a strict check on the URLs of the PackageHomepages. Strict check means that the
                         validator checks also if the given URL can be accessed. The default behaviour is to run a non
                         strict URL check what means that it is not checked if the URL points to a valid page. Strict
-                        URL check requires access to the internet and takes some time.')
+                        URL check requires access to the internet and takes some time.'
+ --reference-logic REFERENCE_LOGIC
+                        Defines the logic how the referenced files are accessible. If not added the referencedfiles will
+                        not be investigated. Built in supported logics are none (no linked files are investigated)
+                        yocto-all (all externalrefs are investigated) and yocto-contains-only (only those files are
+                        investigated which are inCONTAIN relatioships). It is possible to
+                        register more reference logics in library mode
 ```
 
 ## As a library
@@ -131,6 +137,17 @@ def checkJustLogPackage(problems: Problems, package: Package): # Signature is im
 
 
 ```
+
+#### Referring logics
+
+Referring SPDX files is based on URLs what assues that all the SBOMs are always public. This is not always the case,
+therefore the validator provides a possibility to resolve the references in a local disk. This resolution can be
+different depending on the tool generated the SBOMs. It is possible to register referring logics to the validator using
+its `addReferringLogics(name, function)` method the function will get a `Document` from `spdx_tools.spdx.model.document`
+what is the parsed SPDX model of the currently validated document and a string with the location of the currently
+validated document. The function is expected to return a list of file locations with all the referred SPDX files.
+Each of these files will be validated as well. The referring logic can be triggered by adding the name of the function
+to the `referringLogic` parameter of the `validate()` function of the `Validator` class.
 
 # License
 
