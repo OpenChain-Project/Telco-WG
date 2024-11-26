@@ -200,8 +200,8 @@ function test_linked_nonexistent
     assert_terminated_normally
     assert_exit_fail
     assert_has_output
-    assert_output_contains "10 | Missing"
-    assert_output_contains "One or more of the SPDX files linked-sbom-01.spdx.json, alarm.spdx.json, alignmentpavendors.spdx.json, alps.spdx.json are not compliant with the OpenChain Telco SBOM Guide"
+    assert_output_contains "2 | Missing"
+    assert_output_contains "The SPDX file linked-sboms-01/linked-sbom-01.spdx.json is not compliant with the OpenChain Telco SBOM Guide"
 }
 
 
