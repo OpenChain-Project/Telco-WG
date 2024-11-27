@@ -404,8 +404,10 @@ def referred_yocto_all(self, doc: Document, dir_name: str):
             result = re.search("([\w-]+)-[\w-]{8}(-[\w-]{4}){3}-[\w-]{12}$", doc_location)
             if result:
                 doc_location = result.group(1)
-
-                doc_location = f"{dir_name}/{doc_location}.spdx.json"
+                if dir_name == "":
+                    doc_location = f"{doc_location}.spdx.json"
+                else:
+                    doc_location = f"{dir_name}/{doc_location}.spdx.json"
                 logger.debug(f"Document location is: {doc_location}")
                 documents.append(doc_location)
     return documents
@@ -431,7 +433,10 @@ def referred_yocto_contains_only(self, doc: Document, dir_name: str):
             result = re.search("([\w-]+)-[\w-]{8}(-[\w-]{4}){3}-[\w-]{12}$", doc_location)
             if result:
                 doc_location = result.group(1)
-                doc_location = f"{dir_name}/{doc_location}.spdx.json"
+                if dir_name == "":
+                    doc_location = f"{doc_location}.spdx.json"
+                else:
+                    doc_location = f"{dir_name}/{doc_location}.spdx.json"
                 logger.debug(f"Document location is: {doc_location}, ref: {ref.document_ref_id}")
                 external_refs[ref.document_ref_id] = doc_location
     if doc.relationships:
