@@ -386,6 +386,7 @@ class Validator:
 def referred_yocto_all(self, doc: Document, dir_name: str):
     logger.debug("In Yocto all")
     documents = []
+    ref_base = ""
     if doc.creation_info.document_namespace:
         # http://spdx.org/spdxdoc/recipe-serviceuser-user-7abdc33d-d61f-549c-a5f7-05ffbd5118e8
         result = re.search("^(.*/)[\w-]+$", doc.creation_info.document_namespace)
@@ -415,6 +416,7 @@ def referred_yocto_all(self, doc: Document, dir_name: str):
 def referred_yocto_contains_only(self, doc: Document, dir_name: str):
     logger.debug("In Yocto contains only")
     documents = []
+    ref_base = ""
     if doc.creation_info.document_namespace:
         # http://spdx.org/spdxdoc/recipe-serviceuser-user-7abdc33d-d61f-549c-a5f7-05ffbd5118e8
         result = re.search("^(.*/)[\w-]+$", doc.creation_info.document_namespace)
