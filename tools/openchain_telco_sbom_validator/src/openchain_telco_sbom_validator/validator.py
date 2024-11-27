@@ -179,6 +179,11 @@ class Validator:
             problems.append("File error", "General", "General", f"File path is empty", filePath)
             return False, problems
 
+        if not os.path.isfile(filePath):
+            logger.error(f"File does not exist {filePath}")
+            problems.append("File error", "General", "General", f"File does not exits ({filePath})", filePath)
+            return False, problems
+
         file = os.path.basename(filePath)
         dir_name = os.path.dirname(filePath)
         logger.debug(f"File path is {dir_name}, filename is {file}")
@@ -381,6 +386,7 @@ class Validator:
 def referred_yocto_all(self, doc: Document, dir_name: str):
     logger.debug("In Yocto all")
     documents = []
+    ref_base = ""
     if doc.creation_info.document_namespace:
         # http://spdx.org/spdxdoc/recipe-serviceuser-user-7abdc33d-d61f-549c-a5f7-05ffbd5118e8
         result = re.search("^(.*/)[\w-]+$", doc.creation_info.document_namespace)
@@ -399,8 +405,10 @@ def referred_yocto_all(self, doc: Document, dir_name: str):
             result = re.search("([\w-]+)-[\w-]{8}(-[\w-]{4}){3}-[\w-]{12}$", doc_location)
             if result:
                 doc_location = result.group(1)
-
-                doc_location = f"{dir_name}/{doc_location}.spdx.json"
+                if dir_name == "":
+                    doc_location = f"{doc_location}.spdx.json"
+                else:
+                    doc_location = f"{dir_name}/{doc_location}.spdx.json"
                 logger.debug(f"Document location is: {doc_location}")
                 documents.append(doc_location)
     return documents
@@ -408,6 +416,7 @@ def referred_yocto_all(self, doc: Document, dir_name: str):
 def referred_yocto_contains_only(self, doc: Document, dir_name: str):
     logger.debug("In Yocto contains only")
     documents = []
+    ref_base = ""
     if doc.creation_info.document_namespace:
         # http://spdx.org/spdxdoc/recipe-serviceuser-user-7abdc33d-d61f-549c-a5f7-05ffbd5118e8
         result = re.search("^(.*/)[\w-]+$", doc.creation_info.document_namespace)
@@ -426,7 +435,10 @@ def referred_yocto_contains_only(self, doc: Document, dir_name: str):
             result = re.search("([\w-]+)-[\w-]{8}(-[\w-]{4}){3}-[\w-]{12}$", doc_location)
             if result:
                 doc_location = result.group(1)
-                doc_location = f"{dir_name}/{doc_location}.spdx.json"
+                if dir_name == "":
+                    doc_location = f"{doc_location}.spdx.json"
+                else:
+                    doc_location = f"{dir_name}/{doc_location}.spdx.json"
                 logger.debug(f"Document location is: {doc_location}, ref: {ref.document_ref_id}")
                 external_refs[ref.document_ref_id] = doc_location
     if doc.relationships:
