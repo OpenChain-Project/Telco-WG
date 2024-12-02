@@ -87,8 +87,8 @@ Package information
 * PackageDownloadLocation: mandatory in SPDX
 * FilesAnalyzed
 * PackageChecksum: recommended by “NTIA SBOM Minimum elements”
-* PackageLicenseConcluded: mandatory in SPDX
-* PackageLicenseDeclared: mandatory in SPDX
+* PackageLicenseConcluded: mandatory in SPDX 2.2
+* PackageLicenseDeclared: mandatory in SPDX 2.2
 * PackageCopyrightText: mandatory in SPDX
 * ExternalRef: to be able to put the Package URL
 
