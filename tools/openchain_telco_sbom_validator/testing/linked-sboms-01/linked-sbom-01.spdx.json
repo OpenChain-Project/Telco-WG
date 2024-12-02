@@ -60,6 +60,22 @@
       },
       "externalDocumentId": "DocumentRef-runtime-alps",
       "spdxDocument": "http://spdx.org/spdxdoc/runtime-alps-5a729a35-3b9b-5f22-8516-ce0c299cbec1"
+    },
+    {
+      "checksum": {
+        "algorithm": "SHA1",
+        "checksumValue": "26e30638da946d0283486647268bfb6373f3834f"
+      },
+      "externalDocumentId": "DocumentRef-kernel-5.15.155-nokia-r42",
+      "spdxDocument": "http://spdx.org/spdxdoc/kernel-5.15.155-r42-449e38e4-d16a-5c20-b592-d602fdc832df"
+    },
+    {
+      "checksum": {
+        "algorithm": "SHA1",
+        "checksumValue": "19280f249c636e5a23cc7b9e92abfd8c5124e195"
+      },
+      "externalDocumentId": "DocumentRef-runtime-kernel-5.15.155-nokia-r42",
+      "spdxDocument": "http://spdx.org/spdxdoc/runtime-kernel-5.15.155-r42-98fa9061-a335-5876-b6cb-cbb0661d1328"
     }
   ],
   "name": "image-full-thor-20240919121303",

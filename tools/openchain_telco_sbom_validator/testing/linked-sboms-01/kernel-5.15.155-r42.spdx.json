@@ -1,0 +1,111 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "creationInfo": {
+    "comment": "This document was created by analyzing packages created during the build.",
+    "created": "2024-09-16T08:46:38Z",
+    "creators": [
+      "Tool: OpenEmbedded Core create-spdx.bbclass",
+      "Organization: OpenEmbedded ()",
+      "Person: N/A ()"
+    ],
+    "licenseListVersion": "3.14"
+  },
+  "dataLicense": "CC0-1.0",
+  "documentNamespace": "http://spdx.org/spdxdoc/kernel-5.15.155-r42-449e38e4-d16a-5c20-b592-d602fdc832df",
+  "externalDocumentRefs": [
+  ],
+  "files": [
+    {
+      "SPDXID": "SPDXRef-PackagedFile-kernel-5.15.155-nokia-r42-1",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "21af93ca85043bef3ba6e5c0a93eeb833a5fc471"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "fc64bfdc579de2f30de364f944f757a0f81920d7079193c339a92be8501a819b"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "lib/modules/5.15.155-nokia-r42/modules.order",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-kernel-5.15.155-nokia-r42-2",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "6895db78b8fe4b5b564d14da3a39a9007082b094"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "f08f48a135773356b26196388ed64b327e576fe3bbe61cbdf028bea9b849acbc"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "lib/modules/5.15.155-nokia-r42/modules.builtin.modinfo",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-PackagedFile-kernel-5.15.155-nokia-r42-3",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "ef62b8c4ff671c676de6330ca6b7c2af1fe68939"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "255f9805950ec6bab023f96a0b7ca2629c3b09b4736587402cffbb7427729c7f"
+        }
+      ],
+      "copyrightText": "NOASSERTION",
+      "fileName": "lib/modules/5.15.155-nokia-r42/modules.builtin",
+      "fileTypes": [
+        "BINARY"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ]
+    }
+  ],
+  "name": "kernel-5.15.155-nokia-r42",
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-Package-kernel-5.15.155-nokia-r42",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "hasFiles": [
+        "SPDXRef-PackagedFile-kernel-5.15.155-nokia-r42-1",
+        "SPDXRef-PackagedFile-kernel-5.15.155-nokia-r42-2",
+        "SPDXRef-PackagedFile-kernel-5.15.155-nokia-r42-3"
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GPL-2.0-only",
+      "licenseInfoFromFiles": [
+        "NOASSERTION"
+      ],
+      "name": "kernel-5.15.155-nokia-r42",
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "a2b96ca99fdb3acc1b0981f57f624f3084bcfa48"
+      },
+      "supplier": "Organization: OpenEmbedded ()",
+      "versionInfo": "5.15.155+gitAUTOINC+9f60e205e8_5badfe362e"
+    }
+  ],
+  "relationships": [],
+  "spdxVersion": "SPDX-2.2"
+}
