@@ -1,0 +1,34 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "creationInfo": {
+    "comment": "This document was created by analyzing package runtime dependencies.",
+    "created": "2024-09-16T08:54:28Z",
+    "creators": [
+      "Tool: OpenEmbedded Core create-spdx.bbclass",
+      "Organization: OpenEmbedded ()",
+      "Person: N/A ()"
+    ],
+    "licenseListVersion": "3.14"
+  },
+  "dataLicense": "CC0-1.0",
+  "documentNamespace": "http://spdx.org/spdxdoc/runtime-kernel-5.15.155-nokia-r42-98fa9061-a335-5876-b6cb-cbb0661d1328",
+  "externalDocumentRefs": [
+    {
+      "checksum": {
+        "algorithm": "SHA1",
+        "checksumValue": "26e30638da946d0283486647268bfb6373f3834f"
+      },
+      "externalDocumentId": "DocumentRef-package-kernel-base",
+      "spdxDocument": "http://spdx.org/spdxdoc/kernel-5.15.155-r42-449e38e4-d16a-5c20-b592-d602fdc832df"
+    }
+  ],
+  "name": "runtime-kernel-5.15.155-nokia-r42",
+  "relationships": [
+    {
+      "relatedSpdxElement": "DocumentRef-package-kernel-base:SPDXRef-DOCUMENT",
+      "relationshipType": "AMENDS",
+      "spdxElementId": "SPDXRef-DOCUMENT"
+    }
+  ],
+  "spdxVersion": "SPDX-2.2"
+}
