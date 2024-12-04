@@ -176,8 +176,8 @@ function test_linked_yocto_all
     assert_terminated_normally
     assert_exit_fail
     assert_has_output
-    assert_output_contains "37 | SPDX"
-    assert_output_contains "One or more of the SPDX files linked-sbom-01.spdx.json, alarm.spdx.json, recipe-alarm.spdx.json, runtime-alarm.spdx.json, alarm.spdx.json, recipe-alarm.spdx.json, em-accessories.spdx.json, alignmentpavendors.spdx.json, recipe-alignmentpavendors.spdx.json, runtime-alignmentpavendors.spdx.json, alignmentpavendors.spdx.json, recipe-alignmentpavendors.spdx.json, alps.spdx.json, runtime-alps.spdx.json, kernel-5.15.155-r42.spdx.json, runtime-kernel-5.15.155-r42.spdx.json, kernel-5.15.155-r42.spdx.json are not compliant with the OpenChain Telco SBOM Guide"
+    assert_output_contains "42 | SPDX"
+    assert_output_contains "One or more of the SPDX files linked-sbom-01.spdx.json, alarm.spdx.json, recipe-alarm.spdx.json, runtime-alarm.spdx.json, alarm.spdx.json, recipe-alarm.spdx.json, em-accessories.spdx.json, alignmentpavendors.spdx.json, recipe-alignmentpavendors.spdx.json, runtime-alignmentpavendors.spdx.json, alignmentpavendors.spdx.json, recipe-alignmentpavendors.spdx.json, alps.spdx.json, runtime-alps.spdx.json, kernel-5.15.155-r42.spdx.json, runtime-kernel-5.15.155-r42.spdx.json are not compliant with the OpenChain Telco SBOM Guide"
 }
 
 function test_linked_yocto-contains-only
@@ -202,6 +202,18 @@ function test_linked_nonexistent
     assert_has_output
     assert_output_contains "2 | Missing"
     assert_output_contains "The SPDX file linked-sboms-01/linked-sbom-01.spdx.json is not compliant with the OpenChain Telco SBOM Guide"
+}
+
+function test_linked_checksum_all
+{
+    echo "Test: test_linked_checksum_all"
+    run "openchain-telco-sbom-validator --reference-logic checksum-all linked-sboms-01/linked-sbom-01.spdx.json"
+    echo "$output"
+    assert_terminated_normally
+    assert_exit_fail
+    assert_has_output
+    assert_output_contains "42 | SPDX"
+    assert_output_contains "One or more of the SPDX files linked-sbom-01.spdx.json, alarm.spdx.json, recipe-alarm.spdx.json, runtime-alarm.spdx.json, alarm.spdx.json, recipe-alarm.spdx.json, em-accessories.spdx.json, alignmentpavendors.spdx.json, recipe-alignmentpavendors.spdx.json, runtime-alignmentpavendors.spdx.json, alignmentpavendors.spdx.json, recipe-alignmentpavendors.spdx.json, alps.spdx.json, runtime-alps.spdx.json, kernel-5.15.155-r42.spdx.json, runtime-kernel-5.15.155-r42.spdx.json are not compliant with the OpenChain Telco SBOM Guide"
 }
 
 
