@@ -405,7 +405,7 @@ def referred_yocto_all(self, doc: Document, dir_name: str):
             #logger.debug(f"Doc location 1: {doc_location}")
             # Assumption is that the UUID looks like this: c146050a-959a-5836-966f-98e79d6e765f
             # 8-4-4-4-12
-            result = re.search("([\w-]+)-[\w-]{8}(-[\w-]{4}){3}-[\w-]{12}$", doc_location)
+            result = re.search("([\w\.-]+)-[\w-]{8}(-[\w-]{4}){3}-[\w-]{12}$", doc_location)
             if result:
                 doc_location = result.group(1)
                 if dir_name == "":
@@ -435,7 +435,7 @@ def referred_yocto_contains_only(self, doc: Document, dir_name: str):
             #logger.debug(f"Doc location 1: {doc_location}")
             # Assumption is that the UUID looks like this: c146050a-959a-5836-966f-98e79d6e765f
             # 8-4-4-4-12
-            result = re.search("([\w-]+)-[\w-]{8}(-[\w-]{4}){3}-[\w-]{12}$", doc_location)
+            result = re.search("([\w\.-]+)-[\w-]{8}(-[\w-]{4}){3}-[\w-]{12}$", doc_location)
             if result:
                 doc_location = result.group(1)
                 if dir_name == "":
