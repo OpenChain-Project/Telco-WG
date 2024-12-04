@@ -12,16 +12,7 @@
   },
   "dataLicense": "CC0-1.0",
   "documentNamespace": "http://spdx.org/spdxdoc/runtime-kernel-5.15.155-nokia-r42-98fa9061-a335-5876-b6cb-cbb0661d1328",
-  "externalDocumentRefs": [
-    {
-      "checksum": {
-        "algorithm": "SHA1",
-        "checksumValue": "94da36960af7434c4e7af79a4b8ae1101955160a"
-      },
-      "externalDocumentId": "DocumentRef-package-kernel-base",
-      "spdxDocument": "http://spdx.org/spdxdoc/kernel-5.15.155-r42-449e38e4-d16a-5c20-b592-d602fdc832df"
-    }
-  ],
+  "externalDocumentRefs": [],
   "name": "runtime-kernel-5.15.155-nokia-r42",
   "relationships": [
     {

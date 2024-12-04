@@ -517,7 +517,11 @@ def referred_checksum_all(self, doc: Document, dir_name: str):
                     logger.error(f"Checksum not found in Logic Store {algorithm}, {checksum}")
             else:
                 logger.error(f"Algorithm not found in Logic Store {algorithm}, {checksum}")
-    return documents
+    
+    documents_dd = set()
+    documents_dd = [x for x in documents if not (x in documents_dd or documents_dd.add(x))]
+
+    return documents_dd
 
 def referred_none(self, doc: Document, dir_name: str):
     return []
