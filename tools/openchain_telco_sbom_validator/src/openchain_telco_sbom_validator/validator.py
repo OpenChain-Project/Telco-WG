@@ -16,6 +16,7 @@ from spdx_tools.spdx.validation.document_validator import validate_full_spdx_doc
 from spdx_tools.spdx.parser.error import SPDXParsingError
 from spdx_tools.spdx.model.package import  ExternalPackageRefCategory
 from spdx_tools.spdx.model.relationship import RelationshipType
+from spdx_tools.spdx.model.checksum import ChecksumAlgorithm
 from spdx_tools.spdx import document_utils
 from packageurl.contrib import purl2url
 import ntia_conformance_checker as ntia
@@ -118,10 +119,12 @@ class FunctionRegistry:
 class Validator:
 
     def __init__(self):
+        self.referringLogicStore = {}
         self.referringLogics = {}
         self.addReferringLogics("none", referred_none)
         self.addReferringLogics("yocto-all", referred_yocto_all)
         self.addReferringLogics("yocto-contains-only", referred_yocto_contains_only)
+        self.addReferringLogics("checksum-all", referred_checksum_all)
         
         return None
 
@@ -449,6 +452,67 @@ def referred_yocto_contains_only(self, doc: Document, dir_name: str):
                 if spdx_document_id in external_refs:
                     logger.debug(f"Adding {external_refs[spdx_document_id]} to the referred file list")
                     documents.append(external_refs[spdx_document_id])
+    return documents
+
+def referred_checksum_all(self, doc: Document, dir_name: str):
+    # Known limitations: MD2, MD4 and MD6 hashes are not supported
+    import hashlib
+    from pathlib import Path
+    logger.debug("In Yocto contains only")
+    documents = []
+    checksums = {}
+    algorithms = {}
+    if doc.creation_info.external_document_refs:
+        logger.debug(f"--------------We have refs!------------")
+        for ref in doc.creation_info.external_document_refs:
+            logger.debug(f"SPDX document referenced {ref.document_uri}, {ref.checksum.algorithm}, {ref.checksum.value}")
+            if ref.checksum.algorithm in self.referringLogicStore.keys():
+                if ref.checksum.value in self.referringLogicStore[ref.checksum.algorithm].keys():
+                    logger.debug(f"Document found in LogicStore {ref.checksum.algorithm}, {ref.checksum.value}")
+                    documents.append(self.referringLogicStore[ref.checksum.algorithm][ref.checksum.value])
+            if not ref.checksum.algorithm in checksums.keys():
+                checksums[ref.checksum.algorithm] = []
+            checksums[ref.checksum.algorithm].append(ref.checksum.value)
+            algorithms[ref.checksum.algorithm] = None
+    for algorithm in algorithms.keys():
+        hash = None
+        # SHA1, SHA224, SHA256, SHA384, SHA512, MD2, MD4, MD5, MD6
+        match algorithm:
+            case ChecksumAlgorithm.SHA1:
+                hash = hashlib.sha1()
+            case ChecksumAlgorithm.SHA224:
+                hash = hashlib.sha224()
+            case ChecksumAlgorithm.SHA256:
+                hash = hashlib.sha256()
+            case ChecksumAlgorithm.SHA384:
+                hash = hashlib.sha384()
+            case ChecksumAlgorithm.SHA512:
+                hash = hashlib.sha512()
+            case ChecksumAlgorithm.MD5:
+                hash = hashlib.md5()
+            case _:
+                logger.error(f"{algorithm} is not supported.")
+        for spdx_file in [f.name for f in Path(dir_name).iterdir() if f.is_file()]:
+            logger.debug(f"Calculating {algorithm} hash for {dir_name}, {spdx_file}")
+            if dir_name == "":
+                doc_location = spdx_file
+            else:
+                doc_location = f"{dir_name}/{spdx_file}"
+            logger.debug(f"Document location is: {doc_location}")
+            with open(doc_location, 'rb') as f:
+                while True:
+                    chunk = f.read(8 * 1024)
+                    if not chunk:
+                        break
+                    hash.update(chunk)
+            logger.debug(f"Storing file information for {algorithm}, {doc_location}, {hash.name},  {hash.hexdigest()}")
+            if algorithm not in self.referringLogicStore:
+                self.referringLogicStore[algorithm] = {}    
+            self.referringLogicStore[algorithm][hash.hexdigest()] = spdx_file
+    for algorithm in checksums.keys():
+        for checksum in checksums[algorithm]:
+            logger.debug(f"Getting information from Logic Store for {algorithm}, {checksum}")
+            documents.append(self.referringLogicStore[algorithm][checksum])
     return documents
 
 def referred_none(self, doc: Document, dir_name: str):

@@ -8,7 +8,6 @@
 import argparse
 import logging
 import sys
-from spdx_tools.spdx.model.document import Document
 
 from openchain_telco_sbom_validator.validator import Validator
 from openchain_telco_sbom_validator.reporter import reportCli,reportVersion
@@ -26,7 +25,13 @@ def main():
     else:
         logLevel = logging.INFO
     
-    logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logLevel)
+    logging.basicConfig(
+        format='%(asctime)s - %(levelname)s - %(message)s',
+        level=logLevel, 
+        handlers=[
+            logging.FileHandler("log.log"),  # Write logs to a file
+            logging.StreamHandler()
+        ])
 
     if args.version:
         reportVersion()
@@ -90,9 +95,10 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
     parser.add_argument('--reference-logic',
                         help='Defines the logic how the referenced files are accessible. If not added the referenced'
                         'files will not be investigated.'
-                        'Built in supported logics are none (no linked files are investigated) yocto-all (all external'
-                        'refs are investigated) and yocto-contains-only (only those files are investigated which are in'
-                        'CONTAIN relatioships). It is possible to register more reference logics in library mode')
+                        'Built in supported logics are none (no linked files are investigated) yocto-all (all external '
+                        'refs are investigated), yocto-contains-only (only those files are investigated which are in '
+                        'CONTAIN relatioships) and checksum-all (files are identified based on their checksum). It is '
+                        'possible to register more reference logics in library mode')
     parser.add_argument('--version', action="store_true",
                         help='Prints version and exits', 
                         required=False)
