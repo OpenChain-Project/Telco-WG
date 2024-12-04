@@ -1,0 +1,644 @@
+2024-12-04 15:29:06,041 - DEBUG - Start parsing.
+2024-12-04 15:29:06,041 - DEBUG - Registering referring logic none, <function referred_none at 0x7f5da29f67a0>
+2024-12-04 15:29:06,042 - DEBUG - Registering referring logic yocto-all, <function referred_yocto_all at 0x7f5da3d488b0>
+2024-12-04 15:29:06,042 - DEBUG - Registering referring logic yocto-contains-only, <function referred_yocto_contains_only at 0x7f5da29f6680>
+2024-12-04 15:29:06,042 - DEBUG - Registering referring logic checksum-all, <function referred_checksum_all at 0x7f5da29f6710>
+2024-12-04 15:29:06,067 - DEBUG - File path is , filename is linked-sbom-01.spdx.json
+2024-12-04 15:29:06,071 - DEBUG - Start validating.
+2024-12-04 15:29:06,072 - DEBUG - Start of NTIA validation
+2024-12-04 15:29:06,074 - DEBUG - NTIA validation failed
+2024-12-04 15:29:06,074 - DEBUG - # of components: 0
+2024-12-04 15:29:06,074 - DEBUG - # of components: 0
+2024-12-04 15:29:06,074 - DEBUG - # of components: 0
+2024-12-04 15:29:06,075 - DEBUG - # of components: 0
+2024-12-04 15:29:06,075 - DEBUG - CreatorComment: This document was created by analyzing the source of the Yocto recipe during the build.
+2024-12-04 15:29:06,075 - DEBUG - Checking design against This document was created by analyzing the source of the Yocto recipe during the build. (-1)
+2024-12-04 15:29:06,075 - DEBUG - Checking source against This document was created by analyzing the source of the Yocto recipe during the build. (43)
+2024-12-04 15:29:06,075 - DEBUG - Found
+2024-12-04 15:29:06,075 - DEBUG - Checking build against This document was created by analyzing the source of the Yocto recipe during the build. (81)
+2024-12-04 15:29:06,075 - DEBUG - Found
+2024-12-04 15:29:06,075 - DEBUG - Checking analyzed against This document was created by analyzing the source of the Yocto recipe during the build. (-1)
+2024-12-04 15:29:06,075 - DEBUG - Checking deployed against This document was created by analyzing the source of the Yocto recipe during the build. (-1)
+2024-12-04 15:29:06,075 - DEBUG - Checking runtime against This document was created by analyzing the source of the Yocto recipe during the build. (-1)
+2024-12-04 15:29:06,075 - DEBUG - Creator: Tool: OpenEmbedded Core create-spdx.bbclass
+2024-12-04 15:29:06,076 - DEBUG - Creator: Tool found with the correct format (Tool: OpenEmbedded Core create-spdx.bbclass)
+2024-12-04 15:29:06,076 - DEBUG - Creator: Organization: OpenEmbedded
+2024-12-04 15:29:06,076 - DEBUG - Creator: Organization found (Organization: OpenEmbedded)
+2024-12-04 15:29:06,076 - DEBUG - Creator: Person: N/A
+2024-12-04 15:29:06,076 - DEBUG - Package: Package(spdx_id='SPDXRef-Image-image-full-thor-20240919121303', name='image-full', download_location=NOASSERTION, version='1.0', file_name=None, supplier=Actor(actor_type=<ActorType.ORGANIZATION: 2>, name='OpenEmbedded', email=None), originator=None, files_analyzed=True, verification_code=None, checksums=[], homepage=None, source_info=None, license_concluded=NOASSERTION, license_info_from_files=[NOASSERTION], license_declared=NOASSERTION, license_comment=None, copyright_text=NOASSERTION, summary=None, description=None, comment=None, external_references=[], attribution_texts=[], primary_package_purpose=None, release_date=None, built_date=None, valid_until_date=None)
+2024-12-04 15:29:06,076 - DEBUG - Package homepage is missing
+2024-12-04 15:29:06,076 - DEBUG - Calling registered package functions.
+2024-12-04 15:29:06,076 - DEBUG - Calling registered global functions.
+2024-12-04 15:29:06,076 - DEBUG - Executing referring logic: checksum-all,  <function referred_checksum_all at 0x7f5da29f6710>
+2024-12-04 15:29:06,076 - DEBUG - In Yocto contains only
+2024-12-04 15:29:06,076 - DEBUG - --------------We have refs!------------
+2024-12-04 15:29:06,077 - DEBUG - SPDX document referenced http://spdx.org/spdxdoc/alarm-a89a4665-0835-5596-9956-17f2a0fd5562, ChecksumAlgorithm.SHA1, bbf670bc8379ab3695cc9f88cf889390cfbe15f4
+2024-12-04 15:29:06,077 - DEBUG - SPDX document referenced http://spdx.org/spdxdoc/runtime-alarm-d99ec519-43f0-5e6f-a178-d50df7c99645, ChecksumAlgorithm.SHA1, bd799f05cadc97d518c28aca2f4a1d4c9d157350
+2024-12-04 15:29:06,077 - DEBUG - SPDX document referenced http://spdx.org/spdxdoc/alignmentpavendors-a7cf1096-d17a-5e0a-b3d8-2310355c80a3, ChecksumAlgorithm.SHA1, 56aed1db68ab1ecf46fdd4f0ad874c65c0ea85e8
+2024-12-04 15:29:06,077 - DEBUG - SPDX document referenced http://spdx.org/spdxdoc/runtime-alignmentpavendors-90c55062-7c92-5fea-b6f9-fafe2b419839, ChecksumAlgorithm.SHA1, d65734d247e6aaf7be6463e9742ac339db547e8c
+2024-12-04 15:29:06,077 - DEBUG - SPDX document referenced http://spdx.org/spdxdoc/alps-717e3bbe-606c-55de-a47f-f82c29bce191, ChecksumAlgorithm.SHA1, 5be5deb519512f883b127648927439d4ab3c53a3
+2024-12-04 15:29:06,077 - DEBUG - SPDX document referenced http://spdx.org/spdxdoc/runtime-alps-5a729a35-3b9b-5f22-8516-ce0c299cbec1, ChecksumAlgorithm.SHA1, 095263fb1a73332b90ce197421866fb68ddfea39
+2024-12-04 15:29:06,077 - DEBUG - SPDX document referenced http://spdx.org/spdxdoc/kernel-5.15.155-r42-449e38e4-d16a-5c20-b592-d602fdc832df, ChecksumAlgorithm.SHA1, 26e30638da946d0283486647268bfb6373f3834f
+2024-12-04 15:29:06,077 - DEBUG - SPDX document referenced http://spdx.org/spdxdoc/runtime-kernel-5.15.155-r42-98fa9061-a335-5876-b6cb-cbb0661d1328, ChecksumAlgorithm.SHA1, 210a99859bb58709beef987a8d0c098bdaea407d
+2024-12-04 15:29:06,077 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,077 - DEBUG - Document location is: runtime-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,078 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-alignmentpavendors.spdx.json, sha1,  d65734d247e6aaf7be6463e9742ac339db547e8c
+2024-12-04 15:29:06,078 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , log.log
+2024-12-04 15:29:06,078 - DEBUG - Document location is: log.log
+2024-12-04 15:29:06,078 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, log.log, sha1,  4341d98aaeaa572b5475c645741a6ef42d56c39c
+2024-12-04 15:29:06,078 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , recipe-alarm.spdx.json
+2024-12-04 15:29:06,078 - DEBUG - Document location is: recipe-alarm.spdx.json
+2024-12-04 15:29:06,078 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, recipe-alarm.spdx.json, sha1,  bbae9c1da0df80bcc95e27ba0ff8c05de851f967
+2024-12-04 15:29:06,078 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,078 - DEBUG - Document location is: runtime-kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,087 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-kernel-5.15.155-r42.spdx.json, sha1,  94da36960af7434c4e7af79a4b8ae1101955160a
+2024-12-04 15:29:06,087 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , alignmentpavendors.spdx.json
+2024-12-04 15:29:06,087 - DEBUG - Document location is: alignmentpavendors.spdx.json
+2024-12-04 15:29:06,087 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, alignmentpavendors.spdx.json, sha1,  56aed1db68ab1ecf46fdd4f0ad874c65c0ea85e8
+2024-12-04 15:29:06,088 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , em-accessories.spdx.json
+2024-12-04 15:29:06,088 - DEBUG - Document location is: em-accessories.spdx.json
+2024-12-04 15:29:06,089 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, em-accessories.spdx.json, sha1,  87e913c85676eabd22059b5a25fc587c0cb00dab
+2024-12-04 15:29:06,089 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-alarm.spdx.json
+2024-12-04 15:29:06,090 - DEBUG - Document location is: runtime-alarm.spdx.json
+2024-12-04 15:29:06,090 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-alarm.spdx.json, sha1,  bd799f05cadc97d518c28aca2f4a1d4c9d157350
+2024-12-04 15:29:06,090 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , alarm.spdx.json
+2024-12-04 15:29:06,090 - DEBUG - Document location is: alarm.spdx.json
+2024-12-04 15:29:06,090 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, alarm.spdx.json, sha1,  0f2c1460eb555b50402c9a2d14719ea2cfe7e667
+2024-12-04 15:29:06,090 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , recipe-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,090 - DEBUG - Document location is: recipe-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,090 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, recipe-alignmentpavendors.spdx.json, sha1,  23b6232efdd7364eee3ae7b86aa2aafb8cbc970d
+2024-12-04 15:29:06,090 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,090 - DEBUG - Document location is: kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,090 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, kernel-5.15.155-r42.spdx.json, sha1,  210a99859bb58709beef987a8d0c098bdaea407d
+2024-12-04 15:29:06,090 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-alps.spdx.json
+2024-12-04 15:29:06,090 - DEBUG - Document location is: runtime-alps.spdx.json
+2024-12-04 15:29:06,091 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-alps.spdx.json, sha1,  095263fb1a73332b90ce197421866fb68ddfea39
+2024-12-04 15:29:06,091 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , alps.spdx.json
+2024-12-04 15:29:06,091 - DEBUG - Document location is: alps.spdx.json
+2024-12-04 15:29:06,091 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, alps.spdx.json, sha1,  5be5deb519512f883b127648927439d4ab3c53a3
+2024-12-04 15:29:06,091 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , linked-sbom-01.spdx.json
+2024-12-04 15:29:06,091 - DEBUG - Document location is: linked-sbom-01.spdx.json
+2024-12-04 15:29:06,091 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, linked-sbom-01.spdx.json, sha1,  fb6f8e63ad8f7c9d7af86c06493b28e2cc1ceabf
+2024-12-04 15:29:06,091 - DEBUG - Getting information from Logic Store for ChecksumAlgorithm.SHA1, bbf670bc8379ab3695cc9f88cf889390cfbe15f4
+2024-12-04 15:29:06,091 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, bbf670bc8379ab3695cc9f88cf889390cfbe15f4
+2024-12-04 15:29:06,091 - DEBUG - Getting information from Logic Store for ChecksumAlgorithm.SHA1, bd799f05cadc97d518c28aca2f4a1d4c9d157350
+2024-12-04 15:29:06,091 - DEBUG - Getting information from Logic Store for ChecksumAlgorithm.SHA1, 56aed1db68ab1ecf46fdd4f0ad874c65c0ea85e8
+2024-12-04 15:29:06,091 - DEBUG - Getting information from Logic Store for ChecksumAlgorithm.SHA1, d65734d247e6aaf7be6463e9742ac339db547e8c
+2024-12-04 15:29:06,091 - DEBUG - Getting information from Logic Store for ChecksumAlgorithm.SHA1, 5be5deb519512f883b127648927439d4ab3c53a3
+2024-12-04 15:29:06,092 - DEBUG - Getting information from Logic Store for ChecksumAlgorithm.SHA1, 095263fb1a73332b90ce197421866fb68ddfea39
+2024-12-04 15:29:06,092 - DEBUG - Getting information from Logic Store for ChecksumAlgorithm.SHA1, 26e30638da946d0283486647268bfb6373f3834f
+2024-12-04 15:29:06,092 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 26e30638da946d0283486647268bfb6373f3834f
+2024-12-04 15:29:06,092 - DEBUG - Getting information from Logic Store for ChecksumAlgorithm.SHA1, 210a99859bb58709beef987a8d0c098bdaea407d
+2024-12-04 15:29:06,092 - DEBUG - Validate was called recursively
+2024-12-04 15:29:06,092 - DEBUG - Inherited 2 problems
+2024-12-04 15:29:06,092 - DEBUG - File path is , filename is runtime-alarm.spdx.json
+2024-12-04 15:29:06,093 - DEBUG - Start validating.
+2024-12-04 15:29:06,093 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:29:06,093 - DEBUG - Validation error: None - None - there must be at least one relationship "SPDXRef-DOCUMENT DESCRIBES ..." or "... DESCRIBED_BY SPDXRef-DOCUMENT" when there is not only a single package present
+2024-12-04 15:29:06,093 - DEBUG - Start of NTIA validation
+2024-12-04 15:29:06,093 - DEBUG - NTIA validation failed
+2024-12-04 15:29:06,094 - DEBUG - # of components: 0
+2024-12-04 15:29:06,094 - DEBUG - # of components: 0
+2024-12-04 15:29:06,094 - DEBUG - # of components: 0
+2024-12-04 15:29:06,094 - DEBUG - # of components: 0
+2024-12-04 15:29:06,094 - DEBUG - CreatorComment: This document was created by analyzing package runtime dependencies.
+2024-12-04 15:29:06,094 - DEBUG - Checking design against This document was created by analyzing package runtime dependencies. (-1)
+2024-12-04 15:29:06,094 - DEBUG - Checking source against This document was created by analyzing package runtime dependencies. (-1)
+2024-12-04 15:29:06,094 - DEBUG - Checking build against This document was created by analyzing package runtime dependencies. (-1)
+2024-12-04 15:29:06,094 - DEBUG - Checking analyzed against This document was created by analyzing package runtime dependencies. (-1)
+2024-12-04 15:29:06,094 - DEBUG - Checking deployed against This document was created by analyzing package runtime dependencies. (-1)
+2024-12-04 15:29:06,094 - DEBUG - Checking runtime against This document was created by analyzing package runtime dependencies. (47)
+2024-12-04 15:29:06,094 - DEBUG - Found
+2024-12-04 15:29:06,094 - DEBUG - Creator: Tool: OpenEmbedded Core create-spdx.bbclass
+2024-12-04 15:29:06,094 - DEBUG - Creator: Tool found with the correct format (Tool: OpenEmbedded Core create-spdx.bbclass)
+2024-12-04 15:29:06,094 - DEBUG - Creator: Organization: OpenEmbedded
+2024-12-04 15:29:06,094 - DEBUG - Creator: Organization found (Organization: OpenEmbedded)
+2024-12-04 15:29:06,095 - DEBUG - Creator: Person: N/A
+2024-12-04 15:29:06,095 - DEBUG - Calling registered global functions.
+2024-12-04 15:29:06,095 - DEBUG - Executing referring logic: checksum-all,  <function referred_checksum_all at 0x7f5da29f6710>
+2024-12-04 15:29:06,095 - DEBUG - In Yocto contains only
+2024-12-04 15:29:06,095 - DEBUG - --------------We have refs!------------
+2024-12-04 15:29:06,095 - DEBUG - SPDX document referenced http://spdx.org/spdxdoc/alarm-a89a4665-0835-5596-9956-17f2a0fd5562, ChecksumAlgorithm.SHA1, 284bc7e009c05041f4d82d831cc4ea83c14f89cc
+2024-12-04 15:29:06,095 - DEBUG - SPDX document referenced http://spdx.org/spdxdoc/em-accessories-53e18417-f793-5345-aa0e-24f7c9b4f8c8, ChecksumAlgorithm.SHA1, a13ea50dde972f54747a90838e8d383d27dc3cf8
+2024-12-04 15:29:06,095 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,095 - DEBUG - Document location is: runtime-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,095 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-alignmentpavendors.spdx.json, sha1,  d65734d247e6aaf7be6463e9742ac339db547e8c
+2024-12-04 15:29:06,095 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , log.log
+2024-12-04 15:29:06,095 - DEBUG - Document location is: log.log
+2024-12-04 15:29:06,095 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, log.log, sha1,  64744a7389dc74c3140043242a493aee42b3039c
+2024-12-04 15:29:06,096 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , recipe-alarm.spdx.json
+2024-12-04 15:29:06,096 - DEBUG - Document location is: recipe-alarm.spdx.json
+2024-12-04 15:29:06,096 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, recipe-alarm.spdx.json, sha1,  bbae9c1da0df80bcc95e27ba0ff8c05de851f967
+2024-12-04 15:29:06,096 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,096 - DEBUG - Document location is: runtime-kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,096 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-kernel-5.15.155-r42.spdx.json, sha1,  94da36960af7434c4e7af79a4b8ae1101955160a
+2024-12-04 15:29:06,096 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , alignmentpavendors.spdx.json
+2024-12-04 15:29:06,096 - DEBUG - Document location is: alignmentpavendors.spdx.json
+2024-12-04 15:29:06,096 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, alignmentpavendors.spdx.json, sha1,  56aed1db68ab1ecf46fdd4f0ad874c65c0ea85e8
+2024-12-04 15:29:06,096 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , em-accessories.spdx.json
+2024-12-04 15:29:06,096 - DEBUG - Document location is: em-accessories.spdx.json
+2024-12-04 15:29:06,096 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, em-accessories.spdx.json, sha1,  87e913c85676eabd22059b5a25fc587c0cb00dab
+2024-12-04 15:29:06,096 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-alarm.spdx.json
+2024-12-04 15:29:06,096 - DEBUG - Document location is: runtime-alarm.spdx.json
+2024-12-04 15:29:06,096 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-alarm.spdx.json, sha1,  bd799f05cadc97d518c28aca2f4a1d4c9d157350
+2024-12-04 15:29:06,097 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , alarm.spdx.json
+2024-12-04 15:29:06,097 - DEBUG - Document location is: alarm.spdx.json
+2024-12-04 15:29:06,097 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, alarm.spdx.json, sha1,  0f2c1460eb555b50402c9a2d14719ea2cfe7e667
+2024-12-04 15:29:06,097 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , recipe-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,097 - DEBUG - Document location is: recipe-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,097 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, recipe-alignmentpavendors.spdx.json, sha1,  23b6232efdd7364eee3ae7b86aa2aafb8cbc970d
+2024-12-04 15:29:06,097 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,097 - DEBUG - Document location is: kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,097 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, kernel-5.15.155-r42.spdx.json, sha1,  210a99859bb58709beef987a8d0c098bdaea407d
+2024-12-04 15:29:06,097 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-alps.spdx.json
+2024-12-04 15:29:06,097 - DEBUG - Document location is: runtime-alps.spdx.json
+2024-12-04 15:29:06,097 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-alps.spdx.json, sha1,  095263fb1a73332b90ce197421866fb68ddfea39
+2024-12-04 15:29:06,097 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , alps.spdx.json
+2024-12-04 15:29:06,097 - DEBUG - Document location is: alps.spdx.json
+2024-12-04 15:29:06,098 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, alps.spdx.json, sha1,  5be5deb519512f883b127648927439d4ab3c53a3
+2024-12-04 15:29:06,098 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , linked-sbom-01.spdx.json
+2024-12-04 15:29:06,098 - DEBUG - Document location is: linked-sbom-01.spdx.json
+2024-12-04 15:29:06,098 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, linked-sbom-01.spdx.json, sha1,  fb6f8e63ad8f7c9d7af86c06493b28e2cc1ceabf
+2024-12-04 15:29:06,098 - DEBUG - Getting information from Logic Store for ChecksumAlgorithm.SHA1, 284bc7e009c05041f4d82d831cc4ea83c14f89cc
+2024-12-04 15:29:06,098 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 284bc7e009c05041f4d82d831cc4ea83c14f89cc
+2024-12-04 15:29:06,098 - DEBUG - Getting information from Logic Store for ChecksumAlgorithm.SHA1, a13ea50dde972f54747a90838e8d383d27dc3cf8
+2024-12-04 15:29:06,098 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, a13ea50dde972f54747a90838e8d383d27dc3cf8
+2024-12-04 15:29:06,098 - DEBUG - Validate was called recursively
+2024-12-04 15:29:06,098 - DEBUG - Inherited 3 problems
+2024-12-04 15:29:06,098 - DEBUG - File path is , filename is alignmentpavendors.spdx.json
+2024-12-04 15:29:06,099 - DEBUG - Start validating.
+2024-12-04 15:29:06,100 - DEBUG - Start of NTIA validation
+2024-12-04 15:29:06,101 - DEBUG - NTIA validation succesful
+2024-12-04 15:29:06,101 - DEBUG - CreatorComment: This document was created by analyzing packages created during the build.
+2024-12-04 15:29:06,101 - DEBUG - Checking design against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,101 - DEBUG - Checking source against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,101 - DEBUG - Checking build against This document was created by analyzing packages created during the build. (67)
+2024-12-04 15:29:06,102 - DEBUG - Found
+2024-12-04 15:29:06,102 - DEBUG - Checking analyzed against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,102 - DEBUG - Checking deployed against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,102 - DEBUG - Checking runtime against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,103 - DEBUG - Creator: Tool: OpenEmbedded Core create-spdx.bbclass
+2024-12-04 15:29:06,104 - DEBUG - Creator: Tool found with the correct format (Tool: OpenEmbedded Core create-spdx.bbclass)
+2024-12-04 15:29:06,104 - DEBUG - Creator: Organization: OpenEmbedded
+2024-12-04 15:29:06,104 - DEBUG - Creator: Organization found (Organization: OpenEmbedded)
+2024-12-04 15:29:06,104 - DEBUG - Creator: Person: N/A
+2024-12-04 15:29:06,104 - DEBUG - Package: Package(spdx_id='SPDXRef-Package-alignmentpavendors', name='alignmentpavendors', download_location=NOASSERTION, version='1.0', file_name=None, supplier=Actor(actor_type=<ActorType.ORGANIZATION: 2>, name='OpenEmbedded', email=None), originator=None, files_analyzed=True, verification_code=PackageVerificationCode(value='cfab78f3f53d1ca2e93fcc68ab8c5beb0da584af', excluded_files=[]), checksums=[], homepage=None, source_info=None, license_concluded=NOASSERTION, license_info_from_files=[NOASSERTION], license_declared=NONE, license_comment=None, copyright_text=NOASSERTION, summary=None, description=None, comment=None, external_references=[], attribution_texts=[], primary_package_purpose=None, release_date=None, built_date=None, valid_until_date=None)
+2024-12-04 15:29:06,104 - DEBUG - Package homepage is missing
+2024-12-04 15:29:06,104 - DEBUG - Calling registered package functions.
+2024-12-04 15:29:06,104 - DEBUG - Calling registered global functions.
+2024-12-04 15:29:06,104 - DEBUG - Executing referring logic: checksum-all,  <function referred_checksum_all at 0x7f5da29f6710>
+2024-12-04 15:29:06,104 - DEBUG - In Yocto contains only
+2024-12-04 15:29:06,104 - DEBUG - --------------We have refs!------------
+2024-12-04 15:29:06,104 - DEBUG - SPDX document referenced http://spdx.org/spdxdoc/recipe-alignmentpavendors-fe777936-b492-5e26-a994-a99932af7af9, ChecksumAlgorithm.SHA1, 2bcd0cd44fe211f6b9438cce2d68cd793055bc23
+2024-12-04 15:29:06,105 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,105 - DEBUG - Document location is: runtime-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,105 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-alignmentpavendors.spdx.json, sha1,  d65734d247e6aaf7be6463e9742ac339db547e8c
+2024-12-04 15:29:06,105 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , log.log
+2024-12-04 15:29:06,105 - DEBUG - Document location is: log.log
+2024-12-04 15:29:06,105 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, log.log, sha1,  a57c57da7f5537aac3015f0517e5cca8b8ecbef3
+2024-12-04 15:29:06,105 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , recipe-alarm.spdx.json
+2024-12-04 15:29:06,105 - DEBUG - Document location is: recipe-alarm.spdx.json
+2024-12-04 15:29:06,105 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, recipe-alarm.spdx.json, sha1,  bbae9c1da0df80bcc95e27ba0ff8c05de851f967
+2024-12-04 15:29:06,105 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,105 - DEBUG - Document location is: runtime-kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,106 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-kernel-5.15.155-r42.spdx.json, sha1,  94da36960af7434c4e7af79a4b8ae1101955160a
+2024-12-04 15:29:06,106 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , alignmentpavendors.spdx.json
+2024-12-04 15:29:06,106 - DEBUG - Document location is: alignmentpavendors.spdx.json
+2024-12-04 15:29:06,106 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, alignmentpavendors.spdx.json, sha1,  56aed1db68ab1ecf46fdd4f0ad874c65c0ea85e8
+2024-12-04 15:29:06,106 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , em-accessories.spdx.json
+2024-12-04 15:29:06,106 - DEBUG - Document location is: em-accessories.spdx.json
+2024-12-04 15:29:06,106 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, em-accessories.spdx.json, sha1,  87e913c85676eabd22059b5a25fc587c0cb00dab
+2024-12-04 15:29:06,106 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-alarm.spdx.json
+2024-12-04 15:29:06,106 - DEBUG - Document location is: runtime-alarm.spdx.json
+2024-12-04 15:29:06,106 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-alarm.spdx.json, sha1,  bd799f05cadc97d518c28aca2f4a1d4c9d157350
+2024-12-04 15:29:06,106 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , alarm.spdx.json
+2024-12-04 15:29:06,106 - DEBUG - Document location is: alarm.spdx.json
+2024-12-04 15:29:06,106 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, alarm.spdx.json, sha1,  0f2c1460eb555b50402c9a2d14719ea2cfe7e667
+2024-12-04 15:29:06,106 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , recipe-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,106 - DEBUG - Document location is: recipe-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,106 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, recipe-alignmentpavendors.spdx.json, sha1,  23b6232efdd7364eee3ae7b86aa2aafb8cbc970d
+2024-12-04 15:29:06,106 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,106 - DEBUG - Document location is: kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,106 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, kernel-5.15.155-r42.spdx.json, sha1,  210a99859bb58709beef987a8d0c098bdaea407d
+2024-12-04 15:29:06,106 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-alps.spdx.json
+2024-12-04 15:29:06,106 - DEBUG - Document location is: runtime-alps.spdx.json
+2024-12-04 15:29:06,106 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-alps.spdx.json, sha1,  095263fb1a73332b90ce197421866fb68ddfea39
+2024-12-04 15:29:06,106 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , alps.spdx.json
+2024-12-04 15:29:06,107 - DEBUG - Document location is: alps.spdx.json
+2024-12-04 15:29:06,107 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, alps.spdx.json, sha1,  5be5deb519512f883b127648927439d4ab3c53a3
+2024-12-04 15:29:06,107 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , linked-sbom-01.spdx.json
+2024-12-04 15:29:06,107 - DEBUG - Document location is: linked-sbom-01.spdx.json
+2024-12-04 15:29:06,107 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, linked-sbom-01.spdx.json, sha1,  fb6f8e63ad8f7c9d7af86c06493b28e2cc1ceabf
+2024-12-04 15:29:06,107 - DEBUG - Getting information from Logic Store for ChecksumAlgorithm.SHA1, 2bcd0cd44fe211f6b9438cce2d68cd793055bc23
+2024-12-04 15:29:06,107 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 2bcd0cd44fe211f6b9438cce2d68cd793055bc23
+2024-12-04 15:29:06,107 - DEBUG - Validate was called recursively
+2024-12-04 15:29:06,107 - DEBUG - Inherited 5 problems
+2024-12-04 15:29:06,107 - DEBUG - File path is , filename is runtime-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,108 - DEBUG - Start validating.
+2024-12-04 15:29:06,108 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:29:06,108 - DEBUG - Validation error: None - None - there must be at least one relationship "SPDXRef-DOCUMENT DESCRIBES ..." or "... DESCRIBED_BY SPDXRef-DOCUMENT" when there is not only a single package present
+2024-12-04 15:29:06,108 - DEBUG - Start of NTIA validation
+2024-12-04 15:29:06,109 - DEBUG - NTIA validation failed
+2024-12-04 15:29:06,109 - DEBUG - # of components: 0
+2024-12-04 15:29:06,109 - DEBUG - # of components: 0
+2024-12-04 15:29:06,109 - DEBUG - # of components: 0
+2024-12-04 15:29:06,109 - DEBUG - # of components: 0
+2024-12-04 15:29:06,109 - DEBUG - CreatorComment: This document was created by analyzing package runtime dependencies.
+2024-12-04 15:29:06,109 - DEBUG - Checking design against This document was created by analyzing package runtime dependencies. (-1)
+2024-12-04 15:29:06,109 - DEBUG - Checking source against This document was created by analyzing package runtime dependencies. (-1)
+2024-12-04 15:29:06,109 - DEBUG - Checking build against This document was created by analyzing package runtime dependencies. (-1)
+2024-12-04 15:29:06,109 - DEBUG - Checking analyzed against This document was created by analyzing package runtime dependencies. (-1)
+2024-12-04 15:29:06,109 - DEBUG - Checking deployed against This document was created by analyzing package runtime dependencies. (-1)
+2024-12-04 15:29:06,109 - DEBUG - Checking runtime against This document was created by analyzing package runtime dependencies. (47)
+2024-12-04 15:29:06,109 - DEBUG - Found
+2024-12-04 15:29:06,109 - DEBUG - Creator: Tool: OpenEmbedded Core create-spdx.bbclass
+2024-12-04 15:29:06,109 - DEBUG - Creator: Tool found with the correct format (Tool: OpenEmbedded Core create-spdx.bbclass)
+2024-12-04 15:29:06,109 - DEBUG - Creator: Organization: OpenEmbedded
+2024-12-04 15:29:06,110 - DEBUG - Creator: Organization found (Organization: OpenEmbedded)
+2024-12-04 15:29:06,110 - DEBUG - Creator: Person: N/A
+2024-12-04 15:29:06,110 - DEBUG - Calling registered global functions.
+2024-12-04 15:29:06,110 - DEBUG - Executing referring logic: checksum-all,  <function referred_checksum_all at 0x7f5da29f6710>
+2024-12-04 15:29:06,110 - DEBUG - In Yocto contains only
+2024-12-04 15:29:06,110 - DEBUG - --------------We have refs!------------
+2024-12-04 15:29:06,110 - DEBUG - SPDX document referenced http://spdx.org/spdxdoc/alignmentpavendors-a7cf1096-d17a-5e0a-b3d8-2310355c80a3, ChecksumAlgorithm.SHA1, 56aed1db68ab1ecf46fdd4f0ad874c65c0ea85e8
+2024-12-04 15:29:06,110 - DEBUG - Document found in LogicStore ChecksumAlgorithm.SHA1, 56aed1db68ab1ecf46fdd4f0ad874c65c0ea85e8
+2024-12-04 15:29:06,110 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,110 - DEBUG - Document location is: runtime-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,110 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-alignmentpavendors.spdx.json, sha1,  d65734d247e6aaf7be6463e9742ac339db547e8c
+2024-12-04 15:29:06,110 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , log.log
+2024-12-04 15:29:06,110 - DEBUG - Document location is: log.log
+2024-12-04 15:29:06,110 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, log.log, sha1,  697baed88d24fca3fd021b244e90f0f494189b12
+2024-12-04 15:29:06,111 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , recipe-alarm.spdx.json
+2024-12-04 15:29:06,111 - DEBUG - Document location is: recipe-alarm.spdx.json
+2024-12-04 15:29:06,111 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, recipe-alarm.spdx.json, sha1,  bbae9c1da0df80bcc95e27ba0ff8c05de851f967
+2024-12-04 15:29:06,111 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,111 - DEBUG - Document location is: runtime-kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,111 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-kernel-5.15.155-r42.spdx.json, sha1,  94da36960af7434c4e7af79a4b8ae1101955160a
+2024-12-04 15:29:06,111 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , alignmentpavendors.spdx.json
+2024-12-04 15:29:06,111 - DEBUG - Document location is: alignmentpavendors.spdx.json
+2024-12-04 15:29:06,111 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, alignmentpavendors.spdx.json, sha1,  56aed1db68ab1ecf46fdd4f0ad874c65c0ea85e8
+2024-12-04 15:29:06,112 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , em-accessories.spdx.json
+2024-12-04 15:29:06,112 - DEBUG - Document location is: em-accessories.spdx.json
+2024-12-04 15:29:06,112 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, em-accessories.spdx.json, sha1,  87e913c85676eabd22059b5a25fc587c0cb00dab
+2024-12-04 15:29:06,112 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-alarm.spdx.json
+2024-12-04 15:29:06,112 - DEBUG - Document location is: runtime-alarm.spdx.json
+2024-12-04 15:29:06,112 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-alarm.spdx.json, sha1,  bd799f05cadc97d518c28aca2f4a1d4c9d157350
+2024-12-04 15:29:06,112 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , alarm.spdx.json
+2024-12-04 15:29:06,112 - DEBUG - Document location is: alarm.spdx.json
+2024-12-04 15:29:06,112 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, alarm.spdx.json, sha1,  0f2c1460eb555b50402c9a2d14719ea2cfe7e667
+2024-12-04 15:29:06,113 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , recipe-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,113 - DEBUG - Document location is: recipe-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,113 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, recipe-alignmentpavendors.spdx.json, sha1,  23b6232efdd7364eee3ae7b86aa2aafb8cbc970d
+2024-12-04 15:29:06,114 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,114 - DEBUG - Document location is: kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,114 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, kernel-5.15.155-r42.spdx.json, sha1,  210a99859bb58709beef987a8d0c098bdaea407d
+2024-12-04 15:29:06,114 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-alps.spdx.json
+2024-12-04 15:29:06,115 - DEBUG - Document location is: runtime-alps.spdx.json
+2024-12-04 15:29:06,115 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-alps.spdx.json, sha1,  095263fb1a73332b90ce197421866fb68ddfea39
+2024-12-04 15:29:06,115 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , alps.spdx.json
+2024-12-04 15:29:06,115 - DEBUG - Document location is: alps.spdx.json
+2024-12-04 15:29:06,115 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, alps.spdx.json, sha1,  5be5deb519512f883b127648927439d4ab3c53a3
+2024-12-04 15:29:06,115 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , linked-sbom-01.spdx.json
+2024-12-04 15:29:06,115 - DEBUG - Document location is: linked-sbom-01.spdx.json
+2024-12-04 15:29:06,116 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, linked-sbom-01.spdx.json, sha1,  fb6f8e63ad8f7c9d7af86c06493b28e2cc1ceabf
+2024-12-04 15:29:06,116 - DEBUG - Getting information from Logic Store for ChecksumAlgorithm.SHA1, 56aed1db68ab1ecf46fdd4f0ad874c65c0ea85e8
+2024-12-04 15:29:06,116 - DEBUG - Validate was called recursively
+2024-12-04 15:29:06,116 - DEBUG - Inherited 6 problems
+2024-12-04 15:29:06,116 - DEBUG - File path is , filename is alignmentpavendors.spdx.json
+2024-12-04 15:29:06,118 - DEBUG - Start validating.
+2024-12-04 15:29:06,120 - DEBUG - Start of NTIA validation
+2024-12-04 15:29:06,123 - DEBUG - NTIA validation succesful
+2024-12-04 15:29:06,123 - DEBUG - CreatorComment: This document was created by analyzing packages created during the build.
+2024-12-04 15:29:06,123 - DEBUG - Checking design against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,123 - DEBUG - Checking source against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,123 - DEBUG - Checking build against This document was created by analyzing packages created during the build. (67)
+2024-12-04 15:29:06,123 - DEBUG - Found
+2024-12-04 15:29:06,123 - DEBUG - Checking analyzed against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,123 - DEBUG - Checking deployed against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,123 - DEBUG - Checking runtime against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,123 - DEBUG - Creator: Tool: OpenEmbedded Core create-spdx.bbclass
+2024-12-04 15:29:06,123 - DEBUG - Creator: Tool found with the correct format (Tool: OpenEmbedded Core create-spdx.bbclass)
+2024-12-04 15:29:06,123 - DEBUG - Creator: Organization: OpenEmbedded
+2024-12-04 15:29:06,123 - DEBUG - Creator: Organization found (Organization: OpenEmbedded)
+2024-12-04 15:29:06,123 - DEBUG - Creator: Person: N/A
+2024-12-04 15:29:06,123 - DEBUG - Package: Package(spdx_id='SPDXRef-Package-alignmentpavendors', name='alignmentpavendors', download_location=NOASSERTION, version='1.0', file_name=None, supplier=Actor(actor_type=<ActorType.ORGANIZATION: 2>, name='OpenEmbedded', email=None), originator=None, files_analyzed=True, verification_code=PackageVerificationCode(value='cfab78f3f53d1ca2e93fcc68ab8c5beb0da584af', excluded_files=[]), checksums=[], homepage=None, source_info=None, license_concluded=NOASSERTION, license_info_from_files=[NOASSERTION], license_declared=NONE, license_comment=None, copyright_text=NOASSERTION, summary=None, description=None, comment=None, external_references=[], attribution_texts=[], primary_package_purpose=None, release_date=None, built_date=None, valid_until_date=None)
+2024-12-04 15:29:06,124 - DEBUG - Package homepage is missing
+2024-12-04 15:29:06,124 - DEBUG - Calling registered package functions.
+2024-12-04 15:29:06,124 - DEBUG - Calling registered global functions.
+2024-12-04 15:29:06,124 - DEBUG - Executing referring logic: checksum-all,  <function referred_checksum_all at 0x7f5da29f6710>
+2024-12-04 15:29:06,124 - DEBUG - In Yocto contains only
+2024-12-04 15:29:06,124 - DEBUG - --------------We have refs!------------
+2024-12-04 15:29:06,124 - DEBUG - SPDX document referenced http://spdx.org/spdxdoc/recipe-alignmentpavendors-fe777936-b492-5e26-a994-a99932af7af9, ChecksumAlgorithm.SHA1, 2bcd0cd44fe211f6b9438cce2d68cd793055bc23
+2024-12-04 15:29:06,124 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,124 - DEBUG - Document location is: runtime-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,124 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-alignmentpavendors.spdx.json, sha1,  d65734d247e6aaf7be6463e9742ac339db547e8c
+2024-12-04 15:29:06,124 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , log.log
+2024-12-04 15:29:06,124 - DEBUG - Document location is: log.log
+2024-12-04 15:29:06,124 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, log.log, sha1,  2df32b928a0c0e57e8a9672ebc4e2a208376f279
+2024-12-04 15:29:06,125 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , recipe-alarm.spdx.json
+2024-12-04 15:29:06,125 - DEBUG - Document location is: recipe-alarm.spdx.json
+2024-12-04 15:29:06,125 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, recipe-alarm.spdx.json, sha1,  bbae9c1da0df80bcc95e27ba0ff8c05de851f967
+2024-12-04 15:29:06,125 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,125 - DEBUG - Document location is: runtime-kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,125 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-kernel-5.15.155-r42.spdx.json, sha1,  94da36960af7434c4e7af79a4b8ae1101955160a
+2024-12-04 15:29:06,125 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , alignmentpavendors.spdx.json
+2024-12-04 15:29:06,125 - DEBUG - Document location is: alignmentpavendors.spdx.json
+2024-12-04 15:29:06,126 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, alignmentpavendors.spdx.json, sha1,  56aed1db68ab1ecf46fdd4f0ad874c65c0ea85e8
+2024-12-04 15:29:06,126 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , em-accessories.spdx.json
+2024-12-04 15:29:06,126 - DEBUG - Document location is: em-accessories.spdx.json
+2024-12-04 15:29:06,126 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, em-accessories.spdx.json, sha1,  87e913c85676eabd22059b5a25fc587c0cb00dab
+2024-12-04 15:29:06,126 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-alarm.spdx.json
+2024-12-04 15:29:06,126 - DEBUG - Document location is: runtime-alarm.spdx.json
+2024-12-04 15:29:06,126 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-alarm.spdx.json, sha1,  bd799f05cadc97d518c28aca2f4a1d4c9d157350
+2024-12-04 15:29:06,126 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , alarm.spdx.json
+2024-12-04 15:29:06,126 - DEBUG - Document location is: alarm.spdx.json
+2024-12-04 15:29:06,126 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, alarm.spdx.json, sha1,  0f2c1460eb555b50402c9a2d14719ea2cfe7e667
+2024-12-04 15:29:06,126 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , recipe-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,127 - DEBUG - Document location is: recipe-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,127 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, recipe-alignmentpavendors.spdx.json, sha1,  23b6232efdd7364eee3ae7b86aa2aafb8cbc970d
+2024-12-04 15:29:06,127 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,127 - DEBUG - Document location is: kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,127 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, kernel-5.15.155-r42.spdx.json, sha1,  210a99859bb58709beef987a8d0c098bdaea407d
+2024-12-04 15:29:06,127 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-alps.spdx.json
+2024-12-04 15:29:06,127 - DEBUG - Document location is: runtime-alps.spdx.json
+2024-12-04 15:29:06,127 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-alps.spdx.json, sha1,  095263fb1a73332b90ce197421866fb68ddfea39
+2024-12-04 15:29:06,127 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , alps.spdx.json
+2024-12-04 15:29:06,127 - DEBUG - Document location is: alps.spdx.json
+2024-12-04 15:29:06,127 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, alps.spdx.json, sha1,  5be5deb519512f883b127648927439d4ab3c53a3
+2024-12-04 15:29:06,127 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , linked-sbom-01.spdx.json
+2024-12-04 15:29:06,128 - DEBUG - Document location is: linked-sbom-01.spdx.json
+2024-12-04 15:29:06,128 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, linked-sbom-01.spdx.json, sha1,  fb6f8e63ad8f7c9d7af86c06493b28e2cc1ceabf
+2024-12-04 15:29:06,128 - DEBUG - Getting information from Logic Store for ChecksumAlgorithm.SHA1, 2bcd0cd44fe211f6b9438cce2d68cd793055bc23
+2024-12-04 15:29:06,128 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 2bcd0cd44fe211f6b9438cce2d68cd793055bc23
+2024-12-04 15:29:06,128 - DEBUG - Validate was called recursively
+2024-12-04 15:29:06,128 - DEBUG - Inherited 8 problems
+2024-12-04 15:29:06,128 - DEBUG - File path is , filename is alignmentpavendors.spdx.json
+2024-12-04 15:29:06,129 - DEBUG - Start validating.
+2024-12-04 15:29:06,130 - DEBUG - Start of NTIA validation
+2024-12-04 15:29:06,131 - DEBUG - NTIA validation succesful
+2024-12-04 15:29:06,131 - DEBUG - CreatorComment: This document was created by analyzing packages created during the build.
+2024-12-04 15:29:06,131 - DEBUG - Checking design against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,131 - DEBUG - Checking source against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,131 - DEBUG - Checking build against This document was created by analyzing packages created during the build. (67)
+2024-12-04 15:29:06,131 - DEBUG - Found
+2024-12-04 15:29:06,131 - DEBUG - Checking analyzed against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,131 - DEBUG - Checking deployed against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,131 - DEBUG - Checking runtime against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,131 - DEBUG - Creator: Tool: OpenEmbedded Core create-spdx.bbclass
+2024-12-04 15:29:06,131 - DEBUG - Creator: Tool found with the correct format (Tool: OpenEmbedded Core create-spdx.bbclass)
+2024-12-04 15:29:06,132 - DEBUG - Creator: Organization: OpenEmbedded
+2024-12-04 15:29:06,132 - DEBUG - Creator: Organization found (Organization: OpenEmbedded)
+2024-12-04 15:29:06,132 - DEBUG - Creator: Person: N/A
+2024-12-04 15:29:06,132 - DEBUG - Package: Package(spdx_id='SPDXRef-Package-alignmentpavendors', name='alignmentpavendors', download_location=NOASSERTION, version='1.0', file_name=None, supplier=Actor(actor_type=<ActorType.ORGANIZATION: 2>, name='OpenEmbedded', email=None), originator=None, files_analyzed=True, verification_code=PackageVerificationCode(value='cfab78f3f53d1ca2e93fcc68ab8c5beb0da584af', excluded_files=[]), checksums=[], homepage=None, source_info=None, license_concluded=NOASSERTION, license_info_from_files=[NOASSERTION], license_declared=NONE, license_comment=None, copyright_text=NOASSERTION, summary=None, description=None, comment=None, external_references=[], attribution_texts=[], primary_package_purpose=None, release_date=None, built_date=None, valid_until_date=None)
+2024-12-04 15:29:06,132 - DEBUG - Package homepage is missing
+2024-12-04 15:29:06,132 - DEBUG - Calling registered package functions.
+2024-12-04 15:29:06,133 - DEBUG - Calling registered global functions.
+2024-12-04 15:29:06,133 - DEBUG - Executing referring logic: checksum-all,  <function referred_checksum_all at 0x7f5da29f6710>
+2024-12-04 15:29:06,133 - DEBUG - In Yocto contains only
+2024-12-04 15:29:06,133 - DEBUG - --------------We have refs!------------
+2024-12-04 15:29:06,133 - DEBUG - SPDX document referenced http://spdx.org/spdxdoc/recipe-alignmentpavendors-fe777936-b492-5e26-a994-a99932af7af9, ChecksumAlgorithm.SHA1, 2bcd0cd44fe211f6b9438cce2d68cd793055bc23
+2024-12-04 15:29:06,133 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,133 - DEBUG - Document location is: runtime-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,133 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-alignmentpavendors.spdx.json, sha1,  d65734d247e6aaf7be6463e9742ac339db547e8c
+2024-12-04 15:29:06,134 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , log.log
+2024-12-04 15:29:06,134 - DEBUG - Document location is: log.log
+2024-12-04 15:29:06,134 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, log.log, sha1,  15c086cff3d84641ef8ea8713bd4195b3ac19c0d
+2024-12-04 15:29:06,134 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , recipe-alarm.spdx.json
+2024-12-04 15:29:06,134 - DEBUG - Document location is: recipe-alarm.spdx.json
+2024-12-04 15:29:06,135 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, recipe-alarm.spdx.json, sha1,  bbae9c1da0df80bcc95e27ba0ff8c05de851f967
+2024-12-04 15:29:06,135 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,135 - DEBUG - Document location is: runtime-kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,136 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-kernel-5.15.155-r42.spdx.json, sha1,  94da36960af7434c4e7af79a4b8ae1101955160a
+2024-12-04 15:29:06,136 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , alignmentpavendors.spdx.json
+2024-12-04 15:29:06,136 - DEBUG - Document location is: alignmentpavendors.spdx.json
+2024-12-04 15:29:06,136 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, alignmentpavendors.spdx.json, sha1,  56aed1db68ab1ecf46fdd4f0ad874c65c0ea85e8
+2024-12-04 15:29:06,136 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , em-accessories.spdx.json
+2024-12-04 15:29:06,136 - DEBUG - Document location is: em-accessories.spdx.json
+2024-12-04 15:29:06,136 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, em-accessories.spdx.json, sha1,  87e913c85676eabd22059b5a25fc587c0cb00dab
+2024-12-04 15:29:06,136 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-alarm.spdx.json
+2024-12-04 15:29:06,137 - DEBUG - Document location is: runtime-alarm.spdx.json
+2024-12-04 15:29:06,137 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-alarm.spdx.json, sha1,  bd799f05cadc97d518c28aca2f4a1d4c9d157350
+2024-12-04 15:29:06,137 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , alarm.spdx.json
+2024-12-04 15:29:06,137 - DEBUG - Document location is: alarm.spdx.json
+2024-12-04 15:29:06,137 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, alarm.spdx.json, sha1,  0f2c1460eb555b50402c9a2d14719ea2cfe7e667
+2024-12-04 15:29:06,137 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , recipe-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,137 - DEBUG - Document location is: recipe-alignmentpavendors.spdx.json
+2024-12-04 15:29:06,137 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, recipe-alignmentpavendors.spdx.json, sha1,  23b6232efdd7364eee3ae7b86aa2aafb8cbc970d
+2024-12-04 15:29:06,138 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,138 - DEBUG - Document location is: kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,138 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, kernel-5.15.155-r42.spdx.json, sha1,  210a99859bb58709beef987a8d0c098bdaea407d
+2024-12-04 15:29:06,138 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , runtime-alps.spdx.json
+2024-12-04 15:29:06,138 - DEBUG - Document location is: runtime-alps.spdx.json
+2024-12-04 15:29:06,138 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, runtime-alps.spdx.json, sha1,  095263fb1a73332b90ce197421866fb68ddfea39
+2024-12-04 15:29:06,138 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , alps.spdx.json
+2024-12-04 15:29:06,138 - DEBUG - Document location is: alps.spdx.json
+2024-12-04 15:29:06,138 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, alps.spdx.json, sha1,  5be5deb519512f883b127648927439d4ab3c53a3
+2024-12-04 15:29:06,138 - DEBUG - Calculating ChecksumAlgorithm.SHA1 hash for , linked-sbom-01.spdx.json
+2024-12-04 15:29:06,138 - DEBUG - Document location is: linked-sbom-01.spdx.json
+2024-12-04 15:29:06,139 - DEBUG - Storing file information for ChecksumAlgorithm.SHA1, linked-sbom-01.spdx.json, sha1,  fb6f8e63ad8f7c9d7af86c06493b28e2cc1ceabf
+2024-12-04 15:29:06,139 - DEBUG - Getting information from Logic Store for ChecksumAlgorithm.SHA1, 2bcd0cd44fe211f6b9438cce2d68cd793055bc23
+2024-12-04 15:29:06,139 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 2bcd0cd44fe211f6b9438cce2d68cd793055bc23
+2024-12-04 15:29:06,139 - DEBUG - Validate was called recursively
+2024-12-04 15:29:06,139 - DEBUG - Inherited 10 problems
+2024-12-04 15:29:06,139 - DEBUG - File path is , filename is alps.spdx.json
+2024-12-04 15:29:06,140 - DEBUG - Start validating.
+2024-12-04 15:29:06,141 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:29:06,141 - DEBUG - Validation error: None - None - there must be at least one relationship "SPDXRef-DOCUMENT DESCRIBES ..." or "... DESCRIBED_BY SPDXRef-DOCUMENT" when there is not only a single package present
+2024-12-04 15:29:06,141 - DEBUG - Start of NTIA validation
+2024-12-04 15:29:06,142 - DEBUG - NTIA validation failed
+2024-12-04 15:29:06,142 - DEBUG - # of components: 0
+2024-12-04 15:29:06,142 - DEBUG - # of components: 0
+2024-12-04 15:29:06,142 - DEBUG - # of components: 0
+2024-12-04 15:29:06,142 - DEBUG - # of components: 0
+2024-12-04 15:29:06,142 - DEBUG - CreatorComment: This document was created by analyzing packages created during the build.
+2024-12-04 15:29:06,142 - DEBUG - Checking design against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,142 - DEBUG - Checking source against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,142 - DEBUG - Checking build against This document was created by analyzing packages created during the build. (67)
+2024-12-04 15:29:06,142 - DEBUG - Found
+2024-12-04 15:29:06,142 - DEBUG - Checking analyzed against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,142 - DEBUG - Checking deployed against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,142 - DEBUG - Checking runtime against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,143 - DEBUG - Creator: Tool: OpenEmbedded Core create-spdx.bbclass
+2024-12-04 15:29:06,143 - DEBUG - Creator: Tool found with the correct format (Tool: OpenEmbedded Core create-spdx.bbclass)
+2024-12-04 15:29:06,143 - DEBUG - Creator: Organization: OpenEmbedded
+2024-12-04 15:29:06,143 - DEBUG - Creator: Organization found (Organization: OpenEmbedded)
+2024-12-04 15:29:06,143 - DEBUG - Creator: Person: N/A
+2024-12-04 15:29:06,143 - DEBUG - Package: Package(spdx_id='SPDXRef-Package-alps', name='alps', download_location=NOASSERTION, version='3.26.1', file_name=None, supplier=Actor(actor_type=<ActorType.ORGANIZATION: 2>, name='OpenEmbedded', email=None), originator=None, files_analyzed=True, verification_code=PackageVerificationCode(value='10c4ac228f7f4dab90bd5ef9930ae54bb956de7c', excluded_files=[]), checksums=[], homepage=None, source_info=None, license_concluded=NOASSERTION, license_info_from_files=[NOASSERTION], license_declared=NONE, license_comment=None, copyright_text=NOASSERTION, summary=None, description=None, comment=None, external_references=[], attribution_texts=[], primary_package_purpose=None, release_date=None, built_date=None, valid_until_date=None)
+2024-12-04 15:29:06,143 - DEBUG - Package homepage is missing
+2024-12-04 15:29:06,143 - DEBUG - Calling registered package functions.
+2024-12-04 15:29:06,143 - DEBUG - Calling registered global functions.
+2024-12-04 15:29:06,143 - DEBUG - Executing referring logic: checksum-all,  <function referred_checksum_all at 0x7f5da29f6710>
+2024-12-04 15:29:06,143 - DEBUG - In Yocto contains only
+2024-12-04 15:29:06,144 - DEBUG - Validate was called recursively
+2024-12-04 15:29:06,144 - DEBUG - Inherited 13 problems
+2024-12-04 15:29:06,144 - DEBUG - File path is , filename is runtime-alps.spdx.json
+2024-12-04 15:29:06,144 - DEBUG - Start validating.
+2024-12-04 15:29:06,145 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:29:06,145 - DEBUG - Validation error: None - None - there must be at least one relationship "SPDXRef-DOCUMENT DESCRIBES ..." or "... DESCRIBED_BY SPDXRef-DOCUMENT" when there is not only a single package present
+2024-12-04 15:29:06,145 - DEBUG - Start of NTIA validation
+2024-12-04 15:29:06,145 - DEBUG - NTIA validation failed
+2024-12-04 15:29:06,145 - DEBUG - # of components: 0
+2024-12-04 15:29:06,145 - DEBUG - # of components: 0
+2024-12-04 15:29:06,146 - DEBUG - # of components: 0
+2024-12-04 15:29:06,146 - DEBUG - # of components: 0
+2024-12-04 15:29:06,146 - DEBUG - CreatorComment: This document was created by analyzing package runtime dependencies.
+2024-12-04 15:29:06,146 - DEBUG - Checking design against This document was created by analyzing package runtime dependencies. (-1)
+2024-12-04 15:29:06,146 - DEBUG - Checking source against This document was created by analyzing package runtime dependencies. (-1)
+2024-12-04 15:29:06,146 - DEBUG - Checking build against This document was created by analyzing package runtime dependencies. (-1)
+2024-12-04 15:29:06,146 - DEBUG - Checking analyzed against This document was created by analyzing package runtime dependencies. (-1)
+2024-12-04 15:29:06,146 - DEBUG - Checking deployed against This document was created by analyzing package runtime dependencies. (-1)
+2024-12-04 15:29:06,146 - DEBUG - Checking runtime against This document was created by analyzing package runtime dependencies. (47)
+2024-12-04 15:29:06,146 - DEBUG - Found
+2024-12-04 15:29:06,146 - DEBUG - Creator: Tool: OpenEmbedded Core create-spdx.bbclass
+2024-12-04 15:29:06,146 - DEBUG - Creator: Tool found with the correct format (Tool: OpenEmbedded Core create-spdx.bbclass)
+2024-12-04 15:29:06,146 - DEBUG - Creator: Organization: OpenEmbedded
+2024-12-04 15:29:06,147 - DEBUG - Creator: Organization found (Organization: OpenEmbedded)
+2024-12-04 15:29:06,147 - DEBUG - Creator: Person: N/A
+2024-12-04 15:29:06,147 - DEBUG - Calling registered global functions.
+2024-12-04 15:29:06,147 - DEBUG - Executing referring logic: checksum-all,  <function referred_checksum_all at 0x7f5da29f6710>
+2024-12-04 15:29:06,147 - DEBUG - In Yocto contains only
+2024-12-04 15:29:06,147 - DEBUG - Validate was called recursively
+2024-12-04 15:29:06,147 - DEBUG - Inherited 14 problems
+2024-12-04 15:29:06,147 - DEBUG - File path is , filename is kernel-5.15.155-r42.spdx.json
+2024-12-04 15:29:06,158 - DEBUG - Start validating.
+2024-12-04 15:29:06,158 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:29:06,158 - DEBUG - Validation error: None - None - there must be at least one relationship "SPDXRef-DOCUMENT DESCRIBES ..." or "... DESCRIBED_BY SPDXRef-DOCUMENT" when there is not only a single package present
+2024-12-04 15:29:06,158 - DEBUG - Start of NTIA validation
+2024-12-04 15:29:06,159 - DEBUG - NTIA validation failed
+2024-12-04 15:29:06,160 - DEBUG - # of components: 0
+2024-12-04 15:29:06,160 - DEBUG - # of components: 0
+2024-12-04 15:29:06,160 - DEBUG - # of components: 0
+2024-12-04 15:29:06,160 - DEBUG - # of components: 0
+2024-12-04 15:29:06,160 - DEBUG - CreatorComment: This document was created by analyzing packages created during the build.
+2024-12-04 15:29:06,160 - DEBUG - Checking design against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,160 - DEBUG - Checking source against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,160 - DEBUG - Checking build against This document was created by analyzing packages created during the build. (67)
+2024-12-04 15:29:06,160 - DEBUG - Found
+2024-12-04 15:29:06,160 - DEBUG - Checking analyzed against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,160 - DEBUG - Checking deployed against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,160 - DEBUG - Checking runtime against This document was created by analyzing packages created during the build. (-1)
+2024-12-04 15:29:06,161 - DEBUG - Creator: Tool: OpenEmbedded Core create-spdx.bbclass
+2024-12-04 15:29:06,161 - DEBUG - Creator: Tool found with the correct format (Tool: OpenEmbedded Core create-spdx.bbclass)
+2024-12-04 15:29:06,161 - DEBUG - Creator: Organization: OpenEmbedded
+2024-12-04 15:29:06,161 - DEBUG - Creator: Organization found (Organization: OpenEmbedded)
+2024-12-04 15:29:06,161 - DEBUG - Creator: Person: N/A
+2024-12-04 15:29:06,161 - DEBUG - Package: Package(spdx_id='SPDXRef-Package-kernel-5.15.155-nokia-r42', name='kernel-5.15.155-nokia-r42', download_location=NOASSERTION, version='5.15.155+gitAUTOINC+9f60e205e8_5badfe362e', file_name=None, supplier=Actor(actor_type=<ActorType.ORGANIZATION: 2>, name='OpenEmbedded', email=None), originator=None, files_analyzed=True, verification_code=PackageVerificationCode(value='a2b96ca99fdb3acc1b0981f57f624f3084bcfa48', excluded_files=[]), checksums=[], homepage=None, source_info=None, license_concluded=NOASSERTION, license_info_from_files=[NOASSERTION], license_declared=LicenseSymbol('GPL-2.0-only', aliases=('GPL-2.0', 'GPL 2.0', 'LicenseRef-GPL-2.0'), is_exception=False), license_comment=None, copyright_text=NOASSERTION, summary=None, description=None, comment=None, external_references=[], attribution_texts=[], primary_package_purpose=None, release_date=None, built_date=None, valid_until_date=None)
+2024-12-04 15:29:06,161 - DEBUG - Package homepage is missing
+2024-12-04 15:29:06,161 - DEBUG - Calling registered package functions.
+2024-12-04 15:29:06,161 - DEBUG - Calling registered global functions.
+2024-12-04 15:29:06,161 - DEBUG - Executing referring logic: checksum-all,  <function referred_checksum_all at 0x7f5da29f6710>
+2024-12-04 15:29:06,161 - DEBUG - In Yocto contains only
+2024-12-04 15:29:23,154 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, bbf670bc8379ab3695cc9f88cf889390cfbe15f4
+2024-12-04 15:29:23,154 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 26e30638da946d0283486647268bfb6373f3834f
+2024-12-04 15:29:23,154 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:29:23,155 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 284bc7e009c05041f4d82d831cc4ea83c14f89cc
+2024-12-04 15:29:23,155 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, a13ea50dde972f54747a90838e8d383d27dc3cf8
+2024-12-04 15:29:23,158 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 2bcd0cd44fe211f6b9438cce2d68cd793055bc23
+2024-12-04 15:29:23,158 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:29:23,162 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 2bcd0cd44fe211f6b9438cce2d68cd793055bc23
+2024-12-04 15:29:23,163 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 2bcd0cd44fe211f6b9438cce2d68cd793055bc23
+2024-12-04 15:29:23,164 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:29:23,165 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:29:23,171 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:32:54,201 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, bbf670bc8379ab3695cc9f88cf889390cfbe15f4
+2024-12-04 15:32:54,201 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, bd799f05cadc97d518c28aca2f4a1d4c9d157350
+2024-12-04 15:32:54,201 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 56aed1db68ab1ecf46fdd4f0ad874c65c0ea85e8
+2024-12-04 15:32:54,201 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, d65734d247e6aaf7be6463e9742ac339db547e8c
+2024-12-04 15:32:54,202 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 5be5deb519512f883b127648927439d4ab3c53a3
+2024-12-04 15:32:54,202 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 26e30638da946d0283486647268bfb6373f3834f
+2024-12-04 15:32:54,202 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:32:54,209 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:34:58,124 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, bd799f05cadc97d518c28aca2f4a1d4c9d157350
+2024-12-04 15:34:58,125 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 56aed1db68ab1ecf46fdd4f0ad874c65c0ea85e8
+2024-12-04 15:34:58,125 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, d65734d247e6aaf7be6463e9742ac339db547e8c
+2024-12-04 15:34:58,125 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 5be5deb519512f883b127648927439d4ab3c53a3
+2024-12-04 15:34:58,125 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 26e30638da946d0283486647268bfb6373f3834f
+2024-12-04 15:34:58,126 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:34:58,133 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:34:58,143 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:34:58,146 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:34:58,153 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:35:47,109 - ERROR - File does not exist linked-sbom-01.spdx.jso
+2024-12-04 15:35:53,187 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 56aed1db68ab1ecf46fdd4f0ad874c65c0ea85e8
+2024-12-04 15:35:53,187 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, d65734d247e6aaf7be6463e9742ac339db547e8c
+2024-12-04 15:35:53,187 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 5be5deb519512f883b127648927439d4ab3c53a3
+2024-12-04 15:35:53,187 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 26e30638da946d0283486647268bfb6373f3834f
+2024-12-04 15:35:53,188 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:35:53,196 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:35:53,206 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:35:53,210 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:35:53,211 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:35:53,219 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:35:53,229 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:35:53,234 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:35:53,236 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:35:53,244 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:35:53,256 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:35:53,261 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:35:53,263 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:35:53,271 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:36:44,357 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, d65734d247e6aaf7be6463e9742ac339db547e8c
+2024-12-04 15:36:44,357 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 5be5deb519512f883b127648927439d4ab3c53a3
+2024-12-04 15:36:44,357 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 26e30638da946d0283486647268bfb6373f3834f
+2024-12-04 15:36:44,358 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:36:44,365 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:36:44,375 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:36:44,378 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:36:44,380 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:36:44,387 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:36:44,397 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:36:44,402 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:36:44,404 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:36:44,411 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:36:44,421 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:36:44,426 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:36:44,429 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:36:44,430 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:36:44,431 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:36:44,438 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:37:14,763 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 5be5deb519512f883b127648927439d4ab3c53a3
+2024-12-04 15:37:14,763 - ERROR - Checksum not found in Logic Store ChecksumAlgorithm.SHA1, 26e30638da946d0283486647268bfb6373f3834f
+2024-12-04 15:37:14,764 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:37:14,773 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:37:14,783 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:37:14,787 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:37:14,789 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:37:14,797 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:37:14,807 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:37:14,813 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:37:14,815 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:37:14,822 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:37:14,835 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:37:14,840 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:37:14,845 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:37:14,847 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:37:14,848 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:37:14,851 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:37:14,853 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:37:14,857 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:37:14,858 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:37:14,859 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:37:14,867 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,476 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,484 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,494 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,497 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,498 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,506 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,516 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,521 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,523 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,530 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,540 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,545 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,549 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,550 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,551 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,554 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,556 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,559 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,561 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,562 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,564 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,571 - ERROR - ERROR! The file is not a valid SPDX file
+2024-12-04 15:38:22,572 - ERROR - ERROR! The file is not a valid SPDX file

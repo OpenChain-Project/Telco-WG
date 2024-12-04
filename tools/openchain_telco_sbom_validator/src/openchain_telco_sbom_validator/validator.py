@@ -475,23 +475,6 @@ def referred_checksum_all(self, doc: Document, dir_name: str):
             checksums[ref.checksum.algorithm].append(ref.checksum.value)
             algorithms[ref.checksum.algorithm] = None
     for algorithm in algorithms.keys():
-        hash = None
-        # SHA1, SHA224, SHA256, SHA384, SHA512, MD2, MD4, MD5, MD6
-        match algorithm:
-            case ChecksumAlgorithm.SHA1:
-                hash = hashlib.sha1()
-            case ChecksumAlgorithm.SHA224:
-                hash = hashlib.sha224()
-            case ChecksumAlgorithm.SHA256:
-                hash = hashlib.sha256()
-            case ChecksumAlgorithm.SHA384:
-                hash = hashlib.sha384()
-            case ChecksumAlgorithm.SHA512:
-                hash = hashlib.sha512()
-            case ChecksumAlgorithm.MD5:
-                hash = hashlib.md5()
-            case _:
-                logger.error(f"{algorithm} is not supported.")
         for spdx_file in [f.name for f in Path(dir_name).iterdir() if f.is_file()]:
             logger.debug(f"Calculating {algorithm} hash for {dir_name}, {spdx_file}")
             if dir_name == "":
@@ -500,19 +483,40 @@ def referred_checksum_all(self, doc: Document, dir_name: str):
                 doc_location = f"{dir_name}/{spdx_file}"
             logger.debug(f"Document location is: {doc_location}")
             with open(doc_location, 'rb') as f:
-                while True:
-                    chunk = f.read(8 * 1024)
-                    if not chunk:
-                        break
+                hash = None
+                # SHA1, SHA224, SHA256, SHA384, SHA512, MD2, MD4, MD5, MD6
+                match algorithm:
+                    case ChecksumAlgorithm.SHA1:
+                        hash = hashlib.sha1()
+                    case ChecksumAlgorithm.SHA224:
+                        hash = hashlib.sha224()
+                    case ChecksumAlgorithm.SHA256:
+                        hash = hashlib.sha256()
+                    case ChecksumAlgorithm.SHA384:
+                        hash = hashlib.sha384()
+                    case ChecksumAlgorithm.SHA512:
+                        hash = hashlib.sha512()
+                    case ChecksumAlgorithm.MD5:
+                        hash = hashlib.md5()
+                    case _:
+                        logger.error(f"{algorithm} is not supported.")
+                
+                while chunk := f.read(8192):
                     hash.update(chunk)
             logger.debug(f"Storing file information for {algorithm}, {doc_location}, {hash.name},  {hash.hexdigest()}")
             if algorithm not in self.referringLogicStore:
                 self.referringLogicStore[algorithm] = {}    
-            self.referringLogicStore[algorithm][hash.hexdigest()] = spdx_file
+            self.referringLogicStore[algorithm][hash.hexdigest()] = doc_location
     for algorithm in checksums.keys():
         for checksum in checksums[algorithm]:
             logger.debug(f"Getting information from Logic Store for {algorithm}, {checksum}")
-            documents.append(self.referringLogicStore[algorithm][checksum])
+            if algorithm in self.referringLogicStore:
+                if checksum in self.referringLogicStore[algorithm]:
+                    documents.append(self.referringLogicStore[algorithm][checksum])
+                else:
+                    logger.error(f"Checksum not found in Logic Store {algorithm}, {checksum}")
+            else:
+                logger.error(f"Algorithm not found in Logic Store {algorithm}, {checksum}")
     return documents
 
 def referred_none(self, doc: Document, dir_name: str):

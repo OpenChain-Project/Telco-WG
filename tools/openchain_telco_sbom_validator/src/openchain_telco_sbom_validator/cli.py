@@ -41,6 +41,10 @@ def main():
 
     filePath = str(args.input)
     validator = Validator()
+
+    reference_logic = args.reference_logic
+    if None == reference_logic:
+        reference_logic = "none"
     result, problems = validator.validate(filePath,
                                           args.strict_purl_check,
                                           args.strict_url_check,
