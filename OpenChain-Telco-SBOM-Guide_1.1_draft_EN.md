@@ -90,11 +90,10 @@ Package information
 * PackageLicenseConcluded: mandatory in SPDX
 * PackageLicenseDeclared: mandatory in SPDX
 * PackageCopyrightText: mandatory in SPDX
-* ExternalRef: to be able to put the Package URL
 
 A package SHOULD be identified by a Package URL (PURL).
 
-The PURL SHOULD be put in ExternalRef field, e.g.
+If the PURL is present, it SHOULD be put in ExternalRef field, e.g.
 ```
 ExternalRef: PACKAGE-MANAGER purl pkg:pypi/django@1.11.1
 ```
