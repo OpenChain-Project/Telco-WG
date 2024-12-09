@@ -90,6 +90,9 @@ Package information
 * PackageLicenseDeclared: mandatory in SPDX 2.2
 * PackageCopyrightText: mandatory in SPDX
 
+One of the two attributes PackageChecksum or PackageVerificationCode is MANDATORY:
+recommended by “NTIA SBOM Minimum elements”
+
 A package SHOULD be identified by a Package URL (PURL).
 
 If the PURL is present, it SHOULD be put in ExternalRef field, e.g.
@@ -107,9 +110,13 @@ NTIA minimum elements
 Recognizing the Telco industry need for harmonization and special requirements, possibly beyond the NTIA minimum elements, the “OpenChain Telco SBOM Guide” is proposed to ensure predictability to the industry as to the elements of an SBOM that is expected.
 
 “Component Hash” is recommended, but not required by the “NTIA SBOM Minimum elements”.
-In SPDX, it maps to PackageChecksum.
+In SPDX, it maps to PackageChecksum or PackageVerificationCode.
 We make it mandatory as it is important to uniquely identify a package.
 Most SCA tools have the capability to produce hashes.
+
+The CISA document "Framing Software Component Transparency: Establishing a Common Software Bill of Materials (SBOM), Third Edition"
+https://www.cisa.gov/resources-tools/resources/framing-software-component-transparency-2024
+allows both, see table in section 2.5.
 
 Package URL (PURL) is a _de facto_ standard to uniquely identify software packages.
 
@@ -278,5 +285,7 @@ The following statement MAY be used as statement in the RFP document, order docu
   * https://standards.iso.org/ittf/PubliclyAvailableStandards/c081039_ISO_IEC_5230_2020(E).zip
 * The Minimum Elements For a Software Bill of Materials (SBOM) a.k.a. “NTIA minimum elements”
   * https://www.ntia.doc.gov/report/2021/minimum-elements-software-bill-materials-sbom
+* Framing Software Component Transparency: Establishing a Common Software Bill of Materials (SBOM), Third Edition
+  * https://www.cisa.gov/resources-tools/resources/framing-software-component-transparency-2024
 * Package URL (PURL)
   * https://github.com/package-url/purl-spec
