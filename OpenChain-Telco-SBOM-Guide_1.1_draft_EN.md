@@ -85,18 +85,17 @@ Package information
 * PackageVersion: needed by “NTIA SBOM Minimum elements”
 * PackageSupplier: needed by “NTIA SBOM Minimum elements”
 * PackageDownloadLocation: mandatory in SPDX
-* FilesAnalyzed
-* PackageLicenseConcluded: mandatory in SPDX
-* PackageLicenseDeclared: mandatory in SPDX
+* PackageChecksum: recommended by “NTIA SBOM Minimum elements”
+* PackageLicenseConcluded: mandatory in SPDX 2.2
+* PackageLicenseDeclared: mandatory in SPDX 2.2
 * PackageCopyrightText: mandatory in SPDX
-* ExternalRef: to be able to put the Package URL
 
 One of the two attributes PackageChecksum or PackageVerificationCode is MANDATORY:
 recommended by “NTIA SBOM Minimum elements”
 
 A package SHOULD be identified by a Package URL (PURL).
 
-The PURL SHOULD be put in ExternalRef field, e.g.
+If the PURL is present, it SHOULD be put in ExternalRef field, e.g.
 ```
 ExternalRef: PACKAGE-MANAGER purl pkg:pypi/django@1.11.1
 ```
@@ -251,7 +250,7 @@ While the verification of SBOMs is an important topic, OpenChain Telco defers th
 SBOMs following this Guide can be built from several SBOM files with a well-defined relationship to each other using the relationship definition features in SPDX.
 
 #### 3.12.1 Verification and reference material
-There exist tools to merge several SBOMs into one, e.g. https://github.com/opensbom-generator/sbom-composer
+There exist tools to merge several SBOMs into one, e.g. https://github.com/interlynk-io/sbomasm
 
 #### 3.12.2 Rationale
 It is often easier when dealing with a large software product to provide individual SBOMs of its parts than a single SBOM.
