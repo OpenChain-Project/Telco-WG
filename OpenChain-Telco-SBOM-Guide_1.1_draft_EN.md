@@ -288,3 +288,17 @@ The following statement MAY be used as statement in the RFP document, order docu
   * https://www.cisa.gov/resources-tools/resources/framing-software-component-transparency-2024
 * Package URL (PURL)
   * https://github.com/package-url/purl-spec
+
+## 6. Guide history
+
+The following updates of the Guide have been made in version 1.1.
+
+* Both PackageChecksum and PackageVerificationCode are allowed as package hash.
+* The package hash is RECOMMENDED instead of MANDATORY.
+* ExternalRef is RECOMMENDED instead of MANDATORY.
+* FilesAnalyzed is no longer MANDATORY.
+* sbomasm is a better example of SBOM merge tool.
+* Add reference to new CISA document.
+
+An SBOM that conforms to version 1.0 of the Guide will also conform to version 1.1 of the Guide.
+The reverse is not true.
