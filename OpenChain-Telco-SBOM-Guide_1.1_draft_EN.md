@@ -162,7 +162,7 @@ The `Creator` field MUST:
 
 The tool name and the tool version SHOULD be separated by hyphen ("-"), no other hyphen SHOULD appear on the line.
 
-SBOMs conforming to the OpenChain Telco SBOM Guide MUST provide their SBOM Type as
+SBOMs conforming to the OpenChain Telco SBOM Guide MUST provide their SBOM Types as
 [defined by CISA](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)
 in the `CreatorComment` field.
 
@@ -180,15 +180,32 @@ Creator: Tool: sigs.k8s.io/bom/pkg/spdx
 ```
 We have also:
 ```
-Creator: Tool: scancode-toolkit 30.1.0
+Creator: Tool: scancode-toolkit 32.3.0
 ```
 and
 ```
-Creator: Tool: SCANOSS-PY: 1.5.1
+Creator: Tool: SCANOSS-PY: 1.18.1
 ```
 where the name contains an hyphen, and the tool name and tool version are not separated by an hyphen.
 
 So we cannot require a precise syntax.
+
+The CreatorComment is a free text field. We use it to store the CISA SBOM Types, as there is no
+specific field for that in SPDX 2.2 and 2.3, but any other information can of course be put in it also.
+
+We do not require a specific format. We only require that at least one of the words
+“Design”, “Source”, “Build”, “Analyzed”, “Deployed”, “Runtime” is present, regardless of the case.
+
+So, the following possibilities are all valid:
+```
+CreatorComment: Analyzed
+```
+```
+CreatorComment: CISA SBOM Type: Deployed
+```
+```
+CreatorComment: This SBOM was created during build phase.
+```
 
 ### 3.6 Timing of SBOM delivery
 The SBOM SHALL be delivered no later than at the time of the delivery of the software (in either binary or source form). 
@@ -297,6 +314,7 @@ The following updates of the Guide have been made in version 1.1.
 * The package hash is RECOMMENDED instead of MANDATORY.
 * ExternalRef is RECOMMENDED instead of MANDATORY.
 * FilesAnalyzed is no longer MANDATORY.
+* Examples are provided for the CISA SBOM Types.
 * sbomasm is a better example of SBOM merge tool.
 * Add reference to new CISA document.
 
