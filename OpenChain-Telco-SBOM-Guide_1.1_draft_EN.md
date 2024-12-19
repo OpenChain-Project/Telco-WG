@@ -85,7 +85,6 @@ Package information
 * PackageVersion: needed by “NTIA SBOM Minimum elements”
 * PackageSupplier: needed by “NTIA SBOM Minimum elements”
 * PackageDownloadLocation: mandatory in SPDX
-* PackageChecksum: recommended by “NTIA SBOM Minimum elements”
 * PackageLicenseConcluded: mandatory in SPDX 2.2
 * PackageLicenseDeclared: mandatory in SPDX 2.2
 * PackageCopyrightText: mandatory in SPDX
