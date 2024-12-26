@@ -200,7 +200,7 @@ class Validator:
             problems.append("File error", "General", "General", f"JSON syntax error at line {e.lineno} column {e.colno}", file)
             return False, problems
         except SPDXParsingError as e:
-            logger.error("ERROR! The file is not an SPDX file")
+            logger.error(f"ERROR! The file ({filePath}) is not an SPDX file")
             all_messages = ""
             for message in e.messages:
                 logger.error(message)
@@ -211,7 +211,7 @@ class Validator:
 
         errors = validate_full_spdx_document(doc)
         if errors:
-            logger.error("ERROR! The file is not a valid SPDX file")
+            logger.error(f"ERROR! The file ({filePath}) is not a valid SPDX file")
             for error in errors:
                 logger.debug(f"Validation error: {error.context.parent_id} - {error.context.full_element} - {error.validation_message}")
                 spdxId = "General"
