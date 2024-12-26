@@ -16,43 +16,47 @@ logger = logging.getLogger(__name__)
 logger.propagate = True
 
 def main():
-    args = parseArguments()
+    try:
+        args = parseArguments()
 
-    logLevel = ""
-    if args.debug:
-        logLevel = logging.DEBUG
-        logger.debug("Debug logging is ON")
-    else:
-        logLevel = logging.INFO
-    
-    logging.basicConfig(
-        format='%(asctime)s - %(levelname)s - %(message)s',
-        level=logLevel, 
-        handlers=[
-            logging.FileHandler("log.log"),  # Write logs to a file
-            logging.StreamHandler()
-        ])
+        logLevel = ""
+        if args.debug:
+            logLevel = logging.DEBUG
+            logger.debug("Debug logging is ON")
+        else:
+            logLevel = logging.INFO
+        
+        logging.basicConfig(
+            format='%(asctime)s - %(levelname)s - %(message)s',
+            level=logLevel, 
+            handlers=[
+                logging.FileHandler("log.log"),  # Write logs to a file
+                logging.StreamHandler()
+            ])
 
-    if args.version:
-        reportVersion()
-        sys.exit(0)
-    
-    logger.debug("Start parsing.")
+        if args.version:
+            reportVersion()
+            sys.exit(0)
+        
+        logger.debug("Start parsing.")
 
-    filePath = str(args.input)
-    validator = Validator()
+        filePath = str(args.input)
+        validator = Validator()
 
-    reference_logic = args.reference_logic
-    if None == args.reference_logic:
-        reference_logic = "none"
-    
-    result, problems = validator.validate(filePath,
-                                          args.strict_purl_check,
-                                          args.strict_url_check,
-                                          referringLogic=reference_logic)
+        reference_logic = args.reference_logic
+        if None == args.reference_logic:
+            reference_logic = "none"
+        
+        result, problems = validator.validate(filePath,
+                                            args.strict_purl_check,
+                                            args.strict_url_check,
+                                            referringLogic=reference_logic)
 
-    exitCode = reportCli(result, problems, args.nr_of_errors, args.input)
-    sys.exit(exitCode)
+        exitCode = reportCli(result, problems, args.nr_of_errors, args.input)
+        sys.exit(exitCode)
+    except KeyboardInterrupt:
+        print(" Ctrl-C pressed. Terminating...")
+        sys.exit(2) 
 
 class Argument:
     def __init__(self, argument, action, help):
