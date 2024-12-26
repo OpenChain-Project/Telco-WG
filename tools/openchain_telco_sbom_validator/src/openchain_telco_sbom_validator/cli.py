@@ -43,12 +43,13 @@ def main():
     validator = Validator()
 
     reference_logic = args.reference_logic
-    if None == reference_logic:
+    if None == args.reference_logic:
         reference_logic = "none"
+    
     result, problems = validator.validate(filePath,
                                           args.strict_purl_check,
                                           args.strict_url_check,
-                                          referringLogic=args.reference_logic)
+                                          referringLogic=reference_logic)
 
     exitCode = reportCli(result, problems, args.nr_of_errors, args.input)
     sys.exit(exitCode)
