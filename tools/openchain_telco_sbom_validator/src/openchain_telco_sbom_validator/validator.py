@@ -239,7 +239,7 @@ class Validator:
             components = sbomNTIA.get_components_without_versions(return_tuples=True)
             self.__ntiaErrorLogNew(components, problems, doc, "Package without a version", file)
             components = sbomNTIA.get_components_without_suppliers(return_tuples=True)
-            self.__ntiaErrorLogNew(components, problems, doc, "Package without a package supplier or package originator", file)
+            self.__ntiaErrorLogNew(components, problems, doc, "Package without a package supplier", file)
             components = sbomNTIA.get_components_without_identifiers()
             self.__ntiaErrorLog(components, problems, doc, "Package without an identifyer", file)
 

@@ -6,7 +6,7 @@ def test_nok_creater_comment_missing():
     assert result == False
     assert len(problems) == 2
     assert problems[0].ErrorType == "NTIA validation error"
-    assert problems[0].Reason == "Package without a package supplier or package originator"
+    assert problems[0].Reason == "Package without a package supplier"
     assert problems[0].SPDX_ID == "SPDXRef-Package-deb-libldap-2.4-2-Nosupplier-Nochecksum"
     assert problems[0].PackageName == "Nosupplier-Nochecksum-libldap-2.4-2"
     assert problems[1].ErrorType == "Missing mandatory field from Package"
@@ -31,4 +31,3 @@ def test_nok_purls():
     assert problems[2].Reason == "PackageHomePage field points to a nonexisting page (https://www.not-openldap.org/)"
     assert problems[2].SPDX_ID == "SPDXRef-Package-deb-badpurl-libldap-2.4-2-796a192b709a2a2b"
     assert problems[2].PackageName == "badpurl-libldap-2.4-2"
-    
