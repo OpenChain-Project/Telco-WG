@@ -40,15 +40,15 @@ def reportCli(result, problems, nr_of_errors, input):
 
         print(resultTable)
         if len(problems.checked_files) == 1:
-            print(f"The SPDX file {input} is not compliant with the OpenChain Telco SBOM Guide")
+            print(f"The SPDX file {input} is not compliant with the OpenChain Telco SBOM Guide version 1.0")
         else:
-            print(f"One or more of the SPDX files {problems.get_files_as_string()} are not compliant with the OpenChain Telco SBOM Guide")
+            print(f"One or more of the SPDX files {problems.get_files_as_string()} are not compliant with the OpenChain Telco SBOM Guide version 1.0")
         return 1
     else:
         if len(problems.checked_files) == 1:
-            print(f"The SPDX file {input} is compliant with the OpenChain Telco SBOM Guide")
+            print(f"The SPDX file {input} is compliant with the OpenChain Telco SBOM Guide version 1.0")
         else: 
-            print(f"All of the SPDX files {problems.get_files_as_string()} are compliant with the OpenChain Telco SBOM Guide")
+            print(f"All of the SPDX files {problems.get_files_as_string()} are compliant with the OpenChain Telco SBOM Guide version 1.0")
         return 0
 
 def reportVersion():
