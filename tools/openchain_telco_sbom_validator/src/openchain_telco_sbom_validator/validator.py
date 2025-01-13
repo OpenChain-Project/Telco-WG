@@ -164,6 +164,7 @@ class Validator:
             problems: is the problem list for linked SBOM handling
             referringLogic: defines the logic how to determine the location of referred files"""
 
+        logger.debug("----------------- Validate called ----------------------")
         current_frame = inspect.currentframe()
         caller_frame = inspect.getouterframes(current_frame, 2)
         if caller_frame and caller_frame[1].function == self.validate.__name__:
@@ -175,7 +176,16 @@ class Validator:
         else:
             logger.debug(f"Inherited {len(problems)} problems")
 
-        problems.checked_files.append(os.path.basename(filePath))
+        file_path_full = os.path.basename(filePath)
+
+        if problems and file_path_full in problems.checked_files:
+            logger.warning(f"File ({file_path_full}) already checked")
+            if problems:
+                return False, problems
+            else:
+                return True, problems
+
+        problems.checked_files.append(file_path_full)
 
         if filePath == "":
             logger.error(f"File path is a mandatory parameter.")
@@ -398,7 +408,7 @@ def referred_yocto_all(self, doc: Document, dir_name: str):
             logger.debug(f"Reference base is {ref_base}")
 
     if doc.creation_info.external_document_refs:
-        logger.debug(f"--------------We have refs!------------")
+        logger.debug(f"There are references")
         for ref in doc.creation_info.external_document_refs:
             logger.debug(f"SPDX document referenced {ref.document_uri}")
             doc_location = str(ref.document_uri).replace(ref_base, "")
