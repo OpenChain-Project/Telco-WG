@@ -5,7 +5,8 @@ the [OpenChain Telco SBOM Guide](https://github.com/OpenChain-Project/Telco-WG/b
 
 # Installation
 
-To install from [PyPI](https://pypi.org/project/openchain-telco-sbom-validator/), issue `pip3 install openchain-telco-sbom-validator`.
+To install from [PyPI](https://pypi.org/project/openchain-telco-sbom-validator/), issue `pip3 install openchain-telco-sbom-validator`
+or `pipx install openchain-telco-sbom-validator`.
 
 # Manual installation
 
@@ -31,21 +32,26 @@ positional arguments:
 
 options:
   -h, --help            Shows this help message and exits.
+  --version             Prints version and exits.
   --debug               Prints debug logs.
   --nr-of-errors NR_OF_ERRORS
                         Sets a limit on the number of errors displayed.
-  --strict-purl-check   Runs a strict check on the given purls. The default behaviour is to run a non strict purl
-                        check what means that it is not checked if the purl is translating to a downloadable URL.
-  --strict-url-check    Runs a strict check on the URLs of the PackageHomepages. Strict check means that the
-                        validator checks also if the given URL can be accessed. The default behaviour is to run a non
-                        strict URL check what means that it is not checked if the URL points to a valid page. Strict
-                        URL check requires access to the internet and takes some time.'
+  --strict-purl-check   Runs a strict check on the given purls. The default behaviour is to
+                        run a non-strict purl check meaning that it is not checked if the
+                        purl is translating to a downloadable URL.
+  --strict-url-check    Runs a strict check on the URLs of the PackageHomepages. Strict check
+                        means that the validator checks also if the given URL can be accessed.
+                        The default behaviour is to run a non-strict URL check, meaning that
+                        it is not checked if the URL points to a valid page. Strict URL check
+                        requires access to the internet and takes some time.
  --reference-logic REFERENCE_LOGIC
-                        Defines the logic how the referenced files are accessible. If not added the referencedfiles will
-                        not be investigated. Built in supported logics are none (no linked files are investigated)
-                        yocto-all (all externalrefs are investigated) and yocto-contains-only (only those files are
-                        investigated which are inCONTAIN relatioships). It is possible to
-                        register more reference logics in library mode
+                        Defines the logic how the referenced files are accessible. If not
+                        added, the referenced files will not be investigated.
+                        Built-in supported logics are “none” (no linked files are investigated),
+                        “yocto-all” (all externalrefs are investigated) and
+                        “yocto-contains-only” (only those files are investigated which are in
+                        CONTAIN relationships). It is possible to register more reference
+                        logics in library mode.
 ```
 
 ## As a library
