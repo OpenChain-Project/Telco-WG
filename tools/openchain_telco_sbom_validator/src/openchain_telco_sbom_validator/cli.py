@@ -86,30 +86,33 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
     parser = argparse.ArgumentParser(description='A script to validate an SPDX file against version 1 of the OpenChain Telco SBOM Guide.')
     # TODO: This should go in without any parameter.
     parser.add_argument('--debug', action="store_true",
-                        help='Print debug logs.', 
+                        help='Prints debug logs.', 
                         required=False)
     parser.add_argument('--nr-of-errors',
-                        help='Sets a limit on the number of errors displayed')
+                        help='Sets a limit on the number of errors displayed.')
     parser.add_argument('input',
                         help='The input SPDX file.',
                         nargs="?")
     parser.add_argument('--strict-purl-check', action="store_true",
-                        help='Runs a strict check on the given purls. The default behaviour is to run a non strict purl'
-                        'check what means that it is not checked if the purl is translating to a downloadable url.')
+                        help='Runs a strict check on the given purls. The default behaviour is to'
+                        ' run a non-strict purl check meaning that it is not checked if the'
+                        ' purl is translating to a downloadable URL.')
     parser.add_argument('--strict-url-check', action="store_true",
-                        help='Runs a strict check on the URLs of the PackageHomepages. Strict check means that the'
-                        ' validator checks also if the given URL can be accessed. The default behaviour is to run a non'
-                        ' strict URL check what means that it is not checked if the URL points to a valid page. Strict'
-                        'URL check requires access to the internet and takes some time.')
+                        help='Runs a strict check on the URLs of the PackageHomepages. Strict check'
+                        ' means that the validator checks also if the given URL can be accessed.'
+                        ' The default behaviour is to run a non-strict URL check, meaning that'
+                        ' it is not checked if the URL points to a valid page. Strict URL check'
+                        ' requires access to the internet and takes some time.')
     parser.add_argument('--reference-logic',
-                        help='Defines the logic how the referenced files are accessible. If not added the referenced'
-                        'files will not be investigated.'
-                        'Built in supported logics are none (no linked files are investigated) yocto-all (all external '
-                        'refs are investigated), yocto-contains-only (only those files are investigated which are in '
-                        'CONTAIN relatioships) and checksum-all (files are identified based on their checksum). It is '
-                        'possible to register more reference logics in library mode')
+                        help='Defines the logic how the referenced files are accessible. If not'
+                        ' added, the referenced files will not be investigated.'
+                        ' Built-in supported logics are “none” (no linked files are investigated),'
+                        ' “yocto-all” (all externalrefs are investigated) and'
+                        ' “yocto-contains-only” (only those files are investigated which are in'
+                        ' CONTAIN relationships). It is possible to register more reference'
+                        ' logics in library mode')
     parser.add_argument('--version', action="store_true",
-                        help='Prints version and exits', 
+                        help='Prints version and exits.', 
                         required=False)
 
     for argument in additionalArguments:
