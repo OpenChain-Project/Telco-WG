@@ -179,7 +179,7 @@ class Validator:
         file_path_full = os.path.basename(filePath)
 
         if problems and file_path_full in problems.checked_files:
-            logger.warning(f"File ({file_path_full}) already checked")
+            logger.debug(f"File ({file_path_full}) already checked")
             if problems:
                 return False, problems
             else:
@@ -200,6 +200,7 @@ class Validator:
         file = os.path.basename(filePath)
         dir_name = os.path.dirname(filePath)
         logger.debug(f"File path is {dir_name}, filename is {file}")
+        print(f"Validating {file}")
         
 
         try:
@@ -221,7 +222,7 @@ class Validator:
 
         errors = validate_full_spdx_document(doc)
         if errors:
-            logger.error(f"ERROR! The file ({filePath}) is not a valid SPDX file")
+            logger.error(f"The file ({filePath}) is not a valid SPDX file")
             for error in errors:
                 logger.debug(f"Validation error: {error.context.parent_id} - {error.context.full_element} - {error.validation_message}")
                 spdxId = "General"
