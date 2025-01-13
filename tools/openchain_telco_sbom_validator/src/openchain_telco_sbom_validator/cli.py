@@ -30,7 +30,7 @@ def main():
             format='%(asctime)s - %(levelname)s - %(message)s',
             level=logLevel, 
             handlers=[
-                logging.FileHandler("log.log"),  # Write logs to a file
+                #logging.FileHandler("log.log"),  # Write logs to a file for debugging reasons
                 logging.StreamHandler()
             ])
 
