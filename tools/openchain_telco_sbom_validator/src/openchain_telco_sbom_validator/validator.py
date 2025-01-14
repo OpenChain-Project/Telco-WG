@@ -8,6 +8,7 @@
 import logging
 import re
 import os
+import sys
 import json
 from spdx_tools.spdx.model.document import Document
 from spdx_tools.spdx.model.package import Package
@@ -143,9 +144,9 @@ class Validator:
         i = 1
         for name in keys:
             if i < keys_len:
-                name_list += f"{name}, "
+                name_list += f"“{name}”, "
             else:
-                name_list += f"{name}"
+                name_list += f"“{name}”"
             i += 1
         return name_list
 
@@ -194,7 +195,7 @@ class Validator:
 
         if not os.path.isfile(filePath):
             logger.error(f"File does not exist {filePath}")
-            problems.append("File error", "General", "General", f"File does not exits ({filePath})", filePath)
+            problems.append("File error", "General", "General", f"File does not exist ({filePath})", filePath)
             return False, problems
 
         file = os.path.basename(filePath)
@@ -357,7 +358,8 @@ class Validator:
             logger.debug(f"Executing referring logic: {referringLogic},  {self.referringLogics[referringLogic]}")
             list_of_referred_sboms = self.referringLogics[referringLogic](self, doc, dir_name)
         else:
-            logger.warning(f"Referring logic {referringLogic} is not in the registered referring logic list {self.getReferringLogicNames()}")
+            logger.error(f"Referring logic “{referringLogic}” is not in the registered referring logic list {self.getReferringLogicNames()}")
+            sys.exit(1)
 
         for referred_sbom in list_of_referred_sboms:
             self.validate(
