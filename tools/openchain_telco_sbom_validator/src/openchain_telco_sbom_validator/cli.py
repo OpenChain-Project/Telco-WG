@@ -83,16 +83,19 @@ class AdditionalArguments:
         return self.items[index]
     
 def parseArguments(additionalArguments: AdditionalArguments = AdditionalArguments()):
-    parser = argparse.ArgumentParser(description='A script to validate an SPDX file against version 1 of the OpenChain Telco SBOM Guide.')
+    parser = argparse.ArgumentParser(description='A script to validate an SPDX file against version 1.0 of the OpenChain Telco SBOM Guide.')
     # TODO: This should go in without any parameter.
+    parser.add_argument('input',
+                        help='The input SPDX file.',
+                        nargs="?")
+    parser.add_argument('--version', action="store_true",
+                        help='Prints version and exits.', 
+                        required=False)
     parser.add_argument('--debug', action="store_true",
                         help='Prints debug logs.', 
                         required=False)
     parser.add_argument('--nr-of-errors',
                         help='Sets a limit on the number of errors displayed.')
-    parser.add_argument('input',
-                        help='The input SPDX file.',
-                        nargs="?")
     parser.add_argument('--strict-purl-check', action="store_true",
                         help='Runs a strict check on the given purls. The default behaviour is to'
                         ' run a non-strict purl check meaning that it is not checked if the'
@@ -107,13 +110,11 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
                         help='Defines the logic how the referenced files are accessible. If not'
                         ' added, the referenced files will not be investigated.'
                         ' Built-in supported logics are “none” (no linked files are investigated),'
+                        ' “checksum-all” (externalrefs are identified by their checksum),'
                         ' “yocto-all” (all externalrefs are investigated) and'
                         ' “yocto-contains-only” (only those files are investigated which are in'
                         ' CONTAIN relationships). It is possible to register more reference'
                         ' logics in library mode')
-    parser.add_argument('--version', action="store_true",
-                        help='Prints version and exits.', 
-                        required=False)
 
     for argument in additionalArguments:
         logger.debug(f"Adding additional argument {argument}")

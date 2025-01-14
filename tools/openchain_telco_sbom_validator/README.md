@@ -48,6 +48,7 @@ options:
                         Defines the logic how the referenced files are accessible. If not
                         added, the referenced files will not be investigated.
                         Built-in supported logics are “none” (no linked files are investigated),
+                        “checksum-all” (externalrefs are identified by their checksum),
                         “yocto-all” (all externalrefs are investigated) and
                         “yocto-contains-only” (only those files are investigated which are in
                         CONTAIN relationships). It is possible to register more reference
