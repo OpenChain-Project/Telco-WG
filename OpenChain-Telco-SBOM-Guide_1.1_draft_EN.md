@@ -1,4 +1,4 @@
-# OpenChain Telco SBOM Guide Version 1.0
+# OpenChain Telco SBOM Guide Version 1.1 (Draft)
 
 ## 1. Scope
 
