@@ -166,6 +166,8 @@ SBOMs conforming to the OpenChain Telco SBOM Guide MUST provide their SBOM Types
 [defined by CISA](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)
 in the `CreatorComment` field.
 
+The SBOM Type RECOMMENDED syntax is “SBOM Type: xxx” where “xxx” is one of the 6 keywords “Design”, “Source”, “Build”, “Analyzed”, “Deployed” and “Runtime”.
+
 #### 3.5.1 Verification and reference material
 SPDX standard
 
@@ -196,12 +198,12 @@ specific field for that in SPDX 2.2 and 2.3, but any other information can of co
 We do not require a specific format. We only require that at least one of the words
 “Design”, “Source”, “Build”, “Analyzed”, “Deployed”, “Runtime” is present, regardless of the case.
 
-So, the following possibilities are all valid:
+So, the following possibilities are all valid, and the first one is the recommended one:
+```
+CreatorComment: SBOM Type: Deployed
+```
 ```
 CreatorComment: Analyzed
-```
-```
-CreatorComment: CISA SBOM Type: Deployed
 ```
 ```
 CreatorComment: This SBOM was created during build phase.
