@@ -24,7 +24,9 @@ There is a [Japanese translation of the guide](https://github.com/OpenChain-Proj
 
 There is a [French translation of the guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_FR.md) that was provided by Marc-Etienne Vargenau from Nokia.
 
-There is a [Chinese translation of the guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_ZH_HANS.md) that was provided by David Liu from Bytedance.
+There is a [Simplified Chinese translation of the guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_ZH_HANS.md) that was provided by David Liu from Bytedance.
+
+There is a [Traditional Chinese translation of the guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_ZH_HANT.md) that was provided by SZ Lin (林上智) from ISA Taiwan Section.
 
 See [announcement](https://openchainproject.org/news/2024/07/30/openchain-telco-sbom-guide-general-availability) in OpenChain website.
 
