@@ -87,7 +87,7 @@ Package information
 * PackageDownloadLocation: mandatory in SPDX
 * PackageLicenseConcluded: mandatory in SPDX 2.2
 * PackageLicenseDeclared: mandatory in SPDX 2.2
-* PackageCopyrightText: mandatory in SPDX
+* PackageCopyrightText: mandatory in SPDX 2.2
 
 One of the two attributes PackageChecksum or PackageVerificationCode is RECOMMENDED:
 recommended by “NTIA SBOM Minimum elements”
