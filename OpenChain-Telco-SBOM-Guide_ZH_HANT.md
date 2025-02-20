@@ -57,7 +57,7 @@ OpenChain 指 [OpenChain ISO/IEC 5230:2020](https://www.iso.org/standard/81039.h
 * ISO/IEC 5962:2021 資訊技術 — SPDX® 規範第 2.2.1 版
 * [SPDX Specification V2.3](https://spdx.github.io/spdx-spec/v2.3/)
 
-#### 3.1.2 原理
+#### 3.1.2 說明
 為簡化電信供應鏈中供應商和軟體消費者的工具和流程，符合 OpenChain 電信 SBOM 指引的文件應採用 ISO/IEC 5962:2021 標準化的 SPDX 資料格式。透過統一 SBOM 資料格式，供應商和使用者的工具和流程可以簡化，僅需遵循一致的要求，從而減少複雜性。
 
 實體可自由選擇替代資料格式用於內部用途，或根據需求向組織提供其他格式的 SBOM。本指引僅適用於 SBOM 文件，而非整個組織。
@@ -101,7 +101,7 @@ SPDX 元素之間的關係
 #### 3.2.1 驗證與參考資料
 NTIA SBOM 最小元素
 
-#### 3.2.2 原理
+#### 3.2.2 說明
 考慮到電信行業的調和需求以及可能超越 NTIA 最小元素的特定要求， “OpenChain 電信 SBOM 指引” 目的在為行業提供可預期的 SBOM 元素標準。
 
  “元件雜湊值” 是建議項目，但不是 “NTIA SBOM 最小元素” 的強制要求。在 SPDX 中對應到 PackageChecksum，我們將其設定為強制項目，因為其對唯一識別軟體套件相當重要。大多數 SCA 工具均具有生成雜湊值的功能。
@@ -116,7 +116,7 @@ Tag:Value 和 JSON 格式的描述見以下連結：
 * 在 SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
 * 在 SPDX 2.3 https://spdx.github.io/spdx-spec/v2.3/conformance/#44-standard-data-format-requirements
 
-#### 3.3.2 原理
+#### 3.3.2 說明
 目前 SBOM 的主要格式有三種：SPDX、CycloneDX 和 SWID。
 這三種格式被 NTIA 文件《軟體物料清單 (SBOM) 最小元素》中推薦（請參閱「5. 參考資料」部分）。
 
@@ -140,7 +140,7 @@ Tag:Value 和 JSON 格式的描述見以下連結：
 * 在 SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
 * 在 SPDX 2.3 https://spdx.github.io/spdx-spec/v2.3/conformance/#44-standard-data-format-requirements
 
-#### 3.4.2 原理
+#### 3.4.2 說明
 由於 Tag:Value 格式也可被人類閱讀，因此選擇該格式以同時滿足標準化的機器可讀和人類可讀版本的需求。
 
 ### 3.5 SBOM 資訊建立
@@ -156,7 +156,7 @@ Tag:Value 和 JSON 格式的描述見以下連結：
 #### 3.5.1 驗證與參考資料
 SPDX 標準
 
-#### 3.5.2 原理
+#### 3.5.2 說明
 了解產生 SBOM 的工具及其版本相當重要。
 
 SPDX 標準提供了"toolidentifier-version" 作為範例，但並未強制要求使用此語法。
@@ -183,7 +183,7 @@ SBOM 應於軟體交付時（無論是二進位或原始碼形式）或之前交
 #### 3.6.1 驗證與參考資料
 “NTIA SBOM 最小元素”, 章節 “Distribution and Delivery”
 
-#### 3.6.2 原理
+#### 3.6.2 說明
 為確保接收實體方能夠正確接收軟體及其 SBOM，SBOM 應至少於軟體交付時提供。
 
 若採用實體方選擇，SBOM 可以在軟體交付前提供，但軟體交付時仍必須隨附對應的 SBOM，以確保符合本指引的要求。
@@ -197,7 +197,7 @@ SBOM 應於在技術可行的情況下嵌入至軟體 “套件” 中。
 #### 3.7.1 驗證與參考資料
 “NTIA SBOM 最小元素”, 章節 “Distribution and Delivery”
 
-#### 3.7.2 原理
+#### 3.7.2 說明
 相較於內嵌式 SBOM，網頁托管 SBOM 的存取穩定性較低，且無法保證可被長期存取；然而，內嵌 SBOM 在某些技術場景下可能無法實現。
 
 因此，當技術上無法將 SBOM 內嵌至軟體交付時，可透過線上方式提供 SBOM，前提是 SBOM 至少應該可供軟體接收方存取 18 個月。
@@ -214,7 +214,7 @@ SBOM 應該包含所有商業元件 (Commercial Components)。
 #### 3.8.1 驗證與參考資料
 “NTIA SBOM 最小元素”, 章節 section “Known Unknowns”
 
-#### 3.8.2 理由
+#### 3.8.2 說明
 某些商業元件可能因技術、法規或商業考量，無法納入SBOM；即便如此，SBOM 應該儘可能完整，以確保可追溯性和合規性。
 
 ### 3.9 SaaS 環境中的 SBOM
@@ -224,7 +224,7 @@ SBOM 應該包含所有商業元件 (Commercial Components)。
 
 #### 3.9.1 驗證與參考資料
 
-#### 3.9.2 理由
+#### 3.9.2 說明
 目前業界對於 SaaS 環境中的 SBOM 應包含哪些內容尚未達成共識。
 
 ### 3.10 容器的 SBOMs
@@ -232,25 +232,25 @@ SBOM 應該包含所有商業元件 (Commercial Components)。
 
 #### 3.10.1 驗證與參考資料
 
-#### 3.10.2 理由
+#### 3.10.2 說明
 所有交付的開源元件都應納入 SBOMs，以確保完整性和可追溯性。
 
 ### 3.11 SBOM 驗證
 建議提供 SBOM 的數位簽章，以確保 SBOM 的完整性。
 
-#### 3.11.1 Verification and reference material
+#### 3.11.1 驗證與參考資料
 Sigstore https://www.sigstore.dev/ 是可用的數位簽章方案之一。
 
-#### 3.11.2 理由
+#### 3.11.2 說明
 雖然 SBOMs 的驗證機制相當重要，但 OpenChain 電信 SBOM 指引目前將此議題交由其他專案處理，並計畫在未來版本中進一步探討。
 
 ### 3.12 SBOM 合併
 依據本指引的 SBOMs 可由多個 SBOM 文件組成，並透過 SPDX 的關聯定義功能 (Relationship Definition) 來描述其關聯性。
 
-#### 3.12.1 Verification and reference material
+#### 3.12.1 驗證與參考資料
 有許多工具可提供多個 SBOM 文件合併，例如 SBOM Composer https://github.com/opensbom-generator/sbom-composer
 
-#### 3.12.2 理由
+#### 3.12.2 說明
 對於大型軟體產品而言，將其拆分為多個 SBOM 文件通常比提供單一完整 SBOM 更易於管理。
 
 ### 3.13 SBOM 保密性
@@ -258,10 +258,10 @@ SBOM 可以受保密協議 (Confidentiality Agreements) 的約束。
 
 然而，符合本指引的 SBOM 不得遭受任何限制，導致接收方無法重新散佈 SBOM 中與開源軟體相關的部分。
 
-#### 3.13.1 Verification and reference material
+#### 3.13.1 驗證與參考資料
 “NTIA SBOM 最小元素”, 章節 section “Access Control”
 
-#### 3.13.2 理由
+#### 3.13.2 說明
 某些開源軟體授權允許接收方重新散佈軟體。在這些情況下，接收方應該也能夠重新散佈相應的 SBOM 部分。
 
 ## 4. 符合性聲明
