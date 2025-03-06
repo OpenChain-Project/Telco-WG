@@ -317,6 +317,7 @@ The following updates of the Guide have been made in version 1.1.
 * ExternalRef is RECOMMENDED instead of MANDATORY.
 * FilesAnalyzed is no longer MANDATORY.
 * Examples are provided for the CISA SBOM Types.
+* A RECOMMENDED syntax is given for CISA SBOM Types.
 * sbomasm is a better example of SBOM merge tool.
 * Add reference to new CISA document.
 
