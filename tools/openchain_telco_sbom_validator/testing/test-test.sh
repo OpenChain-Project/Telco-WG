@@ -197,11 +197,11 @@ function test_linked_nonexistent
     echo "Test: test_linked_none"
     run "openchain-telco-sbom-validator --reference-logic nonexistent linked-sboms-01/linked-sbom-01.spdx.json"
     echo "$output"
+    echo "$error"
     assert_terminated_normally
     assert_exit_fail
     assert_has_output
-    assert_output_contains "2 | Missing"
-    assert_output_contains "The SPDX file linked-sboms-01/linked-sbom-01.spdx.json is not compliant with the OpenChain Telco SBOM Guide"
+    assert_error_contains 'ERROR - Referring logic “nonexistent” is not in the registered referring logic list “none”, “yocto-all”, “yocto-contains-only”, “checksum-all”'
 }
 
 function test_linked_checksum_all
