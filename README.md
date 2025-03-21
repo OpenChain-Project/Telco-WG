@@ -18,15 +18,24 @@ We host two meeting each time, one in the morning European time and one in the a
 
 ## OpenChain Telco SBOM Guide
 
-We have created an [OpenChain Telco SBOM Guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md) that is now in version 1.0.
+### Version 1.1 of the OpenChain Telco SBOM Guide
 
-There is a [Japanese translation of the guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_JP.md) that was provided by Masahiro DAIKOKU-san from KDDI Corporation.
+We have created an [OpenChain Telco SBOM Guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md) that is now in version 1.1.
 
-There is a [French translation of the guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_FR.md) that was provided by Marc-Etienne Vargenau from Nokia.
+Version 1.1 was approved on 20th of March 2025.
 
-There is a [Simplified Chinese translation of the guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_ZH_HANS.md) that was provided by David Liu from Bytedance.
+The main difference with version 1.0 is that both PackageChecksum and PackageVerificationCode are allowed as package hash.
+The complete list of changes can be found in section 6.
 
-There is a [Traditional Chinese translation of the guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_ZH_HANT.md) that was provided by SZ Lin (林上智) from ISA Taiwan Section.
+### Version 1.0 of the OpenChain Telco SBOM Guide
+
+There is a [Japanese translation of the guide version 1.0](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_JP.md) that was provided by Masahiro DAIKOKU-san from KDDI Corporation.
+
+There is a [French translation of the guide version 1.0](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_FR.md) that was provided by Marc-Etienne Vargenau from Nokia.
+
+There is a [Simplified Chinese translation of the guide version 1.0](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_ZH_HANS.md) that was provided by David Liu from Bytedance.
+
+There is a [Traditional Chinese translation of the guide version 1.0](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_ZH_HANT.md) that was provided by SZ Lin (林上智) from ISA Taiwan Section.
 
 See [announcement](https://openchainproject.org/news/2024/07/30/openchain-telco-sbom-guide-general-availability) in OpenChain website.
 
