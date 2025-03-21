@@ -172,14 +172,14 @@ class Validator:
             logger.debug("Validate was called recursively")
             problems.do_print_file()
 
-        if problems==None:
+        if problems == None:
             problems = Problems()
         else:
             logger.debug(f"Inherited {len(problems)} problems")
 
         file_path_full = os.path.basename(filePath)
 
-        if problems and file_path_full in problems.checked_files:
+        if file_path_full in problems.checked_files:
             logger.debug(f"File ({file_path_full}) already checked")
             if problems:
                 return False, problems
@@ -356,7 +356,7 @@ class Validator:
 
         if referringLogic in self.referringLogics:
             logger.debug(f"Executing referring logic: {referringLogic},  {self.referringLogics[referringLogic]}")
-            list_of_referred_sboms = self.referringLogics[referringLogic](self, doc, dir_name)
+            list_of_referred_sboms, problems = self.referringLogics[referringLogic](self, doc, dir_name, problems)
         else:
             logger.error(f"Referring logic “{referringLogic}” is not in the registered referring logic list {self.getReferringLogicNames()}")
             sys.exit(1)
@@ -399,7 +399,7 @@ class Validator:
                 else:
                     problems.append("NTIA validation error", "Cannot be provided", component, problemText, file)
 
-def referred_yocto_all(self, doc: Document, dir_name: str):
+def referred_yocto_all(self, doc: Document, dir_name: str, problems: Problems):
     logger.debug("In Yocto all")
     documents = []
     ref_base = ""
@@ -427,9 +427,9 @@ def referred_yocto_all(self, doc: Document, dir_name: str):
                     doc_location = f"{dir_name}/{doc_location}.spdx.json"
                 logger.debug(f"Document location is: {doc_location}")
                 documents.append(doc_location)
-    return documents
+    return documents, problems
 
-def referred_yocto_contains_only(self, doc: Document, dir_name: str):
+def referred_yocto_contains_only(self, doc: Document, dir_name: str, problems: Problems):
     logger.debug("In Yocto contains only")
     documents = []
     ref_base = ""
@@ -465,28 +465,37 @@ def referred_yocto_contains_only(self, doc: Document, dir_name: str):
                 if spdx_document_id in external_refs:
                     logger.debug(f"Adding {external_refs[spdx_document_id]} to the referred file list")
                     documents.append(external_refs[spdx_document_id])
-    return documents
+    return documents, problems
 
-def referred_checksum_all(self, doc: Document, dir_name: str):
+def referred_checksum_all(self, doc: Document, dir_name: str, problems: Problems):
     # Known limitations: MD2, MD4 and MD6 hashes are not supported
     import hashlib
     from pathlib import Path
-    logger.debug("In Yocto contains only")
+    logger.debug("In Referred checksum all")
     documents = []
     checksums = {}
     algorithms = {}
     if doc.creation_info.external_document_refs:
         logger.debug(f"--------------We have refs!------------")
         for ref in doc.creation_info.external_document_refs:
-            logger.debug(f"SPDX document referenced {ref.document_uri}, {ref.checksum.algorithm}, {ref.checksum.value}")
+            logger.debug(f"SPDX document referenced {ref.document_ref_id}, {ref.document_uri}, {ref.checksum.algorithm}, {ref.checksum.value}")
             if ref.checksum.algorithm in self.referringLogicStore.keys():
                 if ref.checksum.value in self.referringLogicStore[ref.checksum.algorithm].keys():
                     logger.debug(f"Document found in LogicStore {ref.checksum.algorithm}, {ref.checksum.value}")
                     documents.append(self.referringLogicStore[ref.checksum.algorithm][ref.checksum.value])
             if not ref.checksum.algorithm in checksums.keys():
-                checksums[ref.checksum.algorithm] = []
-            checksums[ref.checksum.algorithm].append(ref.checksum.value)
+                logger.debug(f"{ref.document_ref_id}: {ref.checksum.algorithm} is not in checksum keys")
+                checksums[ref.checksum.algorithm] = {}
+                checksums[ref.checksum.algorithm][ref.checksum.value] = ref.document_ref_id
+            else:
+                logger.debug(f"{ref.document_ref_id}: {ref.checksum.algorithm} is in checksum keys")
+                if not ref.checksum.value in checksums[ref.checksum.algorithm].keys():
+                    logger.debug(f"{ref.document_ref_id}: {ref.checksum.value} is not in checksum list")
+                    checksums[ref.checksum.algorithm][ref.checksum.value] = ref.document_ref_id
             algorithms[ref.checksum.algorithm] = None
+            logger.debug(f"checksums: {checksums}")
+            logger.debug(f"algorithms: {algorithms}")
+            logger.debug(f"logicStore: {self.referringLogicStore}")
     for algorithm in algorithms.keys():
         for spdx_file in [f.name for f in Path(dir_name).iterdir() if f.is_file()]:
             logger.debug(f"Calculating {algorithm} hash for {dir_name}, {spdx_file}")
@@ -521,23 +530,26 @@ def referred_checksum_all(self, doc: Document, dir_name: str):
                 self.referringLogicStore[algorithm] = {}    
             self.referringLogicStore[algorithm][hash.hexdigest()] = doc_location
     for algorithm in checksums.keys():
-        for checksum in checksums[algorithm]:
+        for checksum in checksums[algorithm].keys():
             logger.debug(f"Getting information from Logic Store for {algorithm}, {checksum}")
             if algorithm in self.referringLogicStore:
                 if checksum in self.referringLogicStore[algorithm]:
                     documents.append(self.referringLogicStore[algorithm][checksum])
                 else:
-                    logger.error(f"Checksum not found in Logic Store {algorithm}, {checksum}")
+                    logger.error(f"Checksum not found in Logic Store {algorithm}, {checksum}, Document Ref: {checksums[algorithm][checksum]}")
+                    problems.append("File error", "General", "General", f"Non existing file referenced (Checksum: {algorithm}, {checksum}, Document Ref: {checksums[algorithm][checksum]})", "")
             else:
                 logger.error(f"Algorithm not found in Logic Store {algorithm}, {checksum}")
     
     documents_dd = set()
     documents_dd = [x for x in documents if not (x in documents_dd or documents_dd.add(x))]
 
-    return documents_dd
+    logger.debug(f"documents_dd: {documents_dd}")
 
-def referred_none(self, doc: Document, dir_name: str):
-    return []
+    return documents_dd, problems
 
-def _dummy_referred_logic(self, doc: Document, dir_name: str):
+def referred_none(self, doc: Document, dir_name: str, problems: Problems):
+    return [], problems
+
+def _dummy_referred_logic(self, doc: Document, dir_name: str, problems: Problems):
     pass
