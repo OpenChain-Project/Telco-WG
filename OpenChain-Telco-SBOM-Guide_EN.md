@@ -1,4 +1,4 @@
-# OpenChain Telco SBOM Guide Version 1.0
+# OpenChain Telco SBOM Guide Version 1.1
 
 ## 1. Scope
 
@@ -85,16 +85,16 @@ Package information
 * PackageVersion: needed by “NTIA SBOM Minimum elements”
 * PackageSupplier: needed by “NTIA SBOM Minimum elements”
 * PackageDownloadLocation: mandatory in SPDX
-* FilesAnalyzed
-* PackageChecksum: recommended by “NTIA SBOM Minimum elements”
-* PackageLicenseConcluded: mandatory in SPDX
-* PackageLicenseDeclared: mandatory in SPDX
-* PackageCopyrightText: mandatory in SPDX
-* ExternalRef: to be able to put the Package URL
+* PackageLicenseConcluded: mandatory in SPDX 2.2
+* PackageLicenseDeclared: mandatory in SPDX 2.2
+* PackageCopyrightText: mandatory in SPDX 2.2
+
+One of the two attributes PackageChecksum or PackageVerificationCode is RECOMMENDED:
+recommended by “NTIA SBOM Minimum elements”
 
 A package SHOULD be identified by a Package URL (PURL).
 
-The PURL SHOULD be put in ExternalRef field, e.g.
+If the PURL is present, it SHOULD be put in ExternalRef field, e.g.
 ```
 ExternalRef: PACKAGE-MANAGER purl pkg:pypi/django@1.11.1
 ```
@@ -106,12 +106,16 @@ Relationships between SPDX elements
 NTIA minimum elements
 
 #### 3.2.2 Rationale
-Recognizing the Telco industry need for harmonization and special requirements, possibly beyond the NTIA minimum elements, the “OpenChain Telco SBOM Guide” is proposed to ensure predictability to the industry as to the elements of an SBOM that is expected.
+Recognizing the Telco industry need for harmonization and special requirements, the “OpenChain Telco SBOM Guide” is proposed to ensure predictability to the industry as to the elements of an SBOM that is expected.
 
 “Component Hash” is recommended, but not required by the “NTIA SBOM Minimum elements”.
-In SPDX, it maps to PackageChecksum.
-We make it mandatory as it is important to uniquely identify a package.
+
+In SPDX, it maps to PackageChecksum or PackageVerificationCode.
 Most SCA tools have the capability to produce hashes.
+
+The CISA document "Framing Software Component Transparency: Establishing a Common Software Bill of Materials (SBOM), Third Edition"
+https://www.cisa.gov/resources-tools/resources/framing-software-component-transparency-2024
+allows both, see table in section 2.5.
 
 Package URL (PURL) is a _de facto_ standard to uniquely identify software packages.
 
@@ -139,7 +143,7 @@ Tag:Value is the most human-readable format, and there are converters between th
 (e.g. https://tools.spdx.org/app/convert/). JSON is a format produced by several tools.
 
 ### 3.4 Human Readable Data Format
-An OpenChain Telco SBOM Compatible document SHALL include, at a minimum, the SPDX in one of the following machine readable formats: Tag:Value or JSON.
+An OpenChain Telco SBOM Compatible document SHALL include, at a minimum, the SPDX in one of the following human readable formats: Tag:Value or JSON.
 
 #### 3.4.1 Verification and reference material
 Tag:Value and JSON formats are described here:
@@ -158,9 +162,11 @@ The `Creator` field MUST:
 
 The tool name and the tool version SHOULD be separated by hyphen ("-"), no other hyphen SHOULD appear on the line.
 
-SBOMs conforming to the OpenChain Telco SBOM Guide MUST provide their SBOM Type as
+SBOMs conforming to the OpenChain Telco SBOM Guide MUST provide their SBOM Types as
 [defined by CISA](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)
 in the `CreatorComment` field.
+
+The SBOM Type RECOMMENDED syntax is “SBOM Type: xxx” where “xxx” is one of the 6 keywords “Design”, “Source”, “Build”, “Analyzed”, “Deployed” and “Runtime”.
 
 #### 3.5.1 Verification and reference material
 SPDX standard
@@ -176,15 +182,32 @@ Creator: Tool: sigs.k8s.io/bom/pkg/spdx
 ```
 We have also:
 ```
-Creator: Tool: scancode-toolkit 30.1.0
+Creator: Tool: scancode-toolkit 32.3.0
 ```
 and
 ```
-Creator: Tool: SCANOSS-PY: 1.5.1
+Creator: Tool: SCANOSS-PY: 1.18.1
 ```
 where the name contains an hyphen, and the tool name and tool version are not separated by an hyphen.
 
 So we cannot require a precise syntax.
+
+The CreatorComment is a free text field. We use it to store the CISA SBOM Types, as there is no
+specific field for that in SPDX 2.2 and 2.3, but any other information can of course be put in it also.
+
+We do not require a specific format. We only require that at least one of the words
+“Design”, “Source”, “Build”, “Analyzed”, “Deployed”, “Runtime” is present, regardless of the case.
+
+So, the following possibilities are all valid, and the first one is the recommended one:
+```
+CreatorComment: SBOM Type: Deployed
+```
+```
+CreatorComment: Analyzed
+```
+```
+CreatorComment: This SBOM was created during build phase.
+```
 
 ### 3.6 Timing of SBOM delivery
 The SBOM SHALL be delivered no later than at the time of the delivery of the software (in either binary or source form). 
@@ -216,7 +239,7 @@ If some components are not included, they MUST be reported as “known unknowns.
 It might not be possible, advisable or feasible to have the commercial component information in the SBOM. However, it is advisable that the SBOM should be as complete as possible.
 
 ### 3.9 SBOM in a SaaS deployment
-As the OpenChain Telco SBOM Guide is only applied on the SBOM level, there is no requirement on an entity that have elected to supply an OpenChain Telco SBOM Compatible document for some or even all of its software deliveries to also provide this for its SaaS offerings. However, an entity may elect to apply the OpenChain Telco SBOM Guide also to its SaaS offerings and thus also deliver the open source software used in the SaaS offerings with their transitive dependencies as an SBOM.
+As the OpenChain Telco SBOM Guide is only applied on the SBOM level, there is no requirement on an entity that has elected to supply an OpenChain Telco SBOM Compatible document for some or even all of its software deliveries to also provide this for its SaaS offerings. However, an entity may elect to apply the OpenChain Telco SBOM Guide also to its SaaS offerings and thus also deliver the open source software used in the SaaS offerings with their transitive dependencies as an SBOM.
 
 #### 3.9.1 Verification and reference material
 
@@ -245,7 +268,7 @@ While the verification of SBOMs is an important topic, OpenChain Telco defers th
 SBOMs following this Guide can be built from several SBOM files with a well-defined relationship to each other using the relationship definition features in SPDX.
 
 #### 3.12.1 Verification and reference material
-There exist tools to merge several SBOMs into one, e.g. https://github.com/opensbom-generator/sbom-composer
+There exist tools to merge several SBOMs into one, e.g. https://github.com/interlynk-io/sbomasm
 
 #### 3.12.2 Rationale
 It is often easier when dealing with a large software product to provide individual SBOMs of its parts than a single SBOM.
@@ -257,15 +280,15 @@ SBOMs MAY be subject to confidentiality agreements. A conformant SBOM MUST NOT, 
 “NTIA SBOM Minimum elements”, section “Access Control”
 
 #### 3.13.2 Rationale
-Some open source software licenses enable any recipient to redistribute the software. In these situations, the recipients should be also able to redistribute the relevant parts of the SBOMs.
+Some open source software licenses enable any recipient to redistribute the software. In these situations, the recipients should also be able to redistribute the relevant parts of the SBOMs.
 
 ## 4. Conformant notice
-To indicate that the software has a conformant SBOM available, you MAY use the following statement: “This software is supplied with an SBOM conformant to the OpenChain Telco SBOM Guide v1.0, the Guide is available at [https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md)”
+To indicate that the software has a conformant SBOM available, you MAY use the following statement: “This software is supplied with an SBOM conformant to the OpenChain Telco SBOM Guide v1.1, the Guide is available at [https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md)”
 
-You MAY at your choosing use the following statement in your Telco Guide conformant SBOM “This SBOM conforms to the OpenChain Telco SBOM Guide v1.0 [https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md), it is provided to the recipient free of charge, and the recipient is free to redistribute this SBOM to any third party that they distribute the corresponding software to, provided that they have all the necessary right to distribute the software to such third party”
+You MAY at your choosing use the following statement in your Telco Guide conformant SBOM “This SBOM conforms to the OpenChain Telco SBOM Guide v1.1 [https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md), it is provided to the recipient free of charge, and the recipient is free to redistribute this SBOM to any third party that they distribute the corresponding software to, provided that they have all the necessary rights to distribute the software to such third party”
 
 The following statement MAY be used as statement in the RFP document, order document, or contract document when requesting an RFP, purchasing orders, or outsourced development orders from a software vendor or telco system suppliers.
-“When releasing software, it is REQUIRED to provide an SBOM compliant with the OpenChain Telco SBOM Guide v1.0 for all software released.  This Guide is available at [https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md)”
+“When releasing software, it is REQUIRED to provide an SBOM compliant with the OpenChain Telco SBOM Guide v1.1 for all software released.  This Guide is available at [https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md)”
 
 ## 5. References
 
@@ -280,5 +303,23 @@ The following statement MAY be used as statement in the RFP document, order docu
   * https://standards.iso.org/ittf/PubliclyAvailableStandards/c081039_ISO_IEC_5230_2020(E).zip
 * The Minimum Elements For a Software Bill of Materials (SBOM) a.k.a. “NTIA minimum elements”
   * https://www.ntia.doc.gov/report/2021/minimum-elements-software-bill-materials-sbom
+* Framing Software Component Transparency: Establishing a Common Software Bill of Materials (SBOM), Third Edition
+  * https://www.cisa.gov/resources-tools/resources/framing-software-component-transparency-2024
 * Package URL (PURL)
   * https://github.com/package-url/purl-spec
+
+## 6. Guide history
+
+The following updates of the Guide have been made in version 1.1.
+
+* Both PackageChecksum and PackageVerificationCode are allowed as package hash.
+* The package hash is RECOMMENDED instead of MANDATORY.
+* ExternalRef is RECOMMENDED instead of MANDATORY.
+* FilesAnalyzed is no longer MANDATORY.
+* Examples are provided for the CISA SBOM Types.
+* A RECOMMENDED syntax is given for CISA SBOM Types.
+* sbomasm is a better example of SBOM merge tool.
+* Add reference to new CISA document.
+
+An SBOM that conforms to version 1.0 of the Guide will also conform to version 1.1 of the Guide.
+The reverse is not true.
