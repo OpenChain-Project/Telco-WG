@@ -1,4 +1,4 @@
-# Guide SBOM OpenChain Telco version 1.1
+# Guide SBOM OpenChain Telco version 1.0
 
 Ce document est une traduction de la version originale du Guide en anglais.
 En cas de divergence entre cette traduction et la version anglaise, la version anglaise prévaudra.
@@ -84,16 +84,16 @@ Informations sur les packages
 * PackageVersion : requis par les « éléments minimaux d'un SBOM de la NTIA »
 * PackageSupplier : requis par les « éléments minimaux d'un SBOM de la NTIA »
 * PackageDownloadLocation : obligatoire dans SPDX
-* PackageLicenseConcluded : obligatoire dans SPDX 2.2
-* PackageLicenseDeclared : obligatoire dans SPDX 2.2
-* PackageCopyrightText : obligatoire dans SPDX 2.2
-
-Un des deux attributs PackageChecksum ou PackageVerificationCode est RECOMMANDÉ :
-recommandé par les « éléments minimaux d'un SBOM de la NTIA »
+* FilesAnalyzed
+* PackageChecksum : recommandé par « éléments minimaux d'un SBOM de la NTIA »
+* PackageLicenseConcluded : obligatoire dans SPDX
+* PackageLicenseDeclared : obligatoire dans SPDX
+* PackageCopyrightText : obligatoire dans SPDX
+* ExternalRef : pour pouvoir mettre le Package URL
 
 Un package DEVRAIT être identifié par un Package URL (PURL).
 
-Si le PURL est présent, il DEVRAIT être placé dans le champ ExternalRef, par exemple :
+Le PURL DEVRAIT être placé dans le champ ExternalRef, par exemple :
 ```
 Réf externe : PACKAGE-MANAGER purl pkg:pypi/django@1.11.1
 ```
@@ -105,15 +105,12 @@ Relations entre les éléments SPDX
 « Éléments minimaux d'un SBOM de la NTIA »
 
 #### 3.2.2 Justification
-Reconnaissant le besoin d'harmonisation et d'exigences particulières du secteur des télécommunications, le « Guide SBOM OpenChain Telco » est proposé pour garantir la prévisibilité du secteur quant aux éléments attendus d'un SBOM.
+Reconnaissant le besoin d'harmonisation et d'exigences particulières du secteur des télécommunications, éventuellement au-delà des éléments minimaux de la NTIA, le « Guide SBOM OpenChain Telco » est proposé pour garantir la prévisibilité du secteur quant aux éléments attendus d'un SBOM.
 
 Le « hachage de composant » est recommandé, mais n'est pas requis par les « éléments minimaux d'un SBOM de la NTIA ».
-Dans SPDX, il correspond à PackageChecksum ou à PackageVerificationCode.
+Dans SPDX, il correspond à PackageChecksum.
+Nous le rendons obligatoire car il est important d'identifier de manière unique un package.
 La plupart des outils SCA ont la capacité de produire des hachages.
-
-Le document CISA « Framing Software Component Transparency: Establishing a Common Software Bill of Materials (SBOM), Third Edition »
-https://www.cisa.gov/resources-tools/resources/framing-software-component-transparency-2024
-autorise les deux, voir la table de la section 2.5.
 
 Package URL (PURL) est une norme _de facto_ pour identifier de manière unique les packages logiciels.
 
@@ -158,13 +155,11 @@ Le champ « Created » DOIT :
 * contenir une ligne avec le mot-clé `Organisation` ;
 * contenir une ligne avec le mot-clé `Tool` ; dans cette ligne, il DOIT y avoir après le mot-clé `Tool` le nom de l'outil et la version de l'outil.
 
-Le nom de l'outil et la version de l'outil DEVRAIENT être séparés par un trait d'union (« - »), et aucun autre trait d'union ne DEVRAIT apparaître sur la ligne.
+Le nom de l'outil et la version de l'outil DEVRAIENT être séparés par un trait d'union ("-"), et aucun autre trait d'union ne DEVRAIT apparaître sur la ligne.
 
-Les SBOM conformes au Guide SBOM OpenChain Telco DOIVENT fournir leurs types de SBOM comme
+Les SBOM conformes au Guide SBOM OpenChain Telco DOIVENT fournir leur type de SBOM comme
 [défini par CISA](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)
 dans le champ `CreatorComment`.
-
-La syntaxe RECOMMANDÉE pour le type de SBOM est « SBOM Type: xxx » où « xxx » est l'un des 6 mots clefs « Design », « Source », « Build », « Analyzed », « Deployed » et « Runtime ».
 
 #### 3.5.1 Matériel de vérification et de référence
 Norme SPDX
@@ -172,7 +167,7 @@ Norme SPDX
 #### 3.5.2 Justification
 Il est important de savoir quel outil et quelle version de l'outil a créé le SBOM.
 
-La norme SPDX donne comme exemple « toolidentifier-version », mais il n'est pas obligatoire d'avoir cette syntaxe.
+La norme SPDX donne comme exemple "toolidentifier-version", mais il n'est pas obligatoire d'avoir cette syntaxe.
 
 Par exemple, il existe un outil qui génère :
 ```
@@ -180,32 +175,15 @@ Creator: Tool: sigs.k8s.io/bom/pkg/spdx
 ```
 Nous avons aussi:
 ```
-Creator: Tool: scancode-toolkit 32.3.0
+Creator: Tool: scancode-toolkit 30.1.0
 ```
 et
 ```
-Creator: Tool: SCANOSS-PY: 1.18.1
+Creator: Tool: SCANOSS-PY : 1.5.1
 ```
 où le nom contient un trait d'union et le nom de l'outil et la version de l'outil ne sont pas séparés par un trait d'union.
 
 Nous ne pouvons donc pas exiger une syntaxe précise.
-
-CreatorComment est un champ de texte libre. Nous l'utilisons pour renseigner les types de SBOM CISA, comme il n'existe pas
-de champ prévu pour cela en SPDX 2.2 et 2.3, mais il peut bien entendu également contenir toute autre information.
-
-Nous n'exigeons pas de format particulier. Nous exigeons seulement qu'au moins l'un des mots
-« Design », « Source », « Build », « Analyzed », « Deployed », « Runtime » soit présent, quelle que soit la casse.
-
-Ainsi, les possibilités suivantes sont toutes valides, et la première est celle recommandée :
-```
-CreatorComment: SBOM Type: Deployed
-```
-```
-CreatorComment: Analyzed
-```
-```
-CreatorComment: This SBOM was created during build phase.
-```
 
 ### 3.6 Calendrier de livraison du SBOM
 Le SBOM DOIT être livré au plus tard au moment de la livraison du logiciel (sous forme binaire ou source).
@@ -265,7 +243,7 @@ Bien que la vérification des SBOM soit un sujet important, OpenChain Telco repo
 Les SBOM suivant ce Guide peuvent être construits à partir de plusieurs fichiers SBOM avec une relation bien définie les uns avec les autres à l'aide des fonctionnalités de définition de relation de SPDX.
 
 #### 3.12.1 Matériel de vérification et de référence
-Il existe des outils pour fusionner plusieurs SBOM en un seul, par exemple https://github.com/interlynk-io/sbomasm
+Il existe des outils pour fusionner plusieurs SBOM en un seul, par exemple https://github.com/opensbom-generator/sbom-composer
 
 #### 3.12.2 Justification
 Il est souvent plus facile, lorsqu'il s'agit d'un produit logiciel volumineux, de fournir des SBOM individuels de ses parties plutôt qu'un seul SBOM.
@@ -280,12 +258,12 @@ Les SBOM PEUVENT être soumis à des accords de confidentialité. Un SBOM confor
 Certaines licences de logiciels open source permettent à tout destinataire de redistribuer le logiciel. Dans ces situations, les destinataires devraient également être en mesure de redistribuer les parties pertinentes des SBOM.
 
 ## 4. Avis conforme
-Pour indiquer que le logiciel dispose d'un SBOM conforme, vous POUVEZ utiliser la déclaration suivante : « Ce logiciel est fourni avec un SBOM conforme au Guide SBOM OpenChain Telco v1.1, le Guide est disponible sur https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_FR.md »
+Pour indiquer que le logiciel dispose d'un SBOM conforme, vous POUVEZ utiliser la déclaration suivante : « Ce logiciel est fourni avec un SBOM conforme au Guide SBOM OpenChain Telco v1.0, le Guide est disponible sur https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_FR.md »
 
-Vous POUVEZ, à votre choix, utiliser la déclaration suivante dans votre SBOM conforme au Guide SBOM OpenChain Telco : « Ce SBOM est conforme au Guide SBOM OpenChain Telco v1.1 https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_FR.md, il est fourni gratuitement au destinataire, et le destinataire est libre de redistribuer ce SBOM à tout tiers auquel il distribue le logiciel correspondant, à condition qu'il dispose de tous les droits nécessaires pour distribuer le logiciel à ce tiers »
+Vous POUVEZ, à votre choix, utiliser la déclaration suivante dans votre SBOM conforme au Guide SBOM OpenChain Telco : « Ce SBOM est conforme au Guide SBOM OpenChain Telco v1.0 https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_FR.md, il est fourni gratuitement au destinataire, et le destinataire est libre de redistribuer ce SBOM à tout tiers auquel il distribue le logiciel correspondant, à condition qu'il dispose de tous les droits nécessaires pour distribuer le logiciel à ce tiers »
 
 La déclaration suivante PEUT être utilisée comme déclaration dans un document d'appel d'offres, de commande ou le document contractuel d'un appel d'offres, de commande de développement externalisé auprès d'un fournisseur de logiciels ou de fournisseurs de systèmes de télécommunications.
-« Lors de la publication d'un logiciel, il est OBLIGATOIRE de fournir un SBOM conforme au Guide SBOM OpenChain Telco v1.1 pour tous les logiciels publiés. Ce Guide est disponible sur [https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_FR.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_FR.md) »
+« Lors de la publication d'un logiciel, il est OBLIGATOIRE de fournir un SBOM conforme au Guide SBOM OpenChain Telco v1.0 pour tous les logiciels publiés. Ce Guide est disponible sur [https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_FR.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_FR.md) »
 
 ## 5. Références
 
@@ -301,21 +279,3 @@ La déclaration suivante PEUT être utilisée comme déclaration dans un documen
    * https://www.ntia.doc.gov/report/2021/minimum-elements-software-bill-materials-sbom
 * Package URL (PURL)
    * https://github.com/package-url/purl-spec
-* Framing Software Component Transparency: Establishing a Common Software Bill of Materials (SBOM), Third Edition
-  * https://www.cisa.gov/resources-tools/resources/framing-software-component-transparency-2024
-
-## 6. Historique du Guide
-
-Les mises à jour suivantes du Guide ont été faites dans la version 1.1.
-
-* PackageChecksum et PackageVerificationCode sont autorisés tous les deux comme valeur de hachage.
-* Le hachage de paquet est RECOMMANDÉ au lieu d'OBLIGATOIRE.
-* ExternalRef est RECOMMANDÉ au lieu d'OBLIGATOIRE.
-* FilesAnalyzed n'est plus OBLIGATOIRE.
-* Des exemples de type de SBOM CISA sont fournis.
-* Une syntaxe RECOMMANDÉE est donnée pour les types de SBOM CISA.
-* sbomasm est un meilleur exemple d'outil de fusion de SBOM.
-* Ajout de la référence au nouveau document CISA.
-
-Un SBOM conforme à la version 1.0 du Guide est égakement conforme à la version 1.1 du Guide.
-L'inverse n'est pas vrai.

@@ -27,11 +27,15 @@ Version 1.1 was approved on 20th of March 2025.
 The main difference with version 1.0 is that both PackageChecksum and PackageVerificationCode are allowed as package hash.
 The complete list of changes can be found in section 6.
 
+There is a [French translation of the guide version 1.1](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_FR.md) that was provided by Marc-Etienne Vargenau from Nokia.
+
 ### Version 1.0 of the OpenChain Telco SBOM Guide
+
+Version 1.0 of the [OpenChain Telco SBOM Guide in English](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_1.0_EN.md) that is now in version 1.1.
 
 There is a [Japanese translation of the guide version 1.0](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_JP.md) that was provided by Masahiro DAIKOKU-san from KDDI Corporation.
 
-There is a [French translation of the guide version 1.0](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_FR.md) that was provided by Marc-Etienne Vargenau from Nokia.
+There is a [French translation of the guide version 1.0](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_1.0_FR.md) that was provided by Marc-Etienne Vargenau from Nokia.
 
 There is a [Simplified Chinese translation of the guide version 1.0](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_ZH_HANS.md) that was provided by David Liu from Bytedance.
 
