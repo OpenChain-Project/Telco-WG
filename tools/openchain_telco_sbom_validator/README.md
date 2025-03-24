@@ -1,6 +1,6 @@
 # openchain-telco-sbom-validator
 
-A script to validate SBOMs against version 1.0 of
+A script to validate SBOMs against version 1.1 of
 the [OpenChain Telco SBOM Guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md).
 
 # Installation
@@ -51,7 +51,7 @@ options:
                         “checksum-all” (externalrefs are identified by their checksum),
                         “yocto-all” (all externalrefs are investigated) and
                         “yocto-contains-only” (only those files are investigated which are in
-                        CONTAIN relationships). It is possible to register more reference
+                        CONTAINS relationships). It is possible to register more reference
                         logics in library mode.
 ```
 
