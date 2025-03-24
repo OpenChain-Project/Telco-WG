@@ -1,6 +1,6 @@
 #!/bin/python3
 
-# © 2024 Nokia
+# © 2024-2025 Nokia
 # Authors: Gergely Csatári, Marc-Etienne Vargenau
 # Licensed under the Apache License 2.0
 # SPDX-License-Identifier: Apache-2.0
@@ -42,6 +42,9 @@ def main():
 
         filePath = str(args.input)
         validator = Validator()
+
+        if args.recursive:
+            args.reference_logic = "checksum-all"
 
         reference_logic = args.reference_logic
         if None == args.reference_logic:
@@ -88,7 +91,8 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
     parser.add_argument('input',
                         help='The input SPDX file.',
                         nargs="?")
-    parser.add_argument('--version', action="store_true",
+
+    parser.add_argument('-v', '--version', action="store_true",
                         help='Prints version and exits.',
                         required=False)
     parser.add_argument('--debug', action="store_true",
@@ -106,6 +110,8 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
                         ' The default behaviour is to run a non-strict URL check, meaning that'
                         ' it is not checked if the URL points to a valid page. Strict URL check'
                         ' requires access to the internet and takes some time.')
+    parser.add_argument('-r', '--recursive', action="store_true",
+                        help='Validate recursively. Same as “--reference-logic checksum-all”.')
     parser.add_argument('--reference-logic',
                         help='Defines the logic how the referenced files are accessible. If not'
                         ' added, the referenced files will not be investigated.'

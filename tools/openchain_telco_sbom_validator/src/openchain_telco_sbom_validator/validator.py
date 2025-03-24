@@ -1,6 +1,6 @@
 #!/bin/python3
 
-# © 2024 Nokia
+# © 2024-2025 Nokia
 # Authors: Gergely Csatári, Marc-Etienne Vargenau
 # Licensed under the Apache License 2.0
 # SPDX-License-Identifier: Apache-2.0
