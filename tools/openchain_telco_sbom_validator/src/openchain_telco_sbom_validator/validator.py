@@ -76,7 +76,7 @@ class Problems:
 
     def __len__(self):
         return len(self.items)
-    
+
     def __bool__(self):
         if len(self.items) > 0:
             return True
@@ -89,7 +89,7 @@ class FunctionRegistry:
     def __init__(self):
         self.functionsGlobal = []
         self.functionsPackage = []
-    
+
     def registerPackage(self, funct):
         requiredSignature = inspect.signature(self._dummy_function_package)
         functSignature = inspect.signature(funct)
@@ -106,7 +106,7 @@ class FunctionRegistry:
 
     def getGlobalFunctions(self):
         return iter(self.functionsGlobal)
-    
+
     def getPackageFunctions(self):
         return iter(self.functionsPackage)
 
@@ -126,7 +126,7 @@ class Validator:
         self.addReferringLogics("yocto-all", referred_yocto_all)
         self.addReferringLogics("yocto-contains-only", referred_yocto_contains_only)
         self.addReferringLogics("checksum-all", referred_checksum_all)
-        
+
         return None
 
     def addReferringLogics(self, name, function):
@@ -152,10 +152,10 @@ class Validator:
 
     def validate(self,
                  filePath,
-                 strict_purl_check=False, 
+                 strict_purl_check=False,
                  strict_url_check=False,
                  functionRegistry:FunctionRegistry = FunctionRegistry(),
-                 problems=None, 
+                 problems=None,
                  referringLogic="none"):
         """ Validates, Returns a status and a list of problems.
             filePath: Path to the SPDX file to validate.
@@ -202,7 +202,7 @@ class Validator:
         dir_name = os.path.dirname(filePath)
         logger.debug(f"File path is {dir_name}, filename is {file}")
         print(f"Validating {file}")
-        
+
 
         try:
             doc = parse_anything.parse_file(filePath)
@@ -245,7 +245,7 @@ class Validator:
             components = sbomNTIA.get_components_without_names()
             #logger.debug(f"components: {components}, problems: {str(problems)}, doc: {doc}")
             self.__ntiaErrorLog(components, problems, doc, "Package without a name", file)
-            
+
             #self.ntiaErrorLog(components, problems, doc, "Package without a name")
             #self.ntiaErrorLogNew(components, problems, doc, "Package without a version")
             components = sbomNTIA.get_components_without_versions(return_tuples=True)
@@ -296,11 +296,11 @@ class Validator:
             logger.debug(f"Package: {package}")
             if not package.version:
                 pass
-                ### This is already detected during the NTIA check. 
+                ### This is already detected during the NTIA check.
                 #problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Version field is missing")
             if not package.supplier:
                 pass
-                ### This is already detected during the NTIA check. 
+                ### This is already detected during the NTIA check.
                 #problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Supplier field is missing")
             if not package.checksums:
                 problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Checksum field is missing", file)
@@ -343,9 +343,9 @@ class Validator:
 
                 for function in functionRegistry.getPackageFunctions():
                     logger.debug(f"Executing function {function.__name__}({type(problems)}, {type(package)})")
-                    
+
                     function(problems, package)
-        
+
         if functionRegistry:
             logger.debug("Calling registered global functions.")
             for function in functionRegistry.getGlobalFunctions():
@@ -365,8 +365,8 @@ class Validator:
             self.validate(
                 filePath=referred_sbom,
                 strict_purl_check=strict_purl_check,
-                strict_url_check=strict_url_check, 
-                functionRegistry=functionRegistry, 
+                strict_url_check=strict_url_check,
+                functionRegistry=functionRegistry,
                 problems=problems,
                 referringLogic=referringLogic)
         if problems:
@@ -522,12 +522,12 @@ def referred_checksum_all(self, doc: Document, dir_name: str, problems: Problems
                         hash = hashlib.md5()
                     case _:
                         logger.error(f"{algorithm} is not supported.")
-                
+
                 while chunk := f.read(8192):
                     hash.update(chunk)
             logger.debug(f"Storing file information for {algorithm}, {doc_location}, {hash.name},  {hash.hexdigest()}")
             if algorithm not in self.referringLogicStore:
-                self.referringLogicStore[algorithm] = {}    
+                self.referringLogicStore[algorithm] = {}
             self.referringLogicStore[algorithm][hash.hexdigest()] = doc_location
     for algorithm in checksums.keys():
         for checksum in checksums[algorithm].keys():
@@ -540,7 +540,7 @@ def referred_checksum_all(self, doc: Document, dir_name: str, problems: Problems
                     problems.append("File error", "General", "General", f"Non existing file referenced (Checksum: {algorithm}, {checksum}, Document Ref: {checksums[algorithm][checksum]})", "")
             else:
                 logger.error(f"Algorithm not found in Logic Store {algorithm}, {checksum}")
-    
+
     documents_dd = set()
     documents_dd = [x for x in documents if not (x in documents_dd or documents_dd.add(x))]
 

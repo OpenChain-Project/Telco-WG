@@ -31,7 +31,7 @@ def test_ok_creator_comment():
     assert result == True
 
 def test_nok_creater_comment_incorrect_cisa():
-    v = validator.Validator()    
+    v = validator.Validator()
     result, problems = v.validate(filePath = "sboms/unittest-sbom-09.spdx")
     assert result == False
     assert len(problems) == 1
@@ -41,7 +41,7 @@ def test_nok_creater_comment_incorrect_cisa():
     assert problems[0].PackageName == "General"
 
 def test_nok_creater_comment_missing():
-    v = validator.Validator()    
+    v = validator.Validator()
     result, problems = v.validate(filePath = "sboms/unittest-sbom-10.spdx")
     assert result == False
     assert len(problems) == 2
