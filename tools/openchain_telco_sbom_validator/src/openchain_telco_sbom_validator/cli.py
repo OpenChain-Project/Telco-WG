@@ -83,7 +83,7 @@ class AdditionalArguments:
         return self.items[index]
 
 def parseArguments(additionalArguments: AdditionalArguments = AdditionalArguments()):
-    parser = argparse.ArgumentParser(description='A script to validate an SPDX file against version 1.0 of the OpenChain Telco SBOM Guide.')
+    parser = argparse.ArgumentParser(description='A script to validate an SPDX file against version 1.1 of the OpenChain Telco SBOM Guide.')
     # TODO: This should go in without any parameter.
     parser.add_argument('input',
                         help='The input SPDX file.',
@@ -113,7 +113,7 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
                         ' “checksum-all” (externalrefs are identified by their checksum),'
                         ' “yocto-all” (all externalrefs are investigated) and'
                         ' “yocto-contains-only” (only those files are investigated which are in'
-                        ' CONTAIN relationships). It is possible to register more reference'
+                        ' CONTAINS relationships). It is possible to register more reference'
                         ' logics in library mode')
 
     for argument in additionalArguments:
