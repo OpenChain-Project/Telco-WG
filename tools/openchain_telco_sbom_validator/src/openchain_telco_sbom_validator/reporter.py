@@ -47,7 +47,7 @@ def reportCli(result, problems, nr_of_errors, input):
     else:
         if len(problems.checked_files) == 1:
             print(f"The SPDX file {input} is compliant with the OpenChain Telco SBOM Guide version 1.0")
-        else: 
+        else:
             print(f"All of the SPDX files {problems.get_files_as_string()} are compliant with the OpenChain Telco SBOM Guide version 1.0")
         return 0
 
@@ -55,5 +55,5 @@ def reportVersion():
     try:
         __version__ = version("openchain-telco-sbom-validator")
     except PackageNotFoundError:
-        __version__ = "unknown" 
+        __version__ = "unknown"
     print(f"OpenChain Telco SBOM Validator version {__version__}")

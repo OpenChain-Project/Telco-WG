@@ -25,10 +25,10 @@ def main():
             logger.debug("Debug logging is ON")
         else:
             logLevel = logging.INFO
-        
+
         logging.basicConfig(
             format='%(asctime)s - %(levelname)s - %(message)s',
-            level=logLevel, 
+            level=logLevel,
             handlers=[
                 #logging.FileHandler("log.log"),  # Write logs to a file for debugging reasons
                 logging.StreamHandler()
@@ -37,7 +37,7 @@ def main():
         if args.version:
             reportVersion()
             sys.exit(0)
-        
+
         logger.debug("Start parsing.")
 
         filePath = str(args.input)
@@ -46,7 +46,7 @@ def main():
         reference_logic = args.reference_logic
         if None == args.reference_logic:
             reference_logic = "none"
-        
+
         result, problems = validator.validate(filePath,
                                             args.strict_purl_check,
                                             args.strict_url_check,
@@ -56,7 +56,7 @@ def main():
         sys.exit(exitCode)
     except KeyboardInterrupt:
         print(" Ctrl-C pressed. Terminating...")
-        sys.exit(2) 
+        sys.exit(2)
 
 class Argument:
     def __init__(self, argument, action, help):
@@ -75,13 +75,13 @@ class AdditionalArguments:
         item = Argument(argument, action, help)
         self.items.append(item)
         return self
-    
+
     def __iter__(self):
         return iter(self.items)
-    
+
     def __getitem__(self, index):
         return self.items[index]
-    
+
 def parseArguments(additionalArguments: AdditionalArguments = AdditionalArguments()):
     parser = argparse.ArgumentParser(description='A script to validate an SPDX file against version 1.0 of the OpenChain Telco SBOM Guide.')
     # TODO: This should go in without any parameter.
@@ -89,10 +89,10 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
                         help='The input SPDX file.',
                         nargs="?")
     parser.add_argument('--version', action="store_true",
-                        help='Prints version and exits.', 
+                        help='Prints version and exits.',
                         required=False)
     parser.add_argument('--debug', action="store_true",
-                        help='Prints debug logs.', 
+                        help='Prints debug logs.',
                         required=False)
     parser.add_argument('--nr-of-errors',
                         help='Sets a limit on the number of errors displayed.')

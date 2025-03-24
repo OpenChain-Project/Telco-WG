@@ -1,7 +1,7 @@
 from openchain_telco_sbom_validator import validator
 
 def test_nok_creater_comment_missing():
-    v = validator.Validator()    
+    v = validator.Validator()
     result, problems = v.validate(filePath = "sboms/unittest-sbom-11.spdx")
     assert result == False
     assert len(problems) == 2
@@ -15,7 +15,7 @@ def test_nok_creater_comment_missing():
     assert problems[1].PackageName == "Nosupplier-Nochecksum-libldap-2.4-2"
 
 def test_nok_purls():
-    v = validator.Validator()    
+    v = validator.Validator()
     result, problems = v.validate(filePath = "sboms/unittest-sbom-12.spdx", strict_purl_check=True, strict_url_check=True)
     assert result == False
     assert len(problems) == 4
