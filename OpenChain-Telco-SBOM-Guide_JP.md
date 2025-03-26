@@ -1,4 +1,4 @@
-# OpenChain Telco SBOM Guide Version 1.0
+# OpenChain Telco SBOM Guide Version 1.1
 
 本書は英文を翻訳したものである。この翻訳と英文との間に何らかの相違がある場合は英文が優先されるものとする。
 
