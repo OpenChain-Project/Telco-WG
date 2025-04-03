@@ -1,4 +1,4 @@
-# OpenChain 電信 SBOM 指引 版本 1.1
+# OpenChain 電信 SBOM 指引 版本 1.0
 
 本文是英文的翻譯版本。如果此翻譯與英文原文之間存在任何差異，則以英文原文為準。
 
@@ -82,14 +82,14 @@ OpenChain 指 [OpenChain ISO/IEC 5230:2020](https://www.iso.org/standard/81039.h
 * PackageVersion: “NTIA SBOM 最小元素” 必要項目
 * PackageSupplier: “NTIA SBOM 最小元素” 必要項目
 * PackageDownloadLocation: SPDX 中的強制項目
-* PackageLicenseConcluded: SPDX 2.2 中的強制項目
-* PackageLicenseDeclared: SPDX 2.2 中的強制項目
-* PackageCopyrightText: SPDX 2.2 中的強制項目
+* FilesAnalyzed
+* PackageChecksum: “NTIA SBOM 最小元素” 建議項目
+* PackageLicenseConcluded: SPDX 中的強制項目
+* PackageLicenseDeclared: SPDX 中的強制項目
+* PackageCopyrightText: SPDX 中的強制項目
+* ExternalRef: 填寫軟體套件 URL
 
-建議使用 PackageChecksum 或 PackageVerificationCode 其中一個屬性：
-由 “NTIA SBOM 最小元素” 建議
-
-軟體包應該使用 套件 URL (PURL) 進行識別。若有提供 PURL，則應該填寫於 ExternalRef 欄位，例如：
+軟體包應該使用 套件 URL (PURL) 進行識別，並填寫於 ExternalRef 欄位，例如：
 
 ```
 ExternalRef: PACKAGE-MANAGER purl pkg:pypi/django@1.11.1
@@ -102,13 +102,9 @@ SPDX 元素之間的關係
 NTIA SBOM 最小元素
 
 #### 3.2.2 說明
-考慮到電信行業的調和需求及特定要求，“OpenChain 電信 SBOM 指引” 目的在為行業提供可預期的 SBOM 元素標準。
+考慮到電信行業的調和需求以及可能超越 NTIA 最小元素的特定要求， “OpenChain 電信 SBOM 指引” 目的在為行業提供可預期的 SBOM 元素標準。
 
-“元件雜湊值” 是建議項目，但不是 “NTIA SBOM 最小元素” 的強制要求。在 SPDX 中對應到 PackageChecksum 或者 PackageVerificationCode。大多數 SCA 工具均具有生成雜湊值的功能。
-
-CISA 文件 "軟體元件透明性框架：建立通用的軟體物料清單（SBOM）第三版"
-https://www.cisa.gov/resources-tools/resources/framing-software-component-transparency-2024
-允許同時使用這兩種屬性，詳見第 2.5 節中的表格。
+ “元件雜湊值” 是建議項目，但不是 “NTIA SBOM 最小元素” 的強制要求。在 SPDX 中對應到 PackageChecksum，我們將其設定為強制項目，因為其對唯一識別軟體套件相當重要。大多數 SCA 工具均具有生成雜湊值的功能。
 
 Package URL (PURL) 是唯一識別軟體包的事實標準。
 
@@ -137,7 +133,7 @@ Tag:Value 是最適合人類閱讀的格式，並且可使用各種工具相互�
 (https://tools.spdx.org/app/convert/). JSON 格式 是許多工具所產生的標準格式.
 
 ### 3.4 人類可讀的資料格式
-符合 OpenChain 電信 SBOM 指引的文件，至少應以人類可讀之格式提供 SPDX，其格式須為 Tag:Value 或 JSON 之一。
+符合 OpenChain 電信 SBOM 指引的文件應包括至少以下之一的 SPDX 格式：Tag:Value 或 JSON。
 
 #### 3.4.1 驗證與參考資料
 Tag:Value 和 JSON 格式的描述見以下連結：
@@ -157,8 +153,6 @@ Tag:Value 和 JSON 格式的描述見以下連結：
 符合 OpenChain 電信 SBOM 指引的 SBOM 應該在 CreatorComment 欄位中標示其 SBOM 類型，該類型應依據
 [CISA 定義](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)
 
-建議使用以下語法標示 SBOM 類型：“SBOM Type: xxx”，其中 “xxx” 應為以下六個關鍵字之一：“Design”、“Source”、“Build”、“Analyzed”、“Deployed” 及 “Runtime”。
-
 #### 3.5.1 驗證與參考資料
 SPDX 標準
 
@@ -173,30 +167,15 @@ Creator: Tool: sigs.k8s.io/bom/pkg/spdx
 ```
 或:
 ```
-Creator: Tool: scancode-toolkit 32.3.0
+Creator: Tool: scancode-toolkit 30.1.0
 ```
 以及:
 ```
-Creator: Tool: SCANOSS-PY: 1.18.1
+Creator: Tool: SCANOSS-PY: 1.5.1
 ```
 其中部分工具名稱包含連字符號，且工具名稱與版本並未使用連字符號區分。
 
 因此，本指引不強制要求特定的語法格式。
-
-CreatorComment 是自由文字欄位。我們使用此欄位來儲存 CISA SBOM 類型，因為在 SPDX 2.2 和 2.3 中尚未提供專用欄位，但當然也可存放其他資訊。
-
-我們不強制特定的格式，只要求至少包含下列六個關鍵字之一：“Design”、“Source”、“Build”、“Analyzed”、“Deployed”、“Runtime”，大小寫不限。
-
-因此，以下範例皆有效，並且建議使用第一個範例：
-```
-CreatorComment: SBOM Type: Deployed
-```
-```
-CreatorComment: Analyzed
-```
-```
-CreatorComment: This SBOM was created during build phase.
-```
 
 ### 3.6 SBOM 交付時間
 SBOM 應於軟體交付時（無論是二進位或原始碼形式）或之前交付。
@@ -269,7 +248,7 @@ Sigstore https://www.sigstore.dev/ 是可用的數位簽章方案之一。
 依據本指引的 SBOMs 可由多個 SBOM 文件組成，並透過 SPDX 的關聯定義功能 (Relationship Definition) 來描述其關聯性。
 
 #### 3.12.1 驗證與參考資料
-有許多工具可提供多個 SBOM 文件合併，例如 https://github.com/interlynk-io/sbomasm
+有許多工具可提供多個 SBOM 文件合併，例如 SBOM Composer https://github.com/opensbom-generator/sbom-composer
 
 #### 3.12.2 說明
 對於大型軟體產品而言，將其拆分為多個 SBOM 文件通常比提供單一完整 SBOM 更易於管理。
@@ -286,11 +265,11 @@ SBOM 可以受保密協議 (Confidentiality Agreements) 的約束。
 某些開源軟體授權允許接收方重新散佈軟體。在這些情況下，接收方應該也能夠重新散佈相應的 SBOM 部分。
 
 ## 4. 符合性聲明
-為表明軟體包含符合本指引的 SBOM，可使用以下聲明：“此軟體附有符合 OpenChain 電信 SBOM 指引 v1.1 的 SBOM，該指引可於 [https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md) 取得”
+為表明軟體包含符合本指引的 SBOM，可使用以下聲明：“此軟體附有符合 OpenChain 電信 SBOM 指引 v1.0 的 SBOM，該指引可於 [https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md) 取得”
 
-亦可選擇在符合 OpenChain 電信 SBOM 指引的 SBOM 中使用以下聲明：“此 SBOM 符合 OpenChain 電信 SBOM 指引 v1.1 [https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md)，免費提供給接收方，接收方可自由將此 SBOM 散佈給任何第三方，前提是接收方擁有散佈該軟體至此第三方的一切必要權利。”
+亦可選擇在符合 OpenChain 電信 SBOM 指引的 SBOM 中使用以下聲明：“此 SBOM 符合 OpenChain 電信 SBOM 指引 v1.0 [https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md)，免費提供給接收方，接收方可自由將此 SBOM 散佈給任何第三方，前提是接收方擁有散佈該軟體至此第三方的一切必要權利。”
 
-此外，當向軟體供應商或電信系統供應商提交 RFP、採購訂單或外包開發合約時，可在文件中使用以下聲明：“釋出軟體時，供應方需要提供符合 OpenChain 電信 SBOM 指引 v1.1 的 SBOM。該指引可於 [https:
+此外，當向軟體供應商或電信系統供應商提交 RFP、採購訂單或外包開發合約時，可在文件中使用以下聲明：“釋出軟體時，供應方必須 (REQUIRED) 提供符合 OpenChain 電信 SBOM 指引 v1.0 的 SBOM。該指引可於 [https:
 //github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md) 取得。
 
 ## 5. 參考資料
@@ -306,22 +285,5 @@ SBOM 可以受保密協議 (Confidentiality Agreements) 的約束。
   * https://standards.iso.org/ittf/PubliclyAvailableStandards/c081039_ISO_IEC_5230_2020(E).zip
 * 軟體物料清單 (SBOM) 最小元素 又稱 “NTIA 最小元素”
   * https://www.ntia.doc.gov/report/2021/minimum-elements-software-bill-materials-sbom
-* 軟體元件透明性框架：建立通用的軟體物料清單（SBOM）第三版
-  * https://www.cisa.gov/resources-tools/resources/framing-software-component-transparency-2024
 * 套件 URL (PURL)
   * https://github.com/package-url/purl-spec
-
-## 6. 指引修訂歷史
-
-本指引於 1.1 版進行了以下更新：
-
-* 同時允許使用 PackageChecksum 和 PackageVerificationCode 作為套件雜湊值。
-* 套件雜湊值從強制項目調整為建議。
-* ExternalRef 從強制項目調整為建議。
-* FilesAnalyzed 不再是強制項目。
-* 提供了 CISA SBOM 類型的範例。
-* 提供了 CISA SBOM 類型的建議語法。
-* sbomasm 是一個更適合作為 SBOM 合併工具的範例。
-* 新增對最新 CISA 文件的參考。
-
-符合本指引 1.0 版的 SBOM 文件亦符合 1.1 版的要求，但反之則不成立。
