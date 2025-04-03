@@ -134,7 +134,7 @@ SBOMには3つの主要フォーマットがあります： SPDX、CycloneDX、S
 
 これら3つのフォーマットは、NTIAの文書「The Minimum Elements For a Software Bill of Materials (SBOM)」（参考文献のセクションを参照）で推奨されています。
 
- "OpenChain Telco SBOM Guide" に互換性のあるSBOMのデータフォーマットとしてSPDXを選択した理由は以下の通り:
+ "OpenChain Telco SBOM Guide" に互換性のあるSBOMのデータフォーマットとしてSPDXを選択した理由は以下の通りです:
 * SPDXは、ISO規格であるため
 * SPDXは、CycloneDXと比較してライセンスコンプライアンスのための機能が充実しているため
 * SPDXは、人間が読めるフォーマットであるため（CycloneDXはJSONとXMLしかない）
