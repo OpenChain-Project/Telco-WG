@@ -7,6 +7,7 @@ def test_nok_package_function():
     functions = validator.FunctionRegistry()
     functions.registerPackage(checkPackageHomepage)
     result, problems = v.validate(filePath = "sboms/unittest-sbom-12.spdx", functionRegistry=functions)
+    #print(f"{problems[1].ErrorType}, {problems[1].Reason}, {problems[1].SPDX_ID}, {problems[1].PackageName}")
     assert result == False
     assert len(problems) == 2
 

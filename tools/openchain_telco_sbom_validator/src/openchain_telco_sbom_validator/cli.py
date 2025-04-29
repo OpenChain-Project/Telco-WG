@@ -51,11 +51,13 @@ def main():
             reference_logic = "none"
 
         result, problems = validator.validate(filePath,
-                                            args.strict_purl_check,
-                                            args.strict_url_check,
-                                            referringLogic=reference_logic)
+                                              args.strict_purl_check,
+                                              args.strict_url_check,
+                                              args.strict,
+                                              referringLogic=reference_logic,
+                                              guide_version=args.guide_version)
 
-        exitCode = reportCli(result, problems, args.nr_of_errors, args.input)
+        exitCode = reportCli(result, problems, args.nr_of_errors, args.input, args.guide_version)
         sys.exit(exitCode)
     except KeyboardInterrupt:
         print(" Ctrl-C pressed. Terminating...")
@@ -110,6 +112,8 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
                         ' The default behaviour is to run a non-strict URL check, meaning that'
                         ' it is not checked if the URL points to a valid page. Strict URL check'
                         ' requires access to the internet and takes some time.')
+    parser.add_argument('--strict', action="store_true", default=False,
+                        help='Checks for both MANDATORY and RECOMMENDED fields. Default is False.')
     parser.add_argument('-r', '--recursive', action="store_true",
                         help='Validate recursively. Same as “--reference-logic checksum-all”.')
     parser.add_argument('--reference-logic',
@@ -121,6 +125,9 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
                         ' “yocto-contains-only” (only those files are investigated which are in'
                         ' CONTAINS relationships). It is possible to register more reference'
                         ' logics in library mode')
+    parser.add_argument('--guide-version', default="1.1", choices=['1.0', '1.1'],
+                        help='Defines the version of the OpenChain Telco SBOM guide to use as a basis for the validation'
+                        'Possible valuses are 1.0 and 1.1, defeult value is 1.1')
 
     for argument in additionalArguments:
         logger.debug(f"Adding additional argument {argument}")
@@ -145,9 +152,9 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
     if args.strict_url_check:
         logger.info("Running strict checks for URL, what means that it is tested if the PackageHomePage fields are pointing to real pages.")
 
+    if args.guide_version:
+        logger.info(f"Checking for the {args.guide_version} version of the OpenChain Telco Guide")
     return args
-
-
 
 if __name__ == "__main__":
     main()
