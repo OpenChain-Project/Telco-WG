@@ -28,9 +28,32 @@ function test_no_supplier_no_checksum
     assert_terminated_normally
     assert_exit_fail
     assert_has_output
+    assert_output_contains "The SPDX file test-sbom-01.spdx is not compliant with the OpenChain Telco SBOM Guide"
+}
+
+function test_no_supplier_no_checksum_v10
+{
+    echo "Test: test_no_supplier_no_checksum"
+    run "python3 ../src/openchain_telco_sbom_validator/cli.py --guide-version 1.0 --strict test-sbom-01.spdx"
+    echo "$output"
+    assert_terminated_normally
+    assert_exit_fail
+    assert_has_output
+    assert_output_contains "The SPDX file test-sbom-01.spdx is not compliant with the OpenChain Telco SBOM Guide"
+}
+
+function test_no_supplier_no_checksum_v10_strict
+{
+    echo "Test: test_no_supplier_no_checksum"
+    run "python3 ../src/openchain_telco_sbom_validator/cli.py --guide-version 1.0 --strict test-sbom-01.spdx"
+    echo "$output"
+    assert_terminated_normally
+    assert_exit_fail
+    assert_has_output
     assert_output_contains "libldap-2.4-2 | Checksum field is missing"
     assert_output_contains "The SPDX file test-sbom-01.spdx is not compliant with the OpenChain Telco SBOM Guide"
 }
+
 
 function test_no_name_no_version_no_supplier
 {
@@ -43,10 +66,25 @@ function test_no_name_no_version_no_supplier
     assert_output_contains "Package without a name"
     assert_output_contains "golang.org/x/sync-empty-  | Package without a package"
     assert_output_contains "golang.org/x/sync-        | Package without a package"
+    assert_output_contains "The SPDX file test-sbom-02.spdx is not compliant with the OpenChain Telco SBOM Guide"
+}
+
+function test_no_name_no_version_no_supplier_v10_strict
+{
+    echo "Test: test_no_name_no_version_no_supplier"
+    run "python3 ../src/openchain_telco_sbom_validator/cli.py test-sbom-02.spdx --guide-version 1.0 --strict"
+    echo "$output"
+    assert_terminated_normally
+    assert_exit_fail
+    assert_has_output
+    assert_output_contains "Package without a name"
+    assert_output_contains "golang.org/x/sync-empty-  | Package without a package"
+    assert_output_contains "golang.org/x/sync-        | Package without a package"
     assert_output_contains "golang.org/x/sync-empty-  | Checksum field is missing"
     assert_output_contains "golang.org/x/sync-        | Checksum field is missing"
     assert_output_contains "The SPDX file test-sbom-02.spdx is not compliant with the OpenChain Telco SBOM Guide"
 }
+
 
 
 function test_no_homepage_open_chain_offline
@@ -152,7 +190,7 @@ function test_linked_no
     assert_terminated_normally
     assert_exit_fail
     assert_has_output
-    assert_output_contains "2 | Missing"
+    assert_output_contains "1 | Invalid"
     assert_output_contains "The SPDX file linked-sboms-01/linked-sbom-01.spdx.json is not compliant with the OpenChain Telco SBOM Guide"
 }
 
@@ -164,7 +202,7 @@ function test_linked_none
     assert_terminated_normally
     assert_exit_fail
     assert_has_output
-    assert_output_contains "2 | Missing"
+    assert_output_contains "1 | Invalid"
     assert_output_contains "The SPDX file linked-sboms-01/linked-sbom-01.spdx.json is not compliant with the OpenChain Telco SBOM Guide"
 }
 
@@ -176,7 +214,7 @@ function test_linked_yocto_all
     assert_terminated_normally
     assert_exit_fail
     assert_has_output
-    assert_output_contains "29 | SPDX"
+    assert_output_contains "25 | Invalid"
     assert_output_contains "One or more of the SPDX files linked-sbom-01.spdx.json, alarm.spdx.json, recipe-alarm.spdx.json, runtime-alarm.spdx.json, em-accessories.spdx.json, alignmentpavendors.spdx.json, recipe-alignmentpavendors.spdx.json, runtime-alignmentpavendors.spdx.json, alps.spdx.json, runtime-alps.spdx.json, kernel-5.15.155-r42.spdx.json, runtime-kernel-5.15.155-r42.spdx.json are not compliant with the OpenChain Telco SBOM Guide version 1.1"
 }
 
@@ -188,7 +226,7 @@ function test_linked_yocto-contains-only
     assert_terminated_normally
     assert_exit_fail
     assert_has_output
-    assert_output_contains "10 | Missing"
+    assert_output_contains "1 | Invalid"
     assert_output_contains "One or more of the SPDX files linked-sbom-01.spdx.json, alarm.spdx.json, alignmentpavendors.spdx.json, alps.spdx.json are not compliant with the OpenChain Telco SBOM Guide"
 }
 
@@ -212,8 +250,8 @@ function test_linked_checksum_all
     assert_terminated_normally
     assert_exit_fail
     assert_has_output
-    assert_output_contains "29 | SPDX"
-    assert_output_contains "One or more of the SPDX files linked-sbom-01.spdx.json, alarm.spdx.json, recipe-alarm.spdx.json, runtime-alarm.spdx.json, em-accessories.spdx.json, alignmentpavendors.spdx.json, recipe-alignmentpavendors.spdx.json, runtime-alignmentpavendors.spdx.json, alps.spdx.json, runtime-alps.spdx.json, kernel-5.15.155-r42.spdx.json, runtime-kernel-5.15.155-r42.spdx.json are not compliant with the OpenChain Telco SBOM Guide version 1.0"
+    assert_output_contains "25 | Invalid"
+    assert_output_contains "One or more of the SPDX files linked-sbom-01.spdx.json, alarm.spdx.json, recipe-alarm.spdx.json, runtime-alarm.spdx.json, em-accessories.spdx.json, alignmentpavendors.spdx.json, recipe-alignmentpavendors.spdx.json, runtime-alignmentpavendors.spdx.json, alps.spdx.json, runtime-alps.spdx.json, kernel-5.15.155-r42.spdx.json, runtime-kernel-5.15.155-r42.spdx.json are not compliant with the OpenChain Telco SBOM Guide version 1.1"
 }
 
 

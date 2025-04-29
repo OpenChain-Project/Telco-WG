@@ -154,9 +154,11 @@ class Validator:
                  filePath,
                  strict_purl_check=False,
                  strict_url_check=False,
+                 strict=False,
                  functionRegistry:FunctionRegistry = FunctionRegistry(),
                  problems=None,
-                 referringLogic="none"):
+                 referringLogic="none", 
+                 guide_version = "1.1"):
         """ Validates, Returns a status and a list of problems.
             filePath: Path to the SPDX file to validate.
             strict_purl_check: Not only checks the syntax of the PURL, but also checks if the package can be downloaded.
@@ -262,15 +264,16 @@ class Validator:
             logger.debug(f"CreatorComment: {doc.creation_info.creator_comment}")
             cisaSBOMTypes = ["design", "source", "build", "analyzed", "deployed", "runtime"]
 
-            typeFound = False
-            for cisaSBOMType in cisaSBOMTypes:
-                logger.debug(f"Checking {cisaSBOMType} against {doc.creation_info.creator_comment} ({doc.creation_info.creator_comment.find(cisaSBOMType)})")
-                if -1 != doc.creation_info.creator_comment.lower().find(cisaSBOMType):
-                    logger.debug("Found")
-                    typeFound = True
+            match = re.search(r':\s*(\w+)', doc.creation_info.creator_comment.lower().strip())
+            sbom_type = None
+            if match:
+                sbom_type = match.group(1)
 
-            if not typeFound:
+            if not sbom_type in cisaSBOMTypes:
+                logger.debug(f"CreatorComment ({sbom_type}) is not in the CISA SBOM Type list ({cisaSBOMTypes})")
                 problems.append("Invalid CreationInfo", "General", "General", f"CreatorComment ({doc.creation_info.creator_comment}) is not in the CISA SBOM Type list (https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)", file)
+            else:
+                logger.debug(f"CreatorComment ({doc.creation_info.creator_comment}) is in the CISA SBOM Type list ({cisaSBOMTypes})")
         else:
             problems.append("Missing mandatory field from CreationInfo", "General", "General", f"CreatorComment is missing", file)
 
@@ -305,26 +308,25 @@ class Validator:
                 pass
                 ### This is already detected during the NTIA check.
                 #problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Supplier field is missing")
-            if not package.checksums:
-                problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Checksum field is missing", file)
-            if package.external_references:
-                purlFound = False
-                for ref in package.external_references:
-                    logger.debug(f"cat: {str(ref.category)}, type: {ref.reference_type}, locator: {ref.locator}")
-                    if ref.category == ExternalPackageRefCategory.PACKAGE_MANAGER and ref.reference_type == "purl":
-                        # Based on https://github.com/package-url/packageurl-python
-                        purlFound = True
-                        if strict_purl_check:
-                            url = purl2url.get_repo_url(ref.locator)
-                            if not url:
-                                logger.debug("Purl (" + ref.locator + ") parsing resulted in empty result.")
-                                problems.append("Useless mandatory field from Package", package.spdx_id, package.name, f"purl ({ref.locator}) in the ExternalRef cannot be converted to a downloadable URL", file)
-                            else:
-                                logger.debug(f"Strict PURL check is happy {url}")
-                if not purlFound:
-                    problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "There is no purl type ExternalRef field in the Package", file)
-            else:
-                problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "ExternalRef field is missing", file)
+            if strict:
+                if package.external_references:
+                    purlFound = False
+                    for ref in package.external_references:
+                        logger.debug(f"cat: {str(ref.category)}, type: {ref.reference_type}, locator: {ref.locator}")
+                        if ref.category == ExternalPackageRefCategory.PACKAGE_MANAGER and ref.reference_type == "purl":
+                            # Based on https://github.com/package-url/packageurl-python
+                            purlFound = True
+                            if strict_purl_check:
+                                url = purl2url.get_repo_url(ref.locator)
+                                if not url:
+                                    logger.debug("Purl (" + ref.locator + ") parsing resulted in empty result.")
+                                    problems.append("Useless mandatory field from Package", package.spdx_id, package.name, f"purl ({ref.locator}) in the ExternalRef cannot be converted to a downloadable URL", file)
+                                else:
+                                    logger.debug(f"Strict PURL check is happy {url}")
+                    if not purlFound:
+                        problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "There is no purl type ExternalRef field in the Package", file)
+                else:
+                    problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "ExternalRef field is missing", file)
             if isinstance(package.homepage, type(None)):
                 logger.debug("Package homepage is missing")
             else:
@@ -341,6 +343,16 @@ class Validator:
                         except Exception as err:
                             logger.debug(f"Exception received ({format(err)})")
                             problems.append("Invalid field in Package", package.spdx_id, package.name, f"PackageHomePage field points to a nonexisting page ({package.homepage})", file)
+            # Version specifics
+            match guide_version:
+                case "1.0":
+                    if not package.checksums:
+                        problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Checksum field is missing", file)
+                    if not package.files_analyzed:
+                        problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "FilesAnalyzed field is missing", file)
+                case "1.1":
+                    if strict and (not (package.checksums or package.verification_code)):
+                        problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Both Checksum and PackageVerificationCode fields are missing", file)
             if functionRegistry:
                 logger.debug("Calling registered package functions.")
 

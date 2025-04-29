@@ -25,35 +25,38 @@ if you already have a virtual environment start it with `. .env/bin/activate`.
 ## From command line
 
 ```
-usage: openchain-telco-sbom-validator [options] input
+usage: openchain-telco-sbom-validator [-h] [-v] [--debug] [--nr-of-errors NR_OF_ERRORS] [--strict-purl-check]
+[--strict-url-check] [--strict] [-r] [--reference-logic REFERENCE_LOGIC] [--guide-version {1.0,1.1}] [input]
+
+A script to validate an SPDX file against version 1.1 of the OpenChain Telco SBOM Guide.
 
 positional arguments:
   input                 The input SPDX file.
 
 options:
-  -h, --help            Shows this help message and exits.
-  --version             Prints version and exits.
+  -h, --help            show this help message and exit
+  -v, --version         Prints version and exits.
   --debug               Prints debug logs.
   --nr-of-errors NR_OF_ERRORS
                         Sets a limit on the number of errors displayed.
-  --strict-purl-check   Runs a strict check on the given purls. The default behaviour is to
-                        run a non-strict purl check meaning that it is not checked if the
-                        purl is translating to a downloadable URL.
-  --strict-url-check    Runs a strict check on the URLs of the PackageHomepages. Strict check
-                        means that the validator checks also if the given URL can be accessed.
-                        The default behaviour is to run a non-strict URL check, meaning that
-                        it is not checked if the URL points to a valid page. Strict URL check
+  --strict-purl-check   Runs a strict check on the given purls. The default behaviour is to run a non-strict purl check
+                        meaning that it is not checked if the purl is translating to a downloadable URL.
+  --strict-url-check    Runs a strict check on the URLs of the PackageHomepages. Strict check means that the validator
+                        checks also if the given URL can be accessed. The default behaviour is to run a non-strict URL
+                        check, meaning that it is not checked if the URL points to a valid page. Strict URL check
                         requires access to the internet and takes some time.
- --reference-logic REFERENCE_LOGIC
-                        Defines the logic how the referenced files are accessible. If not
-                        added, the referenced files will not be investigated.
-                        Built-in supported logics are “none” (no linked files are investigated),
-                        “checksum-all” (externalrefs are identified by their checksum),
-                        “yocto-all” (all externalrefs are investigated) and
-                        “yocto-contains-only” (only those files are investigated which are in
-                        CONTAINS relationships). It is possible to register more reference
-                        logics in library mode.
-```
+  --strict              Checks for both MANDATORY and RECOMMENDED fields. Default is False.
+  -r, --recursive       Validate recursively. Same as “--reference-logic checksum-all”.
+  --reference-logic REFERENCE_LOGIC
+                        Defines the logic how the referenced files are accessible. If not added, the referenced files
+                        will not be investigated. Built-in supported logics are “none” (no linked files are
+                        investigated), “checksum-all” (externalrefs are identified by their checksum), “yocto-all”
+                        (all externalrefs are investigated) and “yocto-contains-only” (only those files are investigated
+                        which are in CONTAINS relationships). It is possible to register more reference logics in
+                        library mode
+  --guide-version {1.0,1.1}
+                        Defines the version of the OpenChain Telco SBOM guide to use as a basis for the
+                        validation. Possible valuses are 1.0 and 1.1, defeult value is 1.1
 
 ## As a library
 
