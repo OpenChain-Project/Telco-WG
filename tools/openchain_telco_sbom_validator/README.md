@@ -1,7 +1,12 @@
 # openchain-telco-sbom-validator
 
-A script to validate SBOMs against version 1.1 of
+A script to validate SBOMs against
 the [OpenChain Telco SBOM Guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md).
+
+What is new in version 0.3.0:
+* you can validate recursively SBOMs linked by SPDX Relationships,
+* you can validate against version 1.0 or 1.1 of the Guide (default is 1.1),
+* you can check only MANDATORY fields or MANDATORY and RECOMMENDED fields (default is MANDATORY only).
 
 # Installation
 
@@ -45,7 +50,7 @@ options:
                         checks also if the given URL can be accessed. The default behaviour is to run a non-strict URL
                         check, meaning that it is not checked if the URL points to a valid page. Strict URL check
                         requires access to the internet and takes some time.
-  --strict              Checks for both MANDATORY and RECOMMENDED fields. Default is False.
+  --strict              Checks for both MANDATORY and RECOMMENDED fields. Default is to check MANDATORY fields only.
   -r, --recursive       Validate recursively. Same as “--reference-logic checksum-all”.
   --reference-logic REFERENCE_LOGIC
                         Defines the logic how the referenced files are accessible. If not added, the referenced files
@@ -53,10 +58,10 @@ options:
                         investigated), “checksum-all” (externalrefs are identified by their checksum), “yocto-all”
                         (all externalrefs are investigated) and “yocto-contains-only” (only those files are investigated
                         which are in CONTAINS relationships). It is possible to register more reference logics in
-                        library mode
+                        library mode.
   --guide-version {1.0,1.1}
-                        Defines the version of the OpenChain Telco SBOM guide to use as a basis for the
-                        validation. Possible valuses are 1.0 and 1.1, defeult value is 1.1
+                        Defines the version of the OpenChain Telco SBOM Guide to use as a basis for the
+                        validation. Possible values are 1.0 and 1.1, default value is 1.1.
 
 ## As a library
 

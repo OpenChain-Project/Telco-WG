@@ -113,7 +113,7 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
                         ' it is not checked if the URL points to a valid page. Strict URL check'
                         ' requires access to the internet and takes some time.')
     parser.add_argument('--strict', action="store_true", default=False,
-                        help='Checks for both MANDATORY and RECOMMENDED fields. Default is False.')
+                        help='Checks for both MANDATORY and RECOMMENDED fields. Default is to check MANDATORY fields only.')
     parser.add_argument('-r', '--recursive', action="store_true",
                         help='Validate recursively. Same as “--reference-logic checksum-all”.')
     parser.add_argument('--reference-logic',
@@ -124,10 +124,10 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
                         ' “yocto-all” (all externalrefs are investigated) and'
                         ' “yocto-contains-only” (only those files are investigated which are in'
                         ' CONTAINS relationships). It is possible to register more reference'
-                        ' logics in library mode')
+                        ' logics in library mode.')
     parser.add_argument('--guide-version', default="1.1", choices=['1.0', '1.1'],
-                        help='Defines the version of the OpenChain Telco SBOM guide to use as a basis for the validation.'
-                        ' Possible values are 1.0 and 1.1, default value is 1.1')
+                        help='Defines the version of the OpenChain Telco SBOM Guide to use as a basis for the validation.'
+                        ' Possible values are 1.0 and 1.1, default value is 1.1.')
 
     for argument in additionalArguments:
         logger.debug(f"Adding additional argument {argument}")
