@@ -88,7 +88,8 @@ class AdditionalArguments:
         return self.items[index]
 
 def parseArguments(additionalArguments: AdditionalArguments = AdditionalArguments()):
-    parser = argparse.ArgumentParser(description='A script to validate an SPDX file against version 1.1 of the OpenChain Telco SBOM Guide.')
+    parser = argparse.ArgumentParser(description='A script to validate an SPDX file against the OpenChain Telco SBOM Guide (version 1.0 or 1.1).
+')
     # TODO: This should go in without any parameter.
     parser.add_argument('input',
                         help='The input SPDX file.',

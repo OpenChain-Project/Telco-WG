@@ -157,7 +157,7 @@ class Validator:
                  strict=False,
                  functionRegistry:FunctionRegistry = FunctionRegistry(),
                  problems=None,
-                 referringLogic="none", 
+                 referringLogic="none",
                  guide_version = "1.1"):
         """ Validates, Returns a status and a list of problems.
             filePath: Path to the SPDX file to validate.
