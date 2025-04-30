@@ -88,8 +88,7 @@ class AdditionalArguments:
         return self.items[index]
 
 def parseArguments(additionalArguments: AdditionalArguments = AdditionalArguments()):
-    parser = argparse.ArgumentParser(description='A script to validate an SPDX file against the OpenChain Telco SBOM Guide (version 1.0 or 1.1).
-')
+    parser = argparse.ArgumentParser(description='A script to validate an SPDX file against the OpenChain Telco SBOM Guide (version 1.0 or 1.1).')
     # TODO: This should go in without any parameter.
     parser.add_argument('input',
                         help='The input SPDX file.',
@@ -127,8 +126,8 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
                         ' CONTAINS relationships). It is possible to register more reference'
                         ' logics in library mode')
     parser.add_argument('--guide-version', default="1.1", choices=['1.0', '1.1'],
-                        help='Defines the version of the OpenChain Telco SBOM guide to use as a basis for the validation'
-                        'Possible valuses are 1.0 and 1.1, defeult value is 1.1')
+                        help='Defines the version of the OpenChain Telco SBOM guide to use as a basis for the validation.'
+                        ' Possible values are 1.0 and 1.1, default value is 1.1')
 
     for argument in additionalArguments:
         logger.debug(f"Adding additional argument {argument}")
@@ -142,7 +141,7 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
             sys.exit(2)
         else:
             logger.info("Input file is " + args.input)
-            # TODO: Check if the file exist.
+            # TODO: Check if the file exists.
 
     if args.nr_of_errors:
         if not args.nr_of_errors.isnumeric():
