@@ -28,13 +28,13 @@ if you already have a virtual environment start it with `. .env/bin/activate`.
 usage: openchain-telco-sbom-validator [-h] [-v] [--debug] [--nr-of-errors NR_OF_ERRORS] [--strict-purl-check]
 [--strict-url-check] [--strict] [-r] [--reference-logic REFERENCE_LOGIC] [--guide-version {1.0,1.1}] [input]
 
-A script to validate an SPDX file against version 1.1 of the OpenChain Telco SBOM Guide.
+A script to validate an SPDX file against the OpenChain Telco SBOM Guide (version 1.0 or 1.1).
 
 positional arguments:
   input                 The input SPDX file.
 
 options:
-  -h, --help            show this help message and exit
+  -h, --help            Shows this help message and exits.
   -v, --version         Prints version and exits.
   --debug               Prints debug logs.
   --nr-of-errors NR_OF_ERRORS
