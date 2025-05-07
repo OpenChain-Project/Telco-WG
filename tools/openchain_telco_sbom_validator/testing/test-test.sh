@@ -50,7 +50,7 @@ function test_no_supplier_no_checksum_v10_strict
     assert_terminated_normally
     assert_exit_fail
     assert_has_output
-    assert_output_contains "libldap-2.4-2 | Checksum field is missing"
+    assert_output_contains "libldap-2.4-2 | PackageChecksum field is missing"
     assert_output_contains "The SPDX file test-sbom-01.spdx is not compliant with the OpenChain Telco SBOM Guide"
 }
 
@@ -80,8 +80,8 @@ function test_no_name_no_version_no_supplier_v10_strict
     assert_output_contains "Package without a name"
     assert_output_contains "golang.org/x/sync-empty-  | Package without a package"
     assert_output_contains "golang.org/x/sync-        | Package without a package"
-    assert_output_contains "golang.org/x/sync-empty-  | Checksum field is missing"
-    assert_output_contains "golang.org/x/sync-        | Checksum field is missing"
+    assert_output_contains "golang.org/x/sync-empty-  | PackageChecksum field is missing"
+    assert_output_contains "golang.org/x/sync-        | PackageChecksum field is missing"
     assert_output_contains "The SPDX file test-sbom-02.spdx is not compliant with the OpenChain Telco SBOM Guide"
 }
 
