@@ -57,7 +57,7 @@ def main():
                                               referringLogic=reference_logic,
                                               guide_version=args.guide_version)
 
-        exitCode = reportCli(result, problems, args.nr_of_errors, args.input, args.guide_version)
+        exitCode = reportCli(result, problems, args.nr_of_errors, args.input, args.guide_version, args.strict)
         sys.exit(exitCode)
     except KeyboardInterrupt:
         print(" Ctrl-C pressed. Terminating...")
