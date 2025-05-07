@@ -347,12 +347,12 @@ class Validator:
             match guide_version:
                 case "1.0":
                     if not package.checksums:
-                        problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Checksum field is missing", file)
+                        problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "PackageChecksum field is missing", file)
                     if not package.files_analyzed:
                         problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "FilesAnalyzed field is missing", file)
                 case "1.1":
                     if strict and (not (package.checksums or package.verification_code)):
-                        problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Both Checksum and PackageVerificationCode fields are missing", file)
+                        problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Both PackageChecksum and PackageVerificationCode fields are missing", file)
             if functionRegistry:
                 logger.debug("Calling registered package functions.")
 
