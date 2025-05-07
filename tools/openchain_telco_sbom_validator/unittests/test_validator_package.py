@@ -10,7 +10,7 @@ def test_nok_creater_comment_missing():
     assert problems[0].SPDX_ID == "SPDXRef-Package-deb-libldap-2.4-2-Nosupplier-Nochecksum"
     assert problems[0].PackageName == "Nosupplier-Nochecksum-libldap-2.4-2"
     assert problems[1].ErrorType == "Missing mandatory field from Package"
-    assert problems[1].Reason == "Checksum field is missing"
+    assert problems[1].Reason == "PackageChecksum field is missing"
     assert problems[1].SPDX_ID == "SPDXRef-Package-deb-libldap-2.4-2-Nosupplier-Nochecksum"
     assert problems[1].PackageName == "Nosupplier-Nochecksum-libldap-2.4-2"
 
