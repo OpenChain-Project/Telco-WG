@@ -285,16 +285,23 @@ class Validator:
                 if re.match(".*Organization.*", str(creator)):
                     logger.debug(f"Creator: Organization found ({creator})")
                     organisationCorrect = True
-                # In RECOMMENDED mode, we check there is an hyphen between tool name and version
-                # if re.match(".*Tool.*-.*", str(creator)):
-                if re.match(".*Tool.*", str(creator)):
-                    logger.debug(f"Creator: Tool found with the correct format ({creator})")
-                    toolCorrect = True
+                # In strict mode (RECOMMENDED), we check there is an hyphen between tool name and version
+                # and there is a single hyphen
+                if strict:
+                    if re.match(".*Tool.*-.*", str(creator)) and str(creator).count('-') == 1:
+                        logger.debug(f"Creator: Tool and version found with the correct format ({creator})")
+                        toolCorrect = True
+                else:
+                    if re.match(".*Tool.*", str(creator)):
+                        logger.debug(f"Creator: Tool found with the correct format ({creator})")
+                        toolCorrect = True
             if not organisationCorrect:
                 problems.append("Missing or invalid field in CreationInfo::Creator", "General", "General", "There is no Creator field with Organization keyword in it", file)
             if not toolCorrect:
-                # problems.append("Missing or invalid field in CreationInfo::Creator", "General", "General","There is no Creator field with Tool keyword in it or the field does not contain the tool name and its version separated with a hyphen", file)
-                problems.append("Missing or invalid field in CreationInfo::Creator", "General", "General","There is no Creator field with Tool keyword in it", file)
+                if strict:
+                    problems.append("Missing or invalid field in CreationInfo::Creator", "General", "General","There is no Creator field with Tool keyword in it or the field does not contain the tool name and its version separated with a hyphen", file)
+                else:
+                    problems.append("Missing or invalid field in CreationInfo::Creator", "General", "General","There is no Creator field with Tool keyword in it", file)
         else:
             problems.append("Missing mandatory field from CreationInfo", "General", "General", "Creator is missing", file)
 
