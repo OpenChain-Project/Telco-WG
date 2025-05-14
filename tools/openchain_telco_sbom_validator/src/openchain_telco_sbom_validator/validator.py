@@ -255,7 +255,7 @@ class Validator:
             components = sbomNTIA.get_components_without_suppliers(return_tuples=True)
             self.__ntiaErrorLogNew(components, problems, doc, "Package without a package supplier", file)
             components = sbomNTIA.get_components_without_identifiers()
-            self.__ntiaErrorLog(components, problems, doc, "Package without an identifyer", file)
+            self.__ntiaErrorLog(components, problems, doc, "Package without an identifier", file)
 
         else:
             logger.debug("NTIA validation succesful")
@@ -307,6 +307,22 @@ class Validator:
 
         for package in doc.packages:
             logger.debug(f"Package: {package}")
+
+            # License concluded is mandatory in SPDX 2.2, but not in SPDX 2.3
+            # It is mandatory in OpenChain Telco SBOM Guide
+            if not package.license_concluded:
+                problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "License concluded field is missing")
+
+            # License declared is mandatory in SPDX 2.2, but not in SPDX 2.3
+            # It is mandatory in OpenChain Telco SBOM Guide
+            if not package.license_declared:
+                problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "License declared field is missing")
+
+            # Package copyright text is mandatory in SPDX 2.2, but not in SPDX 2.3
+            # It is mandatory in OpenChain Telco SBOM Guide
+            if not package.copyright_text:
+                problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Copyright text field is missing")
+
             if not package.version:
                 pass
                 ### This is already detected during the NTIA check.
