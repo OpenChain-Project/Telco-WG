@@ -3,6 +3,10 @@
 A script to validate SBOMs against
 the [OpenChain Telco SBOM Guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md).
 
+What is new in version 0.3.1:
+* new option `--noassertion` will list fields that have value NOASSERTION,
+* implement the strict mode for tool name and version (presence of "-").
+
 What is new in version 0.3.0:
 * you can validate recursively SBOMs linked by SPDX Relationships,
 * you can validate against version 1.0 or 1.1 of the Guide (default is 1.1),
@@ -31,7 +35,7 @@ if you already have a virtual environment start it with `. .env/bin/activate`.
 
 ```
 usage: openchain-telco-sbom-validator [-h] [-v] [--debug] [--nr-of-errors NR_OF_ERRORS] [--strict-purl-check]
-[--strict-url-check] [--strict] [-r] [--reference-logic REFERENCE_LOGIC] [--guide-version {1.0,1.1}] [input]
+[--strict-url-check] [--strict] [-r] [--reference-logic REFERENCE_LOGIC] [--guide-version {1.0,1.1}] [--noassertion] [input]
 
 A script to validate an SPDX file against the OpenChain Telco SBOM Guide (version 1.0 or 1.1).
 
@@ -62,6 +66,7 @@ options:
   --guide-version {1.0,1.1}
                         Defines the version of the OpenChain Telco SBOM Guide to use as a basis for the
                         validation. Possible values are 1.0 and 1.1, default value is 1.1.
+  --noassertion         Lists fields with value NOASSERTION.
 
 ## As a library
 
