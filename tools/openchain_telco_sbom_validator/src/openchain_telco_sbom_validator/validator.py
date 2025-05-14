@@ -15,7 +15,7 @@ from spdx_tools.spdx.model.package import Package
 from spdx_tools.spdx.parser import parse_anything
 from spdx_tools.spdx.validation.document_validator import validate_full_spdx_document
 from spdx_tools.spdx.parser.error import SPDXParsingError
-from spdx_tools.spdx.model.package import  ExternalPackageRefCategory
+from spdx_tools.spdx.model.package import ExternalPackageRefCategory
 from spdx_tools.spdx.model.relationship import RelationshipType
 from spdx_tools.spdx.model.checksum import ChecksumAlgorithm
 from spdx_tools.spdx import document_utils
@@ -155,17 +155,20 @@ class Validator:
                  strict_purl_check=False,
                  strict_url_check=False,
                  strict=False,
+                 noassertion=False,
                  functionRegistry:FunctionRegistry = FunctionRegistry(),
                  problems=None,
                  referringLogic="none",
                  guide_version = "1.1"):
-        """ Validates, Returns a status and a list of problems.
-            filePath: Path to the SPDX file to validate.
-            strict_purl_check: Not only checks the syntax of the PURL, but also checks if the package can be downloaded.
-            strict_url_check: Checks if the given URLs in PackageHomepages can be accessed.
+        """ Validates, returns a status and a list of problems.
+            filePath: path to the SPDX file to validate.
+            strict_purl_check: not only checks the syntax of the PURL, but also checks if the package can be downloaded.
+            strict_url_check: checks if the given URLs in PackageHomepages can be accessed.
+            strict: checks for both MANDATORY and RECOMMENDED fields.
+            noassertion: lists fields with value NOASSERTION.
             functionRegistry: is an optionsl functionRegistry class to inject custom checks.
-            problems: is the problem list for linked SBOM handling
-            referringLogic: defines the logic how to determine the location of referred files"""
+            problems: is the problem list for linked SBOM handling.
+            referringLogic: defines the logic how to determine the location of referred files."""
 
         logger.debug("----------------- Validate called ----------------------")
         current_frame = inspect.currentframe()
@@ -312,25 +315,36 @@ class Validator:
             # It is mandatory in OpenChain Telco SBOM Guide
             if not package.license_concluded:
                 problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "License concluded field is missing")
+            elif noassertion and (str(package.license_concluded) == "NOASSERTION"):
+                problems.append("Field with NOASSERTION", package.spdx_id, package.name, "License concluded is NOASSERTION")
 
             # License declared is mandatory in SPDX 2.2, but not in SPDX 2.3
             # It is mandatory in OpenChain Telco SBOM Guide
             if not package.license_declared:
                 problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "License declared field is missing")
+            elif noassertion and (str(package.license_declared) == "NOASSERTION"):
+                problems.append("Field with NOASSERTION", package.spdx_id, package.name, "License declared is NOASSERTION")
 
             # Package copyright text is mandatory in SPDX 2.2, but not in SPDX 2.3
             # It is mandatory in OpenChain Telco SBOM Guide
             if not package.copyright_text:
                 problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Copyright text field is missing")
+            elif noassertion and (str(package.copyright_text) == "NOASSERTION"):
+                problems.append("Field with NOASSERTION", package.spdx_id, package.name, "Copyright text is NOASSERTION")
+
+            if noassertion and (str(package.download_location) == "NOASSERTION"):
+                problems.append("Field with NOASSERTION", package.spdx_id, package.name, "Download location is NOASSERTION")
 
             if not package.version:
                 pass
                 ### This is already detected during the NTIA check.
                 #problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Version field is missing")
+
             if not package.supplier:
                 pass
                 ### This is already detected during the NTIA check.
                 #problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Supplier field is missing")
+
             if strict:
                 if package.external_references:
                     purlFound = False
@@ -406,7 +420,8 @@ class Validator:
                 strict_url_check=strict_url_check,
                 functionRegistry=functionRegistry,
                 problems=problems,
-                referringLogic=referringLogic)
+                referringLogic=referringLogic,
+                noassertion=noassertion)
         if problems:
             return False, problems
         else:
