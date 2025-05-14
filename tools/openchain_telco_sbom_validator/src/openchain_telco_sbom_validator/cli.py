@@ -54,6 +54,7 @@ def main():
                                               args.strict_purl_check,
                                               args.strict_url_check,
                                               args.strict,
+                                              args.noassertion,
                                               referringLogic=reference_logic,
                                               guide_version=args.guide_version)
 
@@ -114,6 +115,8 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
                         ' requires access to the internet and takes some time.')
     parser.add_argument('--strict', action="store_true", default=False,
                         help='Checks for both MANDATORY and RECOMMENDED fields. Default is to check MANDATORY fields only.')
+    parser.add_argument('--noassertion', action="store_true", default=False,
+                        help='List fields with value NOASSERTION')
     parser.add_argument('-r', '--recursive', action="store_true",
                         help='Validate recursively. Same as “--reference-logic checksum-all”.')
     parser.add_argument('--reference-logic',
