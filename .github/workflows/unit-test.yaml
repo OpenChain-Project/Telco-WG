@@ -27,5 +27,5 @@ jobs:
         pip install .
     - name: Run tests with pytest
       run: |
-        cd unittest
+        cd tools/openchain_telco_sbom_validator/unittest
         pytest
