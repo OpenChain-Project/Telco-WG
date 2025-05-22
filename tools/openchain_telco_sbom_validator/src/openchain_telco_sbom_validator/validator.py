@@ -267,8 +267,9 @@ class Validator:
             logger.debug(f"CreatorComment: {doc.creation_info.creator_comment}")
             cisaSBOMTypes = ["design", "source", "build", "analyzed", "deployed", "runtime"]
 
-            match = re.search(r':\s*(\w+)', doc.creation_info.creator_comment.lower().strip())
+            match = re.search(r'sbom type:\s*(\w+)', doc.creation_info.creator_comment.lower().strip())
             sbom_type = None
+            
             if match:
                 sbom_type = match.group(1)
 
