@@ -182,10 +182,10 @@ function test_cli_version
     assert_output_contains "OpenChain Telco SBOM Validator version"
 }
 
-function test_linked_no
+function test_linked_no_strict
 {
     echo "Test: test_linked_none"
-    run "openchain-telco-sbom-validator linked-sboms-01/linked-sbom-01.spdx.json"
+    run "openchain-telco-sbom-validator --strict linked-sboms-01/linked-sbom-01.spdx.json"
     echo "$output"
     assert_terminated_normally
     assert_exit_fail
@@ -194,10 +194,22 @@ function test_linked_no
     assert_output_contains "The SPDX file linked-sboms-01/linked-sbom-01.spdx.json is not compliant with the OpenChain Telco SBOM Guide"
 }
 
+function test_linked_no_non_strict
+{
+    echo "Test: test_linked_none"
+    run "openchain-telco-sbom-validator linked-sboms-01/linked-sbom-01.spdx.json"
+    echo "$output"
+    assert_terminated_normally
+    assert_exit_success
+    assert_has_output
+    assert_output_contains "The SPDX file linked-sboms-01/linked-sbom-01.spdx.json is compliant with the OpenChain Telco SBOM Guide version 1.1"
+}
+
+
 function test_linked_none
 {
     echo "Test: test_linked_none"
-    run "openchain-telco-sbom-validator --reference-logic none linked-sboms-01/linked-sbom-01.spdx.json"
+    run "openchain-telco-sbom-validator --strict --reference-logic none linked-sboms-01/linked-sbom-01.spdx.json"
     echo "$output"
     assert_terminated_normally
     assert_exit_fail
@@ -214,7 +226,7 @@ function test_linked_yocto_all
     assert_terminated_normally
     assert_exit_fail
     assert_has_output
-    assert_output_contains "25 | Invalid"
+    assert_output_contains "18 | Invalid"
     assert_output_contains "One or more of the SPDX files linked-sbom-01.spdx.json, alarm.spdx.json, recipe-alarm.spdx.json, runtime-alarm.spdx.json, em-accessories.spdx.json, alignmentpavendors.spdx.json, recipe-alignmentpavendors.spdx.json, runtime-alignmentpavendors.spdx.json, alps.spdx.json, runtime-alps.spdx.json, kernel-5.15.155-r42.spdx.json, runtime-kernel-5.15.155-r42.spdx.json are not compliant with the OpenChain Telco SBOM Guide version 1.1"
 }
 
@@ -226,7 +238,7 @@ function test_linked_yocto-contains-only
     assert_terminated_normally
     assert_exit_fail
     assert_has_output
-    assert_output_contains "1 | Invalid"
+    assert_output_contains "2 | Invalid"
     assert_output_contains "One or more of the SPDX files linked-sbom-01.spdx.json, alarm.spdx.json, alignmentpavendors.spdx.json, alps.spdx.json are not compliant with the OpenChain Telco SBOM Guide"
 }
 
@@ -250,7 +262,7 @@ function test_linked_checksum_all
     assert_terminated_normally
     assert_exit_fail
     assert_has_output
-    assert_output_contains "25 | Invalid"
+    assert_output_contains "18 | Invalid"
     assert_output_contains "One or more of the SPDX files linked-sbom-01.spdx.json, alarm.spdx.json, recipe-alarm.spdx.json, runtime-alarm.spdx.json, em-accessories.spdx.json, alignmentpavendors.spdx.json, recipe-alignmentpavendors.spdx.json, runtime-alignmentpavendors.spdx.json, alps.spdx.json, runtime-alps.spdx.json, kernel-5.15.155-r42.spdx.json, runtime-kernel-5.15.155-r42.spdx.json are not compliant with the OpenChain Telco SBOM Guide version 1.1"
 }
 
