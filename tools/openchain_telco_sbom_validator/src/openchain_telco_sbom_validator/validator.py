@@ -378,7 +378,7 @@ class Validator:
                     if not purlFound:
                         problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "There is no purl type ExternalRef field in the Package", file)
                 else:
-                    problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "ExternalRef field is missing", file)
+                    problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "ExternalRef field is missing (no Package URL)", file)
             if isinstance(package.homepage, type(None)):
                 logger.debug("Package homepage is missing")
             else:
