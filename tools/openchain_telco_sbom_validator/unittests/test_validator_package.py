@@ -1,11 +1,11 @@
 from openchain_telco_sbom_validator import validator
 
-def test_nok_creator_comment_missing():
+def test_nok_supplier_missing():
     v = validator.Validator()
     result, problems = v.validate(filePath = "sboms/unittest-sbom-11.spdx")
     print(f"{problems[0].ErrorType}, {problems[0].Reason}, {problems[0].SPDX_ID}, {problems[0].PackageName}")
     assert result == False
-    assert len(problems) == 2
+    assert len(problems) == 1
     assert problems[0].ErrorType == "NTIA validation error"
     assert problems[0].Reason == "Package without a package supplier"
     assert problems[0].SPDX_ID == "SPDXRef-Package-deb-libldap-2.4-2-Nosupplier-Nochecksum"

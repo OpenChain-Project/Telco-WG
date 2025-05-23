@@ -40,19 +40,48 @@ def test_nok_creator_comment_incorrect_cisa():
     assert result == False
     assert len(problems) == 1
     assert problems[0].ErrorType == "Invalid CreationInfo"
-    assert problems[0].Reason == "CreatorComment (something-else) is not in the CISA SBOM Type list (https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)"
+    assert problems[0].Reason == "CreatorComment (something-else) does not contain any of the CISA SBOM Types (https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)"
     assert problems[0].SPDX_ID == "General"
     assert problems[0].PackageName == "General"
 
 def test_nok_creator_comment_missing_sbom_type():
     v = validator.Validator()
-    result, problems = v.validate(filePath = "sboms/unittest-sbom-14.spdx")
+    result, problems = v.validate(filePath = "sboms/unittest-sbom-14.spdx", strict=True)
     assert result == False
     assert len(problems) == 1
     assert problems[0].ErrorType == "Invalid CreationInfo"
-    assert problems[0].Reason == "CreatorComment (analyzed) is not in the CISA SBOM Type list (https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)"
+    assert problems[0].Reason == "CreatorComment (analyzed) does not follow the \"SBOM Type: type\" syntax"
     assert problems[0].SPDX_ID == "General"
     assert problems[0].PackageName == "General"
+
+    result, problems = v.validate(filePath = "sboms/unittest-sbom-14.spdx", strict=False)
+    assert result == True
+    assert len(problems) == 0
+
+
+def test_creator_comment_strict_non_strict():
+    v = validator.Validator()
+    result, problems = v.validate(filePath = "sboms/unittest-sbom-11.spdx", strict=True)
+    print(f"{problems[1].ErrorType}, {problems[1].Reason}, {problems[1].SPDX_ID}, {problems[1].PackageName}")
+    assert result == False
+    assert len(problems) == 2
+    assert problems[0].ErrorType == "NTIA validation error"
+    assert problems[0].Reason == "Package without a package supplier"
+    assert problems[0].SPDX_ID == "SPDXRef-Package-deb-libldap-2.4-2-Nosupplier-Nochecksum"
+    assert problems[0].PackageName == "Nosupplier-Nochecksum-libldap-2.4-2"
+
+    assert problems[1].ErrorType == "Invalid CreationInfo"
+    assert problems[1].Reason == "CreatorComment (runtime) does not follow the \"SBOM Type: type\" syntax"
+    assert problems[1].SPDX_ID == "General"
+    assert problems[1].PackageName == "General"
+
+    result, problems = v.validate(filePath = "sboms/unittest-sbom-11.spdx", strict=False)
+    assert result == False
+    assert len(problems) == 1
+    assert problems[0].ErrorType == "NTIA validation error"
+    assert problems[0].Reason == "Package without a package supplier"
+    assert problems[0].SPDX_ID == "SPDXRef-Package-deb-libldap-2.4-2-Nosupplier-Nochecksum"
+    assert problems[0].PackageName == "Nosupplier-Nochecksum-libldap-2.4-2"
 
 
 def test_nok_creator_comment_missing():
