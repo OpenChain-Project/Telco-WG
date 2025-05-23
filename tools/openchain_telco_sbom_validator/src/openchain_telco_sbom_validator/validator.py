@@ -266,18 +266,32 @@ class Validator:
         if doc.creation_info.creator_comment:
             logger.debug(f"CreatorComment: {doc.creation_info.creator_comment}")
             cisaSBOMTypes = ["design", "source", "build", "analyzed", "deployed", "runtime"]
+            creator_comment = doc.creation_info.creator_comment.lower().strip()
+            if strict:
+                logger.debug(f"Strict check is on")
+                match = re.search(r'sbom type:\s*(\w+)', creator_comment)
+                sbom_type = None
+                
+                if match:
+                    sbom_type = match.group(1)
 
-            match = re.search(r'sbom type:\s*(\w+)', doc.creation_info.creator_comment.lower().strip())
-            sbom_type = None
-            
-            if match:
-                sbom_type = match.group(1)
+                    if not sbom_type in cisaSBOMTypes:
+                        logger.debug(f"SBOM Type in CreatorComment ({sbom_type}) is not in the CISA SBOM Type list ({cisaSBOMTypes})")
+                        problems.append("Invalid CreationInfo", "General", "General", f"CreatorComment ({doc.creation_info.creator_comment}) is not in the CISA SBOM Type list (https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)", file)
+                    else:
+                        logger.debug(f"CreatorComment ({doc.creation_info.creator_comment}) is in the CISA SBOM Type list ({cisaSBOMTypes})")
+                else:
+                    logger.debug(f"CreatorComment ({doc.creation_info.creator_comment}) does not follow the \"SBOM Type: type\" syntax")
+                    problems.append("Invalid CreationInfo", "General", "General", f"CreatorComment ({doc.creation_info.creator_comment}) does not follow the \"SBOM Type: type\" syntax", file)
 
-            if not sbom_type in cisaSBOMTypes:
-                logger.debug(f"CreatorComment ({sbom_type}) is not in the CISA SBOM Type list ({cisaSBOMTypes})")
-                problems.append("Invalid CreationInfo", "General", "General", f"CreatorComment ({doc.creation_info.creator_comment}) is not in the CISA SBOM Type list (https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)", file)
             else:
-                logger.debug(f"CreatorComment ({doc.creation_info.creator_comment}) is in the CISA SBOM Type list ({cisaSBOMTypes})")
+                tokens = re.split(r'[ :]+', creator_comment)
+                logger.debug(f"Strict check is off. (CreatorComment words: {tokens})")
+                if not any(sbom_type in tokens for sbom_type in cisaSBOMTypes):
+                    logger.debug(f"CreatorComment ({doc.creation_info.creator_comment}) does not contain any of the CISA SBOM Types ({cisaSBOMTypes})")
+                    problems.append("Invalid CreationInfo", "General", "General", f"CreatorComment ({doc.creation_info.creator_comment}) does not contain any of the CISA SBOM Types (https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)", file)
+                else:
+                    logger.debug(f"CreatorComment ({doc.creation_info.creator_comment}) contains one of the items from the CISA SBOM Type list ({cisaSBOMTypes})")
         else:
             problems.append("Missing mandatory field from CreationInfo", "General", "General", f"CreatorComment is missing", file)
 
