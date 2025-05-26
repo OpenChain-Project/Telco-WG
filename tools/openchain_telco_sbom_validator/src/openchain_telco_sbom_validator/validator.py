@@ -595,7 +595,8 @@ class Validator:
             list_of_referred_sboms, problems = self.referringLogics[referringLogic](self, doc, dir_name, problems)
         else:
             logger.error(f"Referring logic “{referringLogic}” is not in the registered referring logic list {self.getReferringLogicNames()}")
-            sys.exit(1)
+            print(f"Referring logic error. Referring logic “{referringLogic}” is not in the registered referring logic list {self.getReferringLogicNames()}")
+            return False, None
 
         for referred_sbom in list_of_referred_sboms:
             self.validate(
