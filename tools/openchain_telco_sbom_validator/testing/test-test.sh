@@ -266,6 +266,15 @@ function test_linked_checksum_all
     assert_output_contains "One or more of the SPDX files linked-sbom-01.spdx.json, alarm.spdx.json, recipe-alarm.spdx.json, runtime-alarm.spdx.json, em-accessories.spdx.json, alignmentpavendors.spdx.json, recipe-alignmentpavendors.spdx.json, runtime-alignmentpavendors.spdx.json, alps.spdx.json, runtime-alps.spdx.json, kernel-5.15.155-r42.spdx.json, runtime-kernel-5.15.155-r42.spdx.json are not compliant with the OpenChain Telco SBOM Guide version 1.1"
 }
 
-
+function test_nok_linked_incorrect_ref_logic
+{
+    echo "Test: test_nok_linked_incorrect_ref_logic"
+    run "openchain-telco-sbom-validator --reference-logic not-correct linked-sboms-01/linked-sbom-01.spdx.json"
+    echo "$output"
+    assert_terminated_normally
+    assert_exit_fail
+    assert_has_output
+    assert_output_contains "Referring logic “not-correct” is not in the registered referring logic list “none”, “yocto-all”, “yocto-contains-only”, “checksum-all”"
+}
 
 testrunner
