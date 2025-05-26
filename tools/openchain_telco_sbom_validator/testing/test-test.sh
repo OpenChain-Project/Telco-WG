@@ -8,17 +8,8 @@
 source bash_test_tools
 
 # Documentation is here: https://thorsteinssonh.github.io/bash_test_tools/
-
-function setup
-{
-   . ../.env/bin/activate
-   pip3 install -e ../
-}
-
-function teardown
-{
-    deactivate
-}
+. ../.env/bin/activate
+pip3 install -e ../
 
 function test_no_supplier_no_checksum
 {
@@ -129,7 +120,7 @@ function test_invalid_creator_comment
 function test_no_creator_comment
 {
     echo "Test: test_no_creator_comment"
-    run "python3 ../src/openchain_telco_sbom_validator/cli.py --strict-url-check test-sbom-05.spdx"
+    run "python3 ../src/openchain_telco_sbom_validator/cli.py --strict-url-check $DEBUG test-sbom-05.spdx"
     echo "$output"
     assert_terminated_normally
     assert_exit_fail
@@ -266,6 +257,52 @@ function test_linked_checksum_all
     assert_output_contains "One or more of the SPDX files linked-sbom-01.spdx.json, alarm.spdx.json, recipe-alarm.spdx.json, runtime-alarm.spdx.json, em-accessories.spdx.json, alignmentpavendors.spdx.json, recipe-alignmentpavendors.spdx.json, runtime-alignmentpavendors.spdx.json, alps.spdx.json, runtime-alps.spdx.json, kernel-5.15.155-r42.spdx.json, runtime-kernel-5.15.155-r42.spdx.json are not compliant with the OpenChain Telco SBOM Guide version 1.1"
 }
 
+function test_ok_package_homepage_nok_non_strict
+{
+    echo "Test: test_nok_package_homepage_non_strict"
+    run "openchain-telco-sbom-validator test-sbom-08.spdx"
+    echo "$output"
+    assert_terminated_normally
+    assert_exit_success
+    assert_has_output
+    assert_output_contains "The SPDX file test-sbom-08.spdx is compliant with the OpenChain Telco SBOM Guide version 1.1"
+}
+
+function test_nok_package_nok_homepage_strict
+{
+    echo "Test: test_nok_package_homepage_strict"
+    run "openchain-telco-sbom-validator test-sbom-08.spdx --strict-url-check"
+    echo "$output"
+    assert_terminated_normally
+    assert_exit_fail
+    assert_has_output
+    assert_output_contains "points to a nonexisting"
+    assert_output_contains "The SPDX file test-sbom-08.spdx is not compliant with the OpenChain Telco SBOM Guide version 1.1"
+}
+
+function test_ok_purl_nok_non_strict
+{
+    echo "Test: test_ok_purl_nok_non_strict"
+    run "openchain-telco-sbom-validator --strict test-sbom-09.spdx"
+    echo "$output"
+    assert_terminated_normally
+    assert_exit_success
+    assert_has_output
+    assert_output_contains "The SPDX file test-sbom-09.spdx is compliant with the OpenChain Telco SBOM Guide version 1.1 in strict mode (with RECOMMENDED also)"
+}
+
+function test_nok_purl_nok_strict
+{
+    echo "Test: test_nok_purl_nok_strict"
+    run "openchain-telco-sbom-validator test-sbom-09.spdx --strict --strict-purl-check"
+    echo "$output"
+    assert_terminated_normally
+    assert_exit_fail
+    assert_has_output
+    assert_output_contains "Useless"
+    assert_output_contains "The SPDX file test-sbom-09.spdx is not compliant with the OpenChain Telco SBOM Guide version 1.1 in strict mode (with RECOMMENDED also)"
+}
 
 
 testrunner
+deactivate
