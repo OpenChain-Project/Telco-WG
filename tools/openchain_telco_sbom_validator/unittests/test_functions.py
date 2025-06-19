@@ -1,7 +1,7 @@
 from spdx_tools.spdx.model.package import Package
 from spdx_tools.spdx.model.document import Document
 from openchain_telco_sbom_validator import validator
-
+from openchain_telco_sbom_validator.validator import Problem
 def test_nok_package_function():
     v = validator.Validator()
     functions = validator.FunctionRegistry()
@@ -18,7 +18,7 @@ def test_nok_package_function():
 
 def checkPackageHomepage(problems: validator.Problems, package: Package):
     if isinstance(package.homepage, type(None)):
-        problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "PackageHomePage field is missing")
+        problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "PackageHomePage field is missing",Problem.SCOPE_OPEN_CHAIN, Problem.SEVERITY_ERROR)
 
 
 def test_nok_global_function():
@@ -37,4 +37,4 @@ def test_nok_global_function():
 
 def checkSPDXVersion(problems: validator.Problems, doc: Document):
     if doc.creation_info.spdx_version == "SPDX-2.3":
-        problems.append("SPDX Version", "General", "General", f"SPDX Version is SPDX-2.3")
+        problems.append("SPDX Version", "General", "General", f"SPDX Version is SPDX-2.3", Problem.SCOPE_OPEN_CHAIN, Problem.SEVERITY_ERROR)

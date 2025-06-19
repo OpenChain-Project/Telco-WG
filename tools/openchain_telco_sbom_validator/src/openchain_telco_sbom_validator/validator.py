@@ -29,18 +29,26 @@ logger = logging.getLogger(__name__)
 logger.propagate = True
 
 class Problem:
-    def __init__(self, ErrorType, SPDX_ID, PackageName, Reason, file=""):
-        self.ErrorType = ErrorType
+    SCOPE_FILE = "File"
+    SCOPE_SPDX = "SPDX"
+    SCOPE_NTIA = "NTIA"
+    SCOPE_OPEN_CHAIN = "OpenChain"
+    SEVERITY_WARNING = 1
+    SEVERITY_ERROR = 2
+    def __init__(self, error_type, SPDX_ID, package_name, reason, scope, severity, file=""):
+        self.ErrorType = error_type
         self.SPDX_ID = SPDX_ID
-        self.PackageName = PackageName
-        self.Reason = Reason
+        self.PackageName = package_name
+        self.Reason = reason
         self.file = file
+        self.scope = scope
+        self.severity = severity
 
     def __str__(self):
         if self.file:
-            return f"Problem(ErrorType={self.ErrorType}, file={self.file}, SPDX_ID={self.SPDX_ID}, PackageName={self.PackageName}, Reason={self.Reason})"
+            return f"Problem(ErrorType={self.ErrorType}, file={self.file}, SPDX_ID={self.SPDX_ID}, PackageName={self.PackageName}, Reason={self.Reason}, Scope={self.scope}, Severity={self.severity})"
         else:
-            return f"Problem(ErrorType={self.ErrorType}, SPDX_ID={self.SPDX_ID}, PackageName={self.PackageName}, Reason={self.Reason})"
+            return f"Problem(ErrorType={self.ErrorType}, SPDX_ID={self.SPDX_ID}, PackageName={self.PackageName}, Reason={self.Reason}, Scope={self.scope}, Severity={self.severity})"
 
     def __repr__(self):
         return self.__str__(self)
@@ -54,8 +62,8 @@ class Problems:
     def add(self, item: Problem):
         self.items.append(item)
 
-    def append(self, ErrorType, SPDX_ID, PackageName, Reason, file=""):
-        item = Problem(ErrorType, SPDX_ID, PackageName, Reason, file)
+    def append(self, error_type, SPDX_ID, package_name, reason, scope, severity, file=""):
+        item = Problem(error_type, SPDX_ID, package_name, reason, scope, severity, file)
         self.add(item)
 
     def get_files_as_string(self):
@@ -67,6 +75,12 @@ class Problems:
 
     def do_print_file(self):
         self.print_file = True
+
+    def get_sorted_by_scope(self):
+        return iter(sorted(self.items, key=lambda problem: problem.scope))
+    
+    def count_errors(self):
+        return sum(1 for problem in self.items if problem.severity == Problem.SEVERITY_ERROR)
 
     def __iter__(self):
         return iter(self.items)
@@ -195,12 +209,24 @@ class Validator:
 
         if filePath == "":
             logger.error(f"File path is a mandatory parameter.")
-            problems.append("File error", "General", "General", f"File path is empty", filePath)
+            problems.append("File error",
+                            "General",
+                            "General",
+                            f"File path is empty",
+                            Problem.SCOPE_FILE,
+                            Problem.SEVERITY_ERROR,
+                            filePath)
             return False, problems
 
         if not os.path.isfile(filePath):
             logger.error(f"File does not exist {filePath}")
-            problems.append("File error", "General", "General", f"File does not exist ({filePath})", filePath)
+            problems.append("File error",
+                            "General",
+                            "General",
+                            f"File does not exist ({filePath})",
+                            Problem.SCOPE_FILE,
+                            Problem.SEVERITY_ERROR,
+                            filePath)
             return False, problems
 
         file = os.path.basename(filePath)
@@ -214,14 +240,26 @@ class Validator:
         except json.decoder.JSONDecodeError as e:
             logger.error(f"JSON syntax error at line {e.lineno} column {e.colno}")
             logger.error(e.msg)
-            problems.append("File error", "General", "General", f"JSON syntax error at line {e.lineno} column {e.colno}", file)
+            problems.append("File error",
+                            "General",
+                            "General",
+                            f"JSON syntax error at line {e.lineno} column {e.colno}",
+                            Problem.SCOPE_FILE,
+                            Problem.SEVERITY_ERROR,
+                            file)
             return False, problems
         except SPDXParsingError as e:
             logger.error(f"ERROR! The file ({filePath}) is not an SPDX file")
             all_messages = ""
             for message in e.messages:
                 logger.error(message)
-            problems.append("File error", "", "", "The file is not an SPDX file", file)
+            problems.append("File error",
+                            "",
+                            "",
+                            "The file is not an SPDX file",
+                            Problem.SCOPE_FILE,
+                            Problem.SEVERITY_ERROR,
+                            file)
             return False, problems
 
         logger.debug("Start validating.")
@@ -239,7 +277,13 @@ class Validator:
                     if hasattr(error.context.full_element, 'name'):
                         name = error.context.full_element.name
 
-                problems.append("SPDX validation error", f"{spdxId}", f"{name}", f"{error.validation_message}", file)
+                problems.append("SPDX validation error",
+                                f"{spdxId}",
+                                f"{name}",
+                                f"{error.validation_message}",
+                                Problem.SCOPE_SPDX,
+                                Problem.SEVERITY_ERROR,
+                                file)
 
         # Checking against NTIA minimum requirements
         # No need for SPDX validation as it is done previously.
@@ -250,9 +294,6 @@ class Validator:
             components = sbomNTIA.get_components_without_names()
             #logger.debug(f"components: {components}, problems: {str(problems)}, doc: {doc}")
             self.__ntiaErrorLog(components, problems, doc, "Package without a name", file)
-
-            #self.ntiaErrorLog(components, problems, doc, "Package without a name")
-            #self.ntiaErrorLogNew(components, problems, doc, "Package without a version")
             components = sbomNTIA.get_components_without_versions(return_tuples=True)
             self.__ntiaErrorLogNew(components, problems, doc, "Package without a version", file)
             components = sbomNTIA.get_components_without_suppliers(return_tuples=True)
@@ -277,23 +318,46 @@ class Validator:
 
                     if not sbom_type in cisaSBOMTypes:
                         logger.debug(f"SBOM Type in CreatorComment ({sbom_type}) is not in the CISA SBOM Type list ({cisaSBOMTypes})")
-                        problems.append("Invalid CreationInfo", "General", "General", f"CreatorComment ({doc.creation_info.creator_comment}) is not in the CISA SBOM Type list (https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)", file)
+                        problems.append("Invalid CreationInfo",
+                                        "General",
+                                        "General",
+                                        f"CreatorComment ({doc.creation_info.creator_comment}) is not in the CISA SBOM Type list (https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)",
+                                        Problem.SCOPE_OPEN_CHAIN,
+                                        Problem.SEVERITY_ERROR,
+                                        file)
                     else:
                         logger.debug(f"CreatorComment ({doc.creation_info.creator_comment}) is in the CISA SBOM Type list ({cisaSBOMTypes})")
                 else:
                     logger.debug(f"CreatorComment ({doc.creation_info.creator_comment}) does not follow the \"SBOM Type: type\" syntax")
-                    problems.append("Invalid CreationInfo", "General", "General", f"CreatorComment ({doc.creation_info.creator_comment}) does not follow the \"SBOM Type: type\" syntax", file)
+                    problems.append("Invalid CreationInfo",
+                                    "General",
+                                    "General",
+                                    f"CreatorComment ({doc.creation_info.creator_comment}) does not follow the \"SBOM Type: type\" syntax",
+                                    Problem.SCOPE_OPEN_CHAIN,
+                                    Problem.SEVERITY_ERROR,
+                                    file)
 
             else:
                 tokens = re.split(r'[ :]+', creator_comment)
                 logger.debug(f"Strict check is off. (CreatorComment words: {tokens})")
                 if not any(sbom_type in tokens for sbom_type in cisaSBOMTypes):
                     logger.debug(f"CreatorComment ({doc.creation_info.creator_comment}) does not contain any of the CISA SBOM Types ({cisaSBOMTypes})")
-                    problems.append("Invalid CreationInfo", "General", "General", f"CreatorComment ({doc.creation_info.creator_comment}) does not contain any of the CISA SBOM Types (https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)", file)
+                    problems.append("Invalid CreationInfo",
+                                    "General",
+                                    "General",
+                                    f"CreatorComment ({doc.creation_info.creator_comment}) does not contain any of the CISA SBOM Types (https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)",
+                                    Problem.SCOPE_OPEN_CHAIN,
+                                    Problem.SEVERITY_ERROR, file)
                 else:
                     logger.debug(f"CreatorComment ({doc.creation_info.creator_comment}) contains one of the items from the CISA SBOM Type list ({cisaSBOMTypes})")
         else:
-            problems.append("Missing mandatory field from CreationInfo", "General", "General", f"CreatorComment is missing", file)
+            problems.append("Missing mandatory field from CreationInfo",
+                            "General",
+                            "General",
+                            f"CreatorComment is missing",
+                            Problem.SCOPE_OPEN_CHAIN,
+                            Problem.SEVERITY_ERROR,
+                            file)
 
         if doc.creation_info.creators:
             organisationCorrect = False
@@ -314,14 +378,37 @@ class Validator:
                         logger.debug(f"Creator: Tool found with the correct format ({creator})")
                         toolCorrect = True
             if not organisationCorrect:
-                problems.append("Missing or invalid field in CreationInfo::Creator", "General", "General", "There is no Creator field with Organization keyword in it", file)
+                problems.append("Missing or invalid field in CreationInfo::Creator",
+                                "General",
+                                "General",
+                                "There is no Creator field with Organization keyword in it",
+                                Problem.SCOPE_OPEN_CHAIN,
+                                Problem.SEVERITY_ERROR, file)
             if not toolCorrect:
                 if strict:
-                    problems.append("Missing or invalid field in CreationInfo::Creator", "General", "General","There is no Creator field with Tool keyword in it or the field does not contain the tool name and its version separated with a hyphen", file)
+                    problems.append("Missing or invalid field in CreationInfo::Creator",
+                                    "General",
+                                    "General",
+                                    "There is no Creator field with Tool keyword in it or the field does not contain the tool name and its version separated with a hyphen",
+                                    Problem.SCOPE_OPEN_CHAIN,
+                                    Problem.SEVERITY_ERROR,
+                                    file)
                 else:
-                    problems.append("Missing or invalid field in CreationInfo::Creator", "General", "General","There is no Creator field with Tool keyword in it", file)
+                    problems.append("Missing or invalid field in CreationInfo::Creator",
+                                    "General",
+                                    "General",
+                                    "There is no Creator field with Tool keyword in it",
+                                    Problem.SCOPE_OPEN_CHAIN,
+                                    Problem.SEVERITY_ERROR,
+                                    file)
         else:
-            problems.append("Missing mandatory field from CreationInfo", "General", "General", "Creator is missing", file)
+            problems.append("Missing mandatory field from CreationInfo",
+                            "General",
+                            "General",
+                            "Creator is missing",
+                            Problem.SCOPE_OPEN_CHAIN,
+                            Problem.SEVERITY_ERROR,
+                            file)
 
         for package in doc.packages:
             logger.debug(f"Package: {package}")
@@ -329,26 +416,67 @@ class Validator:
             # License concluded is mandatory in SPDX 2.2, but not in SPDX 2.3
             # It is mandatory in OpenChain Telco SBOM Guide
             if not package.license_concluded:
-                problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "License concluded field is missing")
+                problems.append("Missing mandatory field from Package",
+                                package.spdx_id,
+                                package.name,
+                                "License concluded field is missing",
+                                Problem.SCOPE_OPEN_CHAIN,
+                                Problem.SEVERITY_ERROR,
+                                file)
             elif noassertion and (str(package.license_concluded) == "NOASSERTION"):
-                problems.append("Field with NOASSERTION", package.spdx_id, package.name, "License concluded is NOASSERTION")
+                problems.append("Field with NOASSERTION",
+                                package.spdx_id,
+                                package.name,
+                                "License concluded is NOASSERTION",
+                                Problem.SCOPE_OPEN_CHAIN,
+                                Problem.SEVERITY_ERROR, file)
 
             # License declared is mandatory in SPDX 2.2, but not in SPDX 2.3
             # It is mandatory in OpenChain Telco SBOM Guide
             if not package.license_declared:
-                problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "License declared field is missing")
+                problems.append("Missing mandatory field from Package",
+                                package.spdx_id,
+                                package.name,
+                                "License declared field is missing",
+                                Problem.SCOPE_OPEN_CHAIN,
+                                Problem.SEVERITY_ERROR,
+                                file)
             elif noassertion and (str(package.license_declared) == "NOASSERTION"):
-                problems.append("Field with NOASSERTION", package.spdx_id, package.name, "License declared is NOASSERTION")
+                problems.append("Field with NOASSERTION",
+                                package.spdx_id,
+                                package.name,
+                                "License declared is NOASSERTION",
+                                Problem.SCOPE_OPEN_CHAIN,
+                                Problem.SEVERITY_ERROR,
+                                file)
 
             # Package copyright text is mandatory in SPDX 2.2, but not in SPDX 2.3
             # It is mandatory in OpenChain Telco SBOM Guide
             if not package.copyright_text:
-                problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Copyright text field is missing")
+                problems.append("Missing mandatory field from Package",
+                                package.spdx_id,
+                                package.name,
+                                "Copyright text field is missing",
+                                Problem.SCOPE_OPEN_CHAIN,
+                                Problem.SEVERITY_ERROR,
+                                file)
             elif noassertion and (str(package.copyright_text) == "NOASSERTION"):
-                problems.append("Field with NOASSERTION", package.spdx_id, package.name, "Copyright text is NOASSERTION")
+                problems.append("Field with NOASSERTION",
+                                package.spdx_id,
+                                package.name,
+                                "Copyright text is NOASSERTION",
+                                Problem.SCOPE_OPEN_CHAIN,
+                                Problem.SEVERITY_ERROR,
+                                file)
 
             if noassertion and (str(package.download_location) == "NOASSERTION"):
-                problems.append("Field with NOASSERTION", package.spdx_id, package.name, "Download location is NOASSERTION")
+                problems.append("Field with NOASSERTION",
+                                package.spdx_id,
+                                package.name,
+                                "Download location is NOASSERTION",
+                                Problem.SCOPE_OPEN_CHAIN,
+                                Problem.SEVERITY_ERROR,
+                                file)
 
             if not package.version:
                 pass
@@ -372,13 +500,30 @@ class Validator:
                                 url = purl2url.get_repo_url(ref.locator)
                                 if not url:
                                     logger.debug("Purl (" + ref.locator + ") parsing resulted in empty result.")
-                                    problems.append("Useless mandatory field from Package", package.spdx_id, package.name, f"purl ({ref.locator}) in the ExternalRef cannot be converted to a downloadable URL", file)
+                                    problems.append("Useless mandatory field from Package",
+                                                    package.spdx_id,
+                                                    package.name,
+                                                    f"purl ({ref.locator}) in the ExternalRef cannot be converted to a downloadable URL",
+                                                    Problem.SCOPE_OPEN_CHAIN,
+                                                    Problem.SEVERITY_ERROR,
+                                                    file)
                                 else:
                                     logger.debug(f"Strict PURL check is happy {url}")
                     if not purlFound:
-                        problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "There is no purl type ExternalRef field in the Package", file)
+                        problems.append("Missing mandatory field from Package",
+                                        package.spdx_id,
+                                        package.name,
+                                        "There is no purl type ExternalRef field in the Package",
+                                        Problem.SCOPE_OPEN_CHAIN,
+                                        Problem.SEVERITY_ERROR,
+                                        file)
                 else:
-                    problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "ExternalRef field is missing (no Package URL)", file)
+                    problems.append("Missing mandatory field from Package",
+                                    package.spdx_id,
+                                    package.name,
+                                    "ExternalRef field is missing (no Package URL)",
+                                    Problem.SCOPE_OPEN_CHAIN,
+                                    Problem.SEVERITY_ERROR, file)
             if isinstance(package.homepage, type(None)):
                 logger.debug("Package homepage is missing")
             else:
@@ -394,17 +539,41 @@ class Validator:
                             page = requests.get(package.homepage)
                         except Exception as err:
                             logger.debug(f"Exception received ({format(err)})")
-                            problems.append("Invalid field in Package", package.spdx_id, package.name, f"PackageHomePage field points to a nonexisting page ({package.homepage})", file)
+                            problems.append("Invalid field in Package",
+                                            package.spdx_id,
+                                            package.name,
+                                            f"PackageHomePage field points to a nonexisting page ({package.homepage})",
+                                            Problem.SCOPE_OPEN_CHAIN,
+                                            Problem.SEVERITY_ERROR,
+                                            file)
             # Version specifics
             match guide_version:
                 case "1.0":
                     if not package.checksums:
-                        problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "PackageChecksum field is missing", file)
+                        problems.append("Missing mandatory field from Package",
+                                        package.spdx_id,
+                                        package.name,
+                                        "PackageChecksum field is missing",
+                                        Problem.SCOPE_OPEN_CHAIN,
+                                        Problem.SEVERITY_ERROR,
+                                        file)
                     if not package.files_analyzed:
-                        problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "FilesAnalyzed field is missing", file)
+                        problems.append("Missing mandatory field from Package",
+                                        package.spdx_id,
+                                        package.name,
+                                        "FilesAnalyzed field is missing",
+                                        Problem.SCOPE_OPEN_CHAIN,
+                                        Problem.SEVERITY_ERROR,
+                                        file)
                 case "1.1":
                     if strict and (not (package.checksums or package.verification_code)):
-                        problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Both PackageChecksum and PackageVerificationCode fields are missing", file)
+                        problems.append("Missing mandatory field from Package",
+                                        package.spdx_id,
+                                        package.name,
+                                        "Both PackageChecksum and PackageVerificationCode fields are missing",
+                                        Problem.SCOPE_OPEN_CHAIN,
+                                        Problem.SEVERITY_ERROR,
+                                        file)
             if functionRegistry:
                 logger.debug("Calling registered package functions.")
 
@@ -449,23 +618,53 @@ class Validator:
             spdxPackage = document_utils.get_element_from_spdx_id(doc, component)
             logger.debug(f"SPDX element: {spdxPackage}")
             if spdxPackage:
-                problems.append("NTIA validation error", spdxPackage.spdx_id, spdxPackage.name, problemText, file)
+                problems.append("NTIA validation error",
+                                spdxPackage.spdx_id,
+                                spdxPackage.name,
+                                problemText,
+                                Problem.SCOPE_NTIA,
+                                Problem.SEVERITY_ERROR,
+                                file)
             else:
-                problems.append("NTIA validation error", "Cannot be provided", component, problemText, file)
+                problems.append("NTIA validation error",
+                                "Cannot be provided",
+                                component,
+                                problemText,
+                                Problem.SCOPE_NTIA,
+                                Problem.SEVERITY_ERROR,
+                                file)
 
     def __ntiaErrorLogNew(self, components, problems, doc, problemText, file):
         logger.debug(f"# of components: {len(components)}")
         for component in components:
             logger.debug(f"Erroneous component: {component}")
             if len(component) > 1:
-                problems.append("NTIA validation error", component[1], component[0], problemText, file)
+                problems.append("NTIA validation error",
+                                component[1],
+                                component[0],
+                                problemText,
+                                Problem.SCOPE_NTIA,
+                                Problem.SEVERITY_ERROR,
+                                file)
             else:
                 spdxPackage = document_utils.get_element_from_spdx_id(doc, component)
                 logger.debug(f"SPDX element: {spdxPackage}")
                 if spdxPackage:
-                    problems.append("NTIA validation error", spdxPackage.spdx_id, spdxPackage.name, problemText, file)
+                    problems.append("NTIA validation error",
+                                    spdxPackage.spdx_id,
+                                    spdxPackage.name,
+                                    problemText,
+                                    Problem.SCOPE_NTIA,
+                                    Problem.SEVERITY_ERROR,
+                                    file)
                 else:
-                    problems.append("NTIA validation error", "Cannot be provided", component, problemText, file)
+                    problems.append("NTIA validation error",
+                                    "Cannot be provided",
+                                    component,
+                                    problemText,
+                                    Problem.SCOPE_NTIA,
+                                    Problem.SEVERITY_ERROR,
+                                    file)
 
 def referred_yocto_all(self, doc: Document, dir_name: str, problems: Problems):
     logger.debug("In Yocto all")
@@ -605,7 +804,13 @@ def referred_checksum_all(self, doc: Document, dir_name: str, problems: Problems
                     documents.append(self.referringLogicStore[algorithm][checksum])
                 else:
                     logger.error(f"Checksum not found in Logic Store {algorithm}, {checksum}, Document Ref: {checksums[algorithm][checksum]}")
-                    problems.append("File error", "General", "General", f"Non existing file referenced (Checksum: {algorithm}, {checksum}, Document Ref: {checksums[algorithm][checksum]})", "")
+                    problems.append("File error",
+                                    "General",
+                                    "General",
+                                    f"Non existing file referenced (Checksum: {algorithm}, {checksum}, Document Ref: {checksums[algorithm][checksum]})",
+                                    Problem.SCOPE_FILE,
+                                    Problem.SEVERITY_ERROR,
+                                    "")
             else:
                 logger.error(f"Algorithm not found in Logic Store {algorithm}, {checksum}")
 

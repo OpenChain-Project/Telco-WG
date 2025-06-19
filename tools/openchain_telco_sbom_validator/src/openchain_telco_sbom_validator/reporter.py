@@ -22,7 +22,7 @@ def reportCli(result, problems, nr_of_errors, input, guide_version, strict):
         width = shutil.get_terminal_size().columns
 
         if problems.print_file:
-            resultTable.field_names = ["#", "Error type", "File", "SPDX ID", "Package name", "Reason"]
+            resultTable.field_names = ["#", "Error type (Scope)", "File", "SPDX ID", "Package name", "Reason"]
             resultTable._max_width = {"#": 5,
                                         "Error type": int((width - 4)/6),
                                         "File:": int((width - 4)/6),
@@ -30,7 +30,7 @@ def reportCli(result, problems, nr_of_errors, input, guide_version, strict):
                                         "Package name": int((width - 4)/3),
                                         "Reason": int((width - 4)/3)}
         else:
-            resultTable.field_names = ["#", "Error type", "SPDX ID", "Package name", "Reason"]
+            resultTable.field_names = ["#", "Error type (Scope)", "SPDX ID", "Package name", "Reason"]
             resultTable._max_width = {"#": 4,
                                         "Error type": int((width - 4)/6),
                                         "SPDX ID": int((width - 4)/6),
@@ -41,9 +41,9 @@ def reportCli(result, problems, nr_of_errors, input, guide_version, strict):
         for problem in problems:
             i = i + 1
             if problems.print_file:
-                resultTable.add_row([i, problem.ErrorType, problem.file, problem.SPDX_ID, problem.PackageName, problem.Reason], divider=True)
+                resultTable.add_row([i, f"{problem.ErrorType} ({problem.scope})", problem.file, problem.SPDX_ID, problem.PackageName, problem.Reason], divider=True)
             else:
-                resultTable.add_row([i, problem.ErrorType, problem.SPDX_ID, problem.PackageName, problem.Reason], divider=True)
+                resultTable.add_row([i, f"{problem.ErrorType} ({problem.scope})", problem.SPDX_ID, problem.PackageName, problem.Reason], divider=True)
 
         print(resultTable)
         if len(problems.checked_files) == 1:
