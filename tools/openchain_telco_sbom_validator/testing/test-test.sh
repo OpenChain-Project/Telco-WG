@@ -311,5 +311,17 @@ function test_nok_purl_nok_strict
 }
 
 
+function test_ok_noassert
+{
+    echo "Test: test_ok_noassert"
+    run "openchain-telco-sbom-validator --noassertion test-sbom-10.spdx.json"
+    echo "$output"
+    assert_terminated_normally
+    assert_exit_success
+    assert_has_output
+    assert_output_contains "The SPDX file test-sbom-10.spdx.json is compliant with the OpenChain Telco SBOM Guide version 1.1"
+    assert_output_contains "NOASSERTION"
+}
+
 testrunner
 deactivate

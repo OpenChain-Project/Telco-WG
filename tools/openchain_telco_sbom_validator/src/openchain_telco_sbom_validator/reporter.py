@@ -5,47 +5,36 @@
 # Licensed under the Apache License 2.0
 # SPDX-License-Identifier: Apache-2.0
 
+import logging
 from prettytable import PrettyTable
 import shutil
 from importlib.metadata import version, PackageNotFoundError
 
-def reportCli(result, problems, nr_of_errors, input, guide_version, strict):
-    if not result:
-        if problems:
-            if nr_of_errors:
-                problems = problems[0:int(nr_of_errors)]
+logger = logging.getLogger(__name__)
+logger.propagate = True
 
-        resultTable = PrettyTable(align = "l")
-        resultTable.padding_width = 1
+def reportCli(result, problems, nr_of_errors, input, guide_version, strict, noassertion):
+    if len(problems):
+        
+        errors = problems.get_errors()
+        warnings = problems.get_warnings()
+        if nr_of_errors:
+            errors = errors[0:int(nr_of_errors)]
+            warnings = warnings[0:int(nr_of_errors)]
+        logger.debug(f"Problems: {problems}, Errors {errors}, Warnings {warnings}")
 
-        # TODO: now Error type and SPDX ID uses more space than Package name and Reason, this should be vice versa
-        width = shutil.get_terminal_size().columns
+        if len(errors):
+            printTable(errors, problems.print_file)
 
-        if problems.print_file:
-            resultTable.field_names = ["#", "Error type (Scope)", "File", "SPDX ID", "Package name", "Reason"]
-            resultTable._max_width = {"#": 5,
-                                        "Error type": int((width - 4)/6),
-                                        "File:": int((width - 4)/6),
-                                        "SPDX ID": int((width - 4)/6),
-                                        "Package name": int((width - 4)/3),
-                                        "Reason": int((width - 4)/3)}
-        else:
-            resultTable.field_names = ["#", "Error type (Scope)", "SPDX ID", "Package name", "Reason"]
-            resultTable._max_width = {"#": 4,
-                                        "Error type": int((width - 4)/6),
-                                        "SPDX ID": int((width - 4)/6),
-                                        "Package name": int((width - 4)/3),
-                                        "Reason": int((width - 4)/3)}
+        if noassertion:
 
-        i = 0
-        for problem in problems:
-            i = i + 1
-            if problems.print_file:
-                resultTable.add_row([i, f"{problem.ErrorType} ({problem.scope})", problem.file, problem.SPDX_ID, problem.PackageName, problem.Reason], divider=True)
+            if len(warnings):
+                print("Fields with NOASSERTION:")
+                printTable(warnings, problems.print_file)
             else:
-                resultTable.add_row([i, f"{problem.ErrorType} ({problem.scope})", problem.SPDX_ID, problem.PackageName, problem.Reason], divider=True)
+                print("There are no fields with NOASSERTION.")
 
-        print(resultTable)
+    if not result:
         if len(problems.checked_files) == 1:
             if strict:
                 print(f"The SPDX file {input} is not compliant with the OpenChain Telco SBOM Guide version {guide_version} in strict mode (with RECOMMENDED also)")
@@ -69,6 +58,36 @@ def reportCli(result, problems, nr_of_errors, input, guide_version, strict):
             else:
                 print(f"All of the SPDX files {problems.get_files_as_string()} are compliant with the OpenChain Telco SBOM Guide version {guide_version}")
         return 0
+
+def printTable(problems, print_file):
+    # TODO: now Error type and SPDX ID uses more space than Package name and Reason, this should be vice versa
+    width = shutil.get_terminal_size().columns
+    table = PrettyTable(align = "l")
+    table.padding_width = 1
+
+    if print_file:
+        table.field_names = ["#", "Error type (Scope)", "File", "SPDX ID", "Package name", "Reason"]
+        table._max_width = {"#": 5,
+                                    "Error type": int((width - 4)/6),
+                                    "File:": int((width - 4)/6),
+                                    "SPDX ID": int((width - 4)/6),
+                                    "Package name": int((width - 4)/3),
+                                    "Reason": int((width - 4)/3)}
+    else:
+        table.field_names = ["#", "Error type (Scope)", "SPDX ID", "Package name", "Reason"]
+        table._max_width = {"#": 4,
+                                    "Error type": int((width - 4)/6),
+                                    "SPDX ID": int((width - 4)/6),
+                                    "Package name": int((width - 4)/3),
+                                    "Reason": int((width - 4)/3)}
+    i = 0
+    for problem in problems:
+        i = i + 1
+        if print_file:
+            table.add_row([i, f"{problem.ErrorType} ({problem.scope})", problem.file, problem.SPDX_ID, problem.PackageName, problem.Reason], divider=True)
+        else:
+            table.add_row([i, f"{problem.ErrorType} ({problem.scope})", problem.SPDX_ID, problem.PackageName, problem.Reason], divider=True)
+    print(table)
 
 def reportVersion():
     try:

@@ -51,7 +51,7 @@ class Problem:
             return f"Problem(ErrorType={self.ErrorType}, SPDX_ID={self.SPDX_ID}, PackageName={self.PackageName}, Reason={self.Reason}, Scope={self.scope}, Severity={self.severity})"
 
     def __repr__(self):
-        return self.__str__(self)
+        return self.__str__()
 
 class Problems:
     def __init__(self):
@@ -76,6 +76,12 @@ class Problems:
     def do_print_file(self):
         self.print_file = True
 
+    def get_errors(self):
+        return list(problem for problem in self.items if problem.severity == Problem.SEVERITY_ERROR)
+
+    def get_warnings(self):
+        return list(problem for problem in self.items if problem.severity == Problem.SEVERITY_WARNING)
+    
     def get_sorted_by_scope(self):
         return iter(sorted(self.items, key=lambda problem: problem.scope))
     
@@ -92,12 +98,13 @@ class Problems:
         return len(self.items)
 
     def __bool__(self):
-        if len(self.items) > 0:
+        if len(self.get_errors()) > 0:
             return True
         else:
             return False
+
     def __str__(self):
-        return f"I have {len(self.items)} problems"
+        return f"I have {len(self.get_errors())} errors and {len(self.get_warnings())} warnings"
 
 class FunctionRegistry:
     def __init__(self):
@@ -429,7 +436,7 @@ class Validator:
                                 package.name,
                                 "License concluded is NOASSERTION",
                                 Problem.SCOPE_OPEN_CHAIN,
-                                Problem.SEVERITY_ERROR, file)
+                                Problem.SEVERITY_WARNING, file)
 
             # License declared is mandatory in SPDX 2.2, but not in SPDX 2.3
             # It is mandatory in OpenChain Telco SBOM Guide
@@ -447,7 +454,7 @@ class Validator:
                                 package.name,
                                 "License declared is NOASSERTION",
                                 Problem.SCOPE_OPEN_CHAIN,
-                                Problem.SEVERITY_ERROR,
+                                Problem.SEVERITY_WARNING,
                                 file)
 
             # Package copyright text is mandatory in SPDX 2.2, but not in SPDX 2.3
@@ -466,7 +473,7 @@ class Validator:
                                 package.name,
                                 "Copyright text is NOASSERTION",
                                 Problem.SCOPE_OPEN_CHAIN,
-                                Problem.SEVERITY_ERROR,
+                                Problem.SEVERITY_WARNING,
                                 file)
 
             if noassertion and (str(package.download_location) == "NOASSERTION"):
@@ -475,7 +482,7 @@ class Validator:
                                 package.name,
                                 "Download location is NOASSERTION",
                                 Problem.SCOPE_OPEN_CHAIN,
-                                Problem.SEVERITY_ERROR,
+                                Problem.SEVERITY_WARNING,
                                 file)
 
             if not package.version:
