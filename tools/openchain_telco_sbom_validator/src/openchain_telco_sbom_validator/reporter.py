@@ -6,16 +6,16 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import logging
-from prettytable import PrettyTable
 import shutil
 from importlib.metadata import version, PackageNotFoundError
+from prettytable import PrettyTable
 
 logger = logging.getLogger(__name__)
 logger.propagate = True
 
-def reportCli(result, problems, nr_of_errors, input, guide_version, strict, noassertion):
+def reportCli(result, problems, nr_of_errors, input, guide_version, strict, noassertion, strict_purl_check):
     if len(problems):
-        
+
         errors = problems.get_errors()
         warnings = problems.get_warnings()
         if nr_of_errors:
@@ -27,12 +27,16 @@ def reportCli(result, problems, nr_of_errors, input, guide_version, strict, noas
             printTable(errors, problems.print_file)
 
         if noassertion:
-
             if len(warnings):
                 print("Fields with NOASSERTION:")
                 printTable(warnings, problems.print_file)
             else:
                 print("There are no fields with NOASSERTION.")
+
+        if strict_purl_check:
+            if len(warnings):
+                print("Fields with purl that cannot be converted to a downloadable URL:")
+                printTable(warnings, problems.print_file)
 
     if not result:
         if len(problems.checked_files) == 1:

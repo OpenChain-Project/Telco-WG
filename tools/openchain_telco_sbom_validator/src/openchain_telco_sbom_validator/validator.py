@@ -8,8 +8,8 @@
 import logging
 import re
 import os
-import sys
 import json
+import inspect
 from spdx_tools.spdx.model.document import Document
 from spdx_tools.spdx.model.package import Package
 from spdx_tools.spdx.parser import parse_anything
@@ -23,7 +23,6 @@ from packageurl.contrib import purl2url
 import ntia_conformance_checker as ntia
 import validators
 import requests
-import inspect
 
 logger = logging.getLogger(__name__)
 logger.propagate = True
@@ -81,10 +80,10 @@ class Problems:
 
     def get_warnings(self):
         return list(problem for problem in self.items if problem.severity == Problem.SEVERITY_WARNING)
-    
+
     def get_sorted_by_scope(self):
         return iter(sorted(self.items, key=lambda problem: problem.scope))
-    
+
     def count_errors(self):
         return sum(1 for problem in self.items if problem.severity == Problem.SEVERITY_ERROR)
 
@@ -319,7 +318,7 @@ class Validator:
                 logger.debug(f"Strict check is on")
                 match = re.search(r'sbom type:\s*(\w+)', creator_comment)
                 sbom_type = None
-                
+
                 if match:
                     sbom_type = match.group(1)
 
@@ -495,42 +494,41 @@ class Validator:
                 ### This is already detected during the NTIA check.
                 #problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Supplier field is missing")
 
-            if strict:
-                if package.external_references:
-                    purlFound = False
-                    for ref in package.external_references:
-                        logger.debug(f"cat: {str(ref.category)}, type: {ref.reference_type}, locator: {ref.locator}")
-                        if ref.category == ExternalPackageRefCategory.PACKAGE_MANAGER and ref.reference_type == "purl":
-                            # Based on https://github.com/package-url/packageurl-python
-                            purlFound = True
-                            if strict_purl_check:
-                                url = purl2url.get_repo_url(ref.locator)
-                                if not url:
-                                    logger.debug("Purl (" + ref.locator + ") parsing resulted in empty result.")
-                                    problems.append("Useless mandatory field from Package",
-                                                    package.spdx_id,
-                                                    package.name,
-                                                    f"purl ({ref.locator}) in the ExternalRef cannot be converted to a downloadable URL",
-                                                    Problem.SCOPE_OPEN_CHAIN,
-                                                    Problem.SEVERITY_ERROR,
-                                                    file)
-                                else:
-                                    logger.debug(f"Strict PURL check is happy {url}")
-                    if not purlFound:
-                        problems.append("Missing mandatory field from Package",
-                                        package.spdx_id,
-                                        package.name,
-                                        "There is no purl type ExternalRef field in the Package",
-                                        Problem.SCOPE_OPEN_CHAIN,
-                                        Problem.SEVERITY_ERROR,
-                                        file)
-                else:
+            if package.external_references:
+                purlFound = False
+                for ref in package.external_references:
+                    logger.debug(f"cat: {str(ref.category)}, type: {ref.reference_type}, locator: {ref.locator}")
+                    if ref.category == ExternalPackageRefCategory.PACKAGE_MANAGER and ref.reference_type == "purl":
+                        # Based on https://github.com/package-url/packageurl-python
+                        purlFound = True
+                        if strict_purl_check:
+                            url = purl2url.get_repo_url(ref.locator)
+                            if not url:
+                                logger.debug("Purl (" + ref.locator + ") parsing resulted in empty result.")
+                                problems.append("Useless mandatory field from Package",
+                                                package.spdx_id,
+                                                package.name,
+                                                f"purl ({ref.locator}) in the ExternalRef cannot be converted to a downloadable URL",
+                                                Problem.SCOPE_OPEN_CHAIN,
+                                                Problem.SEVERITY_WARNING,
+                                                file)
+                            else:
+                                logger.debug(f"Strict PURL check is happy {url}")
+                if strict and not purlFound:
                     problems.append("Missing mandatory field from Package",
                                     package.spdx_id,
                                     package.name,
-                                    "ExternalRef field is missing (no Package URL)",
+                                    "There is no purl type ExternalRef field in the Package",
                                     Problem.SCOPE_OPEN_CHAIN,
-                                    Problem.SEVERITY_ERROR, file)
+                                    Problem.SEVERITY_ERROR,
+                                    file)
+            elif strict:
+                problems.append("Missing mandatory field from Package",
+                                package.spdx_id,
+                                package.name,
+                                "ExternalRef field is missing (no Package URL)",
+                                Problem.SCOPE_OPEN_CHAIN,
+                                Problem.SEVERITY_ERROR, file)
             if isinstance(package.homepage, type(None)):
                 logger.debug("Package homepage is missing")
             else:

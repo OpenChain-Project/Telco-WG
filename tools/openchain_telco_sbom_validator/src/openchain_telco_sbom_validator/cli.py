@@ -59,14 +59,15 @@ def main():
                                               guide_version=args.guide_version)
 
         logger.debug(f"CLI calling report. Result: {result}, problems: {problems}")
-        
+
         exitCode = reportCli(result,
                              problems,
                              args.nr_of_errors,
                              args.input,
                              args.guide_version,
                              args.strict,
-                             args.noassertion)
+                             args.noassertion,
+                             args.strict_purl_check)
         sys.exit(exitCode)
     except KeyboardInterrupt:
         print(" Ctrl-C pressed. Terminating...")
