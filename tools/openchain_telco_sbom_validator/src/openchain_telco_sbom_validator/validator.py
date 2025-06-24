@@ -345,6 +345,8 @@ class Validator:
                                     file)
 
             else:
+                # Handle "SBOM Type:analyzed"
+                creator_comment = creator_comment.replace(':', ' ')
                 # Remove punctuation
                 translator = str.maketrans('', '', string.punctuation)
                 creator_comment = creator_comment.translate(translator)
