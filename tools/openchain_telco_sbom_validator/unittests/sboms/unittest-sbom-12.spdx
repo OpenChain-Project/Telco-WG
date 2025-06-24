@@ -45,7 +45,7 @@ PackageVersion: 2.4.57+dfsg-3+deb11u1
 PackageOriginator: Person: Debian OpenLDAP Maintainers <pkg-openldap-devel@lists.alioth.debian.org>
 PackageSupplier: Person: Jane Doe (jane.doe@example.com)
 PackageChecksum: SHA256: e325881d738b1091d0105778523ad60eb61e62557b9dc15624e08144b3991d08
-PackageDownloadLocation: NOASSERTION
+PackageDownloadLocation: https://www.not-openldap.org/
 FilesAnalyzed: true
 PackageHomePage: https://www.not-openldap.org/
 PackageVerificationCode: 8360ca10f484b118d367165552d0b934835d128a

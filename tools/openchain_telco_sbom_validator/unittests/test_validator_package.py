@@ -18,6 +18,6 @@ def test_nok_purls():
     assert result == False
     assert len(problems) == 1
     assert problems[0].ErrorType == "Invalid field in Package"
-    assert problems[0].Reason == "PackageHomePage field points to a nonexisting page (https://www.not-openldap.org/)"
+    assert problems[0].Reason == "PackageDownloadLocation field points to a nonexisting page (https://www.not-openldap.org/)"
     assert problems[0].SPDX_ID == "SPDXRef-Package-deb-badpurl-libldap-2.4-2-796a192b709a2a2b"
     assert problems[0].PackageName == "badpurl-libldap-2.4-2"
