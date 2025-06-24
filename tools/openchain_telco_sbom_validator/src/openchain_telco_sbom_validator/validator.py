@@ -183,7 +183,7 @@ class Validator:
         """ Validates, returns a status and a list of problems.
             filePath: path to the SPDX file to validate.
             strict_purl_check: not only checks the syntax of the PURL, but also checks if the package can be downloaded.
-            strict_url_check: checks if the given URLs in PackageHomepages can be accessed.
+            strict_url_check: checks if the given URLs in PackageDownloadLocation can be accessed.
             strict: checks for both MANDATORY and RECOMMENDED fields.
             noassertion: lists fields with value NOASSERTION.
             functionRegistry: is an optionsl functionRegistry class to inject custom checks.
@@ -529,27 +529,27 @@ class Validator:
                                 "ExternalRef field is missing (no Package URL)",
                                 Problem.SCOPE_OPEN_CHAIN,
                                 Problem.SEVERITY_ERROR, file)
-            if isinstance(package.homepage, type(None)):
-                logger.debug("Package homepage is missing")
+            if isinstance(package.download_location, type(None)):
+                logger.debug("PackageDownloadLocation is missing")
             else:
-                logger.debug(f"Package homepage is ({package.homepage})")
-                if not validators.url(package.homepage):
-                    logger.debug("Package homepage is not a valid URL")
+                logger.debug(f"PackageDownloadLocation is ({package.download_location})")
+                if not validators.url(package.download_location):
+                    logger.debug("PackageDownloadLocation not a valid URL")
                     # Adding this to the problem list is not needed as the SPDX validator also adds it
-                    # problems.append(["Invalid field in Package", package.spdx_id, package.name, f"PackageHomePage is not a valid URL ({package.homepage})"])
+                    # problems.append(["Invalid field in Package", package.spdx_id, package.name, f"PackageDownloadLocation a valid URL ({package.download_location})"])
                 else:
                     if strict_url_check:
                         try:
-                            logger.debug("Checking package homepage")
-                            page = requests.get(package.homepage)
+                            logger.debug("Checking PackageDownloadLocation")
+                            page = requests.get(package.download_location)
                         except Exception as err:
                             logger.debug(f"Exception received ({format(err)})")
                             problems.append("Invalid field in Package",
                                             package.spdx_id,
                                             package.name,
-                                            f"PackageHomePage field points to a nonexisting page ({package.homepage})",
+                                            f"PackageDownloadLocation field points to a nonexisting page ({package.download_location})",
                                             Problem.SCOPE_OPEN_CHAIN,
-                                            Problem.SEVERITY_ERROR,
+                                            Problem.SEVERITY_WARNING,
                                             file)
             # Version specifics
             match guide_version:

@@ -67,7 +67,8 @@ def main():
                              args.guide_version,
                              args.strict,
                              args.noassertion,
-                             args.strict_purl_check)
+                             args.strict_purl_check,
+                             args.strict_url_check)
         sys.exit(exitCode)
     except KeyboardInterrupt:
         print(" Ctrl-C pressed. Terminating...")
@@ -117,7 +118,7 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
                         ' run a non-strict purl check meaning that it is not checked if the'
                         ' purl is translating to a downloadable URL.')
     parser.add_argument('--strict-url-check', action="store_true",
-                        help='Runs a strict check on the URLs of the PackageHomepages. Strict check'
+                        help='Runs a strict check on the URLs of the PackageDowloadLocation. Strict check'
                         ' means that the validator checks also if the given URL can be accessed.'
                         ' The default behaviour is to run a non-strict URL check, meaning that'
                         ' it is not checked if the URL points to a valid page. Strict URL check'
@@ -162,7 +163,7 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
     if args.strict_purl_check:
         logger.info("Running strict checks for purls, what means that it is tested if the purls can be translated to a downloadable url.")
     if args.strict_url_check:
-        logger.info("Running strict checks for URL, what means that it is tested if the PackageHomePage fields are pointing to real pages.")
+        logger.info("Running strict checks for URL, what means that it is tested if the PackageDowloadLocation fields are pointing to real pages.")
 
     if args.guide_version:
         logger.info(f"Checking for the {args.guide_version} version of the OpenChain Telco Guide")

@@ -13,7 +13,7 @@ from prettytable import PrettyTable
 logger = logging.getLogger(__name__)
 logger.propagate = True
 
-def reportCli(result, problems, nr_of_errors, input, guide_version, strict, noassertion, strict_purl_check):
+def reportCli(result, problems, nr_of_errors, input, guide_version, strict, noassertion, strict_purl_check, strict_url_check):
     if len(problems):
 
         errors = problems.get_errors()
@@ -36,6 +36,11 @@ def reportCli(result, problems, nr_of_errors, input, guide_version, strict, noas
         if strict_purl_check:
             if len(warnings):
                 print("Fields with purl that cannot be converted to a downloadable URL:")
+                printTable(warnings, problems.print_file)
+
+        if strict_url_check:
+            if len(warnings):
+                print("PackageDownloadLocation field points to a nonexisting page:")
                 printTable(warnings, problems.print_file)
 
     if not result:

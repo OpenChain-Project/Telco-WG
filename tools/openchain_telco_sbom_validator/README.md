@@ -5,7 +5,8 @@ the [OpenChain Telco SBOM Guide](https://github.com/OpenChain-Project/Telco-WG/b
 
 What is new in version 0.3.1:
 * new option `--noassertion` will list fields that have value NOASSERTION,
-* implement the strict mode for tool name and version (presence of "-").
+* implement the strict mode for tool name and version (presence of "-"),
+* the option `--strict-url-check` now checks the PackageDownloadLocation instead of the PackageHomePage.
 
 What is new in version 0.3.0:
 * you can validate recursively SBOMs linked by SPDX Relationships,
