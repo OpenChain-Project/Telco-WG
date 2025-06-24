@@ -13,7 +13,7 @@ def test_nok_supplier_missing():
 
 def test_nok_purls():
     v = validator.Validator()
-    result, problems = v.validate(filePath = "sboms/unittest-sbom-12.spdx", strict_purl_check=True, strict_url_check=True)
+    result, problems = v.validate(filePath = "sboms/unittest-sbom-12.spdx", strict_url_check=True)
     print(f"{problems[0].ErrorType}, {problems[0].Reason}, {problems[0].SPDX_ID}, {problems[0].PackageName}")
     assert result == False
     assert len(problems) == 1
