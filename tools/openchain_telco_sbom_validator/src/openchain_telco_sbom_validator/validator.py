@@ -10,6 +10,7 @@ import re
 import os
 import json
 import inspect
+import string
 from spdx_tools.spdx.model.document import Document
 from spdx_tools.spdx.model.package import Package
 from spdx_tools.spdx.parser import parse_anything
@@ -344,6 +345,9 @@ class Validator:
                                     file)
 
             else:
+                # Remove punctuation
+                translator = str.maketrans('', '', string.punctuation)
+                creator_comment = creator_comment.translate(translator)
                 tokens = re.split(r'[ :]+', creator_comment)
                 logger.debug(f"Strict check is off. (CreatorComment words: {tokens})")
                 if not any(sbom_type in tokens for sbom_type in cisaSBOMTypes):
