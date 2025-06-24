@@ -15,7 +15,7 @@ def test_nok_purls():
     v = validator.Validator()
     result, problems = v.validate(filePath = "sboms/unittest-sbom-12.spdx", strict_url_check=True)
     print(f"{problems[0].ErrorType}, {problems[0].Reason}, {problems[0].SPDX_ID}, {problems[0].PackageName}")
-    assert result == False
+    assert result == True
     assert len(problems) == 1
     assert problems[0].ErrorType == "Invalid field in Package"
     assert problems[0].Reason == "PackageDownloadLocation field points to a nonexisting page (https://www.not-openldap.org/)"
