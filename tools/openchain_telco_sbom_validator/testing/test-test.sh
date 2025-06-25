@@ -221,6 +221,18 @@ function test_linked_yocto_all
     assert_output_contains "One or more of the SPDX files linked-sbom-01.spdx.json, alarm.spdx.json, recipe-alarm.spdx.json, runtime-alarm.spdx.json, em-accessories.spdx.json, alignmentpavendors.spdx.json, recipe-alignmentpavendors.spdx.json, runtime-alignmentpavendors.spdx.json, alps.spdx.json, runtime-alps.spdx.json, kernel-5.15.155-r42.spdx.json, runtime-kernel-5.15.155-r42.spdx.json are not compliant with the OpenChain Telco SBOM Guide version 1.1"
 }
 
+function test_linked_yocto_all_nojson
+{
+    echo "Test: test_linked_none"
+    run "openchain-telco-sbom-validator --reference-logic yocto-all linked-sboms-03/linked-sbom-03.spdx"
+    echo "$output"
+    assert_terminated_normally
+    assert_exit_success
+    assert_has_output
+    assert_output_contains "All of the SPDX files linked-sbom-03.spdx, recipe-xz.spdx, recipe-glibc.spdx are compliant with the OpenChain Telco SBOM Guide version 1.1"
+}
+
+
 function test_linked_yocto-contains-only
 {
     echo "Test: test_linked_none"
