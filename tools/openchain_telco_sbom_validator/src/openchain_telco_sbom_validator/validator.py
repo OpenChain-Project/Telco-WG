@@ -427,7 +427,7 @@ class Validator:
 
             # License concluded is mandatory in SPDX 2.2, but not in SPDX 2.3
             # It is mandatory in OpenChain Telco SBOM Guide
-            if not package.license_concluded:
+            if not hasattr(package, 'license_concluded'):
                 problems.append("Missing mandatory field from Package",
                                 package.spdx_id,
                                 package.name,
@@ -445,7 +445,7 @@ class Validator:
 
             # License declared is mandatory in SPDX 2.2, but not in SPDX 2.3
             # It is mandatory in OpenChain Telco SBOM Guide
-            if not package.license_declared:
+            if not hasattr(package, 'license_declared'):
                 problems.append("Missing mandatory field from Package",
                                 package.spdx_id,
                                 package.name,
@@ -464,7 +464,7 @@ class Validator:
 
             # Package copyright text is mandatory in SPDX 2.2, but not in SPDX 2.3
             # It is mandatory in OpenChain Telco SBOM Guide
-            if not package.copyright_text:
+            if not hasattr(package, 'copyright_text'):
                 problems.append("Missing mandatory field from Package",
                                 package.spdx_id,
                                 package.name,
@@ -490,17 +490,7 @@ class Validator:
                                 Problem.SEVERITY_WARNING,
                                 file)
 
-            if not package.version:
-                pass
-                ### This is already detected during the NTIA check.
-                #problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Version field is missing")
-
-            if not package.supplier:
-                pass
-                ### This is already detected during the NTIA check.
-                #problems.append("Missing mandatory field from Package", package.spdx_id, package.name, "Supplier field is missing")
-
-            if package.external_references:
+            if hasattr(package, 'external_references'):
                 purlFound = False
                 for ref in package.external_references:
                     logger.debug(f"cat: {str(ref.category)}, type: {ref.reference_type}, locator: {ref.locator}")
