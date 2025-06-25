@@ -238,7 +238,11 @@ class Validator:
 
         file = os.path.basename(filePath)
         dir_name = os.path.dirname(filePath)
-        logger.debug(f"File path is {dir_name}, filename is {file}")
+        match = re.search(r'\.(.+)$', file)
+        extension = ""
+        if match:
+            extension = match.group(1)
+        logger.debug(f"File path is {dir_name}, filename is {file}, extension is {extension}")
         print(f"Validating {file}")
 
 
@@ -603,7 +607,7 @@ class Validator:
 
         if referringLogic in self.referringLogics:
             logger.debug(f"Executing referring logic: {referringLogic},  {self.referringLogics[referringLogic]}")
-            list_of_referred_sboms, problems = self.referringLogics[referringLogic](self, doc, dir_name, problems)
+            list_of_referred_sboms, problems = self.referringLogics[referringLogic](self, doc, dir_name, problems, extension)
         else:
             logger.error(f"Referring logic “{referringLogic}” is not in the registered referring logic list {self.getReferringLogicNames()}")
             print(f"Referring logic error. Referring logic “{referringLogic}” is not in the registered referring logic list {self.getReferringLogicNames()}")
@@ -678,8 +682,8 @@ class Validator:
                                     Problem.SEVERITY_ERROR,
                                     file)
 
-def referred_yocto_all(self, doc: Document, dir_name: str, problems: Problems):
-    logger.debug("In Yocto all")
+def referred_yocto_all(self, doc: Document, dir_name: str, problems: Problems, extension: str=""):
+    logger.debug(f"In Yocto all. Extension is {extension}")
     documents = []
     ref_base = ""
     if doc.creation_info.document_namespace:
@@ -701,14 +705,14 @@ def referred_yocto_all(self, doc: Document, dir_name: str, problems: Problems):
             if result:
                 doc_location = result.group(1)
                 if dir_name == "":
-                    doc_location = f"{doc_location}.spdx.json"
+                    doc_location = f"{doc_location}.{extension}"
                 else:
-                    doc_location = f"{dir_name}/{doc_location}.spdx.json"
+                    doc_location = f"{dir_name}/{doc_location}.{extension}"
                 logger.debug(f"Document location is: {doc_location}")
                 documents.append(doc_location)
     return documents, problems
 
-def referred_yocto_contains_only(self, doc: Document, dir_name: str, problems: Problems):
+def referred_yocto_contains_only(self, doc: Document, dir_name: str, problems: Problems, extension: str=""):
     logger.debug("In Yocto contains only")
     documents = []
     ref_base = ""
@@ -746,7 +750,7 @@ def referred_yocto_contains_only(self, doc: Document, dir_name: str, problems: P
                     documents.append(external_refs[spdx_document_id])
     return documents, problems
 
-def referred_checksum_all(self, doc: Document, dir_name: str, problems: Problems):
+def referred_checksum_all(self, doc: Document, dir_name: str, problems: Problems, extension: str=""):
     # Known limitations: MD2, MD4 and MD6 hashes are not supported
     import hashlib
     from pathlib import Path
@@ -833,8 +837,8 @@ def referred_checksum_all(self, doc: Document, dir_name: str, problems: Problems
 
     return documents_dd, problems
 
-def referred_none(self, doc: Document, dir_name: str, problems: Problems):
+def referred_none(self, doc: Document, dir_name: str, problems: Problems, extension: str=""):
     return [], problems
 
-def _dummy_referred_logic(self, doc: Document, dir_name: str, problems: Problems):
+def _dummy_referred_logic(self, doc: Document, dir_name: str, problems: Problems, extension: str = ""):
     pass

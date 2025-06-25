@@ -1,0 +1,544 @@
+## Document Information
+SPDXVersion: SPDX-2.2
+DataLicense: CC0-1.0
+SPDXID: SPDXRef-DOCUMENT
+DocumentName: xz
+DocumentNamespace: http://spdx.org/spdxdoc/xz-2d4add1c-49c8-58c7-8bef-0d639c610b95
+
+## External Document References
+ExternalDocumentRef: DocumentRef-recipe-xz http://spdx.org/spdxdoc/recipe-xz-0b1dbf00-7439-5d43-bb26-1a70f5d63a71 SHA1: 9b8d0ddff3c6c912d47857825109e3a47bd7c91c
+ExternalDocumentRef: DocumentRef-recipe-glibc http://spdx.org/spdxdoc/recipe-glibc-8ec5f1d4-204b-530d-8854-79bbb314d6d7 SHA1: 42225d81d01139901d19637969ade4fc68732780
+
+## Creation Information
+LicenseListVersion: 3.14
+Creator: Tool: OpenEmbedded Core create-spdx.bbclass
+Creator: Organization: OpenEmbedded
+Creator: Person: N/A
+Created: 2024-09-16T08:45:22Z
+CreatorComment: This document was created by analyzing packages created during the build.
+
+## Package Information
+PackageName: xz
+SPDXID: SPDXRef-Package-xz
+PackageVersion: 5.2.6
+PackageSupplier: Organization: OpenEmbedded
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: true
+PackageVerificationCode: 2f003138b9ff43812e8c2c1f4daaf5846d11191d
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseInfoFromFiles: NOASSERTION
+PackageLicenseDeclared: GPL-2.0-or-later
+PackageCopyrightText: NOASSERTION
+PackageChecksum: SHA1: 85ed0817af83a24ad8da68c2b5094de69833983c
+ExternalRef: PACKAGE-MANAGER purl pkg:golang/stdlib@1.21.0
+
+## File Information
+FileName: usr/bin/lzmainfo
+SPDXID: SPDXRef-PackagedFile-xz-1
+FileType: BINARY
+FileChecksum: SHA1: 1e3890eb940829701eb477d7cf37636f17d363f9
+FileChecksum: SHA256: 4110c4544ae09d9a0cfd2f2a87cb196f0b62e9c525dfae6689ce93b87bfbbbe5
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+## File Information
+FileName: usr/bin/xzdec
+SPDXID: SPDXRef-PackagedFile-xz-2
+FileType: BINARY
+FileChecksum: SHA1: f53c534fde11db53fae656191ac1c8f1d995296c
+FileChecksum: SHA256: c3cef8e558b7622f03d8d596ecc222e54965a6ead31bb6d1fa72ba7dd12993f5
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+## File Information
+FileName: usr/bin/xzdiff
+SPDXID: SPDXRef-PackagedFile-xz-3
+FileType: BINARY
+FileChecksum: SHA1: 8bfa133f84750c9abbe809aa15fee2d6f61a03ac
+FileChecksum: SHA256: b6526d09d24c97ac9cc7b046efc9056eb904410dbe1056928fc7dafbf179e832
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+## File Information
+FileName: usr/bin/xzgrep
+SPDXID: SPDXRef-PackagedFile-xz-4
+FileType: BINARY
+FileChecksum: SHA1: 25a96ec92066238901d843488eb1187a693cb59f
+FileChecksum: SHA256: d2cf18d6e564b8ddf2b6bb01f971d030e4bf35ac1855fc1d29e756a137ebc6cd
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+## File Information
+FileName: usr/bin/lzmadec
+SPDXID: SPDXRef-PackagedFile-xz-5
+FileType: BINARY
+FileChecksum: SHA1: 9c9e6ec636b8862bc0177d4e91c5e07dc091eea5
+FileChecksum: SHA256: d342d5e90dc59f29adcbb07a335b8bcc22564f134407252ab4f2d358ed8779b3
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+## File Information
+FileName: usr/bin/xzless
+SPDXID: SPDXRef-PackagedFile-xz-6
+FileType: BINARY
+FileChecksum: SHA1: 459963bdae98807c147489ac23a022b3b1cc1c06
+FileChecksum: SHA256: 02c071c8c565ca6e0ee6ff22d1737ec56248274f82d248fb31a1396573168be3
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+## File Information
+FileName: usr/bin/xz.xz
+SPDXID: SPDXRef-PackagedFile-xz-7
+FileType: BINARY
+FileChecksum: SHA1: 3aac256a6a213624145ef10ba278d3d76af55803
+FileChecksum: SHA256: 893a0289f2014d89c960646147af2df829ed15f86672947f76dd9f28814871c7
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+## File Information
+FileName: usr/bin/xzmore
+SPDXID: SPDXRef-PackagedFile-xz-8
+FileType: BINARY
+FileChecksum: SHA1: 60a4e5767dc629900ee9dd9dc0e0d514911c6b5c
+FileChecksum: SHA256: 1eb23d10501ef995cecabf23d22d52c276425dd455cf08fd66b9cc9172df4f75
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+## Relationships
+Relationship: SPDXRef-Package-xz GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-Recipe-xz
+Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-Package-xz
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-14955
+RelationshipComment: /usr/include/bits/getopt_core.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-14962
+RelationshipComment: /usr/include/bits/getopt_ext.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-15721
+RelationshipComment: /usr/include/bits/stdint-uintn.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-19021
+RelationshipComment: /usr/include/bits/stdio2-decl.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-19020
+RelationshipComment: /usr/include/bits/stdio2.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-14957
+RelationshipComment: /usr/include/bits/types.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-19026
+RelationshipComment: /usr/include/bits/types/FILE.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-19025
+RelationshipComment: /usr/include/bits/types/struct_FILE.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-18519
+RelationshipComment: /usr/include/errno.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/include/linux/rseq.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-18821
+RelationshipComment: /usr/include/stdio.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-18565
+RelationshipComment: /usr/include/stdlib.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-17440
+RelationshipComment: /usr/include/string.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/lib/aarch64-wrs-linux/gcc/aarch64-wrs-linux/11.4.0/include/stdarg.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/lib/aarch64-wrs-linux/gcc/aarch64-wrs-linux/11.4.0/include/stddef.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/bits/sockaddr.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/bits/stdint-intn.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/bits/stdint-uintn.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/csu/abi-note.c
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/csu/init.c
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/elf/elf.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/inet/netinet/in.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/posix/bits/types.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/sysdeps/aarch64/crti.S
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/sysdeps/aarch64/crtn.S
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/sysdeps/aarch64/start.S
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/sysdeps/unix/sysv/linux/bits/socket.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/build/src/xzdec/<built-in>
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-212
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/tuklib_exit.c
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-210
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/tuklib_exit.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-204
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/tuklib_progname.c
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-207
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/tuklib_progname.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-66
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/base.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-54
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/container.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-58
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/version.h
+Relationship: SPDXRef-PackagedFile-xz-5 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-200
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xzdec/xzdec.c
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-14955
+RelationshipComment: /usr/include/bits/getopt_core.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-14962
+RelationshipComment: /usr/include/bits/getopt_ext.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-15721
+RelationshipComment: /usr/include/bits/stdint-uintn.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-19021
+RelationshipComment: /usr/include/bits/stdio2-decl.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-19020
+RelationshipComment: /usr/include/bits/stdio2.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-14957
+RelationshipComment: /usr/include/bits/types.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-19026
+RelationshipComment: /usr/include/bits/types/FILE.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-19025
+RelationshipComment: /usr/include/bits/types/struct_FILE.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-18519
+RelationshipComment: /usr/include/errno.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-19178
+RelationshipComment: /usr/include/libintl.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/include/linux/rseq.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-17508
+RelationshipComment: /usr/include/locale.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-18821
+RelationshipComment: /usr/include/stdio.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-18565
+RelationshipComment: /usr/include/stdlib.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-17440
+RelationshipComment: /usr/include/string.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/lib/aarch64-wrs-linux/gcc/aarch64-wrs-linux/11.4.0/include/stddef.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/bits/sockaddr.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/bits/stdint-intn.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/bits/stdint-uintn.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/csu/abi-note.c
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/csu/init.c
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/elf/elf.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/inet/netinet/in.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/posix/bits/types.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/sysdeps/aarch64/crti.S
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/sysdeps/aarch64/crtn.S
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/sysdeps/aarch64/start.S
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/sysdeps/unix/sysv/linux/bits/socket.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/build/src/lzmainfo/<built-in>
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-212
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/tuklib_exit.c
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-210
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/tuklib_exit.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-204
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/tuklib_progname.c
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-207
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/tuklib_progname.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-66
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/base.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-59
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/filter.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-55
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/lzma12.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-61
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/vli.h
+Relationship: SPDXRef-PackagedFile-xz-1 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-41
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/lzmainfo/lzmainfo.c
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-17902
+RelationshipComment: /usr/include/bits/fcntl2.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-14955
+RelationshipComment: /usr/include/bits/getopt_core.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-14962
+RelationshipComment: /usr/include/bits/getopt_ext.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-17901
+RelationshipComment: /usr/include/bits/poll2.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-12730
+RelationshipComment: /usr/include/bits/sigaction.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-9686
+RelationshipComment: /usr/include/bits/sigthread.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-15721
+RelationshipComment: /usr/include/bits/stdint-uintn.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-19019
+RelationshipComment: /usr/include/bits/stdio.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-19021
+RelationshipComment: /usr/include/bits/stdio2-decl.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-19020
+RelationshipComment: /usr/include/bits/stdio2.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-17484
+RelationshipComment: /usr/include/bits/string_fortified.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-12796
+RelationshipComment: /usr/include/bits/struct_stat-64.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-14957
+RelationshipComment: /usr/include/bits/types.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-19026
+RelationshipComment: /usr/include/bits/types/FILE.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-17257
+RelationshipComment: /usr/include/bits/types/__mbstate_t.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-12809
+RelationshipComment: /usr/include/bits/types/__sigset_t.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-14623
+RelationshipComment: /usr/include/bits/types/__sigval_t.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-17710
+RelationshipComment: /usr/include/bits/types/clockid_t.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-17258
+RelationshipComment: /usr/include/bits/types/mbstate_t.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-14626
+RelationshipComment: /usr/include/bits/types/sig_atomic_t.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-12800
+RelationshipComment: /usr/include/bits/types/siginfo_t.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-14625
+RelationshipComment: /usr/include/bits/types/sigset_t.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-19025
+RelationshipComment: /usr/include/bits/types/struct_FILE.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-17714
+RelationshipComment: /usr/include/bits/types/struct_timespec.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-14961
+RelationshipComment: /usr/include/bits/unistd.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-19081
+RelationshipComment: /usr/include/ctype.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-18519
+RelationshipComment: /usr/include/errno.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-17736
+RelationshipComment: /usr/include/fcntl.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-19178
+RelationshipComment: /usr/include/libintl.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/include/linux/rseq.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-17508
+RelationshipComment: /usr/include/locale.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-14604
+RelationshipComment: /usr/include/signal.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-18821
+RelationshipComment: /usr/include/stdio.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-18565
+RelationshipComment: /usr/include/stdlib.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-17440
+RelationshipComment: /usr/include/string.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-17897
+RelationshipComment: /usr/include/sys/poll.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-17899
+RelationshipComment: /usr/include/sys/stat.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-14951
+RelationshipComment: /usr/include/sys/types.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-17607
+RelationshipComment: /usr/include/time.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-14781
+RelationshipComment: /usr/include/unistd.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-17216
+RelationshipComment: /usr/include/wchar.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/lib/aarch64-wrs-linux/gcc/aarch64-wrs-linux/11.4.0/include/stdarg.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/lib/aarch64-wrs-linux/gcc/aarch64-wrs-linux/11.4.0/include/stddef.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/bits/sockaddr.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/bits/stdint-intn.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/bits/stdint-uintn.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/csu/abi-note.c
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/csu/init.c
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/elf/elf.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/inet/netinet/in.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/posix/bits/types.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/sysdeps/aarch64/crti.S
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/sysdeps/aarch64/crtn.S
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/sysdeps/aarch64/start.S
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/sysdeps/unix/sysv/linux/bits/socket.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/build/src/xz/<built-in>
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-215
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/mythread.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-212
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/tuklib_exit.c
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-210
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/tuklib_exit.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-206
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/tuklib_mbstr.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-218
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/tuklib_mbstr_fw.c
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-214
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/tuklib_mbstr_width.c
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-219
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/tuklib_open_stdxxx.c
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-222
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/tuklib_open_stdxxx.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-204
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/tuklib_progname.c
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-207
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/tuklib_progname.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-66
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/base.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-53
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/bcj.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-57
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/block.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-64
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/check.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-54
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/container.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-65
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/delta.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-59
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/filter.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-56
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/hardware.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-63
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/index.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-55
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/lzma12.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-62
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/stream_flags.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-58
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/version.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-61
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/vli.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-225
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/args.c
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-248
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/args.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-245
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/coder.c
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-250
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/coder.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-251
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/file_io.c
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-227
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/file_io.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-223
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/hardware.c
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-231
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/hardware.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-244
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/list.c
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-249
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/list.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-236
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/main.c
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-234
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/main.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-235
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/message.c
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-224
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/message.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-239
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/mytime.c
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-229
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/mytime.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-232
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/options.c
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-226
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/options.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-237
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/signals.c
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-246
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/signals.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-242
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/suffix.c
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-233
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/suffix.h
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-240
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/util.c
+Relationship: SPDXRef-PackagedFile-xz-7 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-238
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xz/util.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-14955
+RelationshipComment: /usr/include/bits/getopt_core.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-14962
+RelationshipComment: /usr/include/bits/getopt_ext.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-15721
+RelationshipComment: /usr/include/bits/stdint-uintn.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-19021
+RelationshipComment: /usr/include/bits/stdio2-decl.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-19020
+RelationshipComment: /usr/include/bits/stdio2.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-14957
+RelationshipComment: /usr/include/bits/types.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-19026
+RelationshipComment: /usr/include/bits/types/FILE.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-19025
+RelationshipComment: /usr/include/bits/types/struct_FILE.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-18519
+RelationshipComment: /usr/include/errno.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/include/linux/rseq.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-18821
+RelationshipComment: /usr/include/stdio.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-18565
+RelationshipComment: /usr/include/stdlib.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM DocumentRef-recipe-glibc:SPDXRef-SourceFile-glibc-17440
+RelationshipComment: /usr/include/string.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/lib/aarch64-wrs-linux/gcc/aarch64-wrs-linux/11.4.0/include/stdarg.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/lib/aarch64-wrs-linux/gcc/aarch64-wrs-linux/11.4.0/include/stddef.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/bits/sockaddr.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/bits/stdint-intn.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/bits/stdint-uintn.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/csu/abi-note.c
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/csu/init.c
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/elf/elf.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/inet/netinet/in.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/posix/bits/types.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/sysdeps/aarch64/crti.S
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/sysdeps/aarch64/crtn.S
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/sysdeps/aarch64/start.S
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/glibc/2.35-r0/git/sysdeps/unix/sysv/linux/bits/socket.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM NOASSERTION
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/build/src/xzdec/<built-in>
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-212
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/tuklib_exit.c
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-210
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/tuklib_exit.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-204
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/tuklib_progname.c
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-207
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/common/tuklib_progname.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-66
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/base.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-54
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/container.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-58
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/liblzma/api/lzma/version.h
+Relationship: SPDXRef-PackagedFile-xz-2 GENERATED_FROM DocumentRef-recipe-xz:SPDXRef-SourceFile-xz-200
+RelationshipComment: /usr/src/debug/xz/5.2.6-r0/xz-5.2.6/src/xzdec/xzdec.c
+
