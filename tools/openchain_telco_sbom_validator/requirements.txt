@@ -1,6 +1,6 @@
 spdx-tools==0.8.3
-requests==2.32.3
+requests==2.32.4
 prettytable==3.16.0
-packageurl-python==0.16.0
+packageurl-python==0.17.1
 ntia-conformance-checker==3.2.0
 validators==0.35.0
