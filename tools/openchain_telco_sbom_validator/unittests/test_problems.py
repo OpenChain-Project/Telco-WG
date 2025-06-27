@@ -6,7 +6,7 @@ def test_get_sorted_by_scope():
     problems = Problems()
 
     # Add Problem instances with different scopes
-    problems.add(Problem("ErrorType1", "SPDX1", "Package1", "Reason1", Problem.SCOPE_OPEN_CHAIN, Problem.SEVERITY_WARNING))
+    problems.add(Problem("ErrorType1", "SPDX1", "Package1", "Reason1", Problem.SCOPE_OPEN_CHAIN, Problem.SEVERITY_INC_URL))
     problems.add(Problem("ErrorType2", "SPDX2", "Package2", "Reason2", Problem.SCOPE_SPDX, Problem.SEVERITY_ERROR))
     problems.add(Problem("ErrorType3", "SPDX3", "Package3", "Reason3", Problem.SCOPE_OPEN_CHAIN, Problem.SEVERITY_ERROR))
 
@@ -28,7 +28,7 @@ def test_get_errors():
     problems = Problems()
 
     # Add Problem instances with different scopes
-    problems.add(Problem("ErrorType1", "SPDX1", "Package1", "Reason1", Problem.SCOPE_OPEN_CHAIN, Problem.SEVERITY_WARNING))
+    problems.add(Problem("ErrorType1", "SPDX1", "Package1", "Reason1", Problem.SCOPE_OPEN_CHAIN, Problem.SEVERITY_NOASSERT))
     problems.add(Problem("ErrorType2", "SPDX2", "Package2", "Reason2", Problem.SCOPE_SPDX, Problem.SEVERITY_ERROR))
     problems.add(Problem("ErrorType3", "SPDX3", "Package3", "Reason3", Problem.SCOPE_OPEN_CHAIN, Problem.SEVERITY_ERROR))
 
@@ -42,19 +42,20 @@ def test_get_warnings():
     problems = Problems()
 
     # Add Problem instances with different scopes
-    problems.add(Problem("ErrorType1", "SPDX1", "Package1", "Reason1", Problem.SCOPE_OPEN_CHAIN, Problem.SEVERITY_WARNING))
-    problems.add(Problem("ErrorType2", "SPDX2", "Package2", "Reason2", Problem.SCOPE_SPDX, Problem.SEVERITY_ERROR))
+    problems.add(Problem("ErrorType1", "SPDX1", "Package1", "Reason1", Problem.SCOPE_OPEN_CHAIN, Problem.SEVERITY_NOASSERT))
+    problems.add(Problem("ErrorType2", "SPDX2", "Package2", "Reason2", Problem.SCOPE_SPDX, Problem.SEVERITY_INC_PURL))
     problems.add(Problem("ErrorType3", "SPDX3", "Package3", "Reason3", Problem.SCOPE_OPEN_CHAIN, Problem.SEVERITY_ERROR))
 
-    errors = problems.get_warnings()
-    assert len(errors) == 1
-    assert errors[0].SPDX_ID == "SPDX1"
-     
+    warnings = problems.get_warnings()
+    assert len(warnings) == 2
+    assert warnings[0].SPDX_ID == "SPDX1"
+    assert warnings[1].SPDX_ID == "SPDX2"
+
 def test_bool_operator_errors():
     # Create a Problems instance
     problems = Problems()
 
-    problems.add(Problem("ErrorType1", "SPDX1", "Package1", "Reason1", Problem.SCOPE_OPEN_CHAIN, Problem.SEVERITY_WARNING))
+    problems.add(Problem("ErrorType1", "SPDX1", "Package1", "Reason1", Problem.SCOPE_OPEN_CHAIN, Problem.SEVERITY_INC_PURL))
     assert not problems
 
     problems.add(Problem("ErrorType3", "SPDX3", "Package3", "Reason3", Problem.SCOPE_OPEN_CHAIN, Problem.SEVERITY_ERROR))

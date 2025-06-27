@@ -33,8 +33,10 @@ class Problem:
     SCOPE_SPDX = "SPDX"
     SCOPE_NTIA = "NTIA"
     SCOPE_OPEN_CHAIN = "OpenChain"
-    SEVERITY_WARNING = 1
-    SEVERITY_ERROR = 2
+    SEVERITY_ERROR = 0
+    SEVERITY_NOASSERT = 1
+    SEVERITY_INC_URL = 2
+    SEVERITY_INC_PURL = 3
     def __init__(self, error_type, SPDX_ID, package_name, reason, scope, severity, file=""):
         self.ErrorType = error_type
         self.SPDX_ID = SPDX_ID
@@ -80,7 +82,26 @@ class Problems:
         return list(problem for problem in self.items if problem.severity == Problem.SEVERITY_ERROR)
 
     def get_warnings(self):
-        return list(problem for problem in self.items if problem.severity == Problem.SEVERITY_WARNING)
+        noasserts = self.get_noasserts()
+        incorrect_purls = self.get_incorrect_purls()
+        incorrect_urls = self.get_incorrect_urls()
+        warnings = []
+        if noasserts:
+            warnings.extend(noasserts)
+        if incorrect_purls:
+            warnings.extend(incorrect_purls)
+        if incorrect_urls:
+            warnings.extend(incorrect_urls)
+        return warnings
+
+    def get_noasserts(self):
+        return list(problem for problem in self.items if problem.severity == Problem.SEVERITY_NOASSERT)
+    
+    def get_incorrect_urls(self):
+        return list(problem for problem in self.items if problem.severity == Problem.SEVERITY_INC_URL)
+
+    def get_incorrect_purls(self):
+        return list(problem for problem in self.items if problem.severity == Problem.SEVERITY_INC_PURL)
 
     def get_sorted_by_scope(self):
         return iter(sorted(self.items, key=lambda problem: problem.scope))
@@ -363,7 +384,8 @@ class Validator:
                                     "General",
                                     f"CreatorComment ({doc.creation_info.creator_comment}) does not contain any of the CISA SBOM Types (https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)",
                                     Problem.SCOPE_OPEN_CHAIN,
-                                    Problem.SEVERITY_ERROR, file)
+                                    Problem.SEVERITY_ERROR,
+                                    file)
                 else:
                     logger.debug(f"CreatorComment ({doc.creation_info.creator_comment}) contains one of the items from the CISA SBOM Type list ({cisaSBOMTypes})")
         else:
@@ -445,7 +467,7 @@ class Validator:
                                 package.name,
                                 "License concluded is NOASSERTION",
                                 Problem.SCOPE_OPEN_CHAIN,
-                                Problem.SEVERITY_WARNING, file)
+                                Problem.SEVERITY_NOASSERT, file)
 
             # License declared is mandatory in SPDX 2.2, but not in SPDX 2.3
             # It is mandatory in OpenChain Telco SBOM Guide
@@ -463,7 +485,7 @@ class Validator:
                                 package.name,
                                 "License declared is NOASSERTION",
                                 Problem.SCOPE_OPEN_CHAIN,
-                                Problem.SEVERITY_WARNING,
+                                Problem.SEVERITY_NOASSERT,
                                 file)
 
             # Package copyright text is mandatory in SPDX 2.2, but not in SPDX 2.3
@@ -482,7 +504,7 @@ class Validator:
                                 package.name,
                                 "Copyright text is NOASSERTION",
                                 Problem.SCOPE_OPEN_CHAIN,
-                                Problem.SEVERITY_WARNING,
+                                Problem.SEVERITY_NOASSERT,
                                 file)
 
             if noassertion and (str(package.download_location) == "NOASSERTION"):
@@ -491,7 +513,7 @@ class Validator:
                                 package.name,
                                 "Download location is NOASSERTION",
                                 Problem.SCOPE_OPEN_CHAIN,
-                                Problem.SEVERITY_WARNING,
+                                Problem.SEVERITY_NOASSERT,
                                 file)
 
             if hasattr(package, 'external_references'):
@@ -510,7 +532,7 @@ class Validator:
                                                 package.name,
                                                 f"purl ({ref.locator}) in the ExternalRef cannot be converted to a downloadable URL",
                                                 Problem.SCOPE_OPEN_CHAIN,
-                                                Problem.SEVERITY_WARNING,
+                                                Problem.SEVERITY_INC_PURL,
                                                 file)
                             else:
                                 logger.debug(f"Strict PURL check is happy {url}")
@@ -549,7 +571,7 @@ class Validator:
                                             package.name,
                                             f"PackageDownloadLocation field points to a nonexisting page ({package.download_location})",
                                             Problem.SCOPE_OPEN_CHAIN,
-                                            Problem.SEVERITY_WARNING,
+                                            Problem.SEVERITY_INC_URL,
                                             file)
             # Version specifics
             match guide_version:
@@ -601,7 +623,7 @@ class Validator:
         else:
             logger.error(f"Referring logic “{referringLogic}” is not in the registered referring logic list {self.getReferringLogicNames()}")
             print(f"Referring logic error. Referring logic “{referringLogic}” is not in the registered referring logic list {self.getReferringLogicNames()}")
-            return False, None
+            return False, problems
 
         for referred_sbom in list_of_referred_sboms:
             self.validate(
