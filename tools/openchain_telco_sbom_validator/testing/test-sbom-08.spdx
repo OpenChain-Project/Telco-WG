@@ -15,7 +15,7 @@ PackageName: libldap-2.4-2
 SPDXID: SPDXRef-Package-deb-libldap-2.4-2-796a192b709a2a2b
 PackageVersion: 2.4.57+dfsg-3+deb11u1
 PackageOriginator: Person: Debian OpenLDAP Maintainers <pkg-openldap-devel@lists.alioth.debian.org>
-PackageDownloadLocation: NOASSERTION
+PackageDownloadLocation: https://www.notcorrect.org/package.zip
 PackageHomePage: https://www.notcorrect.org/
 PackageSupplier: Person: Jane Doe (jane.doe@example.com)
 FilesAnalyzed: true

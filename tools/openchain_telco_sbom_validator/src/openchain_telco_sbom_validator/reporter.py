@@ -14,13 +14,23 @@ logger = logging.getLogger(__name__)
 logger.propagate = True
 
 def reportCli(result, problems, nr_of_errors, input, guide_version, strict, noassertion, strict_purl_check, strict_url_check):
+    if problems == None:
+        print("Internal error.")
+        return 2
+    
     if len(problems):
 
         errors = problems.get_errors()
         warnings = problems.get_warnings()
+        noasserts = problems.get_noasserts()
+        incorrect_purls = problems.get_incorrect_purls()
+        incorrect_urls = problems.get_incorrect_urls()
+
         if nr_of_errors:
             errors = errors[0:int(nr_of_errors)]
-            warnings = warnings[0:int(nr_of_errors)]
+            noasserts = noasserts[0:int(nr_of_errors)]
+            incorrect_purls = incorrect_purls[0:int(nr_of_errors)]
+            incorrect_urls = incorrect_urls[0:int(nr_of_errors)]
         logger.debug(f"Problems: {problems}, Errors {errors}, Warnings {warnings}")
 
         if len(errors):
@@ -34,14 +44,14 @@ def reportCli(result, problems, nr_of_errors, input, guide_version, strict, noas
                 print("There are no fields with NOASSERTION.")
 
         if strict_purl_check:
-            if len(warnings):
+            if len(incorrect_purls):
                 print("Fields with purl that cannot be converted to a downloadable URL:")
-                printTable(warnings, problems.print_file)
+                printTable(incorrect_purls, problems.print_file)
 
         if strict_url_check:
-            if len(warnings):
+            if len(incorrect_urls):
                 print("PackageDownloadLocation field points to a nonexisting page:")
-                printTable(warnings, problems.print_file)
+                printTable(incorrect_urls, problems.print_file)
 
     if not result:
         if len(problems.checked_files) == 1:
