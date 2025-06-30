@@ -11,6 +11,8 @@ import os
 import json
 import inspect
 import string
+import urllib.request
+import hashlib
 from spdx_tools.spdx.model.document import Document
 from spdx_tools.spdx.model.package import Package
 from spdx_tools.spdx.parser import parse_anything
@@ -96,7 +98,7 @@ class Problems:
 
     def get_noasserts(self):
         return list(problem for problem in self.items if problem.severity == Problem.SEVERITY_NOASSERT)
-    
+
     def get_incorrect_urls(self):
         return list(problem for problem in self.items if problem.severity == Problem.SEVERITY_INC_URL)
 
@@ -564,6 +566,37 @@ class Validator:
                         try:
                             logger.debug("Checking PackageDownloadLocation")
                             page = requests.get(package.download_location)
+
+                            # If we have a PackageChecksum, we verify it
+                            for algo in package.checksums:
+                                match algo.algorithm:
+                                    case ChecksumAlgorithm.SHA1:
+                                        algostring = "SHA1"
+                                    case ChecksumAlgorithm.SHA224:
+                                        algostring = "SHA224"
+                                    case ChecksumAlgorithm.SHA256:
+                                        algostring = "SHA256"
+                                    case ChecksumAlgorithm.SHA384:
+                                        algostring = "SHA384"
+                                    case ChecksumAlgorithm.SHA512:
+                                        algostring = "SHA512"
+                                    case ChecksumAlgorithm.MD5:
+                                        algostring = "MD5"
+                                    case _:
+                                        algostring = ""
+                                        logger.error(f"{algo} is not supported.")
+                                calculated_checksum = package_checksum(package.download_location, algostring)
+                                if calculated_checksum == algo.value:
+                                    logger.debug("Correct " + algostring + ": " + algo.value)
+                                else:
+                                    problems.append("Invalid " + algostring,
+                                                    package.spdx_id,
+                                                    package.name,
+                                                    f"Checksum is {calculated_checksum}, should be {algo.value}",
+                                                    Problem.SCOPE_OPEN_CHAIN,
+                                                    Problem.SEVERITY_INC_URL,
+                                                    file)
+
                         except Exception as err:
                             logger.debug(f"Exception received ({format(err)})")
                             problems.append("Invalid field in Package",
@@ -854,3 +887,16 @@ def referred_none(self, doc: Document, dir_name: str, problems: Problems, extens
 
 def _dummy_referred_logic(self, doc: Document, dir_name: str, problems: Problems, extension: str = ""):
     pass
+
+def package_checksum(download_location: str, algorithm: str):
+    """Calculate package checksum"""
+    algorithm = algorithm.upper()
+    if not algorithm in ["SHA1", "SHA224", "SHA256", "SHA384", "SHA512", "MD5"]:
+        raise Exception("Unknown checksum algorithm: " + algorithm)
+    tmp = "tmp"
+    urllib.request.urlretrieve(download_location, tmp)
+    with open(tmp, 'rb', buffering=0) as f:
+        checksum = hashlib.file_digest(f, algorithm).hexdigest()
+        f.close()
+    os.remove(tmp)
+    return checksum
