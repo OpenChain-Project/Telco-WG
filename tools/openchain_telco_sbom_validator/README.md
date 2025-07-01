@@ -3,6 +3,9 @@
 A script to validate SBOMs against
 the [OpenChain Telco SBOM Guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md).
 
+What is new in version 0.3.2:
+* option `--strict-url-check` now also checks the value of the PackageChecksum if present.
+
 What is new in version 0.3.1:
 * new option `--noassertion` will list fields that have value NOASSERTION,
 * implement the strict mode for tool name and version (presence of "-"),
@@ -51,10 +54,11 @@ options:
                         Sets a limit on the number of errors displayed.
   --strict-purl-check   Runs a strict check on the given purls. The default behaviour is to run a non-strict purl check
                         meaning that it is not checked if the purl is translating to a downloadable URL.
-  --strict-url-check    Runs a strict check on the URLs of the PackageHomepages. Strict check means that the validator
+  --strict-url-check    Runs a strict check on the URLs of the PackageDownloadLocation. Strict check means that the validator
                         checks also if the given URL can be accessed. The default behaviour is to run a non-strict URL
                         check, meaning that it is not checked if the URL points to a valid page. Strict URL check
-                        requires access to the internet and takes some time.
+                        requires access to the internet and takes some time. It also checks the value of the
+                        PackageChecksum if present.
   --strict              Checks for both MANDATORY and RECOMMENDED fields. Default is to check MANDATORY fields only.
   -r, --recursive       Validate recursively. Same as “--reference-logic checksum-all”.
   --reference-logic REFERENCE_LOGIC
