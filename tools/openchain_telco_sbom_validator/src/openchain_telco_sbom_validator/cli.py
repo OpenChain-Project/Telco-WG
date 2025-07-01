@@ -122,7 +122,8 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
                         ' means that the validator checks also if the given URL can be accessed.'
                         ' The default behaviour is to run a non-strict URL check, meaning that'
                         ' it is not checked if the URL points to a valid page. Strict URL check'
-                        ' requires access to the internet and takes some time.')
+                        ' requires access to the internet and takes some time. It also checks'
+                        ' the value of the PackageChecksum if present.')
     parser.add_argument('--strict', action="store_true", default=False,
                         help='Checks for both MANDATORY and RECOMMENDED fields. Default is to check MANDATORY fields only.')
     parser.add_argument('--noassertion', action="store_true", default=False,
