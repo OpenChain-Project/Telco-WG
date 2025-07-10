@@ -59,11 +59,7 @@ Package URL(PURL)은 소프트웨어 패키지를 고유하게 식별하기 위�
 
 ### 3.1 데이터 포맷
 
-OpenChain Telco SBOM Guide Compatible 문서는 ISO/IEC 5962:2021에 따라 표준화된 SPDX 데이터 포맷(version 2.2) 또는 표준의 version 2.3을 반드시 준수해야 하며, 포함해야 하는 요소에 대해서는 아래에 추가로 설명합니다.
-
-### 3.1 데이터 포맷
-
-OpenChain Telco SBOM Guide 호환 문서는 ISO/IEC 5962:2021로 표준화된 SPDX 데이터 포맷 버전 2.2 또는 표준의 버전 2.3을 반드시 준수해야 하며, 아래에 명시된 필수 요소를 포함해야 합니다.
+OpenChain Telco SBOM Guide 호환 문서는 ISO/IEC 5962:2021로 표준화된 SPDX 데이터 포맷 버전 2.2 또는 2.3을 반드시 준수해야 하며, 아래에 명시된 필수 요소를 포함해야 합니다.
 
 #### 3.1.1 검증 및 참고 자료
 
@@ -102,9 +98,10 @@ OpenChain Telco SBOM Guide 호환 문서는 ISO/IEC 5962:2021로 표준화된 SP
 - PackageLicenseDeclared: SPDX 2.2에서 필수
 - PackageCopyrightText: SPDX 2.2에서 필수
 
-다음 두 속성 중 하나(PackageChecksum 또는 PackageVerificationCode)는 권장(RECOMMENDED) 사항입니다(“NTIA SBOM Minimum elements”에서 권장): 
+다음 두 속성 중 하나는 권장(RECOMMENDED) 사항입니다. (“NTIA SBOM Minimum elements”에서 권장)
+- PackageChecksum 또는 PackageVerificationCode
 
-패키지는 Package URL (PURL) 로 식별하는 것이 권장(SHOULD) 됩니다.
+패키지는 Package URL (PURL)로 식별하는 것이 권장(SHOULD) 됩니다.
 
 PURL이 존재하는 경우, ExternalRef 필드에 기재하는 것이 좋습니다. 예시:
 
@@ -113,7 +110,7 @@ ExternalRef: PACKAGE-MANAGER purl pkg:pypi/django@1.11.1
 ```
 
 
-SPDX elements 간의 Relationships
+#### SPDX 요소 간의 관계
 
 - Relationship: 최소한 DESCRIBES(설명)와 CONTAINS(포함) 관계는 반드시 포함되어야 하며, 이는 “NTIA SBOM Minimum elements”에서 요구하는 사항입니다.
 
@@ -189,9 +186,9 @@ OpenChain Telco SBOM Guide를 준수하는 SBOM은 반드시(MUST) 생성 시점
 * `Organization` 키워드가 포함된 한 줄
 * `Tool` 키워드가 포함된 한 줄. 이 줄에는 `Tool` 키워드 뒤에 도구 이름과 도구 버전이 반드시 포함되어야 합니다.
 
-도구 이름과 도구 버전은 하이픈("-")으로 구분하는 것이 요구(SHOULD)되며, 해당 줄에는 다른 하이픈이 포함되지 않는 것이 바람직합니다.
+도구 이름과 도구 버전은 하이픈("-")으로 구분하는 것이 권장(SHOULD)되며, 해당 줄에는 다른 하이픈이 포함되지 않는 것이 바람직합니다.
 
-OpenChain Telco SBOM Guide를 준수하는 SBOM은 반드시(MUST)[CISA에서 정의한](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf) SBOM Type을 `CreatorComment` 필드에 제공해야 합니다.
+OpenChain Telco SBOM Guide를 준수하는 SBOM은 반드시(MUST) [CISA에서 정의한](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf) SBOM Type을 `CreatorComment` 필드에 제공해야 합니다.
 
 SBOM Type의 권장(RECOMMENDED) 문법은 “SBOM Type: xxx”이며, 여기서 “xxx”는 6가지 키워드(“Design”, “Source”, “Build”, “Analyzed”, “Deployed”, “Runtime”) 중 하나입니다.
 
@@ -347,13 +344,19 @@ SBOM은 기밀유지계약(confidentiality agreement)의 적용을 받을 수 �
 
 일부 오픈소스 소프트웨어 라이선스는 수신자가 소프트웨어를 자유롭게 재배포할 수 있도록 허용합니다.  이러한 경우, 수신자 역시 해당 소프트웨어에 적용되는 SBOM의 관련 부분을 재배포할 수 있어야 합니다.
 
-## 4. Conformant notice
-소프트웨어에 본 가이드에 부합하는(conformant) SBOM이 포함되어 있음을 표시하고자 할 때, 다음과 같은 안내문을 사용할 수 있습니다(MAY): “This software is supplied with an SBOM conformant to the OpenChain Telco SBOM Guide v1.1, the Guide is available at [https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md)”
+## 4. 준수 안내문
 
-Telco Guide 준수 SBOM 내에 다음과 같은 안내문을 선택적으로 사용할 수 있습니다(MAY): “This SBOM conforms to the OpenChain Telco SBOM Guide v1.1 [https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md), it is provided to the recipient free of charge, and the recipient is free to redistribute this SBOM to any third party that they distribute the corresponding software to, provided that they have all the necessary rights to distribute the software to such third party”
+소프트웨어에 본 가이드에 부합하는(conformant) SBOM이 포함되어 있음을 표시하고자 할 때, 다음과 같은 안내문을 사용할 수 있습니다(MAY):
 
-소프트웨어 벤더 또는 통신 시스템 공급업체에 RFP, 발주서, 외주 개발 발주 등을 요청할 때, RFP 문서, 발주 문서, 계약 문서 등에서 다음과 같은 안내문을 사용할 수 있습니다(MAY): 
-“When releasing software, it is REQUIRED to provide an SBOM compliant with the OpenChain Telco SBOM Guide v1.1 for all software released.  This Guide is available at [https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md)”
+“본 소프트웨어는 OpenChain Telco SBOM Guide v1.1에 부합하는 SBOM과 함께 제공됩니다. 가이드 전문은 [https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md)에서 확인하실 수 있습니다.”
+
+Telco Guide 준수 SBOM 내에는 다음과 같은 안내문을 선택적으로 사용할 수 있습니다(MAY):
+
+“본 SBOM은 OpenChain Telco SBOM Guide v1.1 [https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md)에 부합하며, 수신자에게 무료로 제공됩니다. 수신자는 해당 소프트웨어를 제3자에게 배포할 권리가 있는 경우, 이 SBOM 역시 자유롭게 제3자에게 재배포할 수 있습니다.”
+
+소프트웨어 벤더 또는 통신 시스템 공급업체에 RFP, 발주서, 외주 개발 발주 등을 요청할 때, RFP 문서, 발주 문서, 계약 문서 등에서 다음과 같은 안내문을 사용할 수 있습니다(MAY):
+
+“소프트웨어를 배포할 때, 배포되는 모든 소프트웨어에 대해 OpenChain Telco SBOM Guide v1.1에 부합하는 SBOM을 반드시(REQUIRED) 함께 제공해야 합니다. 본 가이드 전문은 [https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md)에서 확인하실 수 있습니다.”
 
 
 ## 5. 참고 문헌
