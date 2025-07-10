@@ -59,11 +59,11 @@ Package URL(PURL)은 소프트웨어 패키지를 고유하게 식별하기 위�
 
 ### 3.1 데이터 포맷
 
-OpenChain Telco SBOM Guide Compatible 문서는 ISO/IEC 5962:2021에 따라 표준화된 SPDX Data Format(version 2.2) 또는 표준의 version 2.3을 반드시 준수해야 하며, 포함해야 하는 요소에 대해서는 아래에 추가로 설명합니다.
+OpenChain Telco SBOM Guide Compatible 문서는 ISO/IEC 5962:2021에 따라 표준화된 SPDX 데이터 포맷(version 2.2) 또는 표준의 version 2.3을 반드시 준수해야 하며, 포함해야 하는 요소에 대해서는 아래에 추가로 설명합니다.
 
 ### 3.1 데이터 포맷
 
-OpenChain Telco SBOM Guide 호환 문서는 **ISO/IEC 5962:2021**로 표준화된 SPDX 데이터 포맷 버전 2.2 또는 표준의 버전 2.3을 반드시 준수해야 하며, 아래에 명시된 필수 요소를 포함해야 합니다.
+OpenChain Telco SBOM Guide 호환 문서는 ISO/IEC 5962:2021로 표준화된 SPDX 데이터 포맷 버전 2.2 또는 표준의 버전 2.3을 반드시 준수해야 하며, 아래에 명시된 필수 요소를 포함해야 합니다.
 
 #### 3.1.1 검증 및 참고 자료
 
@@ -72,13 +72,13 @@ OpenChain Telco SBOM Guide 호환 문서는 **ISO/IEC 5962:2021**로 표준화�
 
 #### 3.1.2 배경 및 이유
 
-통신 산업 공급망에서 소프트웨어 공급자와 소비자 모두의 도구 및 역량의 단순화와 효율화를 보장하기 위해, OpenChain Telco SBOM Guide Compatible 문서는 ISO/IEC 5962:2021로 표준화된 SPDX Data Format을 준수해야 합니다. 조직의 외부 인터페이스에서 이 표준 SBOM Data Format을 사용함으로써, 소프트웨어를 공급·소비하는 조직의 복잡성이 단일 통합 요구사항 세트만 적용되도록 간소화됩니다.
+통신 산업 공급망에서 소프트웨어 공급자와 소비자 모두의 도구 및 역량의 단순화와 효율화를 보장하기 위해, OpenChain Telco SBOM Guide Compatible 문서는 ISO/IEC 5962:2021로 표준화된 SPDX 데이터 포맷을 준수해야 합니다. 조직의 외부 인터페이스에서 이 표준 SBOM 데이터 포맷을 사용함으로써, 소프트웨어를 공급·소비하는 조직의 복잡성이 단일 통합 요구사항 세트만 적용되도록 간소화됩니다.
 
-추가 설명으로, 조직은 내부적으로 다른 Data Format을 자유롭게 사용할 수 있으며, 요청이 있거나 자체 판단에 따라 다른 Data Format의 SBOM을 제공할 수도 있습니다. OpenChain Telco SBOM Guide는 SBOM 단위의 Specification이며, 조직 단위의 Specification이 아닙니다. 즉, 준수 조직이 있는 것이 아니라, OpenChain Telco SBOM Guide를 적용하여 제공되는 준수 SBOM이 있을 뿐입니다.
+추가 설명으로, 조직은 내부적으로 다른 데이터 포맷을 자유롭게 사용할 수 있으며, 요청이 있거나 자체 판단에 따라 다른 데이터 포맷의 SBOM을 제공할 수도 있습니다. OpenChain Telco SBOM Guide는 SBOM 단위의 Specification이며, 조직 단위의 Specification이 아닙니다. 즉, 준수 조직이 있는 것이 아니라, OpenChain Telco SBOM Guide를 적용하여 제공되는 준수 SBOM이 있을 뿐입니다.
 
 ### 3.2 OpenChain Telco SBOM Guide Compatible 문서에 포함되어야 하는 SPDX 요소
 
-다음 요소들은 **필수(REQUIRED)** 입니다.
+다음 요소들은 필수(REQUIRED) 입니다.
 
 #### 문서 생성 정보
 
@@ -112,9 +112,9 @@ If the PURL is present, it SHOULD be put in ExternalRef field, e.g.
 ExternalRef: PACKAGE-MANAGER purl pkg:pypi/django@1.11.1
 ```
 
-다음 두 속성 중 하나(PackageChecksum 또는 PackageVerificationCode)는 **권장(RECOMMENDED)** 사항입니다(“NTIA SBOM Minimum elements”에서 권장): 
+다음 두 속성 중 하나(PackageChecksum 또는 PackageVerificationCode)는 권장(RECOMMENDED) 사항입니다(“NTIA SBOM Minimum elements”에서 권장): 
 
-패키지는 **Package URL (PURL)** 로 식별하는 것이 **권장(SHOULD)** 됩니다.
+패키지는 Package URL (PURL) 로 식별하는 것이 권장(SHOULD) 됩니다.
 
 PURL이 존재하는 경우, ExternalRef 필드에 기재하는 것이 좋습니다. 예시:
 
@@ -170,28 +170,9 @@ OpenChain Telco SBOM Guide의 데이터 포맷으로 SPDX를 선택한 이유는
 * SWID는 완전한 SBOM 포맷이라기보다는 소프트웨어 식별자에 가깝습니다.
 
 
-To facilitate a simplified toolchain, a machine readable version of the SBOM needs to be included. To ensure repeatability and harmonization a conformant SBOM must be in Tag:Value or JSON format. An entity can release additional machine readable formats but they are not required to conform to the Guide.
-
-Tag:Value is the most human-readable format, and there are converters between the various SPDX formats
-(e.g. https://tools.spdx.org/app/convert/). JSON is a format produced by several tools.
-
-
 툴체인의 단순화를 위해서는 기계 판독 가능한 버전의 SBOM이 반드시 포함되어야 합니다.  반복성과 표준화된 활용을 보장하기 위해, 준수하는 SBOM은 반드시 Tag:Value 또는 JSON 포맷이어야 합니다.  조직은 추가적인 기계 판독 가능 포맷으로 SBOM을 제공할 수 있으나, 이는 본 가이드의 준수 요건에 해당하지 않습니다.
 
-Tag:Value는 사람이 읽기에 가장 쉬운(human-readable) 포맷이며, 다양한 SPDX 포맷 간 변환 도구도 존재합니다  
-(예: https://tools.spdx.org/app/convert/).  JSON은 여러 도구에서 생성되는 포맷입니다.
-
-
-### 3.4 Human Readable Data Format
-An OpenChain Telco SBOM Compatible document SHALL include, at a minimum, the SPDX in one of the following human readable formats: Tag:Value or JSON.
-
-#### 3.4.1 Verification and reference material
-Tag:Value and JSON formats are described here:
-* in SPDX 2.2 https://spdx.github.io/spdx-spec/v2.2.2/conformance/#44-standard-data-format-requirements
-* in SPDX 2.3 https://spdx.github.io/spdx-spec/v2.3/conformance/#44-standard-data-format-requirements
-
-#### 3.4.2 Rationale
-As the Tag:Value format is also human readable it has been chosen so that both the requirements for a standardized machine readable and human readable version can be met using one file. An entity can release additional human readable formats but they are not required to conform to the OpenChain Telco SBOM Guide.
+Tag:Value는 사람이 읽기에 가장 쉬운(human-readable) 포맷이며, 다양한 SPDX 포맷 간 변환 도구도 존재합니다(예: https://tools.spdx.org/app/convert/).  JSON은 여러 도구에서 생성되는 포맷입니다.
 
 
 ### 3.4 사람이 읽을 수 있는 데이터 포맷
@@ -220,9 +201,7 @@ OpenChain Telco SBOM Guide를 준수하는 SBOM은 반드시(MUST) 생성 시점
 
 도구 이름과 도구 버전은 하이픈("-")으로 구분하는 것이 요구(SHOULD)되며, 해당 줄에는 다른 하이픈이 포함되지 않는 것이 바람직합니다.
 
-OpenChain Telco SBOM Guide를 준수하는 SBOM은 반드시(MUST)  
-[CISA에서 정의한](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)  
-SBOM Type을 `CreatorComment` 필드에 제공해야 합니다.
+OpenChain Telco SBOM Guide를 준수하는 SBOM은 반드시(MUST)[CISA에서 정의한](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf) SBOM Type을 `CreatorComment` 필드에 제공해야 합니다.
 
 SBOM Type의 권장(RECOMMENDED) 문법은 “SBOM Type: xxx”이며, 여기서 “xxx”는 6가지 키워드(“Design”, “Source”, “Build”, “Analyzed”, “Deployed”, “Runtime”) 중 하나입니다.
 
@@ -267,6 +246,7 @@ CreatorComment: Analyzed
 ```
 ```
 CreatorComment: This SBOM was created during build phase.
+```
 
 
 ### 3.6 SBOM 제공 시점
