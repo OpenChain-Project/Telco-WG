@@ -33,6 +33,8 @@ There is a [French translation of the guide version 1.1](https://github.com/Open
 
 There is a [Traditional Chinese translation of the guide version 1.1](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_ZH_HANT.md) that was provided by SZ Lin (林上智) from ISA Taiwan Section.
 
+There is a [Korean translation of the guide version 1.1](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_KR.md) that was provided by Haksung Jang from SK Telecom.
+
 ### Version 1.0 of the OpenChain Telco SBOM Guide
 
 Version 1.0 of the [OpenChain Telco SBOM Guide in English](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_1.0_EN.md).
