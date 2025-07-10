@@ -102,16 +102,6 @@ OpenChain Telco SBOM Guide 호환 문서는 ISO/IEC 5962:2021로 표준화된 SP
 - PackageLicenseDeclared: SPDX 2.2에서 필수
 - PackageCopyrightText: SPDX 2.2에서 필수
 
-One of the two attributes PackageChecksum or PackageVerificationCode is RECOMMENDED:
-recommended by “NTIA SBOM Minimum elements”
-
-A package SHOULD be identified by a Package URL (PURL).
-
-If the PURL is present, it SHOULD be put in ExternalRef field, e.g.
-```
-ExternalRef: PACKAGE-MANAGER purl pkg:pypi/django@1.11.1
-```
-
 다음 두 속성 중 하나(PackageChecksum 또는 PackageVerificationCode)는 권장(RECOMMENDED) 사항입니다(“NTIA SBOM Minimum elements”에서 권장): 
 
 패키지는 Package URL (PURL) 로 식별하는 것이 권장(SHOULD) 됩니다.
@@ -343,9 +333,6 @@ SBOM의 검증은 중요한 주제이지만, OpenChain Telco는 현재 이 작�
 #### 3.12.2 배경 및 이유
 
 대규모 소프트웨어 제품의 경우, 전체를 하나의 SBOM으로 제공하는 것보다 각 부분별로 개별 SBOM을 제공하는 것이 더 쉬운 경우가 많습니다.
-
-### 3.13 SBOM Confidentiality
-SBOMs MAY be subject to confidentiality agreements. A conformant SBOM MUST NOT, however, be subject to any confidentiality agreements that would prevent a recipient from redistributing the parts of the SBOM applicable to software that such recipient has a right to redistribute.
 
 ### 3.13 SBOM 기밀성
 
