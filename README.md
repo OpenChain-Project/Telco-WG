@@ -52,3 +52,7 @@ See [announcement](https://openchainproject.org/news/2024/07/30/openchain-telco-
 ## Tools
 
 Nokia has provided a [Python tool](tools) to validate an SBOM against the OpenChain Telco SBOM Guide.
+
+## Handbook
+
+The OpenChain Korea Work Group has created a [Practical Guide to the OpenChain Telco SBOM Specification](https://openchain-project.github.io/OpenChain-KWG/en/guide/telco_sbom/)
