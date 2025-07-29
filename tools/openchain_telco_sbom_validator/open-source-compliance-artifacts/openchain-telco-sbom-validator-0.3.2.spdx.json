@@ -1,0 +1,252 @@
+{
+    "SPDXID": "SPDXRef-DOCUMENT",
+    "creationInfo": {
+        "created": "2025-07-29T10:45:51Z",
+        "creators": [
+            "Organization: Nokia",
+            "Tool: Nokia Compliance Tool - 1.0"
+        ],
+        "licenseListVersion": "3.27",
+        "comment": "CISA SBOM type: Source"
+    },
+    "dataLicense": "CC0-1.0",
+    "name": "openchain-telco-sbom-validator-0.3.2",
+    "spdxVersion": "SPDX-2.3",
+    "documentNamespace": "https://nokia.com/spdx/openchain-telco-sbom-validator-0.3.2",
+    "packages": [
+        {
+            "SPDXID": "SPDXRef-openchain-telco-sbom-validator",
+            "checksums": [
+                {
+                    "algorithm": "SHA256",
+                    "checksumValue": "c95d3c0d517ba84594ec8ebb036b63b53b863962b5f10f6a9fe36403144f4e05"
+                },
+                {
+                    "algorithm": "MD5",
+                    "checksumValue": "b40cb73f6ced71b09db9c3e06b542d31"
+                }
+            ],
+            "copyrightText": "(c) 2024-2025 Nokia Authors Gergely Csatari, Marc-Etienne Vargenau",
+            "downloadLocation": "https://files.pythonhosted.org/packages/2d/95/1e35d9c9729d5bfe77e89959c380f2cfda4fcdf3f2312db8cd81474eab3e/openchain_telco_sbom_validator-0.3.2.tar.gz",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceLocator": "pkg:pypi/openchain-telco-sbom-validator@0.3.2",
+                    "referenceType": "purl"
+                }
+            ],
+            "filesAnalyzed": false,
+            "licenseConcluded": "Apache-2.0",
+            "licenseDeclared": "Apache-2.0",
+            "name": "openchain-telco-sbom-validator",
+            "originator": "Organization: Nokia",
+            "supplier": "Organization: https://pypi.org",
+            "versionInfo": "0.3.2"
+        },
+        {
+            "SPDXID": "SPDXRef-Package-python-ntia-conformance-checker",
+            "checksums": [
+                {
+                    "algorithm": "SHA256",
+                    "checksumValue": "474ae33d7477c9db361a53dac3137066f94f56f0ac42c3e65f4de3ddb4c2c326"
+                },
+                {
+                    "algorithm": "MD5",
+                    "checksumValue": "475ad3e19c1e7ed6f0b4c3783b5cd219"
+                }
+            ],
+            "copyrightText": "2024 SPDX contributors",
+            "downloadLocation": "https://files.pythonhosted.org/packages/f6/1b/af3e028ffb25aba8b9efcaee5ab0430699769924d0e2274300ef19eed003/ntia_conformance_checker-3.2.0.tar.gz",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceLocator": "pkg:pypi/ntia-conformance-checker@3.2.0",
+                    "referenceType": "purl"
+                }
+            ],
+            "filesAnalyzed": false,
+            "licenseConcluded": "Apache-2.0",
+            "licenseDeclared": "Apache-2.0",
+            "name": "ntia-conformance-checker",
+            "supplier": "Organization: https://pypi.org",
+            "versionInfo": "3.2.0"
+        },
+        {
+            "SPDXID": "SPDXRef-Package-python-packageurl-python",
+            "checksums": [
+                {
+                    "algorithm": "SHA256",
+                    "checksumValue": "5db592a990b60bc02446033c50fb1803a26c5124cd72c5a2cd1b8ea1ae741969"
+                },
+                {
+                    "algorithm": "MD5",
+                    "checksumValue": "bc2a019812c3f3afe2186b18bcc4319c"
+                }
+            ],
+            "copyrightText": "Copyright (c) the purl authors",
+            "downloadLocation": "https://files.pythonhosted.org/packages/a9/b6/d28c4fa7535530879e7d64176f7ff081fb6308b50cac8e30f038a89e8fdd/packageurl_python-0.17.1.tar.gz",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceLocator": "pkg:pypi/packageurl-python@0.17.1",
+                    "referenceType": "purl"
+                }
+            ],
+            "filesAnalyzed": false,
+            "licenseConcluded": "MIT",
+            "licenseDeclared": "MIT",
+            "name": "packageurl-python",
+            "supplier": "Organization: https://pypi.org",
+            "versionInfo": "0.17.1"
+        },
+        {
+            "SPDXID": "SPDXRef-Package-python-prettytable",
+            "checksums": [
+                {
+                    "algorithm": "SHA256",
+                    "checksumValue": "3c64b31719d961bf69c9a7e03d0c1e477320906a98da63952bc6698d6164ff57"
+                },
+                {
+                    "algorithm": "MD5",
+                    "checksumValue": "85a6f1812e31ea2dcf8119f219c1a032"
+                }
+            ],
+            "copyrightText": "Copyright (c) 2009-2014, Luke Maurits <luke@maurits.id.au>",
+            "downloadLocation": "https://files.pythonhosted.org/packages/99/b1/85e18ac92afd08c533603e3393977b6bc1443043115a47bb094f3b98f94f/prettytable-3.16.0.tar.gz",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceLocator": "pkg:pypi/prettytable@3.16.0",
+                    "referenceType": "purl"
+                }
+            ],
+            "filesAnalyzed": false,
+            "licenseConcluded": "BSD-3-Clause",
+            "licenseDeclared": "BSD-3-Clause",
+            "name": "prettytable",
+            "supplier": "Organization: https://pypi.org",
+            "versionInfo": "3.16.0"
+        },
+        {
+            "SPDXID": "SPDXRef-Package-python-requests",
+            "checksums": [
+                {
+                    "algorithm": "SHA256",
+                    "checksumValue": "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+                },
+                {
+                    "algorithm": "MD5",
+                    "checksumValue": "4a380c14fe0f4465c9dbf79ffacefd8f"
+                }
+            ],
+            "copyrightText": "Copyright 2019 Kenneth Reitz. All rights reserved.",
+            "downloadLocation": "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceLocator": "pkg:pypi/requests@2.32.4",
+                    "referenceType": "purl"
+                }
+            ],
+            "filesAnalyzed": false,
+            "licenseConcluded": "Apache-2.0",
+            "licenseDeclared": "Apache-2.0",
+            "name": "requests",
+            "supplier": "Organization: https://pypi.org",
+            "versionInfo": "2.32.4"
+        },
+        {
+            "SPDXID": "SPDXRef-Package-python-spdx-tools",
+            "checksums": [
+                {
+                    "algorithm": "SHA256",
+                    "checksumValue": "68b8f9ce2893b5216bd90b2e63f1c821c2884e4ebc4fd295ebbf1fa8b8a94b93"
+                },
+                {
+                    "algorithm": "MD5",
+                    "checksumValue": "ebbd9ca439294df364a99e4f491fbbe8"
+                }
+            ],
+            "copyrightText": "2023 spdx contributors",
+            "downloadLocation": "https://files.pythonhosted.org/packages/f1/99/3470b28dc4b64fd29db3b1dcf5e84c743ec88e25ea7b214794f5930f0319/spdx-tools-0.8.3.tar.gz",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceLocator": "pkg:pypi/spdx-tools@0.8.3",
+                    "referenceType": "purl"
+                }
+            ],
+            "filesAnalyzed": false,
+            "licenseConcluded": "Apache-2.0",
+            "licenseDeclared": "Apache-2.0",
+            "name": "spdx-tools",
+            "supplier": "Organization: https://pypi.org",
+            "versionInfo": "0.8.3"
+        },
+        {
+            "SPDXID": "SPDXRef-Package-python-validators",
+            "checksums": [
+                {
+                    "algorithm": "SHA256",
+                    "checksumValue": "992d6c48a4e77c81f1b4daba10d16c3a9bb0dbb79b3a19ea847ff0928e70497a"
+                },
+                {
+                    "algorithm": "MD5",
+                    "checksumValue": "8376f37ec2028053cee8f4789dadd947"
+                }
+            ],
+            "copyrightText": "Copyright (c) 2013 - 2025 Konsta Vesterinen",
+            "downloadLocation": "https://files.pythonhosted.org/packages/53/66/a435d9ae49850b2f071f7ebd8119dd4e84872b01630d6736761e6e7fd847/validators-0.35.0.tar.gz",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceLocator": "pkg:pypi/validators@0.35.0",
+                    "referenceType": "purl"
+                }
+            ],
+            "filesAnalyzed": false,
+            "licenseConcluded": "MIT",
+            "licenseDeclared": "MIT",
+            "name": "validators",
+            "supplier": "Organization: https://pypi.org",
+            "versionInfo": "0.35.0"
+        }
+    ],
+    "relationships": [
+        {
+            "spdxElementId": "SPDXRef-DOCUMENT",
+            "relatedSpdxElement": "SPDXRef-openchain-telco-sbom-validator",
+            "relationshipType": "DESCRIBES"
+        },
+        {
+            "spdxElementId": "SPDXRef-openchain-telco-sbom-validator",
+            "relatedSpdxElement": "SPDXRef-Package-python-ntia-conformance-checker",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-openchain-telco-sbom-validator",
+            "relatedSpdxElement": "SPDXRef-Package-python-packageurl-python",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-openchain-telco-sbom-validator",
+            "relatedSpdxElement": "SPDXRef-Package-python-prettytable",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-openchain-telco-sbom-validator",
+            "relatedSpdxElement": "SPDXRef-Package-python-requests",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-openchain-telco-sbom-validator",
+            "relatedSpdxElement": "SPDXRef-Package-python-spdx-tools",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-openchain-telco-sbom-validator",
+            "relatedSpdxElement": "SPDXRef-Package-python-validators",
+            "relationshipType": "CONTAINS"
+        }
+    ]
+}

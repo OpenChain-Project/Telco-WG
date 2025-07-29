@@ -1,0 +1,128 @@
+SPDXVersion: SPDX-2.3
+DataLicense: CC0-1.0
+SPDXID: SPDXRef-DOCUMENT
+DocumentName: openchain-telco-sbom-validator-0.3.2
+DocumentNamespace: https://nokia.com/spdx/openchain-telco-sbom-validator-0.3.2
+
+## Creation Information
+LicenseListVersion: 3.27
+Creator: Organization: Nokia
+Creator: Tool: Nokia Compliance Tool - 1.0
+Created: 2025-07-29T10:45:51Z
+CreatorComment: CISA SBOM type: Source
+
+##### Package: openchain-telco-sbom-validator
+
+PackageName: openchain-telco-sbom-validator
+SPDXID: SPDXRef-openchain-telco-sbom-validator
+PackageVersion: 0.3.2
+PackageDownloadLocation: https://files.pythonhosted.org/packages/2d/95/1e35d9c9729d5bfe77e89959c380f2cfda4fcdf3f2312db8cd81474eab3e/openchain_telco_sbom_validator-0.3.2.tar.gz
+FilesAnalyzed: false
+PackageLicenseConcluded: Apache-2.0
+PackageLicenseDeclared: Apache-2.0
+PackageCopyrightText: (c) 2024-2025 Nokia Authors Gergely Csatari, Marc-Etienne Vargenau
+PackageSupplier: Organization: https://pypi.org
+PackageOriginator: Organization: Nokia
+PackageChecksum: SHA256: c95d3c0d517ba84594ec8ebb036b63b53b863962b5f10f6a9fe36403144f4e05
+PackageChecksum: MD5: b40cb73f6ced71b09db9c3e06b542d31
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/openchain-telco-sbom-validator@0.3.2
+
+##### Package: ntia-conformance-checker
+
+PackageName: ntia-conformance-checker
+SPDXID: SPDXRef-Package-python-ntia-conformance-checker
+PackageVersion: 3.2.0
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/f6/1b/af3e028ffb25aba8b9efcaee5ab0430699769924d0e2274300ef19eed003/ntia_conformance_checker-3.2.0.tar.gz
+FilesAnalyzed: false
+PackageLicenseConcluded: Apache-2.0
+PackageLicenseDeclared: Apache-2.0
+PackageCopyrightText: 2024 SPDX contributors
+PackageChecksum: SHA256: 474ae33d7477c9db361a53dac3137066f94f56f0ac42c3e65f4de3ddb4c2c326
+PackageChecksum: MD5: 475ad3e19c1e7ed6f0b4c3783b5cd219
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/ntia-conformance-checker@3.2.0
+
+##### Package: packageurl-python
+
+PackageName: packageurl-python
+SPDXID: SPDXRef-Package-python-packageurl-python
+PackageVersion: 0.17.1
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/a9/b6/d28c4fa7535530879e7d64176f7ff081fb6308b50cac8e30f038a89e8fdd/packageurl_python-0.17.1.tar.gz
+FilesAnalyzed: false
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+PackageCopyrightText: Copyright (c) the purl authors
+PackageChecksum: SHA256: 5db592a990b60bc02446033c50fb1803a26c5124cd72c5a2cd1b8ea1ae741969
+PackageChecksum: MD5: bc2a019812c3f3afe2186b18bcc4319c
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/packageurl-python@0.17.1
+
+##### Package: prettytable
+
+PackageName: prettytable
+SPDXID: SPDXRef-Package-python-prettytable
+PackageVersion: 3.16.0
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/99/b1/85e18ac92afd08c533603e3393977b6bc1443043115a47bb094f3b98f94f/prettytable-3.16.0.tar.gz
+FilesAnalyzed: false
+PackageLicenseConcluded: BSD-3-Clause
+PackageLicenseDeclared: BSD-3-Clause
+PackageCopyrightText: Copyright (c) 2009-2014, Luke Maurits <luke@maurits.id.au>
+PackageChecksum: SHA256: 3c64b31719d961bf69c9a7e03d0c1e477320906a98da63952bc6698d6164ff57
+PackageChecksum: MD5: 85a6f1812e31ea2dcf8119f219c1a032
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/prettytable@3.16.0
+
+##### Package: requests
+
+PackageName: requests
+SPDXID: SPDXRef-Package-python-requests
+PackageVersion: 2.32.4
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz
+FilesAnalyzed: false
+PackageLicenseConcluded: Apache-2.0
+PackageLicenseDeclared: Apache-2.0
+PackageCopyrightText: Copyright 2019 Kenneth Reitz. All rights reserved.
+PackageChecksum: SHA256:  27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422
+PackageChecksum: MD5: 4a380c14fe0f4465c9dbf79ffacefd8f
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/requests@2.32.4
+
+##### Package: spdx-tools
+
+PackageName: spdx-tools
+SPDXID: SPDXRef-Package-python-spdx-tools
+PackageVersion: 0.8.3
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/f1/99/3470b28dc4b64fd29db3b1dcf5e84c743ec88e25ea7b214794f5930f0319/spdx-tools-0.8.3.tar.gz
+FilesAnalyzed: false
+PackageLicenseConcluded: Apache-2.0
+PackageLicenseDeclared: Apache-2.0
+PackageCopyrightText: 2023 spdx contributors
+PackageChecksum: SHA256: 68b8f9ce2893b5216bd90b2e63f1c821c2884e4ebc4fd295ebbf1fa8b8a94b93
+PackageChecksum: MD5: ebbd9ca439294df364a99e4f491fbbe8
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/spdx-tools@0.8.3
+
+##### Package: validators
+
+PackageName: validators
+SPDXID: SPDXRef-Package-python-validators
+PackageVersion: 0.35.0
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/53/66/a435d9ae49850b2f071f7ebd8119dd4e84872b01630d6736761e6e7fd847/validators-0.35.0.tar.gz
+FilesAnalyzed: false
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+PackageCopyrightText: Copyright (c) 2013 - 2025 Konsta Vesterinen
+PackageChecksum: SHA256: 992d6c48a4e77c81f1b4daba10d16c3a9bb0dbb79b3a19ea847ff0928e70497a
+PackageChecksum: MD5: 8376f37ec2028053cee8f4789dadd947
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/validators@0.35.0
+
+##### Relationships
+
+Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-openchain-telco-sbom-validator
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-Package-python-ntia-conformance-checker
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-Package-python-packageurl-python
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-Package-python-prettytable
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-Package-python-requests
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-Package-python-spdx-tools
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-Package-python-validators
