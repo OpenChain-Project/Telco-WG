@@ -227,6 +227,16 @@ The SBOM SHALL be embedded into the software “package” where technically fea
 #### 3.7.2 Rationale
 Other options of SBOM delivery such as webhosting are less stable and access is not guaranteed over time; however “embedding” may not be technically feasible. Thus, in scenarios where it is not possible on technical grounds to include the SBOM in the software delivery, publishing the SBOM online is permitted provided that the SBOM is accessible for the recipients of the software for 18 months. This duration is in line with the OpenChain specification requirements on recertification.
 
+### 3.8 Encryption and storage of SBOM
+SBOM providers SHALL use encryption to protect the confidientiality of an OpenChain Telco SBOM Compatible document. The encryption used SHALL protect the integrity, authenticity, and confidentiality of the document at rest and during transport using best practices. The key(s) used for the encryption of the data SHALL be protected by all parties in an agreed upon manner. While at rest the keys, the encrypted SBOM, the unencrypted SBOM, or parts of the SBOM, SHALL be subject to access control where only designated individuals within the receiving organisation have the necessary rights to read it. Any additional protection mechanisms that are required for the storage of the SBOM SHALL be agreed upon by both parties.
+•	The provider of the Software may choose to make an SBOM available for the public. This guide does not prevent such actions, however the above, 3.X requirement still applies to the SBOM that is to be shipped with the product according to section 3.6.2 of this guide.
+
+### 3.8.1 Verification and reference material
+
+### 3.8.2 Rationale
+The security, confidentiallity, and intergity of the SBOM and the information contained therein may be of great concern and importants for both the provider and the recipient of an SBOM, thus adequate messaures must be taken to ensure that it is protected by all parties. 
+
+
 ### 3.8 SBOM Scope
 The SBOM SHALL contain all open source software that is delivered with the product including all of the transitive dependencies. The SBOM SHOULD contain all commercial components.
 
