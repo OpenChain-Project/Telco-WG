@@ -246,7 +246,7 @@ The provider of the Software may choose to make an SBOM available for the public
 ### 3.8.1 Verification and reference material
 
 ### 3.8.2 Rationale
-The security, confidentiallity, and integrity of the SBOM and the information contained therein may be of great concern and important for both the provider and the consumer of an SBOM, thus adequate measures must be taken to ensure that it is protected by all parties.
+The security, confidentiality, and integrity of the SBOM and the information contained therein may be of great concern and important for both the provider and the consumer of an SBOM, thus adequate measures must be taken to ensure that it is protected by all parties.
 
 ### 3.9 SBOM Scope
 The SBOM SHALL contain all open source software that is delivered with the product including all of the transitive dependencies. The SBOM SHOULD contain all commercial components.
