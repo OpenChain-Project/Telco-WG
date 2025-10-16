@@ -1,10 +1,10 @@
 SPDXID: SPDXRef-DOCUMENT
 creationInfo:
-  comment: 'CISA SBOM type: Source'
-  created: '2025-09-29T12:42:16Z'
+  comment: 'CISA SBOM type: Analyzed'
+  created: '2025-10-16T19:08:35Z'
   creators:
   - 'Organization: Nokia'
-  - 'Tool: Nokia Compliance Tool - 1.0'
+  - 'Tool: pypispdx - 0.1.0'
   licenseListVersion: '3.27'
 dataLicense: CC0-1.0
 documentNamespace: https://nokia.com/spdx/openchain-telco-sbom-validator-0.3.2
@@ -29,25 +29,25 @@ packages:
   originator: 'Organization: Nokia'
   supplier: 'Organization: https://pypi.org'
   versionInfo: 0.3.2
-- SPDXID: SPDXRef-Package-python-beartype
+- SPDXID: SPDXRef-beartype
   checksums:
   - algorithm: SHA256
-    checksumValue: f9a5078f5ce87261c2d22851d19b050b64f6a805439e8793aecf01ce660d3244
+    checksumValue: ff3a7df26af8d15fa87f97934f0f6d41bbdadca971c410819104998dd26013d2
   - algorithm: MD5
-    checksumValue: 4b2e6c98ac361aeaa3d33058e662a9fe
+    checksumValue: ebe743c61f9d2c5e62664fd1c793e686
   copyrightText: "\xA9 Copyright 2014-2025 Beartype authors."
-  downloadLocation: https://files.pythonhosted.org/packages/0d/f9/21e5a9c731e14f08addd53c71fea2e70794e009de5b98e6a2c3d2f3015d6/beartype-0.21.0.tar.gz
+  downloadLocation: https://files.pythonhosted.org/packages/04/96/43ed27f27127155f24f5cf85df0c27fd2ac2ab67d94cecc8f76933f91679/beartype-0.22.2.tar.gz
   externalRefs:
   - referenceCategory: PACKAGE_MANAGER
-    referenceLocator: pkg:pypi/beartype@0.21.0
+    referenceLocator: pkg:pypi/beartype@0.22.2
     referenceType: purl
   filesAnalyzed: false
   licenseConcluded: MIT
   licenseDeclared: MIT
   name: beartype
   supplier: 'Organization: https://pypi.org'
-  versionInfo: 0.21.0
-- SPDXID: SPDXRef-Package-python-boolean-py
+  versionInfo: 0.22.2
+- SPDXID: SPDXRef-boolean-py
   checksums:
   - algorithm: SHA256
     checksumValue: 60cbc4bad079753721d32649545505362c754e121570ada4658b852a3a318d95
@@ -65,43 +65,43 @@ packages:
   name: boolean-py
   supplier: 'Organization: https://pypi.org'
   versionInfo: '5.0'
-- SPDXID: SPDXRef-Package-python-certifi
+- SPDXID: SPDXRef-certifi
   checksums:
   - algorithm: SHA256
-    checksumValue: e564105f78ded564e3ae7c923924435e1daa7463faeab5bb932bc53ffae63407
+    checksumValue: 47c09d31ccf2acf0be3f701ea53595ee7e0b8fa08801c6624be771df09ae7b43
   - algorithm: MD5
-    checksumValue: bb7ee7c24518dc4314ce7a83ca24263f
+    checksumValue: 7fe97b2e79933430062935f3759a09b0
   copyrightText: Copyright Kenneth Reitz me@kennethreitz.com
-  downloadLocation: https://files.pythonhosted.org/packages/dc/67/960ebe6bf230a96cda2e0abcf73af550ec4f090005363542f0765df162e0/certifi-2025.8.3.tar.gz
+  downloadLocation: https://files.pythonhosted.org/packages/4c/5b/b6ce21586237c77ce67d01dc5507039d444b630dd76611bbca2d8e5dcd91/certifi-2025.10.5.tar.gz
   externalRefs:
   - referenceCategory: PACKAGE_MANAGER
-    referenceLocator: pkg:pypi/certifi@2025.8.3
+    referenceLocator: pkg:pypi/certifi@2025.10.5
     referenceType: purl
   filesAnalyzed: false
   licenseConcluded: MPL-2.0
   licenseDeclared: MPL-2.0
   name: certifi
   supplier: 'Organization: https://pypi.org'
-  versionInfo: 2025.8.3
-- SPDXID: SPDXRef-Package-python-charset-normalizer
+  versionInfo: 2025.10.5
+- SPDXID: SPDXRef-charset-normalizer
   checksums:
   - algorithm: SHA256
-    checksumValue: 6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14
+    checksumValue: 94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a
   - algorithm: MD5
-    checksumValue: 773b693324f251206cc5dcbec7dd2d4c
+    checksumValue: 3c73a3c5c05a896c1169d8b5298dc4e5
   copyrightText: "Copyright \xA9 Ahmed TAHRI @Ousret."
-  downloadLocation: https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz
+  downloadLocation: https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz
   externalRefs:
   - referenceCategory: PACKAGE_MANAGER
-    referenceLocator: pkg:pypi/charset-normalizer@3.4.3
+    referenceLocator: pkg:pypi/charset-normalizer@3.4.4
     referenceType: purl
   filesAnalyzed: false
   licenseConcluded: MIT
   licenseDeclared: MIT
   name: charset-normalizer
   supplier: 'Organization: https://pypi.org'
-  versionInfo: 3.4.3
-- SPDXID: SPDXRef-Package-python-click
+  versionInfo: 3.4.4
+- SPDXID: SPDXRef-click
   checksums:
   - algorithm: SHA256
     checksumValue: e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4
@@ -119,26 +119,26 @@ packages:
   name: click
   supplier: 'Organization: https://pypi.org'
   versionInfo: 8.3.0
-- SPDXID: SPDXRef-Package-python-idna
+- SPDXID: SPDXRef-idna
   checksums:
   - algorithm: SHA256
-    checksumValue: 12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9
+    checksumValue: 795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902
   - algorithm: MD5
-    checksumValue: 28448b00665099117b6daa9887812cc4
+    checksumValue: 9a9c33db960e0d35cc5b257c37dabeff
   copyrightText: Copyright (c) 2013-2025, Kim Davies and contributors. All rights
     reserved.
-  downloadLocation: https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz
+  downloadLocation: https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz
   externalRefs:
   - referenceCategory: PACKAGE_MANAGER
-    referenceLocator: pkg:pypi/idna@3.10
+    referenceLocator: pkg:pypi/idna@3.11
     referenceType: purl
   filesAnalyzed: false
   licenseConcluded: BSD-3-Clause
   licenseDeclared: BSD-3-Clause
   name: idna
   supplier: 'Organization: https://pypi.org'
-  versionInfo: '3.10'
-- SPDXID: SPDXRef-Package-python-license-expression
+  versionInfo: '3.11'
+- SPDXID: SPDXRef-license-expression
   checksums:
   - algorithm: SHA256
     checksumValue: 73448f0aacd8d0808895bdc4b2c8e01a8d67646e4188f887375398c761f340fd
@@ -156,43 +156,43 @@ packages:
   name: license-expression
   supplier: 'Organization: https://pypi.org'
   versionInfo: 30.4.4
-- SPDXID: SPDXRef-Package-python-ntia-conformance-checker
+- SPDXID: SPDXRef-ntia-conformance-checker
   checksums:
   - algorithm: SHA256
-    checksumValue: 474ae33d7477c9db361a53dac3137066f94f56f0ac42c3e65f4de3ddb4c2c326
+    checksumValue: 1937d97d5995394ddce03597f337fb62821c2f23cf7ca8524bb92713972fb663
   - algorithm: MD5
-    checksumValue: 475ad3e19c1e7ed6f0b4c3783b5cd219
+    checksumValue: 07a7b00575ea5e84dce0421c49b5a5d0
   copyrightText: Copyright 2024 SPDX contributors
-  downloadLocation: https://files.pythonhosted.org/packages/f6/1b/af3e028ffb25aba8b9efcaee5ab0430699769924d0e2274300ef19eed003/ntia_conformance_checker-3.2.0.tar.gz
+  downloadLocation: https://files.pythonhosted.org/packages/13/2a/d166b25688e964ddbba2c919648ead7a7234cd514ef47f854037d70f3cdb/ntia_conformance_checker-4.0.0.tar.gz
   externalRefs:
   - referenceCategory: PACKAGE_MANAGER
-    referenceLocator: pkg:pypi/ntia-conformance-checker@3.2.0
+    referenceLocator: pkg:pypi/ntia-conformance-checker@4.0.0
     referenceType: purl
   filesAnalyzed: false
   licenseConcluded: Apache-2.0
   licenseDeclared: Apache-2.0
   name: ntia-conformance-checker
   supplier: 'Organization: https://pypi.org'
-  versionInfo: 3.2.0
-- SPDXID: SPDXRef-Package-python-packageurl-python
+  versionInfo: 4.0.0
+- SPDXID: SPDXRef-packageurl-python
   checksums:
   - algorithm: SHA256
-    checksumValue: 5db592a990b60bc02446033c50fb1803a26c5124cd72c5a2cd1b8ea1ae741969
+    checksumValue: a7be3f3ba70d705f738ace9bf6124f31920245a49fa69d4b416da7037dd2de61
   - algorithm: MD5
-    checksumValue: bc2a019812c3f3afe2186b18bcc4319c
+    checksumValue: da54f8c014c784eb22fe9d508cbddccd
   copyrightText: Copyright (c) the purl authors
-  downloadLocation: https://files.pythonhosted.org/packages/a9/b6/d28c4fa7535530879e7d64176f7ff081fb6308b50cac8e30f038a89e8fdd/packageurl_python-0.17.1.tar.gz
+  downloadLocation: https://files.pythonhosted.org/packages/3a/f0/de0ac00a4484c0d87b71e3d9985518278d89797fa725e90abd3453bccb42/packageurl_python-0.17.5.tar.gz
   externalRefs:
   - referenceCategory: PACKAGE_MANAGER
-    referenceLocator: pkg:pypi/packageurl-python@0.17.1
+    referenceLocator: pkg:pypi/packageurl-python@0.17.5
     referenceType: purl
   filesAnalyzed: false
   licenseConcluded: MIT
   licenseDeclared: MIT
   name: packageurl-python
   supplier: 'Organization: https://pypi.org'
-  versionInfo: 0.17.1
-- SPDXID: SPDXRef-Package-python-ply
+  versionInfo: 0.17.5
+- SPDXID: SPDXRef-ply
   checksums:
   - algorithm: SHA256
     checksumValue: 00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3
@@ -210,7 +210,7 @@ packages:
   name: ply
   supplier: 'Organization: https://pypi.org'
   versionInfo: '3.11'
-- SPDXID: SPDXRef-Package-python-prettytable
+- SPDXID: SPDXRef-prettytable
   checksums:
   - algorithm: SHA256
     checksumValue: 3c64b31719d961bf69c9a7e03d0c1e477320906a98da63952bc6698d6164ff57
@@ -228,7 +228,7 @@ packages:
   name: prettytable
   supplier: 'Organization: https://pypi.org'
   versionInfo: 3.16.0
-- SPDXID: SPDXRef-Package-python-pyparsing
+- SPDXID: SPDXRef-pyparsing
   checksums:
   - algorithm: SHA256
     checksumValue: 2df8d5b7b2802ef88e8d016a2eb9c7aeaa923529cd251ed0fe4608275d4105b6
@@ -246,7 +246,7 @@ packages:
   name: pyparsing
   supplier: 'Organization: https://pypi.org'
   versionInfo: 3.2.5
-- SPDXID: SPDXRef-Package-python-pyyaml
+- SPDXID: SPDXRef-pyyaml
   checksums:
   - algorithm: SHA256
     checksumValue: d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f
@@ -264,7 +264,7 @@ packages:
   name: pyyaml
   supplier: 'Organization: https://pypi.org'
   versionInfo: 6.0.3
-- SPDXID: SPDXRef-Package-python-rdflib
+- SPDXID: SPDXRef-rdflib
   checksums:
   - algorithm: SHA256
     checksumValue: cf9b7fa25234e8925da8b1fb09700f8349b5f0f100e785fb4260e737308292ac
@@ -282,25 +282,25 @@ packages:
   name: rdflib
   supplier: 'Organization: https://pypi.org'
   versionInfo: 7.2.1
-- SPDXID: SPDXRef-Package-python-requests
+- SPDXID: SPDXRef-requests
   checksums:
   - algorithm: SHA256
-    checksumValue: 27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422
+    checksumValue: dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf
   - algorithm: MD5
-    checksumValue: 4a380c14fe0f4465c9dbf79ffacefd8f
+    checksumValue: cb3d3c58f07cf23f12c345f2c96a6f12
   copyrightText: Copyright 2019 Kenneth Reitz. All rights reserved.
-  downloadLocation: https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz
+  downloadLocation: https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz
   externalRefs:
   - referenceCategory: PACKAGE_MANAGER
-    referenceLocator: pkg:pypi/requests@2.32.4
+    referenceLocator: pkg:pypi/requests@2.32.5
     referenceType: purl
   filesAnalyzed: false
   licenseConcluded: Apache-2.0
   licenseDeclared: Apache-2.0
   name: requests
   supplier: 'Organization: https://pypi.org'
-  versionInfo: 2.32.4
-- SPDXID: SPDXRef-Package-python-semantic-version
+  versionInfo: 2.32.5
+- SPDXID: SPDXRef-semantic-version
   checksums:
   - algorithm: SHA256
     checksumValue: bdabb6d336998cbb378d4b9db3a4b56a1e3235701dc05ea2690d9a997ed5041c
@@ -318,7 +318,7 @@ packages:
   name: semantic-version
   supplier: 'Organization: https://pypi.org'
   versionInfo: 2.10.0
-- SPDXID: SPDXRef-Package-python-spdx-python-model
+- SPDXID: SPDXRef-spdx-python-model
   checksums:
   - algorithm: SHA256
     checksumValue: 1a10e476d9b1ffac5363586a20e653dd71d9ff2bb9d4534462fb1208e978035d
@@ -336,7 +336,7 @@ packages:
   name: spdx-python-model
   supplier: 'Organization: https://pypi.org'
   versionInfo: 0.0.3
-- SPDXID: SPDXRef-Package-python-spdx-tools
+- SPDXID: SPDXRef-spdx-tools
   checksums:
   - algorithm: SHA256
     checksumValue: 68b8f9ce2893b5216bd90b2e63f1c821c2884e4ebc4fd295ebbf1fa8b8a94b93
@@ -354,7 +354,7 @@ packages:
   name: spdx-tools
   supplier: 'Organization: https://pypi.org'
   versionInfo: 0.8.3
-- SPDXID: SPDXRef-Package-python-uritools
+- SPDXID: SPDXRef-uritools
   checksums:
   - algorithm: SHA256
     checksumValue: 68180cad154062bd5b5d9ffcdd464f8de6934414b25462ae807b00b8df9345de
@@ -372,7 +372,7 @@ packages:
   name: uritools
   supplier: 'Organization: https://pypi.org'
   versionInfo: 5.0.0
-- SPDXID: SPDXRef-Package-python-urllib3
+- SPDXID: SPDXRef-urllib3
   checksums:
   - algorithm: SHA256
     checksumValue: 3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760
@@ -390,7 +390,7 @@ packages:
   name: urllib3
   supplier: 'Organization: https://pypi.org'
   versionInfo: 2.5.0
-- SPDXID: SPDXRef-Package-python-validators
+- SPDXID: SPDXRef-validators
   checksums:
   - algorithm: SHA256
     checksumValue: 992d6c48a4e77c81f1b4daba10d16c3a9bb0dbb79b3a19ea847ff0928e70497a
@@ -408,7 +408,7 @@ packages:
   name: validators
   supplier: 'Organization: https://pypi.org'
   versionInfo: 0.35.0
-- SPDXID: SPDXRef-Package-python-wcwidth
+- SPDXID: SPDXRef-wcwidth
   checksums:
   - algorithm: SHA256
     checksumValue: 4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605
@@ -426,7 +426,7 @@ packages:
   name: wcwidth
   supplier: 'Organization: https://pypi.org'
   versionInfo: 0.2.14
-- SPDXID: SPDXRef-Package-python-xmltodict
+- SPDXID: SPDXRef-xmltodict
   checksums:
   - algorithm: SHA256
     checksumValue: 54306780b7c2175a3967cad1db92f218207e5bc1aba697d887807c0fb68b7649
@@ -448,73 +448,73 @@ relationships:
 - relatedSpdxElement: SPDXRef-openchain-telco-sbom-validator
   relationshipType: DESCRIBES
   spdxElementId: SPDXRef-DOCUMENT
-- relatedSpdxElement: SPDXRef-Package-python-beartype
+- relatedSpdxElement: SPDXRef-beartype
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-boolean-py
+- relatedSpdxElement: SPDXRef-boolean-py
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-certifi
+- relatedSpdxElement: SPDXRef-certifi
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-charset-normalizer
+- relatedSpdxElement: SPDXRef-charset-normalizer
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-click
+- relatedSpdxElement: SPDXRef-click
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-idna
+- relatedSpdxElement: SPDXRef-idna
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-license-expression
+- relatedSpdxElement: SPDXRef-license-expression
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-ntia-conformance-checker
+- relatedSpdxElement: SPDXRef-ntia-conformance-checker
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-packageurl-python
+- relatedSpdxElement: SPDXRef-packageurl-python
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-ply
+- relatedSpdxElement: SPDXRef-ply
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-prettytable
+- relatedSpdxElement: SPDXRef-prettytable
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-pyparsing
+- relatedSpdxElement: SPDXRef-pyparsing
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-pyyaml
+- relatedSpdxElement: SPDXRef-pyyaml
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-rdflib
+- relatedSpdxElement: SPDXRef-rdflib
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-requests
+- relatedSpdxElement: SPDXRef-requests
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-semantic-version
+- relatedSpdxElement: SPDXRef-semantic-version
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-spdx-python-model
+- relatedSpdxElement: SPDXRef-spdx-python-model
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-spdx-tools
+- relatedSpdxElement: SPDXRef-spdx-tools
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-uritools
+- relatedSpdxElement: SPDXRef-uritools
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-urllib3
+- relatedSpdxElement: SPDXRef-urllib3
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-validators
+- relatedSpdxElement: SPDXRef-validators
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-wcwidth
+- relatedSpdxElement: SPDXRef-wcwidth
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
-- relatedSpdxElement: SPDXRef-Package-python-xmltodict
+- relatedSpdxElement: SPDXRef-xmltodict
   relationshipType: CONTAINS
   spdxElementId: SPDXRef-openchain-telco-sbom-validator
 spdxVersion: SPDX-2.3
