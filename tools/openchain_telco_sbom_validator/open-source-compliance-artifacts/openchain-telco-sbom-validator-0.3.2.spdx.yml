@@ -1,7 +1,7 @@
 SPDXID: SPDXRef-DOCUMENT
 creationInfo:
   comment: 'CISA SBOM type: Analyzed'
-  created: '2025-10-16T19:08:35Z'
+  created: '2025-10-28T14:11:03Z'
   creators:
   - 'Organization: Nokia'
   - 'Tool: pypispdx - 0.1.0'
@@ -32,11 +32,11 @@ packages:
 - SPDXID: SPDXRef-beartype
   checksums:
   - algorithm: SHA256
-    checksumValue: ff3a7df26af8d15fa87f97934f0f6d41bbdadca971c410819104998dd26013d2
+    checksumValue: 68284c7803efd190b1b4639a0ab1a17677af9571b8a2ef5a169d10cb8955b01f
   - algorithm: MD5
-    checksumValue: ebe743c61f9d2c5e62664fd1c793e686
+    checksumValue: f47fcd48146586d724483fc97bf52987
   copyrightText: "\xA9 Copyright 2014-2025 Beartype authors."
-  downloadLocation: https://files.pythonhosted.org/packages/04/96/43ed27f27127155f24f5cf85df0c27fd2ac2ab67d94cecc8f76933f91679/beartype-0.22.2.tar.gz
+  downloadLocation: https://files.pythonhosted.org/packages/e8/77/af43bdf737723b28130f2cb595ec0f23e0e757d211fe068fd0ccdb77d786/beartype-0.22.4.tar.gz
   externalRefs:
   - referenceCategory: PACKAGE_MANAGER
     referenceLocator: pkg:pypi/beartype@0.22.2
@@ -46,7 +46,7 @@ packages:
   licenseDeclared: MIT
   name: beartype
   supplier: 'Organization: https://pypi.org'
-  versionInfo: 0.22.2
+  versionInfo: 0.22.4
 - SPDXID: SPDXRef-boolean-py
   checksums:
   - algorithm: SHA256
@@ -267,21 +267,21 @@ packages:
 - SPDXID: SPDXRef-rdflib
   checksums:
   - algorithm: SHA256
-    checksumValue: cf9b7fa25234e8925da8b1fb09700f8349b5f0f100e785fb4260e737308292ac
+    checksumValue: 2da6a5d3d0da2d095dd7de49e388db1c97542efc035bda4000c154d2b6cf8a6e
   - algorithm: MD5
-    checksumValue: dce6e85ebf83d0a095bc83d1665188ec
+    checksumValue: d5959c8e188bcfb41c6d8f820014f81c
   copyrightText: Copyright the RDFLib authors
-  downloadLocation: https://files.pythonhosted.org/packages/8d/99/d2fec85e5f6bdfe4367dea143119cb4469bf48710487939df0abf7e22003/rdflib-7.2.1.tar.gz
+  downloadLocation: https://files.pythonhosted.org/packages/c8/cd/01e49acce660e7f9d161f8885004313f9973cbc5ccbcb11888c147f3fa3a/rdflib-7.3.0.tar.gz
   externalRefs:
   - referenceCategory: PACKAGE_MANAGER
-    referenceLocator: pkg:pypi/rdflib@7.2.1
+    referenceLocator: pkg:pypi/rdflib@7.3.0
     referenceType: purl
   filesAnalyzed: false
   licenseConcluded: BSD-3-Clause
   licenseDeclared: BSD-3-Clause
   name: rdflib
   supplier: 'Organization: https://pypi.org'
-  versionInfo: 7.2.1
+  versionInfo: 7.3.0
 - SPDXID: SPDXRef-requests
   checksums:
   - algorithm: SHA256
