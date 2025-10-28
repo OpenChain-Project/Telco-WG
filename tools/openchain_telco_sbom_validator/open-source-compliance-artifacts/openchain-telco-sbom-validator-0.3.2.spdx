@@ -9,7 +9,7 @@ DocumentNamespace: https://nokia.com/spdx/openchain-telco-sbom-validator-0.3.2
 LicenseListVersion: 3.27
 Creator: Organization: Nokia
 Creator: Tool: pypispdx - 0.1.0
-Created: 2025-10-16T19:08:35Z
+Created: 2025-10-28T14:11:03Z
 CreatorComment: CISA SBOM type: Analyzed
 
 ##### Package: openchain-telco-sbom-validator
@@ -32,12 +32,12 @@ ExternalRef: PACKAGE-MANAGER purl pkg:pypi/openchain-telco-sbom-validator@0.3.2
 
 PackageName: beartype
 SPDXID: SPDXRef-beartype
-PackageVersion: 0.22.2
+PackageVersion: 0.22.4
 PackageSupplier: Organization: https://pypi.org
-PackageDownloadLocation: https://files.pythonhosted.org/packages/04/96/43ed27f27127155f24f5cf85df0c27fd2ac2ab67d94cecc8f76933f91679/beartype-0.22.2.tar.gz
+PackageDownloadLocation: https://files.pythonhosted.org/packages/e8/77/af43bdf737723b28130f2cb595ec0f23e0e757d211fe068fd0ccdb77d786/beartype-0.22.4.tar.gz
 FilesAnalyzed: false
-PackageChecksum: SHA256: ff3a7df26af8d15fa87f97934f0f6d41bbdadca971c410819104998dd26013d2
-PackageChecksum: MD5: ebe743c61f9d2c5e62664fd1c793e686
+PackageChecksum: SHA256: 68284c7803efd190b1b4639a0ab1a17677af9571b8a2ef5a169d10cb8955b01f
+PackageChecksum: MD5: f47fcd48146586d724483fc97bf52987
 PackageLicenseConcluded: MIT
 PackageLicenseDeclared: MIT
 PackageCopyrightText: © Copyright 2014-2025 Beartype authors.
@@ -227,16 +227,16 @@ ExternalRef: PACKAGE-MANAGER purl pkg:pypi/pyyaml@6.0.3
 
 PackageName: rdflib
 SPDXID: SPDXRef-rdflib
-PackageVersion: 7.2.1
+PackageVersion: 7.3.0
 PackageSupplier: Organization: https://pypi.org
-PackageDownloadLocation: https://files.pythonhosted.org/packages/8d/99/d2fec85e5f6bdfe4367dea143119cb4469bf48710487939df0abf7e22003/rdflib-7.2.1.tar.gz
+PackageDownloadLocation: https://files.pythonhosted.org/packages/c8/cd/01e49acce660e7f9d161f8885004313f9973cbc5ccbcb11888c147f3fa3a/rdflib-7.3.0.tar.gz
 FilesAnalyzed: false
-PackageChecksum: SHA256: cf9b7fa25234e8925da8b1fb09700f8349b5f0f100e785fb4260e737308292ac
-PackageChecksum: MD5: dce6e85ebf83d0a095bc83d1665188ec
+PackageChecksum: SHA256: 2da6a5d3d0da2d095dd7de49e388db1c97542efc035bda4000c154d2b6cf8a6e
+PackageChecksum: MD5: d5959c8e188bcfb41c6d8f820014f81c
 PackageLicenseConcluded: BSD-3-Clause
 PackageLicenseDeclared: BSD-3-Clause
 PackageCopyrightText: Copyright the RDFLib authors
-ExternalRef: PACKAGE-MANAGER purl pkg:pypi/rdflib@7.2.1
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/rdflib@7.3.0
 
 ##### Package: requests
 
