@@ -377,6 +377,8 @@ class Validator:
                 # Remove punctuation
                 translator = str.maketrans('', '', string.punctuation)
                 creator_comment = creator_comment.translate(translator)
+                # Replace carriage return and line feed by space
+                creator_comment = creator_comment.replace('\r', ' ').replace('\n', ' ')
                 tokens = re.split(r'[ :]+', creator_comment)
                 logger.debug(f"Strict check is off. (CreatorComment words: {tokens})")
                 if not any(sbom_type in tokens for sbom_type in cisaSBOMTypes):
