@@ -1,0 +1,33 @@
+SPDXVersion: SPDX-2.3
+DataLicense: CC0-1.0
+SPDXID: SPDXRef-DOCUMENT
+DocumentName: pyzbar-0.1.9
+DocumentNamespace: https://nokia.com/spdx/pyzbar-0.1.9
+
+## Creation Information
+
+LicenseListVersion: 3.27
+Creator: Organization: Nokia
+Creator: Tool: pypispdx - 0.1.0
+Created: 2025-11-04T17:48:51Z
+CreatorComment: <text>
+CISA SBOM type: Analyzed
+This SBOM was created with Python version 3.14.0
+</text>
+
+##### Package: pyzbar
+
+PackageName: pyzbar
+SPDXID: SPDXRef-pyzbar
+PackageVersion: 0.1.9
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: NOASSERTION
+FilesAnalyzed: false
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+PackageCopyrightText: NOASSERTION
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/pyzbar@0.1.9
+
+##### Relationships
+
+Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-pyzbar
