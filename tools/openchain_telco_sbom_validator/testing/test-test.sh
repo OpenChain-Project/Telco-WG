@@ -377,5 +377,17 @@ function test_ok_noassert
     assert_output_contains "NOASSERTION"
 }
 
+function test_ok_sbom_type_newline
+{
+    echo "Test: test_ok_sbom_type_newline"
+    run "openchain-telco-sbom-validator test-sbom-11.spdx"
+    echo "$output"
+    assert_terminated_normally
+    assert_exit_success
+    assert_has_output
+    assert_output_contains "The SPDX file test-sbom-11.spdx is compliant with the OpenChain Telco SBOM Guide version 1.1"
+}
+
+
 testrunner
 deactivate
