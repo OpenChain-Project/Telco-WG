@@ -679,11 +679,13 @@ class Validator:
         for component in components:
             logger.debug(f"Erroneous component: {component}")
             spdxPackage = document_utils.get_element_from_spdx_id(doc, component)
+            spdxPackageName = component[0]
+            spdxPackageId = component[1]
             logger.debug(f"SPDX element: {spdxPackage}")
-            if spdxPackage:
+            if spdxPackageId:
                 problems.append("NTIA validation error",
-                                spdxPackage.spdx_id,
-                                spdxPackage.name,
+                                spdxPackageId,
+                                spdxPackageName,
                                 problemText,
                                 Problem.SCOPE_NTIA,
                                 Problem.SEVERITY_ERROR,
