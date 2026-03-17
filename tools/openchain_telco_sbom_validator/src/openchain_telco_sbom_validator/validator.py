@@ -323,7 +323,7 @@ class Validator:
         # No need for SPDX validation as it is done previously.
         logger.debug("Start of NTIA validation")
         sbomNTIA = ntia.SbomChecker(filePath, validate=False)
-        if not sbomNTIA.ntia_minimum_elements_compliant:
+        if not sbomNTIA.compliant:
             logger.debug("NTIA validation failed")
             components = sbomNTIA.get_components_without_names()
             #logger.debug(f"components: {components}, problems: {str(problems)}, doc: {doc}")
@@ -679,9 +679,9 @@ class Validator:
         for component in components:
             logger.debug(f"Erroneous component: {component}")
             spdxPackage = document_utils.get_element_from_spdx_id(doc, component)
+            logger.debug(f"SPDX element: {spdxPackage}")
             spdxPackageName = component[0]
             spdxPackageId = component[1]
-            logger.debug(f"SPDX element: {spdxPackage}")
             if spdxPackageId:
                 problems.append("NTIA validation error",
                                 spdxPackageId,
@@ -714,10 +714,12 @@ class Validator:
             else:
                 spdxPackage = document_utils.get_element_from_spdx_id(doc, component)
                 logger.debug(f"SPDX element: {spdxPackage}")
-                if spdxPackage:
+                spdxPackageName = component[0]
+                spdxPackageId = component[1]
+                if spdxPackageId:
                     problems.append("NTIA validation error",
-                                    spdxPackage.spdx_id,
-                                    spdxPackage.name,
+                                    spdxPackageId,
+                                    spdxPackageName,
                                     problemText,
                                     Problem.SCOPE_NTIA,
                                     Problem.SEVERITY_ERROR,
