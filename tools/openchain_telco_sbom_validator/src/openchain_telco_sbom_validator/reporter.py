@@ -14,10 +14,10 @@ logger = logging.getLogger(__name__)
 logger.propagate = True
 
 def reportCli(result, problems, nr_of_errors, input, guide_version, strict, noassertion, strict_purl_check, strict_url_check):
-    if problems == None:
+    if problems is None:
         print("Internal error.")
         return 2
-    
+
     if len(problems):
 
         errors = problems.get_errors()
