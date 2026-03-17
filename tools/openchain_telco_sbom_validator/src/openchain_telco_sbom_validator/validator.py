@@ -1,6 +1,6 @@
 #!/bin/python3
 
-# © 2024-2025 Nokia
+# © 2024-2026 Nokia
 # Authors: Gergely Csatári, Marc-Etienne Vargenau
 # Licensed under the Apache License 2.0
 # SPDX-License-Identifier: Apache-2.0
@@ -221,7 +221,7 @@ class Validator:
             logger.debug("Validate was called recursively")
             problems.do_print_file()
 
-        if problems == None:
+        if problems is None:
             problems = Problems()
         else:
             logger.debug(f"Inherited {len(problems)} problems")
@@ -238,7 +238,7 @@ class Validator:
         problems.checked_files.append(file_path_full)
 
         if filePath == "":
-            logger.error(f"File path is a mandatory parameter.")
+            logger.error("File path is a mandatory parameter.")
             problems.append("File error",
                             "General",
                             "General",
@@ -803,14 +803,13 @@ def referred_yocto_contains_only(self, doc: Document, dir_name: str, problems: P
 
 def referred_checksum_all(self, doc: Document, dir_name: str, problems: Problems, extension: str=""):
     # Known limitations: MD2, MD4 and MD6 hashes are not supported
-    import hashlib
     from pathlib import Path
     logger.debug("In Referred checksum all")
     documents = []
     checksums = {}
     algorithms = {}
     if doc.creation_info.external_document_refs:
-        logger.debug(f"--------------We have refs!------------")
+        logger.debug("--------------We have refs!------------")
         for ref in doc.creation_info.external_document_refs:
             logger.debug(f"SPDX document referenced {ref.document_ref_id}, {ref.document_uri}, {ref.checksum.algorithm}, {ref.checksum.value}")
             if ref.checksum.algorithm in self.referringLogicStore.keys():
