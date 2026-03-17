@@ -5,6 +5,7 @@ the [OpenChain Telco SBOM Guide](https://github.com/OpenChain-Project/Telco-WG/b
 
 What is new in version 0.3.4:
 * require spdx-tools >= 0.8.5
+* require ntia-conformance-checker >= 5.0.0
 
 What is new in version 0.3.3:
 * fixed a bug when the CISA SBOM type was followed by another line of text in the comment.
