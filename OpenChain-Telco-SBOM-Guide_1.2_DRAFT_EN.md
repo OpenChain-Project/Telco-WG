@@ -50,8 +50,9 @@ OpenChain means [OpenChain ISO/IEC 5230:2020](https://www.iso.org/standard/81039
 ### Transitive dependencies
 Transitive dependencies are all components that are necessary for the software to run. They include any dependency of the package that is not a direct dependency.
 
-### Package URL (PURL)
-Package URL (PURL) is a _de facto_ standard to uniquely identify software packages.
+### Package-URL (PURL)
+Package-URL (PURL) is an [ECMA standard](https://tc54.org/purl/) to uniquely identify software packages.
+It will become an ISO standard.
 
 ## 3. Requirements
 
@@ -96,7 +97,7 @@ recommended by “NTIA SBOM Minimum elements”
 
 At least one of PackageLicenseConcluded and PackageLicenseDeclared MUST not be NOASSERTION.
 
-A package SHOULD be identified by a Package URL (PURL).
+A package SHOULD be identified by a Package-URL (PURL).
 
 If the PURL is present, it SHOULD be put in ExternalRef field, e.g.
 ```
@@ -124,11 +125,11 @@ https://www.cisa.gov/resources-tools/resources/framing-software-component-transp
 allows both, see table in section 2.5.
 
 CISA Minimum elements require License.
-In versions 1.0 and 1.1 of the Guide, PackageLicenseConcluded and PackageLicenseDeclared were mandatory, 
+In versions 1.0 and 1.1 of the Guide, PackageLicenseConcluded and PackageLicenseDeclared were mandatory,
 but could be NOASSERTION. In order to comply with CISA minimum elements, at least one of them must contain a real license
 (either from the SPDX license list or a custom license).
 
-Package URL (PURL) is a _de facto_ standard to uniquely identify software packages.
+Package-URL (PURL) is a _de facto_ standard to uniquely identify software packages.
 
 ### 3.3 Machine Readable Data Format
 An OpenChain Telco SBOM Compatible document SHALL include, at a minimum, SPDX in one of the following machine readable formats: Tag:Value or JSON.
@@ -328,8 +329,9 @@ The following statement MAY be used as statement in the RFP document, order docu
   * https://www.cisa.gov/sites/default/files/2025-08/2025_CISA_SBOM_Minimum_Elements.pdf
 * Framing Software Component Transparency: Establishing a Common Software Bill of Materials (SBOM), Third Edition
   * https://www.cisa.gov/resources-tools/resources/framing-software-component-transparency-2024
-* Package URL (PURL)
+* Package-URL (PURL)
   * https://github.com/package-url/purl-spec
+  * ECMA standard: https://tc54.org/purl/
 
 ## 6. Guide history
 
