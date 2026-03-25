@@ -1,0 +1,513 @@
+SPDXVersion: SPDX-2.3
+DataLicense: CC0-1.0
+SPDXID: SPDXRef-DOCUMENT
+DocumentName: openchain-telco-sbom-validator-0.3.4
+DocumentNamespace: https://pypi.org/spdx/openchain-telco-sbom-validator-0.3.4
+
+## Creation Information
+
+LicenseListVersion: 3.27
+Creator: Organization: Nokia
+Creator: Tool: pypispdx - 0.2.0
+Created: 2026-03-25T15:21:58Z
+CreatorComment: <text>CISA SBOM type: Analyzed
+This SBOM was created with Python version 3.14.3</text>
+
+##### Package: openchain-telco-sbom-validator
+
+PackageName: openchain-telco-sbom-validator
+SPDXID: SPDXRef-openchain-telco-sbom-validator
+PackageVersion: 0.3.4
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/04/1b/b6a9611c0f34ee9f1c09ce07f96ca1d0ba8ea61dfb9ed94c85048ade3828/openchain_telco_sbom_validator-0.3.4.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: 110cda00ad9cfcb10cf992120113b6894410e38e95e1f9b4329ad2b8a584eb0b
+PackageChecksum: MD5: d329699057139953272d7dd7b89db35c
+PackageLicenseConcluded: Apache-2.0
+PackageLicenseDeclared: Apache-2.0
+PackageCopyrightText: NOASSERTION
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/openchain-telco-sbom-validator@0.3.4
+
+##### Package: beartype
+
+PackageName: beartype
+SPDXID: SPDXRef-beartype
+PackageVersion: 0.22.9
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/c7/94/1009e248bbfbab11397abca7193bea6626806be9a327d399810d523a07cb/beartype-0.22.9.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: 8f82b54aa723a2848a56008d18875f91c1db02c32ef6a62319a002e3e25a975f
+PackageChecksum: MD5: da867f7418a7e35ae5b8495b505000f0
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+PackageCopyrightText: <text>copyright 2021, @leycec
+Copyright (c) 2014-2025 Beartype
+COPYRIGHT 2014-2025 Beartype authors
+</text>
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/beartype@0.22.9
+
+##### Package: boolean-py
+
+PackageName: boolean-py
+SPDXID: SPDXRef-boolean-py
+PackageVersion: 5.0
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/c4/cf/85379f13b76f3a69bca86b60237978af17d6aa0bc5998978c3b8cf05abb2/boolean_py-5.0.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: 60cbc4bad079753721d32649545505362c754e121570ada4658b852a3a318d95
+PackageChecksum: MD5: 1a7ec75805094c91980b9f11240853c0
+PackageLicenseConcluded: BSD-2-Clause
+PackageLicenseDeclared: BSD-2-Clause
+PackageCopyrightText: <text>copyright 2009, Sebastian Kramer
+Copyright (c) 2009, 2010, 2013-2016 by the Brotli Authors
+Copyright (c) Sebastian Kraemer, basti.kr@gmail.com and others
+Copyright (c) 2009-2020 Sebastian Kraemer, basti.kr@gmail.com and others
+</text>
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/boolean-py@5.0
+
+##### Package: certifi
+
+PackageName: certifi
+SPDXID: SPDXRef-certifi
+PackageVersion: 2026.2.25
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/af/2d/7bf41579a8986e348fa033a31cdd0e4121114f6bce2457e8876010b092dd/certifi-2026.2.25.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: e887ab5cee78ea814d3472169153c2d12cd43b14bd03329a39a9c6e2e80bfba7
+PackageChecksum: MD5: 1583dc0160782da8326204a90d7f5861
+PackageLicenseConcluded: MPL-2.0
+PackageLicenseDeclared: MPL-2.0
+PackageCopyrightText: NOASSERTION
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/certifi@2026.2.25
+
+##### Package: charset-normalizer
+
+PackageName: charset-normalizer
+SPDXID: SPDXRef-charset-normalizer
+PackageVersion: 3.4.6
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: 1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6
+PackageChecksum: MD5: b93ed897a9b7b95841580584e8634f89
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+PackageCopyrightText: <text>COPYRIGHT (c) FOOBAR
+copyright 2023, Ahmed TAHRI
+Copyright (c) 2025 Ahmed TAHRI
+Copyright (c) 2025 TAHRI Ahmed R.
+copyright (c) 2021 by Ahmed TAHRI
+(c) 2012 Denny Vrandecic (http://simia.net/letters/)
+Copyright (c) Ahmed TAHRI @Ousret (https://github.com/Ousret)
+</text>
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/charset-normalizer@3.4.6
+
+##### Package: click
+
+PackageName: click
+SPDXID: SPDXRef-click
+PackageVersion: 8.3.1
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: 12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a
+PackageChecksum: MD5: 5f89d725a424b101607ec40927f78773
+PackageLicenseConcluded: BSD-3-Clause
+PackageLicenseDeclared: BSD-3-Clause
+PackageCopyrightText: <text>Copyright 2014 Pallets
+copyright 2014 Pallets
+Copyright 2001-2006 Gregory P. Ward
+Copyright 2002-2006 Python Software Foundation
+</text>
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/click@8.3.1
+
+##### Package: idna
+
+PackageName: idna
+SPDXID: SPDXRef-idna
+PackageVersion: 3.11
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: 795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902
+PackageChecksum: MD5: 9a9c33db960e0d35cc5b257c37dabeff
+PackageLicenseConcluded: BSD-3-Clause
+PackageLicenseDeclared: BSD-3-Clause
+PackageCopyrightText: <text>Copyright (c) 2013-2025, Kim Davies and contributors
+</text>
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/idna@3.11
+
+##### Package: license-expression
+
+PackageName: license-expression
+SPDXID: SPDXRef-license-expression
+PackageVersion: 30.4.4
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/40/71/d89bb0e71b1415453980fd32315f2a037aad9f7f70f695c7cec7035feb13/license_expression-30.4.4.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: 73448f0aacd8d0808895bdc4b2c8e01a8d67646e4188f887375398c761f340fd
+PackageChecksum: MD5: 933c9e708aba564bec664357771709d7
+PackageLicenseConcluded: Apache-2.0
+PackageLicenseDeclared: Apache-2.0
+PackageCopyrightText: <text>Copyright (c) nexB Inc.
+Copyright (c) Giovanni Bussi
+Copyright (c) 2019 Giovanni Bussi
+Copyright (c) nexB Inc. and others.
+copyright nexB Inc., AboutCode and others
+Copyright (c) 2008-2020 The pip developers
+Copyright (c) nexB Inc. AboutCode, and others
+copyright 2010 David Wolever <david@wolever.net>
+Copyright (c) 2010 David Wolever <david@wolever.net>
+Copyright (c) 2010 David Wolever . All rights reserved.
+Copyright (c) nexB Inc. and others. All rights reserved.
+Copyright (c) nexB Inc. AboutCode, and others. All rights reserved.
+</text>
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/license-expression@30.4.4
+
+##### Package: ntia-conformance-checker
+
+PackageName: ntia-conformance-checker
+SPDXID: SPDXRef-ntia-conformance-checker
+PackageVersion: 5.0.0
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/47/3e/56ae08f62b4a6ca33611fd2f1a5755df0dcbfc320c42b69372596d291ac1/ntia_conformance_checker-5.0.0.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: 978c322f84cd812323a1123599f5a00c0be2e1d11ba058b7ae180f73f649579a
+PackageChecksum: MD5: 440f150c561b3b4f514671956bf98b38
+PackageLicenseConcluded: Apache-2.0
+PackageLicenseDeclared: Apache-2.0
+PackageCopyrightText: NOASSERTION
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/ntia-conformance-checker@5.0.0
+
+##### Package: packageurl-python
+
+PackageName: packageurl-python
+SPDXID: SPDXRef-packageurl-python
+PackageVersion: 0.17.6
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/f5/d6/3b5a4e3cfaef7a53869a26ceb034d1ff5e5c27c814ce77260a96d50ab7bb/packageurl_python-0.17.6.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: 1252ce3a102372ca6f86eb968e16f9014c4ba511c5c37d95a7f023e2ca6e5c25
+PackageChecksum: MD5: 17b4e2291bacd545758f1c466f3db7b3
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+PackageCopyrightText: <text>Copyright (c) the purl authors
+</text>
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/packageurl-python@0.17.6
+
+##### Package: ply
+
+PackageName: ply
+SPDXID: SPDXRef-ply
+PackageVersion: 3.11
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/e5/69/882ee5c9d017149285cab114ebeab373308ef0f874fcdac9beb90e0ac4da/ply-3.11.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: 00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3
+PackageChecksum: MD5: 6465f602e656455affcd7c5734c638f8
+PackageLicenseConcluded: BSD-3-Clause
+PackageLicenseDeclared: BSD-3-Clause
+PackageCopyrightText: <text>Copyright (c) 2001-2018 David M. Beazley (Dabeaz LLC)
+David Beazley (http://www.dabeaz.com) Copyright (c) 2007
+</text>
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/ply@3.11
+
+##### Package: prettytable
+
+PackageName: prettytable
+SPDXID: SPDXRef-prettytable
+PackageVersion: 3.17.0
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/79/45/b0847d88d6cfeb4413566738c8bbf1e1995fad3d42515327ff32cc1eb578/prettytable-3.17.0.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: 59f2590776527f3c9e8cf9fe7b66dd215837cca96a9c39567414cbc632e8ddb0
+PackageChecksum: MD5: 648f88a57a20ba6201ab98f8b3d5c936
+PackageLicenseConcluded: BSD-3-Clause
+PackageLicenseDeclared: BSD-3-Clause
+PackageCopyrightText: <text>Copyright (c) 2009-2014 Luke Maurits <luke@maurits.id.au>
+Copyright (c) 2009-2014, Luke Maurits <luke@maurits.id.au>
+</text>
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/prettytable@3.17.0
+
+##### Package: pyparsing
+
+PackageName: pyparsing
+SPDXID: SPDXRef-pyparsing
+PackageVersion: 3.3.2
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/f3/91/9c6ee907786a473bf81c5f53cf703ba0957b23ab84c264080fb5a450416f/pyparsing-3.3.2.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: c777f4d763f140633dcb6d8a3eda953bf7a214dc4eff598413c070bcdc117cbc
+PackageChecksum: MD5: ca3bea68cd1a84584b68cd7bed679464
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+PackageCopyrightText: <text>Copyright 2004, Paul McGuire
+Copyright 2006, Paul McGuire
+Copyright 2008 Chris Lambrou
+Copyright 2008, Paul McGuire
+Copyright 2010, Paul McGuire
+Copyright 2011, Paul McGuire
+Copyright 2015, Paul McGuire
+Copyright 2016, Paul McGuire
+Copyright 2018, Paul McGuire
+Copyright 2019, Paul McGuire
+Copyright 2020, Paul McGuire
+Copyright 2021, Paul McGuire
+Copyright 2023, Paul McGuire
+Copyright 2024, Paul McGuire
+Copyright Paul McGuire, 2019
+Copyright Paul McGuire, 2021
+copyright 2006, Paul McGuire
+Copyright, 2010, Paul McGuire
+Copyright, 2007 - Paul McGuire
+Copyright, 2012 - Paul McGuire
+Copyright 2006, by Paul McGuire
+Copyright 2008, by Paul McGuire
+Copyright 2012, Paul T. McGuire
+Copyright 2022, by Paul McGuire
+Copyright 2024, by Paul McGuire
+Copyright (c) 2003, Paul McGuire
+Copyright (c) 2004, Paul McGuire
+Copyright (c) 2006, Paul McGuire
+Copyright (c) 2016, Paul McGuire
+Copyright (c) 2024, Paul McGuire
+Copyright 2010,2019 Paul McGuire
+Copyright, 2006, by Paul McGuire
+Copyright 2002-2021, Paul McGuire
+Copyright 2005-2006, Paul McGuire
+Copyright 2009, 2011 Paul McGuire
+Copyright (c) 2018 Paul T. McGuire
+Copyright Ellis & Grant, Inc. 2005
+Copyright 2003-2019 by Paul McGuire
+Copyright 2011,2015 Paul T. McGuire
+Copyright (c) 2003,2019 Paul McGuire
+Copyright (c) 2003-2024 Paul McGuire
+Copyright (c) 2003-2025 Paul McGuire
+Copyright (c) 2006,2016 Paul McGuire
+Copyright 2003, 2019 by Paul McGuire
+Copyright 2004-2016, by Paul McGuire
+Copyright 2007, 2023 by Paul McGuire
+Copyright 2007-2011, by Paul McGuire
+Copyright 2010, 2019 by Paul McGuire
+Copyright 2012, 2019 Paul T. McGuire
+copyright 2018-2024, Paul T. McGuire
+Copyright (c) 2003,2016, Paul McGuire
+Copyright (c) 2004, 2006 Paul McGuire
+Copyright (c) 2004-2016, Paul McGuire
+Copyright (c) 2006, 2019, Paul McGuire
+Copyright (c) 2003-2022 Paul T. McGuire
+Copyright (c) 2004-2011 Paul T. McGuire
+Copyright (c) 2006, 2016, 2023, Paul McGuire
+Copyright (c) 2006, Estrate, the Netherlands
+Copyright 1989 by Carnegie Mellon University
+Copyright 2004-2010, by Paul McGuire September, 2010
+Copyright Petri Savolainen <firstname.lastname@iki.fi>
+Copyright 2004, by Alberto Santini http://www.albertosantini.it/chess
+</text>
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/pyparsing@3.3.2
+
+##### Package: pyyaml
+
+PackageName: pyyaml
+SPDXID: SPDXRef-pyyaml
+PackageVersion: 6.0.3
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f
+PackageChecksum: MD5: dbc6f815cd75160ccf12e470be1c8d6e
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+PackageCopyrightText: <text>Copyright (c) 2017-2021 Ingy
+Copyright (c) 2006-2016 Kirill Simonov
+</text>
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/pyyaml@6.0.3
+
+##### Package: rdflib
+
+PackageName: rdflib
+SPDXID: SPDXRef-rdflib
+PackageVersion: 7.6.0
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/98/f5/18bb77b7af9526add0c727a3b2048959847dc5fb030913e2918bf384fec3/rdflib-7.6.0.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: 6c831288d5e4a5a7ece85d0ccde9877d512a3d0f02d7c06455d00d6d0ea379df
+PackageChecksum: MD5: 11bd8e278d1c1e5628ace31a7db904a4
+PackageLicenseConcluded: BSD-3-Clause
+PackageLicenseDeclared: BSD-3-Clause
+PackageCopyrightText: NOASSERTION
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/rdflib@7.6.0
+
+##### Package: requests
+
+PackageName: requests
+SPDXID: SPDXRef-requests
+PackageVersion: 2.33.0
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652
+PackageChecksum: MD5: 662bf03e3af75028d5a7f36b7e25ad10
+PackageLicenseConcluded: Apache-2.0
+PackageLicenseDeclared: Apache-2.0
+PackageCopyrightText: NOASSERTION
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/requests@2.33.0
+
+##### Package: semantic-version
+
+PackageName: semantic-version
+SPDXID: SPDXRef-semantic-version
+PackageVersion: 2.10.0
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/7d/31/f2289ce78b9b473d582568c234e104d2a342fd658cc288a7553d83bb8595/semantic_version-2.10.0.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: bdabb6d336998cbb378d4b9db3a4b56a1e3235701dc05ea2690d9a997ed5041c
+PackageChecksum: MD5: e48abef93ba69abcd4eaf4640edfc38b
+PackageLicenseConcluded: BSD-2-Clause
+PackageLicenseDeclared: BSD-2-Clause
+PackageCopyrightText: <text>Copyright (c) The python-semanticversion project
+copyright u'2012-2019, The python-semanticversion project
+</text>
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/semantic-version@2.10.0
+
+##### Package: spdx-python-model
+
+PackageName: spdx-python-model
+SPDXID: SPDXRef-spdx-python-model
+PackageVersion: 0.0.4
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/68/11/43a4a60f929d41a3e681763728bbba6acf5f3997e68c355551b740d1a9c9/spdx_python_model-0.0.4.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: bdec725398babcbdd4bcb7c16cf23497d06a48d0ef3ea1edb19a3b0d431ab8c1
+PackageChecksum: MD5: 07960215af05ac5e1e6422705ce0e32d
+PackageLicenseConcluded: Apache-2.0
+PackageLicenseDeclared: Apache-2.0
+PackageCopyrightText: NOASSERTION
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/spdx-python-model@0.0.4
+
+##### Package: spdx-tools
+
+PackageName: spdx-tools
+SPDXID: SPDXRef-spdx-tools
+PackageVersion: 0.8.5
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/2f/99/33383f587b59cbd191cc1c0fd5408e550b9275e0090d32561cbddc973fdc/spdx_tools-0.8.5.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: be600beb2f762f0116025e05490d399e724f668bef84025a7c421bb266688bdb
+PackageChecksum: MD5: 1f57f1eb5bdbc42d3de855d3f2701dfe
+PackageLicenseConcluded: Apache-2.0
+PackageLicenseDeclared: Apache-2.0
+PackageCopyrightText: NOASSERTION
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/spdx-tools@0.8.5
+
+##### Package: uritools
+
+PackageName: uritools
+SPDXID: SPDXRef-uritools
+PackageVersion: 6.0.1
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/dd/f7/6651d145bedd535a5bdd6dad108329ec1fec89d38ec611f8d98834eb5378/uritools-6.0.1.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: 2f9e9cb954e7877232b2c863f724a44a06eb98d9c7ebdd69914876e9487b94f8
+PackageChecksum: MD5: 790fc28c159751ca361df5b388d1a5c0
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+PackageCopyrightText: <text>copyright 2014-2025 Thomas Kemmer
+Copyright (c) 2014-2025 Thomas Kemmer
+</text>
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/uritools@6.0.1
+
+##### Package: urllib3
+
+PackageName: urllib3
+SPDXID: SPDXRef-urllib3
+PackageVersion: 2.6.3
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/c7/24/5f1b3bdffd70275f6661c76461e25f024d5a38a46f04aaca912426a2b1d3/urllib3-2.6.3.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: 1b62b6884944a57dbe321509ab94fd4d3b307075e0c2eae991ac71ee15ad38ed
+PackageChecksum: MD5: 2c381874816fe551f50a2551abae62b3
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+PackageCopyrightText: <text>Copyright 2019-2022, Pyodide contributors
+2019-2022, Pyodide contributors and Mozilla
+Copyright (c) 2019-2022, Pyodide contributors
+Copyright (c) 2008-2020 Andrey Petrov and contributors
+</text>
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/urllib3@2.6.3
+
+##### Package: validators
+
+PackageName: validators
+SPDXID: SPDXRef-validators
+PackageVersion: 0.35.0
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/53/66/a435d9ae49850b2f071f7ebd8119dd4e84872b01630d6736761e6e7fd847/validators-0.35.0.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: 992d6c48a4e77c81f1b4daba10d16c3a9bb0dbb79b3a19ea847ff0928e70497a
+PackageChecksum: MD5: 8376f37ec2028053cee8f4789dadd947
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+PackageCopyrightText: <text>COPYRIGHT 2013 - 2025, Konsta Vesterinen
+Copyright (c) 2013 - 2025 Konsta Vesterinen
+</text>
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/validators@0.35.0
+
+##### Package: wcwidth
+
+PackageName: wcwidth
+SPDXID: SPDXRef-wcwidth
+PackageVersion: 0.6.0
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159
+PackageChecksum: MD5: e2c63b1bce58b1d78cd125b8bfabf2a8
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+PackageCopyrightText: <text>Copyright (c) 2014 Jeff Quast <contact@jeffquast.com>
+</text>
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/wcwidth@0.6.0
+
+##### Package: xmltodict
+
+PackageName: xmltodict
+SPDXID: SPDXRef-xmltodict
+PackageVersion: 1.0.4
+PackageSupplier: Organization: https://pypi.org
+PackageDownloadLocation: https://files.pythonhosted.org/packages/19/70/80f3b7c10d2630aa66414bf23d210386700aa390547278c789afa994fd7e/xmltodict-1.0.4.tar.gz
+FilesAnalyzed: false
+PackageChecksum: SHA256: 6d94c9f834dd9e44514162799d344d815a3a4faec913717a9ecbfa5be1bb8e61
+PackageChecksum: MD5: f0a83032fc31c918a8cd9e60cdb46cb1
+PackageLicenseConcluded: MIT
+PackageLicenseDeclared: MIT
+PackageCopyrightText: <text>Copyright (c) 2012 Martin Blech and individual contributors
+</text>
+ExternalRef: PACKAGE-MANAGER purl pkg:pypi/xmltodict@1.0.4
+
+##### Relationships
+
+Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-openchain-telco-sbom-validator
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-beartype
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-boolean-py
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-certifi
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-charset-normalizer
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-click
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-idna
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-license-expression
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-ntia-conformance-checker
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-packageurl-python
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-ply
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-prettytable
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-pyparsing
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-pyyaml
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-rdflib
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-requests
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-semantic-version
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-spdx-python-model
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-spdx-tools
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-uritools
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-urllib3
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-validators
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-wcwidth
+Relationship: SPDXRef-openchain-telco-sbom-validator CONTAINS SPDXRef-xmltodict
