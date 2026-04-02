@@ -57,7 +57,10 @@ It will become an ISO standard.
 ## 3. Requirements
 
 ### 3.1 Data Format
-An OpenChain Telco SBOM Guide compatible document SHALL adhere to the version 2.2 of the SPDX Data Format as standardized in ISO/IEC 5962:2021, or to the version 2.3 of the standard, and as further described below with respect to the included elements.
+An OpenChain Telco SBOM Guide compatible document SHALL adhere to:
+* the version 2.2 of the SPDX Data Format as standardized in ISO/IEC 5962:2021,
+* or to the version 2.3 of SPDX,
+* or to version 3.0.1 of SPDX and as further described below with respect to the included elements.
 
 #### 3.1.1 Verification and reference material
 * ISO/IEC 5962:2021 Information technology — SPDX® Specification V2.2.1
@@ -80,32 +83,40 @@ Document creation information
 * DocumentNamespace: mandatory in SPDX
 * Creator: mandatory in SPDX
 * Created: mandatory in SPDX
+
+The following element is REQUIRED for an SBOM in SPDX 2.2 and 2.3:
 * CreatorComment: to be able to put “SBOM Build information”
 
 Package information
 * PackageName: mandatory in SPDX
 * SPDXID: mandatory in SPDX
-* PackageVersion: needed by “NTIA SBOM Minimum elements”
-* PackageSupplier: needed by “NTIA SBOM Minimum elements”
+* PackageVersion: needed by “CISA SBOM Minimum elements”
+* PackageSupplier: needed by “CISA SBOM Minimum elements”
 * PackageDownloadLocation: mandatory in SPDX
 * PackageLicenseConcluded: mandatory in SPDX 2.2, needed by “CISA SBOM Minimum elements”
 * PackageLicenseDeclared: mandatory in SPDX 2.2, needed by “CISA SBOM Minimum elements”
 * PackageCopyrightText: mandatory in SPDX 2.2
 
-One of the two attributes PackageChecksum or PackageVerificationCode is RECOMMENDED:
-recommended by “NTIA SBOM Minimum elements”
+In SPDX 2.2 and 2.3:
+* One of the two attributes PackageChecksum or PackageVerificationCode is MANDATORY: implements the Component Hash from “CISA SBOM Minimum elements”.
+
+In SPDX 3:
+* Software/Package.verifiedUsing is MANDATORY: implements the Component Hash from “CISA SBOM Minimum elements”.
 
 At least one of PackageLicenseConcluded and PackageLicenseDeclared MUST not be NOASSERTION.
 
 A package SHOULD be identified by a Package-URL (PURL).
 
-If the PURL is present, it SHOULD be put in ExternalRef field, e.g.
+If the PURL is present, in SPDX 2.2 and 2.3, it SHOULD be put in ExternalRef field, e.g.
 ```
 ExternalRef: PACKAGE-MANAGER purl pkg:pypi/django@1.11.1
 ```
 
+If the PURL is present, in SPDX 3.0.1, it MUST be put in packageUrl property
+(https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/packageUrl/)
+
 Relationships between SPDX elements
-* Relationship: at least DESCRIBES and CONTAINS, needed by “NTIA SBOM Minimum elements”
+* Relationship: at least DESCRIBES and CONTAINS, needed by “CISA SBOM Minimum elements” (Dependency Relationship)
 
 #### 3.2.1 Verification and reference material
 NTIA minimum elements
@@ -114,8 +125,6 @@ CISA minimum elements
 
 #### 3.2.2 Rationale
 Recognizing the Telco industry need for harmonization and special requirements, the “OpenChain Telco SBOM Guide” is proposed to ensure predictability to the industry as to the elements of an SBOM that is expected.
-
-“Component Hash” is recommended, but not required by the “NTIA SBOM Minimum elements”.
 
 In SPDX, it maps to PackageChecksum or PackageVerificationCode.
 Most SCA tools have the capability to produce hashes.
@@ -133,6 +142,8 @@ Package-URL (PURL) is a _de facto_ standard to uniquely identify software packag
 
 ### 3.3 Machine Readable Data Format
 An OpenChain Telco SBOM Compatible document SHALL include, at a minimum, SPDX in one of the following machine readable formats: Tag:Value or JSON.
+
+In SPDX 3.0.1, the format SHALL be JSON (more precisely JSON-LD).
 
 #### 3.3.1 Verification and reference material
 Tag:Value and JSON formats are described here:
@@ -165,8 +176,26 @@ Tag:Value and JSON formats are described here:
 #### 3.4.2 Rationale
 As the Tag:Value format is also human readable it has been chosen so that both the requirements for a standardized machine readable and human readable version can be met using one file. An entity can release additional human readable formats but they are not required to conform to the OpenChain Telco SBOM Guide.
 
-### 3.5 SBOM Build information
-SBOMs conforming to the OpenChain Telco SBOM Guide MUST contain information as when they were created (using the SPDX `Created` field) and to which version of the software they were created (using the SPDX `CreatorComment` field).
+### 3.5 File name
+
+In SPDX 2.2 and 2.3, in Tag:Value format the file name SHOULD end with ```.spdx```.
+
+In SPDX 2.2 and 2.3, in JSON format, the file name MUST end with ```.json```, it SHOULD end * with ```.spdx.json```.
+
+In SPDX 3.0.1, the file name SHOULD end with ```.spdx3.json```, it MUST end with ```.json``` or ```.jsonld```.
+
+#### 3.5.1 Verification and reference material
+
+#### 3.5.2 Rationale
+
+This is the recommended naming from the SPDX standard.
+
+### 3.6 SBOM Build information
+SBOMs conforming to the OpenChain Telco SBOM Guide MUST contain information as when they were created. 
+
+In SPDX 2.2 and 2.3:
+
+The `Created` field MUST contain the time when the SBOM was created.
 
 The `Creator` field MUST:
 * contain a line with the `Organization` keyword;
@@ -175,15 +204,22 @@ The `Creator` field MUST:
 The tool name and the tool version SHOULD be separated by hyphen ("-"), no other hyphen SHOULD appear on the line.
 
 SBOMs conforming to the OpenChain Telco SBOM Guide MUST provide their SBOM Types as
-[defined by CISA](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf)
-in the `CreatorComment` field.
+[defined by CISA](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf).
+
+As SPDX 2 has no specific field, in SPDX 2 the SBOM Types MUST be put in the `CreatorComment` field.
 
 The SBOM Type RECOMMENDED syntax is “SBOM Type: xxx” where “xxx” is one of the 6 keywords “Design”, “Source”, “Build”, “Analyzed”, “Deployed” and “Runtime”.
 
-#### 3.5.1 Verification and reference material
-SPDX standard
+In SPDX 3:
+* CreationInfo.createdBy MUST point to a field of type "Organization",
+* CreationInfo.createdUsing MUST point to a field of type "Tool",
+* CreationInfo.created MUST contain the time when the SBOM was created,
+* the SBOM types MUST be put in the `sbomType` property.
 
-#### 3.5.2 Rationale
+#### 3.6.1 Verification and reference material
+SPDX standards
+
+#### 3.6.2 Rationale
 It is important to know which tool and which version of the tool have created the SBOM.
 
 The SPDX standard gives "toolidentifier-version" as an example, but it is not mandatory to have this syntax.
@@ -221,87 +257,87 @@ CreatorComment: Analyzed
 CreatorComment: This SBOM was created during build phase.
 ```
 
-### 3.6 Timing of SBOM delivery
+### 3.7 Timing of SBOM delivery
 The SBOM SHALL be delivered no later than at the time of the delivery of the software (in either binary or source form). 
-
-#### 3.6.1 Verification and reference material
-“NTIA SBOM Minimum elements”, section “Distribution and Delivery”
-
-#### 3.6.2 Rationale
-To ensure that the receiving entity can ingest the software and its SBOM, it shall be delivered no later than at the delivery of the software. An SBOM may be delivered before the software if an adopting entity so elects, but the software delivery must nevertheless be accompanied by the corresponding SBOM to ensure compliance with the Guide.
-
-### 3.7 Method of SBOM delivery
-The SBOM SHALL be embedded into the software “package” where technically feasible. If it is not technically feasible to embed the SBOM into the software “package” being delivered, such as in the case of space-constrained embedded systems, the supplying party will supply a web hosted version of the SBOM that is available for at least 18 months and SHALL NOT in any way restrict recipients’ ability to copy and store these locally for their own use. Such restrictions MAY NOT be placed on the recipient in additional confidentiality agreements. 
 
 #### 3.7.1 Verification and reference material
 “NTIA SBOM Minimum elements”, section “Distribution and Delivery”
 
 #### 3.7.2 Rationale
+To ensure that the receiving entity can ingest the software and its SBOM, it shall be delivered no later than at the delivery of the software. An SBOM may be delivered before the software if an adopting entity so elects, but the software delivery must nevertheless be accompanied by the corresponding SBOM to ensure compliance with the Guide.
+
+### 3.8 Method of SBOM delivery
+The SBOM SHALL be embedded into the software “package” where technically feasible. If it is not technically feasible to embed the SBOM into the software “package” being delivered, such as in the case of space-constrained embedded systems, the supplying party will supply a web hosted version of the SBOM that is available for at least 18 months and SHALL NOT in any way restrict recipients’ ability to copy and store these locally for their own use. Such restrictions MAY NOT be placed on the recipient in additional confidentiality agreements. 
+
+#### 3.8.1 Verification and reference material
+“NTIA SBOM Minimum elements”, section “Distribution and Delivery”
+
+#### 3.8.2 Rationale
 Other options of SBOM delivery such as webhosting are less stable and access is not guaranteed over time; however “embedding” may not be technically feasible. Thus, in scenarios where it is not possible on technical grounds to include the SBOM in the software delivery, publishing the SBOM online is permitted provided that the SBOM is accessible for the recipients of the software for 18 months. This duration is in line with the OpenChain specification requirements on recertification.
 
-### 3.8 Encryption and storage of SBOM
+### 3.9 Encryption and storage of SBOM
 SBOM providers SHALL use encryption to protect the confidentiality of an OpenChain Telco SBOM Compatible document. The encryption used SHALL protect the integrity, authenticity, and confidentiality of the document at rest and during transport using best practices. The key(s) used for the encryption of the data SHALL be protected by all parties in an agreed upon manner. While at rest the keys, the encrypted SBOM, the unencrypted SBOM, or parts of the SBOM, SHALL be subject to access control where only designated individuals within the receiving organisation have the necessary rights to read it. Any additional protection mechanisms that are required for the storage of the SBOM SHALL be agreed upon by both parties.
 
 The provider of the Software may choose to make an SBOM available for the public. This guide does not prevent such actions, however the above, 3.X requirement still applies to the SBOM that is to be shipped with the product according to section 3.6.2 of this guide.
 
-### 3.8.1 Verification and reference material
+### 3.9.1 Verification and reference material
 
-### 3.8.2 Rationale
+### 3.9.2 Rationale
 The security, confidentiality, and integrity of the SBOM and the information contained therein may be of great concern and important for both the provider and the consumer of an SBOM, thus adequate measures must be taken to ensure that it is protected by all parties.
 
-### 3.9 SBOM Scope
+### 3.10 SBOM Scope
 The SBOM SHALL contain all open source software that is delivered with the product including all of the transitive dependencies. The SBOM SHOULD contain all commercial components.
 
 If some components are not included, they MUST be reported as “known unknowns.”
 
-#### 3.9.1 Verification and reference material
+#### 3.10.1 Verification and reference material
 “NTIA SBOM Minimum elements”, section “Known Unknowns”
 
-#### 3.9.2 Rationale
+#### 3.10.2 Rationale
 It might not be possible, advisable or feasible to have the commercial component information in the SBOM. However, it is advisable that the SBOM should be as complete as possible.
 
-### 3.10 SBOM in a SaaS deployment
+### 3.11 SBOM in a SaaS deployment
 As the OpenChain Telco SBOM Guide is only applied on the SBOM level, there is no requirement on an entity that has elected to supply an OpenChain Telco SBOM Compatible document for some or even all of its software deliveries to also provide this for its SaaS offerings. However, an entity may elect to apply the OpenChain Telco SBOM Guide also to its SaaS offerings and thus also deliver the open source software used in the SaaS offerings with their transitive dependencies as an SBOM.
-
-#### 3.10.1 Verification and reference material
-
-#### 3.10.2 Rationale
-There is currently no consensus in the industry on what an SaaS SBOM should contain.
-
-### 3.11 SBOMs for containers
-SBOMs for containers SHOULD include all open source components delivered in the container. This includes the packages installed into the container, components copied or downloaded to the container and dependencies used to build the compiled components in the container.
 
 #### 3.11.1 Verification and reference material
 
 #### 3.11.2 Rationale
+There is currently no consensus in the industry on what an SaaS SBOM should contain.
+
+### 3.12 SBOMs for containers
+SBOMs for containers SHOULD include all open source components delivered in the container. This includes the packages installed into the container, components copied or downloaded to the container and dependencies used to build the compiled components in the container.
+
+#### 3.12.1 Verification and reference material
+
+#### 3.12.2 Rationale
 Every open source component delivered should be part of the SBOMs.
 
-### 3.12 SBOM Verification
+### 3.13 SBOM Verification
 It is RECOMMENDED to provide a digital signature of the SBOM in order to guarantee the
 integrity of the SBOM.
 
-#### 3.12.1 Verification and reference material
+#### 3.13.1 Verification and reference material
 Sigstore https://www.sigstore.dev/ is an example of such capability.
 
-#### 3.12.2 Rationale
+#### 3.13.2 Rationale
 While the verification of SBOMs is an important topic, OpenChain Telco defers this work to other initiatives for the moment and intends to revisit this topic in future iterations of this document.
 
-### 3.13 SBOM Merger
+### 3.14 SBOM Merger
 SBOMs following this Guide can be built from several SBOM files with a well-defined relationship to each other using the relationship definition features in SPDX.
 
-#### 3.13.1 Verification and reference material
+#### 3.14.1 Verification and reference material
 There exist tools to merge several SBOMs into one, e.g. https://github.com/interlynk-io/sbomasm
 
-#### 3.13.2 Rationale
+#### 3.14.2 Rationale
 It is often easier when dealing with a large software product to provide individual SBOMs of its parts than a single SBOM.
 
-### 3.14 SBOM Confidentiality
+### 3.15 SBOM Confidentiality
 SBOMs MAY be subject to confidentiality agreements. A conformant SBOM MUST NOT, however, be subject to any confidentiality agreements that would prevent a recipient from redistributing the parts of the SBOM applicable to software that such recipient has a right to redistribute.
 
-#### 3.14.1 Verification and reference material
+#### 3.15.1 Verification and reference material
 “NTIA SBOM Minimum elements”, section “Access Control”
 
-#### 3.14.2 Rationale
+#### 3.15.2 Rationale
 Some open source software licenses enable any recipient to redistribute the software. In these situations, the recipients should also be able to redistribute the relevant parts of the SBOMs.
 
 ## 4. Conformant notice
@@ -319,6 +355,7 @@ The following statement MAY be used as statement in the RFP document, order docu
   * https://www.iso.org/standard/81870.html
   * https://standards.iso.org/ittf/PubliclyAvailableStandards/c081870_ISO_IEC_5962_2021(E).zip
   * SPDX Specification V2.3: https://spdx.github.io/spdx-spec/v2.3/
+  * SPDX Specification V3.0.1: https://spdx.github.io/spdx-spec/v3.0.1/
 * OpenChain (ISO/IEC 5230:2020)
   * https://www.openchainproject.org/
   * https://www.iso.org/standard/81039.html
@@ -351,6 +388,9 @@ The reverse is not true.
 
 The following updates of the Guide have been made in version 1.2.
 
+* Allow SPDX 3 as a possible format for an OpenChain Telco SBOM.
+* Add a recommendation on file naming.
 * Add a section about "Encryption and storage of SBOM".
 * Add the fact that the Guide complies with the CISA minimum elements.
 * PackageLicenseConcluded and PackageLicenseDeclared cannot be both NOASSERTION.
+* Add the fact that Package-URL is now an ECMA standard.
