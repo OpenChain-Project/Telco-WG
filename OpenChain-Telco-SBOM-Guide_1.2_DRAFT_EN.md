@@ -41,6 +41,12 @@ An SBOM can be of one of the following types:
 The definition of these types can be found in the
 [CISA document](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf).
 
+The CISA minimum elements document uses "Before build, "Build" and "After build".
+
+"Before build" can be mapped to "Design" or "Source".
+
+"After build" can be mapped to "Analyzed", "Deployed" or "Runtime".
+
 ### SPDX
 SPDX (Software Package Data Exchange) is the [ISO standard](https://www.iso.org/standard/81870.html) (ISO/IEC 5962:2021) for exchanging SBOM for a given software package, including associated license and copyright information. The standard was created by the [Linux Foundation's SPDX project](https://spdx.dev/).
 
@@ -65,6 +71,7 @@ An OpenChain Telco SBOM Guide compatible document SHALL adhere to:
 #### 3.1.1 Verification and reference material
 * ISO/IEC 5962:2021 Information technology — SPDX® Specification V2.2.1
 * [SPDX Specification V2.3](https://spdx.github.io/spdx-spec/v2.3/)
+* [SPDX Specification V3.0.1](https://spdx.github.io/spdx-spec/v3.0.1/)
 
 #### 3.1.2 Rationale
 To ensure simplified handling and streamlining of tooling and competences in the telecommunications supply chain, both for suppliers and consumers of software, OpenChain Telco SBOM Guide Compatible documents shall adhere to the SPDX Data Format as standardized in ISO/IEC 5962:2021. By harmonizing on the use of this standard SBOM Data Format in an organization's external interfaces, the complexities for organizations supplying and consuming software are simplified, as only one set of unified requirements will be applicable.
@@ -75,26 +82,35 @@ As clarification, an entity is free to use alternative Data Formats for internal
 
 The following elements are REQUIRED.
 
-Document creation information
-* SPDXVersion: mandatory in SPDX
-* DataLicense: mandatory in SPDX
-* SPDXID: mandatory in SPDX
-* DocumentName: mandatory in SPDX
-* DocumentNamespace: mandatory in SPDX
-* Creator: mandatory in SPDX
-* Created: mandatory in SPDX
+SBOM Metadata
+
+| Element                  | SPDX 2.2 and 2.3                       | SPDX 3.0.1                         |
+| SBOM Author              | Creator                                | CreationInfo.createdBy             |
+| SBOM Author Signature    |
+| SBOM Data Format Name    | SPDXVersion ("SPDX-2.2" or "SPDX-2.3") | _implicit_                         |
+| SBOM Data Format Version | SPDXVersion ("SPDX-2.2" or "SPDX-2.3") | CreationInfo.specVersion ("3.0.1") |
+| SBOM Generation Context  | CreatorComment (see below)             | software_Sbom.sbomType             |
+| SBOM Timestamp           | creationInfo.created                   | CreationInfo.created               |
+| SBOM Tool Name           | creationInfo.creators                  | CreationInfo.createdUsing          | See section 3.6
+| SBOM Tool Version        | creationInfo.creators                  | CreationInfo.createdUsing          | See section 3.6
+| SBOM Version
 
 The following element is REQUIRED for an SBOM in SPDX 2.2 and 2.3:
 * CreatorComment: to be able to put “SBOM Build information”
 
 Package information
-* PackageName: mandatory in SPDX
-* SPDXID: mandatory in SPDX
-* PackageVersion: needed by “CISA SBOM Minimum elements”
-* PackageSupplier: needed by “CISA SBOM Minimum elements”
-* PackageDownloadLocation: mandatory in SPDX
-* PackageLicenseConcluded: mandatory in SPDX 2.2, needed by “CISA SBOM Minimum elements”
-* PackageLicenseDeclared: mandatory in SPDX 2.2, needed by “CISA SBOM Minimum elements”
+
+| Element                                 | SPDX 2.2 and 2.3                       | SPDX 3.0.1                         |
+| Component Name                          | PackageName                            | software_Package.name
+| Component Version                       | PackageVersion                         | packageVersion
+| Component Identifiers                   | ExternalRef (see below)                | packageUrl
+| Component Hash Value                    | PackageChecksum or PackageVerificationCode (see below) | verifiedUsing
+| Component Hash Algorithm                | PackageChecksum or SHA1 (if PackageVerificationCode)  | Hash.algorithm
+| Component Producer (was Supplier Name)  | PackageSupplier (or PackageOriginator) | suppliedBy (or originatedBy)
+| Component License                       | PackageLicenseConcluded or/and PackageLicenseDeclared | Relationships hasConcludedLicense or/and hasDeclaredLicense
+
+The following elements are REQUIRED (but they might be NOASSERTION or NONE):
+* PackageDownloadLocation: mandatory in SPDX 2.2 and 2.3
 * PackageCopyrightText: mandatory in SPDX 2.2
 
 In SPDX 2.2 and 2.3:
@@ -115,13 +131,19 @@ ExternalRef: PACKAGE-MANAGER purl pkg:pypi/django@1.11.1
 If the PURL is present, in SPDX 3.0.1, it MUST be put in packageUrl property
 (https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/packageUrl/)
 
-Relationships between SPDX elements
+Component Dependency Relationship
+
 * Relationship: at least DESCRIBES and CONTAINS, needed by “CISA SBOM Minimum elements” (Dependency Relationship)
 
 #### 3.2.1 Verification and reference material
 NTIA minimum elements
 
 CISA minimum elements
+
+CISA "SBOM Author Signature" cannot be represented in SPDX 2 or SPDX 3. It must be provided using an external file.
+See section 3.13.
+
+CISA "SBOM Data Format Name" has no specific field in SPDX 3, it is implicit.
 
 #### 3.2.2 Rationale
 Recognizing the Telco industry need for harmonization and special requirements, the “OpenChain Telco SBOM Guide” is proposed to ensure predictability to the industry as to the elements of an SBOM that is expected.
@@ -138,10 +160,13 @@ In versions 1.0 and 1.1 of the Guide, PackageLicenseConcluded and PackageLicense
 but could be NOASSERTION. In order to comply with CISA minimum elements, at least one of them must contain a real license
 (either from the SPDX license list or a custom license).
 
-Package-URL (PURL) is a _de facto_ standard to uniquely identify software packages.
+Package-URL (PURL) is a _de facto_ standard to uniquely identify software packages. It is also an ECMA standard.
 
 ### 3.3 Machine Readable Data Format
-An OpenChain Telco SBOM Compatible document SHALL include, at a minimum, SPDX in one of the following machine readable formats: Tag:Value or JSON.
+An OpenChain Telco SBOM Compatible document SHALL include, at a minimum, the SPDX in one of the following human readable formats:
+* Tag:Value or JSON in SPDX 2.2 or 2.3,
+* JSON in SPDX 3.0.1.
+
 
 In SPDX 3.0.1, the format SHALL be JSON (more precisely JSON-LD).
 
@@ -160,13 +185,17 @@ The reasons for selecting SPDX as data format of the OpenChain Telco SBOM Guide 
 * SPDX has a human-readable format (CycloneDX has only JSON and XML),
 * SWID is more a software identifier than a fully fledged SBOM format.
 
+CISA Minimum Elements has removed SWID from list of data formats.
+
 To facilitate a simplified toolchain, a machine readable version of the SBOM needs to be included. To ensure repeatability and harmonization a conformant SBOM must be in Tag:Value or JSON format. An entity can release additional machine readable formats but they are not required to conform to the Guide.
 
 Tag:Value is the most human-readable format, and there are converters between the various SPDX formats
 (e.g. https://tools.spdx.org/app/convert/). JSON is a format produced by several tools.
 
 ### 3.4 Human Readable Data Format
-An OpenChain Telco SBOM Compatible document SHALL include, at a minimum, the SPDX in one of the following human readable formats: Tag:Value or JSON.
+An OpenChain Telco SBOM Compatible document SHALL include, at a minimum, the SPDX in one of the following human readable formats:
+* Tag:Value or JSON in SPDX 2.2 or 2.3,
+* JSON in SPDX 3.0.1.
 
 #### 3.4.1 Verification and reference material
 Tag:Value and JSON formats are described here:
@@ -372,8 +401,8 @@ The following statement MAY be used as statement in the RFP document, order docu
   * https://standards.iso.org/ittf/PubliclyAvailableStandards/c081039_ISO_IEC_5230_2020(E).zip
 * The Minimum Elements For a Software Bill of Materials (SBOM) a.k.a. “NTIA minimum elements”
   * https://www.ntia.doc.gov/report/2021/minimum-elements-software-bill-materials-sbom
-* 2025 Minimum Elements for a Software Bill of Materials (SBOM) Public Comment Draft August 2025
-  * https://www.cisa.gov/sites/default/files/2025-08/2025_CISA_SBOM_Minimum_Elements.pdf
+* 2026 Minimum Elements for a Software Bill of Materials (SBOM)
+  * https://www.cisa.gov/sites/default/files/2026-07/2026_cisa_sbom_minimum_elements_508c.pdf
 * Framing Software Component Transparency: Establishing a Common Software Bill of Materials (SBOM), Third Edition
   * https://www.cisa.gov/resources-tools/resources/framing-software-component-transparency-2024
 * Package-URL (PURL)
