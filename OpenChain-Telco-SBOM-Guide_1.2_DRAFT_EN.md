@@ -84,16 +84,17 @@ The following elements are REQUIRED.
 
 SBOM Metadata
 
-| Element                  | SPDX 2.2 and 2.3                       | SPDX 3.0.1                         |
-| SBOM Author              | Creator                                | CreationInfo.createdBy             |
-| SBOM Author Signature    |
-| SBOM Data Format Name    | SPDXVersion ("SPDX-2.2" or "SPDX-2.3") | _implicit_                         |
-| SBOM Data Format Version | SPDXVersion ("SPDX-2.2" or "SPDX-2.3") | CreationInfo.specVersion ("3.0.1") |
-| SBOM Generation Context  | CreatorComment (see below)             | software_Sbom.sbomType             |
-| SBOM Timestamp           | creationInfo.created                   | CreationInfo.created               |
-| SBOM Tool Name           | creationInfo.creators                  | CreationInfo.createdUsing          | See section 3.6
-| SBOM Tool Version        | creationInfo.creators                  | CreationInfo.createdUsing          | See section 3.6
-| SBOM Version
+| Element                  | SPDX 2.2 and 2.3                       | SPDX 3.0.1                         |                 |
+| ------------------------ | -------------------------------------- | ---------------------------------- | --------------  |
+| SBOM Author              | Creator                                | CreationInfo.createdBy             |                 |
+| SBOM Author Signature    |                                        |                                    |                 |
+| SBOM Data Format Name    | SPDXVersion ("SPDX-2.2" or "SPDX-2.3") | _implicit_                         |                 |
+| SBOM Data Format Version | SPDXVersion ("SPDX-2.2" or "SPDX-2.3") | CreationInfo.specVersion ("3.0.1") |                 |
+| SBOM Generation Context  | CreatorComment (see below)             | software_Sbom.sbomType             |                 |
+| SBOM Timestamp           | creationInfo.created                   | CreationInfo.created               |                 |
+| SBOM Tool Name           | creationInfo.creators                  | CreationInfo.createdUsing          | See section 3.6 |
+| SBOM Tool Version        | creationInfo.creators                  | CreationInfo.createdUsing          | See section 3.6 |
+| SBOM Version             |                                        |                                    |                 |
 
 The following element is REQUIRED for an SBOM in SPDX 2.2 and 2.3:
 * CreatorComment: to be able to put “SBOM Build information”
@@ -101,13 +102,14 @@ The following element is REQUIRED for an SBOM in SPDX 2.2 and 2.3:
 Package information
 
 | Element                                 | SPDX 2.2 and 2.3                       | SPDX 3.0.1                         |
-| Component Name                          | PackageName                            | software_Package.name
-| Component Version                       | PackageVersion                         | packageVersion
-| Component Identifiers                   | ExternalRef (see below)                | packageUrl
-| Component Hash Value                    | PackageChecksum or PackageVerificationCode (see below) | verifiedUsing
-| Component Hash Algorithm                | PackageChecksum or SHA1 (if PackageVerificationCode)  | Hash.algorithm
-| Component Producer (was Supplier Name)  | PackageSupplier (or PackageOriginator) | suppliedBy (or originatedBy)
-| Component License                       | PackageLicenseConcluded or/and PackageLicenseDeclared | Relationships hasConcludedLicense or/and hasDeclaredLicense
+| --------------------------------------- | -------------------------------------- | ---------------------------------- |
+| Component Name                          | PackageName                            | software_Package.name              |
+| Component Version                       | PackageVersion                         | packageVersion                     |
+| Component Identifiers                   | ExternalRef (see below)                | packageUrl                         |
+| Component Hash Value                    | PackageChecksum or PackageVerificationCode (see below) | verifiedUsing      |
+| Component Hash Algorithm                | PackageChecksum or SHA1 (if PackageVerificationCode)  | Hash.algorithm      |
+| Component Producer (was Supplier Name)  | PackageSupplier (or PackageOriginator) | suppliedBy (or originatedBy)       |
+| Component License                       | PackageLicenseConcluded or/and PackageLicenseDeclared | Relationships hasConcludedLicense or/and hasDeclaredLicense |
 
 The following elements are REQUIRED (but they might be NOASSERTION or NONE):
 * PackageDownloadLocation: mandatory in SPDX 2.2 and 2.3
