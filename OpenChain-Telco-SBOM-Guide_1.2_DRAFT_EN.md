@@ -21,7 +21,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
       appear in all capitals, as shown here.
 
 ### Data Format
-Data Format means the data format of the information in the SBOM. Possible Data Formats include SPDX, Cyclone DX, SWID, or other proprietary formats.
+Data Format means the data format of the information in the SBOM. Possible Data Formats include SPDX, CycloneDX, SWID, or other proprietary formats.
 
 ### Entity
 Entity shall mean the legal entity (for profit, non profit, or natural person) that distributes software to third parties (e.g., other organizations or individuals). Entity does not include other group companies, or companies under common control of the Entity.
@@ -41,7 +41,7 @@ An SBOM can be of one of the following types:
 The definition of these types can be found in the
 [CISA document](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf).
 
-The CISA minimum elements document uses "Before build, "Build" and "After build".
+The CISA Minimum Elements document uses "Before build, "Build" and "After build".
 
 "Before build" can be mapped to "Design" or "Source".
 
@@ -49,6 +49,10 @@ The CISA minimum elements document uses "Before build, "Build" and "After build"
 
 ### SPDX
 SPDX (Software Package Data Exchange) is the [ISO standard](https://www.iso.org/standard/81870.html) (ISO/IEC 5962:2021) for exchanging SBOM for a given software package, including associated license and copyright information. The standard was created by the [Linux Foundation's SPDX project](https://spdx.dev/).
+
+The current ISO standard describes SPDX 2.2.1. Revision 2.3 of the standard exists but was not sent to ISO.
+
+Revision 3.0.1 of SPDX was sent to ISO and will be published soon. The acronym SPDX now means System Package Data Exchange.
 
 ### OpenChain
 OpenChain means [OpenChain ISO/IEC 5230:2020](https://www.iso.org/standard/81039.html), the international standard that specifies the key requirements of a quality open source license compliance program in order to provide a benchmark that builds trust between organizations exchanging software solutions that incorporate open source software. The OpenChain standard is produced by the [OpenChain project](https://www.openchainproject.org) of the Linux Foundation.
@@ -82,7 +86,7 @@ As clarification, an entity is free to use alternative Data Formats for internal
 
 The following elements are REQUIRED.
 
-SBOM Metadata
+**SBOM Metadata**
 
 | Element                  | SPDX 2.2 and 2.3                       | SPDX 3.0.1                         |                 |
 | ------------------------ | -------------------------------------- | ---------------------------------- | --------------  |
@@ -99,7 +103,7 @@ SBOM Metadata
 The following element is REQUIRED for an SBOM in SPDX 2.2 and 2.3:
 * CreatorComment: to be able to put “SBOM Build information”
 
-Package information
+**Package information**
 
 | Element                                 | SPDX 2.2 and 2.3                       | SPDX 3.0.1                         |
 | --------------------------------------- | -------------------------------------- | ---------------------------------- |
@@ -110,41 +114,45 @@ Package information
 | Component Hash Algorithm                | PackageChecksum or SHA1 (if PackageVerificationCode)  | Hash.algorithm      |
 | Component Producer (was Supplier Name)  | PackageSupplier (or PackageOriginator) | suppliedBy (or originatedBy)       |
 | Component License                       | PackageLicenseConcluded or/and PackageLicenseDeclared | Relationships hasConcludedLicense or/and hasDeclaredLicense |
+| Component Dependency Relationship       | Relationship: DESCRIBES, CONTAINS, DEPENDS_ON         | Relationship: describes, contains, dependsOn            |
 
-The following elements are REQUIRED (but they might be NOASSERTION or NONE):
-* PackageDownloadLocation: mandatory in SPDX 2.2 and 2.3
-* PackageCopyrightText: mandatory in SPDX 2.2
+The following elements are REQUIRED (but they might be `NOASSERTION` or `NONE`):
+* `PackageDownloadLocation`: mandatory in SPDX 2.2 and 2.3
+* `PackageCopyrightText`: mandatory in SPDX 2.2
 
-PackageDownloadLocation SHOULD not be NOASSERTION or NONE for publicly downloadable packages.
-For packages without a public download location, like commercial packages, as well as any open source packages that are no longer hosted publicly or that are provided directly by a supplier from a location the SBOM recipient cannot access, it SHOULD be NONE.
-If the existence of the the download location is unknown, it SHOULD be NOASSERTION.
+`PackageDownloadLocation` SHOULD not be `NOASSERTION` or `NONE` for publicly downloadable packages.
+For packages without a public download location, like commercial packages, as well as any open source packages that are no longer hosted publicly or that are provided directly by a supplier from a location the SBOM recipient cannot access, it SHOULD be `NONE`.
+If the existence of the the download location is unknown, it SHOULD be `NOASSERTION`.
 
 In SPDX 2.2 and 2.3:
-* One of the two attributes PackageChecksum or PackageVerificationCode is MANDATORY: implements the Component Hash from “CISA SBOM Minimum elements”.
+* One of the two attributes `PackageChecksum` or `PackageVerificationCode` is MANDATORY: implements the Component Hash from “CISA SBOM Minimum elements”.
 
 In SPDX 3:
-* Software/Package.verifiedUsing is MANDATORY: implements the Component Hash from “CISA SBOM Minimum elements”.
+* `Software/Package.verifiedUsing` is MANDATORY: implements the Component Hash from “CISA SBOM Minimum elements”.
 
-At least one of PackageLicenseConcluded and PackageLicenseDeclared MUST not be NOASSERTION.
+At least one of `PackageLicenseConcluded` and `PackageLicenseDeclared` MUST NOT be `NOASSERTION`.
 
 A package SHOULD be identified by a Package-URL (PURL).
 
-If the PURL is present, in SPDX 2.2 and 2.3, it SHOULD be put in ExternalRef field, e.g.
+If the PURL is present, in SPDX 2.2 and 2.3, it SHOULD be put in `ExternalRef` field, e.g.
 ```
 ExternalRef: PACKAGE-MANAGER purl pkg:pypi/django@1.11.1
 ```
 
-If the PURL is present, in SPDX 3.0.1, it MUST be put in packageUrl property
+If the PURL is present, in SPDX 3.0.1, it MUST be put in `packageUrl` property
 (https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Properties/packageUrl/)
 
 Component Dependency Relationship
 
-* Relationship: at least DESCRIBES and CONTAINS, needed by “CISA SBOM Minimum elements” (Dependency Relationship)
+* “NTIA SBOM Minimum Elements” mandate at least DESCRIBES and CONTAINS (Dependency Relationship)
+* “CISA SBOM Minimum Elements” mandate at least DEPENDS_ON (Dependency Relationship)
+
+At least one of DESCRIBES, CONTAINS and DEPENDS_ON MUST be present for each package.
 
 #### 3.2.1 Verification and reference material
-NTIA minimum elements
+NTIA Minimum Elements
 
-CISA minimum elements
+CISA Minimum Elements
 
 CISA "SBOM Author Signature" cannot be represented in SPDX 2 or SPDX 3. It must be provided using an external file.
 See section 3.13.
@@ -154,16 +162,16 @@ CISA "SBOM Data Format Name" has no specific field in SPDX 3, it is implicit.
 #### 3.2.2 Rationale
 Recognizing the Telco industry need for harmonization and special requirements, the “OpenChain Telco SBOM Guide” is proposed to ensure predictability to the industry as to the elements of an SBOM that is expected.
 
-In SPDX, it maps to PackageChecksum or PackageVerificationCode.
+In SPDX 2.2 and 2.3, it maps to `PackageChecksum` or `PackageVerificationCode`.
 Most SCA tools have the capability to produce hashes.
 
 The CISA document "Framing Software Component Transparency: Establishing a Common Software Bill of Materials (SBOM), Third Edition"
 https://www.cisa.gov/resources-tools/resources/framing-software-component-transparency-2024
 allows both, see table in section 2.5.
 
-CISA Minimum elements require License.
+CISA Minimum Elements require License.
 In versions 1.0 and 1.1 of the Guide, PackageLicenseConcluded and PackageLicenseDeclared were mandatory,
-but could be NOASSERTION. In order to comply with CISA minimum elements, at least one of them must contain a real license
+but could be NOASSERTION. In order to comply with CISA Minimum Elements, at least one of them must contain a real license
 (either from the SPDX license list or a custom license).
 
 Package-URL (PURL) is a _de facto_ standard to uniquely identify software packages. It is also an ECMA standard.
@@ -172,7 +180,6 @@ Package-URL (PURL) is a _de facto_ standard to uniquely identify software packag
 An OpenChain Telco SBOM Compatible document SHALL include, at a minimum, the SPDX in one of the following human readable formats:
 * Tag:Value or JSON in SPDX 2.2 or 2.3,
 * JSON in SPDX 3.0.1.
-
 
 In SPDX 3.0.1, the format SHALL be JSON (more precisely JSON-LD).
 
@@ -189,9 +196,7 @@ The reasons for selecting SPDX as data format of the OpenChain Telco SBOM Guide 
 * SPDX is an ISO standard,
 * SPDX has more features than CycloneDX for license compliance,
 * SPDX has a human-readable format (CycloneDX has only JSON and XML),
-* SWID is more a software identifier than a fully fledged SBOM format.
-
-CISA Minimum Elements has removed SWID from list of data formats.
+* SWID is more a software identifier than a fully fledged SBOM format; CISA Minimum Elements has removed SWID from list of data formats.
 
 To facilitate a simplified toolchain, a machine readable version of the SBOM needs to be included. To ensure repeatability and harmonization a conformant SBOM must be in Tag:Value or JSON format. An entity can release additional machine readable formats but they are not required to conform to the Guide.
 
@@ -267,7 +272,7 @@ SPDX standards
 #### 3.6.2 Rationale
 It is important to know which tool and which version of the tool have created the SBOM.
 
-The SPDX standard gives "toolidentifier-version" as an example, but it is not mandatory to have this syntax.
+The SPDX 2.2 and 2.3 standards give "toolidentifier-version" as an example, but it is not mandatory to have this syntax.
 
 For example, there is a tool that outputs:
 ```
@@ -285,7 +290,7 @@ where the name contains an hyphen, and the tool name and tool version are not se
 
 So we cannot require a precise syntax.
 
-The CreatorComment is a free text field. We use it to store the CISA SBOM Types, as there is no
+The `CreatorComment` is a free text field. We use it to store the CISA SBOM Types, as there is no
 specific field for that in SPDX 2.2 and 2.3, but any other information can of course be put in it also.
 
 We do not require a specific format. We only require that at least one of the words
@@ -405,7 +410,7 @@ The following statement MAY be used as statement in the RFP document, order docu
   * https://www.openchainproject.org/
   * https://www.iso.org/standard/81039.html
   * https://standards.iso.org/ittf/PubliclyAvailableStandards/c081039_ISO_IEC_5230_2020(E).zip
-* The Minimum Elements For a Software Bill of Materials (SBOM) a.k.a. “NTIA minimum elements”
+* The Minimum Elements For a Software Bill of Materials (SBOM) a.k.a. “NTIA Minimum Elements”
   * https://www.ntia.doc.gov/report/2021/minimum-elements-software-bill-materials-sbom
 * 2026 Minimum Elements for a Software Bill of Materials (SBOM)
   * https://www.cisa.gov/sites/default/files/2026-07/2026_cisa_sbom_minimum_elements_508c.pdf
@@ -436,6 +441,6 @@ The following updates of the Guide have been made in version 1.2.
 * Allow SPDX 3 as a possible format for an OpenChain Telco SBOM.
 * Add a recommendation on file naming.
 * Add a section about "Encryption and storage of SBOM".
-* Add the fact that the Guide complies with the CISA minimum elements.
+* Add the fact that the Guide complies with the CISA Minimum Elements.
 * PackageLicenseConcluded and PackageLicenseDeclared cannot be both NOASSERTION.
 * Add the fact that Package-URL is now an ECMA standard.
