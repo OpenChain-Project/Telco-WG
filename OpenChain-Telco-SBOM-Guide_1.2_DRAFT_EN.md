@@ -115,6 +115,10 @@ The following elements are REQUIRED (but they might be NOASSERTION or NONE):
 * PackageDownloadLocation: mandatory in SPDX 2.2 and 2.3
 * PackageCopyrightText: mandatory in SPDX 2.2
 
+PackageDownloadLocation SHOULD not be NOASSERTION or NONE for publicly downloadable packages.
+For packages without a public download location, like commercial packages, as well as any open source packages that are no longer hosted publicly or that are provided directly by a supplier from a location the SBOM recipient cannot access, it SHOULD be NONE.
+If the existence of the the download location is unknown, it SHOULD be NOASSERTION.
+
 In SPDX 2.2 and 2.3:
 * One of the two attributes PackageChecksum or PackageVerificationCode is MANDATORY: implements the Component Hash from “CISA SBOM Minimum elements”.
 
