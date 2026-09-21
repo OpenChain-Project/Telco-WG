@@ -98,7 +98,13 @@ The following elements are REQUIRED.
 | SBOM Timestamp           | creationInfo.created                   | CreationInfo.created               |                 |
 | SBOM Tool Name           | creationInfo.creators                  | CreationInfo.createdUsing          | See section 3.6 |
 | SBOM Tool Version        | creationInfo.creators                  | CreationInfo.createdUsing          | See section 3.6 |
-| SBOM Version             |                                        |                                    |                 |
+| SBOM Version             | documentNamespace                      | SBOM.spdxId                        |                 |
+
+There is no native field to express the SBOM Version in SPDX 2.2, 2.3 and 3.0.1.
+
+As a workaround, we can use:
+* `documentNamespace` in SPDX 2.2 and 2.3;
+* SBOM.spdxId in SPDX 3.0.1 and optionally relationship `amendedBy` to previous SBOM.spdxId.
 
 The following element is REQUIRED for an SBOM in SPDX 2.2 and 2.3:
 * CreatorComment: to be able to put “SBOM Build information”
