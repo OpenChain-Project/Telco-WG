@@ -140,7 +140,7 @@ At least one of `PackageLicenseConcluded` and `PackageLicenseDeclared` MUST NOT 
 
 A package SHOULD be identified by a Package-URL (PURL).
 
-If the PURL is present, in SPDX 2.2 and 2.3, it SHOULD be put in `ExternalRef` field, e.g.
+If the PURL is present, in SPDX 2.2 and 2.3, it MUST be put in `ExternalRef` field, e.g.
 ```
 ExternalRef: PACKAGE-MANAGER purl pkg:pypi/django@1.11.1
 ```
