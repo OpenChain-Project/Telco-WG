@@ -3,6 +3,11 @@
 A script to validate SBOMs against
 the [OpenChain Telco SBOM Guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md).
 
+What is new in version 0.4.0:
+* validate against OpenChain Telco SBOM Guide version 1.2
+* validate SPDX 3.0 SBOMs
+* recursive validation is experimental for SPDX 3.0
+
 What is new in version 0.3.5:
 * better check in `--strict-purl-check`
 
@@ -49,9 +54,9 @@ if you already have a virtual environment start it with `. .env/bin/activate`.
 
 ```
 usage: openchain-telco-sbom-validator [-h] [-v] [--debug] [--nr-of-errors NR_OF_ERRORS] [--strict-purl-check]
-[--strict-url-check] [--strict] [-r] [--reference-logic REFERENCE_LOGIC] [--guide-version {1.0,1.1}] [--noassertion] [input]
+[--strict-url-check] [--strict] [-r] [--reference-logic REFERENCE_LOGIC] [--guide-version {1.0,1.1,1.2}] [--noassertion] [input]
 
-A script to validate an SPDX file against the OpenChain Telco SBOM Guide (version 1.0 or 1.1).
+A script to validate an SPDX file against the OpenChain Telco SBOM Guide (version 1.0, 1.1 or 1.2).
 
 positional arguments:
   input                 The input SPDX file.
@@ -71,16 +76,17 @@ options:
                         PackageChecksum if present.
   --strict              Checks for both MANDATORY and RECOMMENDED fields. Default is to check MANDATORY fields only.
   -r, --recursive       Validate recursively. Same as “--reference-logic checksum-all”.
+                        Recursive validation is experimental for SPDX 3.0.
   --reference-logic REFERENCE_LOGIC
                         Defines the logic how the referenced files are accessible. If not added, the referenced files
                         will not be investigated. Built-in supported logics are “none” (no linked files are
                         investigated), “checksum-all” (externalrefs are identified by their checksum), “yocto-all”
                         (all externalrefs are investigated) and “yocto-contains-only” (only those files are investigated
                         which are in CONTAINS relationships). It is possible to register more reference logics in
-                        library mode.
-  --guide-version {1.0,1.1}
+                        library mode. “yocto-all” and “yocto-contains-only” are only available for SPDX 2.
+  --guide-version {1.0,1.1,1.2}
                         Defines the version of the OpenChain Telco SBOM Guide to use as a basis for the
-                        validation. Possible values are 1.0 and 1.1, default value is 1.1.
+                        validation. Possible values are 1.0, 1.1 and 1.2, default value is 1.2.
   --noassertion         Lists fields with value NOASSERTION.
 
 ## As a library
