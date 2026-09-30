@@ -12,6 +12,10 @@ Releasing SBOMs that match the requirements outlined in this guide does not prec
 
 This guide is licensed under [Creative Commons Attribution License 4.0 (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/).
 
+In release 1.0 and 1.1 of this Guide, only SPDX 2.2 and 2.3 were allowed.
+So we used the SPDX 2 tag:value field names to express the mandatory and recommened fields.
+We now allow also SPDX 3.0.1. As a consequence, we now use the 2026 CISA Minimum Elements field names and provide the mapping in SPDX 2 and SPDX 3.
+
 ## 2. Terms and definitions
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
@@ -41,7 +45,7 @@ An SBOM can be of one of the following types:
 The definition of these types can be found in the
 [CISA document](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf).
 
-The CISA Minimum Elements document uses "Before build, "Build" and "After build".
+The 2026 CISA Minimum Elements document uses "Before build, "Build" and "After build".
 
 "Before build" can be mapped to "Design" or "Source".
 
@@ -51,6 +55,7 @@ The CISA Minimum Elements document uses "Before build, "Build" and "After build"
 SPDX (Software Package Data Exchange) is the [ISO standard](https://www.iso.org/standard/81870.html) (ISO/IEC 5962:2021) for exchanging SBOM for a given software package, including associated license and copyright information. The standard was created by the [Linux Foundation's SPDX project](https://spdx.dev/).
 
 The current ISO standard describes SPDX 2.2.1. Revision 2.3 of the standard exists but was not sent to ISO.
+Revision 2.3.1 includes in annex L the mapping of the 2026 CISA Minimum Elements in SPDX.
 
 Revision 3.0.1 of SPDX was sent to ISO and will be published soon. The acronym SPDX now means System Package Data Exchange.
 
@@ -91,7 +96,7 @@ The following elements are REQUIRED.
 | Element                  | SPDX 2.2 and 2.3                       | SPDX 3.0.1                         |                 |
 | ------------------------ | -------------------------------------- | ---------------------------------- | --------------  |
 | SBOM Author              | Creator                                | CreationInfo.createdBy             |                 |
-| SBOM Author Signature    |                                        |                                    |                 |
+| SBOM Author Signature    | _see below_                            | _see below_                        |                 |
 | SBOM Data Format Name    | SPDXVersion ("SPDX-2.2" or "SPDX-2.3") | _implicit_                         |                 |
 | SBOM Data Format Version | SPDXVersion ("SPDX-2.2" or "SPDX-2.3") | CreationInfo.specVersion ("3.0.1") |                 |
 | SBOM Generation Context  | CreatorComment (see below)             | software_Sbom.sbomType             |                 |
@@ -105,6 +110,8 @@ There is no native field to express the SBOM Version in SPDX 2.2, 2.3 and 3.0.1.
 As a workaround, we can use:
 * `documentNamespace` in SPDX 2.2 and 2.3;
 * SBOM.spdxId in SPDX 3.0.1 and optionally relationship `amendedBy` to previous SBOM.spdxId.
+
+There is no native field to express the SBOM Author Signature in SPDX 2.2, 2.3 and 3.0.1. It is recommended to use an external signed envelope.
 
 The following element is REQUIRED for an SBOM in SPDX 2.2 and 2.3:
 * CreatorComment: to be able to put “SBOM Build information”
@@ -158,7 +165,7 @@ At least one of DESCRIBES, CONTAINS and DEPENDS_ON MUST be present for each pack
 #### 3.2.1 Verification and reference material
 NTIA Minimum Elements
 
-CISA Minimum Elements
+2026 CISA Minimum Elements
 
 CISA "SBOM Author Signature" cannot be represented in SPDX 2 or SPDX 3. It must be provided using an external file.
 See section 3.13.
@@ -175,9 +182,9 @@ The CISA document "Framing Software Component Transparency: Establishing a Commo
 https://www.cisa.gov/resources-tools/resources/framing-software-component-transparency-2024
 allows both, see table in section 2.5.
 
-CISA Minimum Elements require License.
+2026 CISA Minimum Elements require License.
 In versions 1.0 and 1.1 of the Guide, PackageLicenseConcluded and PackageLicenseDeclared were mandatory,
-but could be NOASSERTION. In order to comply with CISA Minimum Elements, at least one of them must contain a real license
+but could be NOASSERTION. In order to comply with 2026 CISA Minimum Elements, at least one of them must contain a real license
 (either from the SPDX license list or a custom license).
 
 Package-URL (PURL) is a _de facto_ standard to uniquely identify software packages. It is also an ECMA standard.
@@ -202,7 +209,7 @@ The reasons for selecting SPDX as data format of the OpenChain Telco SBOM Guide 
 * SPDX is an ISO standard,
 * SPDX has more features than CycloneDX for license compliance,
 * SPDX has a human-readable format (CycloneDX has only JSON and XML),
-* SWID is more a software identifier than a fully fledged SBOM format; CISA Minimum Elements has removed SWID from list of data formats.
+* SWID is more a software identifier than a fully fledged SBOM format; 2026 CISA Minimum Elements has removed SWID from list of data formats.
 
 To facilitate a simplified toolchain, a machine readable version of the SBOM needs to be included. To ensure repeatability and harmonization a conformant SBOM must be in Tag:Value or JSON format. An entity can release additional machine readable formats but they are not required to conform to the Guide.
 
@@ -447,6 +454,6 @@ The following updates of the Guide have been made in version 1.2.
 * Allow SPDX 3 as a possible format for an OpenChain Telco SBOM.
 * Add a recommendation on file naming.
 * Add a section about "Encryption and storage of SBOM".
-* Add the fact that the Guide complies with the CISA Minimum Elements.
+* Add the fact that the Guide complies with the 2026 CISA Minimum Elements.
 * PackageLicenseConcluded and PackageLicenseDeclared cannot be both NOASSERTION.
 * Add the fact that Package-URL is now an ECMA standard.
