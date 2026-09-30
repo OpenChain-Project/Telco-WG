@@ -25,8 +25,10 @@ from spdx_tools.spdx import document_utils
 from packageurl.contrib import purl2url
 from fetchcode import fetch
 import ntia_conformance_checker as ntia
+from spdx_python_model import v3_0_1 as spdx3
 import validators
 import requests
+import spdx3_validate
 
 logger = logging.getLogger(__name__)
 logger.propagate = True
@@ -204,7 +206,7 @@ class Validator:
                  functionRegistry:FunctionRegistry = FunctionRegistry(),
                  problems=None,
                  referringLogic="none",
-                 guide_version = "1.1"):
+                 guide_version = "1.2"):
         """ Validates, returns a status and a list of problems.
             filePath: path to the SPDX file to validate.
             strict_purl_check: not only checks the syntax of the PURL, but also checks if the package can be downloaded.
@@ -243,7 +245,7 @@ class Validator:
             problems.append("File error",
                             "General",
                             "General",
-                            f"File path is empty",
+                            "File path is empty",
                             Problem.SCOPE_FILE,
                             Problem.SEVERITY_ERROR,
                             filePath)
@@ -269,6 +271,44 @@ class Validator:
         logger.debug(f"File path is {dir_name}, filename is {file}, extension is {extension}")
         print(f"Validating {file}")
 
+        if filePath.endswith(".json") or filePath.endswith(".jsonld"):
+            if is_spdx3_json(filePath):
+                return self.validate3(filePath,
+                                      strict_purl_check,
+                                      strict_url_check,
+                                      strict,
+                                      noassertion,
+                                      functionRegistry,
+                                      problems,
+                                      referringLogic,
+                                      guide_version)
+        return self.validate2(filePath,
+                              strict_purl_check,
+                              strict_url_check,
+                              strict,
+                              noassertion,
+                              functionRegistry,
+                              problems,
+                              referringLogic,
+                              guide_version)
+
+    def validate2(self,
+                 filePath,
+                 strict_purl_check=False,
+                 strict_url_check=False,
+                 strict=False,
+                 noassertion=False,
+                 functionRegistry:FunctionRegistry = FunctionRegistry(),
+                 problems=None,
+                 referringLogic="none",
+                 guide_version = "1.2"):
+        """ Validate an SPDX 2.2 or 2.3 SBOM"""
+        file = os.path.basename(filePath)
+        dir_name = os.path.dirname(filePath)
+        match = re.search(r'\.(.+)$', file)
+        extension = ""
+        if match:
+            extension = match.group(1)
 
         try:
             doc = parse_anything.parse_file(filePath)
@@ -289,9 +329,9 @@ class Validator:
             for message in e.messages:
                 logger.error(message)
             problems.append("File error",
-                            "",
-                            "",
-                            "The file is not an SPDX file",
+                            "General",
+                            "General",
+                            f"The file ({filePath}) is not an SPDX file",
                             Problem.SCOPE_FILE,
                             Problem.SEVERITY_ERROR,
                             file)
@@ -331,8 +371,9 @@ class Validator:
             self.__ntiaErrorLog(components, problems, doc, "Package without a name", file)
             components = sbomNTIA.get_components_without_versions()
             self.__ntiaErrorLogNew(components, problems, doc, "Package without a version", file)
-            components = sbomNTIA.get_components_without_suppliers()
-            self.__ntiaErrorLogNew(components, problems, doc, "Package without a package supplier", file)
+            if guide_version != "1.2":
+                components = sbomNTIA.get_components_without_suppliers()
+                self.__ntiaErrorLogNew(components, problems, doc, "Package without a package supplier", file)
             components = sbomNTIA.get_components_without_identifiers()
             self.__ntiaErrorLog(components, problems, doc, "Package without an identifier", file)
 
@@ -344,7 +385,7 @@ class Validator:
             cisaSBOMTypes = ["design", "source", "build", "analyzed", "deployed", "runtime"]
             creator_comment = doc.creation_info.creator_comment.lower().strip()
             if strict:
-                logger.debug(f"Strict check is on")
+                logger.debug("Strict check is on")
                 match = re.search(r'sbom type:\s*(\w+)', creator_comment)
                 sbom_type = None
 
@@ -397,7 +438,7 @@ class Validator:
             problems.append("Missing mandatory field from CreationInfo",
                             "General",
                             "General",
-                            f"CreatorComment is missing",
+                            "CreatorComment is missing",
                             Problem.SCOPE_OPEN_CHAIN,
                             Problem.SEVERITY_ERROR,
                             file)
@@ -455,6 +496,33 @@ class Validator:
 
         for package in doc.packages:
             logger.debug(f"Package: {package}")
+
+            no_supplier = False
+
+            # In Guide 1.0 and 1.1, supplier is mandatory
+            # We check if there is a PackageSupplier
+            if not hasattr(package, 'supplier') or package.supplier is None or str(package.supplier) == "NOASSERTION":
+                no_supplier = True
+                if guide_version in {"1.0", "1.1"}:
+                    problems.append("Missing mandatory field from Package",
+                                    package.spdx_id,
+                                    package.name,
+                                    "Package without a package supplier",
+                                    Problem.SCOPE_OPEN_CHAIN,
+                                    Problem.SEVERITY_ERROR,
+                                    file)
+
+            # In Guide 1.2, one of supplier and originator is mandatory
+            # We check if there is a PackageOriginator
+            if not hasattr(package, 'originator') or package.originator is None or str(package.originator) == "NOASSERTION":
+                if no_supplier and guide_version == "1.2":
+                    problems.append("Missing mandatory field from Package",
+                                    package.spdx_id,
+                                    package.name,
+                                    "Package with no package supplier and no package originator",
+                                    Problem.SCOPE_OPEN_CHAIN,
+                                    Problem.SEVERITY_ERROR,
+                                    file)
 
             # License concluded is mandatory in SPDX 2.2, but not in SPDX 2.3
             # It is mandatory in OpenChain Telco SBOM Guide
@@ -531,11 +599,11 @@ class Validator:
                         if strict_purl_check:
                             url = purl2url.get_repo_url(ref.locator)
                             if not url:
-                                logger.debug("Purl (" + ref.locator + ") parsing resulted in empty result.")
+                                logger.debug("PURL (" + ref.locator + ") parsing resulted in empty result.")
                                 problems.append("Useless mandatory field from Package",
                                                 package.spdx_id,
                                                 package.name,
-                                                f"purl ({ref.locator}) in the ExternalRef cannot be converted to a downloadable URL",
+                                                f"PURL ({ref.locator}) in the ExternalRef cannot be converted to a downloadable URL",
                                                 Problem.SCOPE_OPEN_CHAIN,
                                                 Problem.SEVERITY_INC_PURL,
                                                 file)
@@ -574,7 +642,7 @@ class Validator:
             else:
                 logger.debug(f"PackageDownloadLocation is ({package.download_location})")
                 if not validators.url(package.download_location):
-                    logger.debug("PackageDownloadLocation not a valid URL")
+                    logger.debug("PackageDownloadLocation is not a valid URL")
                     # Adding this to the problem list is not needed as the SPDX validator also adds it
                     # problems.append(["Invalid field in Package", package.spdx_id, package.name, f"PackageDownloadLocation a valid URL ({package.download_location})"])
                 else:
@@ -650,6 +718,15 @@ class Validator:
                                         Problem.SCOPE_OPEN_CHAIN,
                                         Problem.SEVERITY_ERROR,
                                         file)
+                case "1.2":
+                    if not (package.checksums or package.verification_code):
+                        problems.append("Missing mandatory field from Package",
+                                        package.spdx_id,
+                                        package.name,
+                                        "Both PackageChecksum and PackageVerificationCode fields are missing",
+                                        Problem.SCOPE_OPEN_CHAIN,
+                                        Problem.SEVERITY_ERROR,
+                                        file)
             if functionRegistry:
                 logger.debug("Calling registered package functions.")
 
@@ -675,6 +752,7 @@ class Validator:
             return False, problems
 
         for referred_sbom in list_of_referred_sboms:
+            problems.do_print_file()
             self.validate(
                 filePath=referred_sbom,
                 strict_purl_check=strict_purl_check,
@@ -682,6 +760,454 @@ class Validator:
                 functionRegistry=functionRegistry,
                 problems=problems,
                 referringLogic=referringLogic,
+                noassertion=noassertion)
+        if problems:
+            return False, problems
+        else:
+            return True, problems
+
+    def validate3(self,
+                 filePath,
+                 strict_purl_check=False,
+                 strict_url_check=False,
+                 strict=False,
+                 noassertion=False,
+                 functionRegistry:FunctionRegistry = FunctionRegistry(),
+                 problems=None,
+                 referringLogic="none",
+                 guide_version = "1.2"):
+        """ Validate an SPDX 3.0 SBOM"""
+
+        list_of_referred_sboms = set()
+
+        if guide_version != "1.2":
+            logger.error("SPDX 3 can only be validated against OpenChain Telco SBOM Guide release 1.2")
+            problems.append("File error",
+                            "General",
+                            "General",
+                            "SPDX 3 can only be validated against OpenChain Telco SBOM Guide release 1.2",
+                            Problem.SCOPE_FILE,
+                            Problem.SEVERITY_ERROR,
+                            filePath)
+            return False, problems
+
+        file = os.path.basename(filePath)
+        dir_name = os.path.dirname(filePath)
+        match = re.search(r'\.(.+)$', file)
+        extension = ""
+        if match:
+            extension = match.group(1)
+
+        # Let us check it is valid SPDX 3
+        result = spdx3_validate.validate([filePath])
+        if not result:
+            problems.append("File error",
+                            "General",
+                            "General",
+                            f"SBOM {filePath} is not valid SPDX 3.0",
+                            Problem.SCOPE_FILE,
+                            Problem.SEVERITY_ERROR,
+                            filePath)
+            return False, problems
+        logger.debug(f"SBOM {filePath} is valid SPDX 3.0")
+
+        try:
+            object_set = spdx3.SHACLObjectSet()
+            with open(filePath, "r", encoding="utf-8") as f:
+                spdx3.JSONLDDeserializer().read(f, object_set)
+        except (json.decoder.JSONDecodeError, ValueError):
+            problems.append("File error",
+                            "General",
+                            "General",
+                            f"SBOM {filePath} is not valid SPDX 3.0",
+                            Problem.SCOPE_FILE,
+                            Problem.SEVERITY_ERROR,
+                            filePath)
+            return False, problems
+
+        doc = list(object_set.foreach_type("SpdxDocument", match_subclass=False))[0]
+        logger.debug(f"SPDX Spec Version: {doc.creationInfo.specVersion}")
+
+        if referringLogic != "none":
+            problems.do_print_file()
+            importmap = doc.import_
+            for element in importmap:
+                try:
+                    hint_filename = os.path.basename(os.path.normpath(element.locationHint))
+                    logger.debug("Checking locationHint")
+                    logger.debug(f"locationHint found: {element.locationHint}")
+
+                    if not os.path.exists(hint_filename):
+                        logger.debug(f"locationHint not found: {element.locationHint}")
+                        problems.append("locationHint not found",
+                                        "General",
+                                        "General",
+                                        f"locationHint not found: {element.locationHint}",
+                                        Problem.SCOPE_OPEN_CHAIN,
+                                        Problem.SEVERITY_ERROR,
+                                        file)
+                    else:
+                        logger.debug(f"locationHint found: {element.locationHint}")
+
+                        for verif in element.verifiedUsing:
+                            algo = os.path.basename(os.path.normpath(verif.algorithm))
+                            logger.debug(f"algorithm: {algo}")
+                            logger.debug(f"hashValue: {verif.hashValue}")
+
+                            with open(hint_filename, 'rb') as f:
+                                hash = None
+                                # SHA1, SHA224, SHA256, SHA384, SHA512, MD2, MD4, MD5, MD6
+                                match algo:
+                                    case "sha1":
+                                        hash = hashlib.sha1()
+                                    case "sha224":
+                                        hash = hashlib.sha224()
+                                    case "sha256":
+                                        hash = hashlib.sha256()
+                                    case "sha384":
+                                        hash = hashlib.sha384()
+                                    case "sha512":
+                                        hash = hashlib.sha512()
+                                    case "md5":
+                                        hash = hashlib.md5()
+                                    case _:
+                                        logger.error(f"{algo} is not supported.")
+
+                                while chunk := f.read(8192):
+                                    hash.update(chunk)
+                            calculated_hash = hash.hexdigest()
+                            logger.debug(f"Calculated hash: {calculated_hash}")
+                            if calculated_hash != verif.hashValue:
+                                problems.append("Calculated hash does not correspond",
+                                                "General",
+                                                "General",
+                                                f"Hash should be {verif.hashValue}, it is {calculated_hash}",
+                                                Problem.SCOPE_OPEN_CHAIN,
+                                                Problem.SEVERITY_ERROR,
+                                                file)
+                            else:
+                                logger.debug(f"Adding recursive SBOM: {hint_filename}")
+                                list_of_referred_sboms.add(hint_filename)
+
+                except Exception as err:
+                    logger.debug(f"Exception received ({format(err)})")
+                    problems.append("locationHint not found",
+                                    "General",
+                                    "General",
+                                    f"locationHint not found: {element.locationHint}",
+                                    Problem.SCOPE_OPEN_CHAIN,
+                                    Problem.SEVERITY_ERROR,
+                                    file)
+
+        # Checking against NTIA minimum requirements
+        # No need for SPDX validation as it is done previously.
+        logger.debug("Start of NTIA validation")
+        sbomNTIA = ntia.SbomChecker(filePath, validate=False, sbom_spec="spdx3")
+        if not sbomNTIA.compliant:
+            logger.debug("NTIA validation failed")
+            components = sbomNTIA.get_components_without_names()
+            for component in components:
+                problems.append("NTIA validation error",
+                                component[1],
+                                component[0],
+                                "Package without a name",
+                                Problem.SCOPE_NTIA,
+                                Problem.SEVERITY_ERROR,
+                                filePath)
+            components = sbomNTIA.get_components_without_versions()
+            for component in components:
+                problems.append("NTIA validation error",
+                                component[1],
+                                component[0],
+                                "Package without a version",
+                                Problem.SCOPE_NTIA,
+                                Problem.SEVERITY_ERROR,
+                                filePath)
+        else:
+            logger.debug("NTIA validation succesful")
+
+        creation_info = list(object_set.obj_by_type["CreationInfo"])
+        no_organization = True
+        no_tool = True
+        for creation in creation_info:
+            createdBy = creation[1].createdBy
+            if createdBy != []:
+                organization = createdBy[0]
+                if organization != []:
+                    no_organization = False
+                    organization = organization.name
+                    logger.debug(f"Organization={organization}")
+            createdUsing = creation[1].createdUsing
+            if createdUsing != []:
+                tool = createdUsing[0]
+                if tool != []:
+                    no_tool = False
+                    tool = tool.name
+                    logger.debug(f"Tool={tool}")
+        if no_organization:
+            problems.append("File error",
+                            "General",
+                            "General",
+                            "There is no Organization that created the SBOM",
+                            Problem.SCOPE_FILE,
+                            Problem.SEVERITY_ERROR,
+                            filePath)
+        if no_tool:
+            problems.append("File error",
+                            "General",
+                            "General",
+                            "There is no Tool that created the SBOM",
+                            Problem.SCOPE_FILE,
+                            Problem.SEVERITY_ERROR,
+                            filePath)
+        # Check the format of the tool (if it has a version)
+        # In strict mode (RECOMMENDED), we check there is an hyphen between tool name and version
+        # and there is a single hyphen
+        elif strict:
+            if str(tool).count('-') == 1:
+                logger.debug(f"Tool and version found with the correct format ({tool})")
+            else:
+                problems.append("Tool field recommended syntax",
+                                "General",
+                                "General",
+                                f"Tool field '{tool}' does not contain the tool name and its version separated with a hyphen",
+                                Problem.SCOPE_OPEN_CHAIN,
+                                Problem.SEVERITY_ERROR,
+                                filePath)
+
+        # Check if there is an SBOM Type
+        # No need to check the value, bad value means invalid SPDX 3
+        no_sbomType = True
+        if "software_Sbom" in object_set.obj_by_type:
+            software_Sbom = list(object_set.obj_by_type["software_Sbom"])
+            for sbom in software_Sbom:
+                software_sbomType = sbom[1].software_sbomType
+                if software_sbomType != []:
+                    software_sbomType = software_sbomType[0]
+                    no_sbomType = False
+                    logger.debug(f"SBOM Type={software_sbomType}")
+        if no_sbomType:
+            problems.append("File error",
+                            "General",
+                            "General",
+                            "There is no SBOM Type",
+                            Problem.SCOPE_FILE,
+                            Problem.SEVERITY_ERROR,
+                            filePath)
+
+        # Get all objects of type "Software/Package", including its subclasses
+        if "software_Package" not in object_set.obj_by_type:
+            logger.debug("There are no software packages in the SBOM.")
+        else:
+            packages = object_set.obj_by_type["software_Package"]
+            logger.debug(f"There are {len(packages)} software packages in the SBOM.")
+
+            packages_with_concluded = set()
+            packages_with_declared = set()
+            for rel in object_set.foreach_type("Relationship"):
+                rel_type = getattr(rel, "relationshipType").split("/")[-1]  # print only the type name, not the full URL
+                pkg_name = getattr(rel, "from_")
+                # pkg_name can be either SHACLObject or just spdxId (string).
+                if isinstance(pkg_name, spdx3.SHACLObject):
+                    pkg_name = getattr(pkg_name, 'name', 'N/A')
+                if rel_type == "hasConcludedLicense":
+                    packages_with_concluded.add(pkg_name)
+                if rel_type == "hasDeclaredLicense":
+                    packages_with_declared.add(pkg_name)
+
+            for package in object_set.foreach_type("software_Package"):
+                name = getattr(package, "name")
+                spdx_id = getattr(package, "spdxId")
+                version = getattr(package, "software_packageVersion")
+                supplier = getattr(package, "suppliedBy")
+                originator = getattr(package, "originatedBy")
+                downloadLocation = getattr(package, "software_downloadLocation")
+                packageUrl = getattr(package, "software_packageUrl")
+                copyrightText = getattr(package, "software_copyrightText")
+
+                # Check presence of attributes
+                if name == "":
+                    logger.debug(f"Package without a name (SPDX ID: {spdx_id})")
+                    problems.append("Missing mandatory field from Package",
+                                    spdx_id,
+                                    name,
+                                    "Package without a name",
+                                    Problem.SCOPE_OPEN_CHAIN,
+                                    Problem.SEVERITY_ERROR,
+                                    filePath)
+
+                if version == "":
+                    logger.debug(f"Package {name} without a version (SPDX ID: {spdx_id})")
+                    problems.append("Missing mandatory field from Package",
+                                    spdx_id,
+                                    name,
+                                    "Package without a version",
+                                    Problem.SCOPE_OPEN_CHAIN,
+                                    Problem.SEVERITY_ERROR,
+                                    filePath)
+
+                # We need a supplier or an originator
+                if (supplier is None or supplier == "") and not originator:
+                    logger.debug(f"Package {name} with no supplier and no originator (SPDX ID: {spdx_id})")
+                    problems.append("Missing mandatory field from Package",
+                                    spdx_id,
+                                    name,
+                                    "Package with no supplier and no originator",
+                                    Problem.SCOPE_OPEN_CHAIN,
+                                    Problem.SEVERITY_ERROR,
+                                    filePath)
+                if spdx_id == "":
+                    logger.debug(f"Package {name} without an SPDX identifier")
+                    problems.append("Missing mandatory field from Package",
+                                    spdx_id,
+                                    name,
+                                    "Package without an identifier",
+                                    Problem.SCOPE_OPEN_CHAIN,
+                                    Problem.SEVERITY_ERROR,
+                                    filePath)
+
+                if downloadLocation is None or downloadLocation == "":
+                    logger.debug(f"Package {name} without a download location (SPDX ID: {spdx_id})")
+                    problems.append("Missing mandatory field from Package",
+                                    spdx_id,
+                                    name,
+                                    "Package without a download location",
+                                    Problem.SCOPE_OPEN_CHAIN,
+                                    Problem.SEVERITY_ERROR,
+                                    filePath)
+                if noassertion and downloadLocation == "NOASSERTION":
+                    problems.append("Field with NOASSERTION",
+                                    spdx_id,
+                                    name,
+                                    "Download location text is NOASSERTION",
+                                    Problem.SCOPE_OPEN_CHAIN,
+                                    Problem.SEVERITY_NOASSERT,
+                                    filePath)
+
+                logger.debug(f"PackageDownloadLocation is ({downloadLocation})")
+                if not validators.url(downloadLocation):
+                    logger.debug("PackageDownloadLocation is not a valid URL")
+                else:
+                    if strict_url_check:
+                        try:
+                            logger.debug("Checking PackageDownloadLocation")
+                            page = requests.get(downloadLocation)
+
+                            # If we have a hash, we verify it
+                            verifiedUsing = getattr(package, "verifiedUsing")
+                            for algo in verifiedUsing:
+                                algostring = str(algo.algorithm)
+                                algostring = os.path.basename(algostring)
+                                algostring = algostring.upper()
+                                logger.debug(f"algo={algostring}")
+                                calculated_checksum = package_checksum(downloadLocation, algostring)
+                                if calculated_checksum == algo.hashValue:
+                                    logger.debug("Correct " + algostring + ": " + algo.hashValue)
+                                else:
+                                    problems.append("Invalid " + algostring,
+                                                spdx_id,
+                                                name,
+                                                f"Checksum is {calculated_checksum}, should be {algo.hashValue}",
+                                                Problem.SCOPE_OPEN_CHAIN,
+                                                Problem.SEVERITY_INC_URL,
+                                                filePath)
+
+                        except Exception as err:
+                            logger.debug(f"Exception received ({format(err)})")
+                            problems.append("Invalid field in Package",
+                                            spdx_id,
+                                            name,
+                                            f"PackageDownloadLocation field points to a nonexisting page ({downloadLocation})",
+                                            Problem.SCOPE_OPEN_CHAIN,
+                                            Problem.SEVERITY_INC_URL,
+                                            filePath)
+
+                if packageUrl is None or packageUrl == "":
+                    if strict:
+                        logger.debug(f"Package {name} without a Package-URL (SPDX ID: {spdx_id})")
+                        problems.append("Missing mandatory field from Package",
+                                        spdx_id,
+                                        name,
+                                        "Package without a Package-URL",
+                                        Problem.SCOPE_OPEN_CHAIN,
+                                        Problem.SEVERITY_ERROR,
+                                        filePath)
+                elif strict_purl_check:
+                    url = purl2url.get_repo_url(packageUrl)
+                    if not url:
+                        logger.debug("PURL (" + packageUrl + ") parsing resulted in empty result.")
+                        problems.append("Useless mandatory field from Package",
+                                        spdx_id,
+                                        name,
+                                        f"PURL ({packageUrl}) cannot be converted to a downloadable URL",
+                                        Problem.SCOPE_OPEN_CHAIN,
+                                        Problem.SEVERITY_INC_PURL,
+                                        filePath)
+                    else:
+                        logger.debug(f"Strict PURL check is happy {url}")
+
+                if copyrightText is None or copyrightText == "":
+                    logger.debug(f"Package {name} without copyright text (SPDX ID: {spdx_id})")
+                    problems.append("Missing mandatory field from Package",
+                                    spdx_id,
+                                    name,
+                                    "Package without copyright text",
+                                    Problem.SCOPE_OPEN_CHAIN,
+                                    Problem.SEVERITY_ERROR,
+                                    filePath)
+                if noassertion and copyrightText == "NOASSERTION":
+                    problems.append("Field with NOASSERTION",
+                                    spdx_id,
+                                    name,
+                                    "Copyright text is NOASSERTION",
+                                    Problem.SCOPE_OPEN_CHAIN,
+                                    Problem.SEVERITY_NOASSERT,
+                                    filePath)
+
+                verifiedUsing = getattr(package, "verifiedUsing")
+                if len(verifiedUsing) == 0:
+                    logger.debug(f"Package {name} without hash (SPDX ID: {spdx_id})")
+                    problems.append("Missing mandatory field from Package",
+                                    spdx_id,
+                                    name,
+                                    "Package without hash",
+                                    Problem.SCOPE_OPEN_CHAIN,
+                                    Problem.SEVERITY_ERROR,
+                                    filePath)
+                else:
+                    logger.debug(f"Hashes for package {name}")
+                    for verified in verifiedUsing:
+                        logger.debug(verified.algorithm.split("/")[-1])
+                        logger.debug(verified.hashValue)
+
+                if not name in packages_with_concluded:
+                    logger.debug(f"Package {name} without concluded license (SPDX ID: {spdx_id})")
+                    problems.append("Missing mandatory field from Package",
+                                    spdx_id,
+                                    name,
+                                    "Package without concluded license",
+                                    Problem.SCOPE_OPEN_CHAIN,
+                                    Problem.SEVERITY_ERROR,
+                                    filePath)
+
+                if not name in packages_with_declared:
+                    logger.debug(f"Package {name} without declared license (SPDX ID: {spdx_id})")
+                    problems.append("Missing mandatory field from Package",
+                                    spdx_id,
+                                    name,
+                                    "Package without declared license",
+                                    Problem.SCOPE_OPEN_CHAIN,
+                                    Problem.SEVERITY_ERROR,
+                                    filePath)
+
+        for referred_sbom in list_of_referred_sboms:
+            self.validate(
+                filePath=referred_sbom,
+                strict_purl_check=strict_purl_check,
+                strict_url_check=strict_url_check,
+                functionRegistry=functionRegistry,
+                problems=problems,
+                referringLogic="checksum-all",
                 noassertion=noassertion)
         if problems:
             return False, problems
@@ -759,7 +1285,7 @@ def referred_yocto_all(self, doc: Document, dir_name: str, problems: Problems, e
             logger.debug(f"Reference base is {ref_base}")
 
     if doc.creation_info.external_document_refs:
-        logger.debug(f"There are references")
+        logger.debug("There are references")
         for ref in doc.creation_info.external_document_refs:
             logger.debug(f"SPDX document referenced {ref.document_uri}")
             doc_location = str(ref.document_uri).replace(ref_base, "")
@@ -789,7 +1315,7 @@ def referred_yocto_contains_only(self, doc: Document, dir_name: str, problems: P
             logger.debug(f"Reference base is {ref_base}")
     external_refs = {}
     if doc.creation_info.external_document_refs:
-        logger.debug(f"--------------We have refs!------------")
+        logger.debug("--------------We have refs!------------")
         for ref in doc.creation_info.external_document_refs:
             logger.debug(f"SPDX document referenced {ref.document_uri}")
             doc_location = str(ref.document_uri).replace(ref_base, "")
@@ -919,3 +1445,27 @@ def package_checksum(download_location: str, algorithm: str):
         f.close()
     os.remove(tmp)
     return checksum
+
+def is_spdx3_json(jsonfile: str) -> bool:
+    """
+    Indicates if the file is an SPDX 3 JSON SBOM
+    """
+    if not os.path.exists(jsonfile):
+        return False
+    if not os.path.isfile(jsonfile):
+        return False
+
+    try:
+        with open(jsonfile, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+    except Exception:
+        return False
+
+    # SPDX 3.x typically has "specVersion" starting with "3."
+    if isinstance(data, dict) and '@graph' in data:
+        for elem in data['@graph']:
+            if 'specVersion' in elem:
+                version = elem['specVersion']
+                if version.startswith("3."):
+                    return True
+    return False

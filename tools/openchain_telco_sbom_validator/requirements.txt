@@ -5,3 +5,5 @@ packageurl-python>=0.17.6
 ntia-conformance-checker>=5.0.0
 validators>=0.35.0
 fetchcode>=0.8.2
+spdx-python-model>=0.0.4
+spdx3-validate>=0.0.7

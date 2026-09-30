@@ -47,7 +47,7 @@ def main():
             args.reference_logic = "checksum-all"
 
         reference_logic = args.reference_logic
-        if None == args.reference_logic:
+        if args.reference_logic is None:
             reference_logic = "none"
 
         result, problems = validator.validate(filePath,
@@ -99,7 +99,7 @@ class AdditionalArguments:
         return self.items[index]
 
 def parseArguments(additionalArguments: AdditionalArguments = AdditionalArguments()):
-    parser = argparse.ArgumentParser(description='A script to validate an SPDX file against the OpenChain Telco SBOM Guide (version 1.0 or 1.1).')
+    parser = argparse.ArgumentParser(description='A script to validate an SPDX file against the OpenChain Telco SBOM Guide (version 1.0, 1.1 or 1.2).')
     # TODO: This should go in without any parameter.
     parser.add_argument('input',
                         help='The input SPDX file.',
@@ -129,7 +129,8 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
     parser.add_argument('--noassertion', action="store_true", default=False,
                         help='List fields with value NOASSERTION')
     parser.add_argument('-r', '--recursive', action="store_true",
-                        help='Validate recursively. Same as “--reference-logic checksum-all”.')
+                        help='Validate recursively. Same as “--reference-logic checksum-all”.'
+                        ' Recursive validation is experimental for SPDX 3.0.')
     parser.add_argument('--reference-logic',
                         help='Defines the logic how the referenced files are accessible. If not'
                         ' added, the referenced files will not be investigated.'
@@ -138,10 +139,11 @@ def parseArguments(additionalArguments: AdditionalArguments = AdditionalArgument
                         ' “yocto-all” (all externalrefs are investigated) and'
                         ' “yocto-contains-only” (only those files are investigated which are in'
                         ' CONTAINS relationships). It is possible to register more reference'
-                        ' logics in library mode.')
-    parser.add_argument('--guide-version', default="1.1", choices=['1.0', '1.1'],
+                        ' logics in library mode. “yocto-all” and “yocto-contains-only” are only'
+                        ' available for SPDX 2.')
+    parser.add_argument('--guide-version', default="1.2", choices=['1.0', '1.1', '1.2'],
                         help='Defines the version of the OpenChain Telco SBOM Guide to use as a basis for the validation.'
-                        ' Possible values are 1.0 and 1.1, default value is 1.1.')
+                        ' Possible values are 1.0, 1.1 and 1.2, default value is 1.2.')
 
     for argument in additionalArguments:
         logger.debug(f"Adding additional argument {argument}")
