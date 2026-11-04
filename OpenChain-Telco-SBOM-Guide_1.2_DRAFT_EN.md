@@ -341,7 +341,7 @@ Other options of SBOM delivery such as webhosting are less stable and access is 
 ### 3.9 Encryption and storage of SBOM
 SBOM providers SHALL use encryption to protect the confidentiality of an OpenChain Telco SBOM Compatible document. The encryption used SHALL protect the integrity, authenticity, and confidentiality of the document at rest and during transport using best practices. The key(s) used for the encryption of the data SHALL be protected by all parties in an agreed upon manner. While at rest the keys, the encrypted SBOM, the unencrypted SBOM, or parts of the SBOM, SHALL be subject to access control where only designated individuals within the receiving organization have the necessary rights to read it. Any additional protection mechanisms that are required for the storage of the SBOM SHALL be agreed upon by both parties.
 
-The provider of the Software may choose to make an SBOM available for the public. This guide does not prevent such actions, however the above, 3.X requirement still applies to the SBOM that is to be shipped with the product according to section 3.6.2 of this guide.
+The provider of the Software may choose to make an SBOM available for the public. This guide does not prevent such actions, however the above, 3.9 requirement still applies to the SBOM that is to be shipped with the product according to section 3.8 of this guide.
 
 ### 3.9.1 Verification and reference material
 
