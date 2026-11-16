@@ -37,3 +37,7 @@ ExternalRef: PACKAGE-MANAGER purl pkg:deb/debian/libldap-2.4-2@2.4.57+dfsg-3+deb
 
 LicenseID: LicenseRef-Autoconf
 ExtractedText: Autoconf
+
+##### Relationships
+
+Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-Package-deb-libldap-2.4-2-Nosupplier-Nochecksum
