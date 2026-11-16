@@ -92,10 +92,9 @@ ExternalRef: SECURITY cpe23Type cpe:2.3:a:libldap:libldap-2.4-2:2.4.57\+dfsg-3\+
 ExternalRef: SECURITY cpe23Type cpe:2.3:a:libldap:libldap_2.4_2:2.4.57\+dfsg-3\+deb11u1:*:*:*:*:*:*:*
 ExternalRef: PACKAGE-MANAGER purl pkg:deb/debian/libldap-2.4-2@2.4.57+dfsg-3+deb11u1?arch=amd64&upstream=openldap&distro=debian-11
 
-
 LicenseID: LicenseRef-Autoconf
 ExtractedText: Autoconf
 
-
 Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-Package-deb-nopurl-libldap-2.4-2-796a192b709a2a2b
 Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-Package-deb-badpurl-libldap-2.4-2-796a192b709a2a2b
+Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-Package-deb-nohomepage-libldap-2.4-2-796a192b709a2a2b
