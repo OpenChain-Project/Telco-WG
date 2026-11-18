@@ -45,7 +45,7 @@ An SBOM can be of one of the following types:
 The definition of these types can be found in the
 [CISA document](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf).
 
-The 2026 CISA Minimum Elements document uses "Before build, "Build" and "After build".
+The 2026 CISA Minimum Elements document uses "Before build", "Build" and "After build".
 
 "Before build" can be mapped to "Design" or "Source".
 
@@ -111,7 +111,7 @@ As a workaround, we can use:
 * `documentNamespace` in SPDX 2.2 and 2.3;
 * SBOM.spdxId in SPDX 3.0.1 and optionally relationship `amendedBy` to previous SBOM.spdxId.
 
-There is no native field to express the SBOM Author Signature in SPDX 2.2, 2.3 and 3.0.1. It is recommended to use an external signed envelope.
+There is no native field to express the SBOM Author Signature in SPDX 2.2, 2.3 and 3.0.1. It is MANDATORY to use an external signed envelope.
 
 The following element is REQUIRED for an SBOM in SPDX 2.2 and 2.3:
 * CreatorComment: to be able to put “SBOM Build information”
@@ -167,8 +167,7 @@ NTIA Minimum Elements
 
 2026 CISA Minimum Elements
 
-CISA "SBOM Author Signature" cannot be represented in SPDX 2 or SPDX 3. It must be provided using an external file.
-See section 3.13.
+CISA "SBOM Author Signature" cannot be represented in SPDX 2 or SPDX 3. It MUST be provided using an external file.
 
 CISA "SBOM Data Format Name" has no specific field in SPDX 3, it is implicit.
 
@@ -190,7 +189,7 @@ but could be NOASSERTION. In order to comply with 2026 CISA Minimum Elements, at
 Package-URL (PURL) is a _de facto_ standard to uniquely identify software packages. It is also an ECMA standard.
 
 ### 3.3 Machine Readable Data Format
-An OpenChain Telco SBOM Compatible document SHALL include, at a minimum, the SPDX in one of the following human-readable formats:
+An OpenChain Telco SBOM Compatible document SHALL include, at a minimum, the SPDX in one of the following machine-readable formats:
 * Tag:Value or JSON in SPDX 2.2 or 2.3,
 * JSON in SPDX 3.0.1.
 
