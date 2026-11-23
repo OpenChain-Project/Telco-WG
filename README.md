@@ -18,9 +18,22 @@ We host two meeting each time, one in the morning European time and one in the a
 
 ## OpenChain Telco SBOM Guide
 
+### Version 1.2 of the OpenChain Telco SBOM Guide
+
+We have created an [OpenChain Telco SBOM Guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md) that is now in version 1.2.
+
+Version 1.2 was approved on 20th of November 2026.
+
+The main differences with version 1.1 are:
+
+* Allow SPDX 3 as a possible format for an OpenChain Telco SBOM.
+* Add the fact that the Guide complies with the 2026 CISA Minimum Elements.
+
+The complete list of changes can be found in section 6.
+
 ### Version 1.1 of the OpenChain Telco SBOM Guide
 
-We have created an [OpenChain Telco SBOM Guide](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_EN.md) that is now in version 1.1.
+Version 1.1 of the [OpenChain Telco SBOM Guide in English](https://github.com/OpenChain-Project/Telco-WG/blob/main/OpenChain-Telco-SBOM-Guide_1.1_EN.md).
 
 Version 1.1 was approved on 20th of March 2025.
 
